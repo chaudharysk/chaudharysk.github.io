@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shashikant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <div id="particles-js"></div>
+    <div id="box">
+        <div class="box1 onlywide animated bounceOutLeft" style="animation-delay:1.7s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.9s;"></div>
+        <div class="box2 animated bounceOutRight" style="animation-delay:1.9s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.7s;"></div>
+    </div>
+    <a id="about" onclick="showabout()" class="animated fadeIn" style="animation-delay:2.2s;">about</a>
+    <a id="work" onclick="showwork()" class="animated fadeIn" style="animation-delay:2.2s;">resume</a>
+    <a id="contact" onclick="showcontact()" class="animated fadeIn" style="animation-delay:2.2s;">contact</a>
+    <div id="middle" class="animated slideInDown" style="animation-delay:2.0s;">
+        <h1>shashikant chaudhary.</h1>
+        <h2> ai | iot | mathematics | engineering</h2>
+        <div id="menu">
+            <a onclick="showabout()">about</a>
+            <a onclick="showwork()">resume</a>
+            <a onclick="showcontact()">contact</a>
+        </div>
+        <table>
+                <tr>
+                    <td class="animated zoomIn" style="animation-delay:2.2s;"><a href="https://www.linkedin.com/in/chaudharysk/" target="_blank"class="social"><i class="fab fa-linkedin"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.4s;"><a href="https://medium.com/@mailshashi122"target="_blank" class="social"><i class="fab fa-medium"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.6s;"><a href="https://www.instagram.com/ghostrider_sk/"target="_blank" class="social"><i class="fab fa-instagram"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.8s;"><a href="https://github.com/chaudharysk"target="_blank" class="social"><i class="fab fa-github"></i></a></td>
+                </tr>
+        </table>
+    </div>
+    <div id="work_container" class="container">
+        <div onclick="closework()"><i class="fas fa-angle-right"></i></div>
+        <h1>my area.</h1>
+        <section>
+            <h2>here iam.. </h2>
+            <p>
+                I thrive in the realm of Computer Science, Mathematics, and Electronics - essentially, the triad of "why does this not work", "what on earth does this theorem mean", and "I swear it was working a minute ago". I'm also an AI enthusiast, because who doesn't love teaching computers to think - it's like having a pet, but without the fur allergies. 
+            </p>
+            <div id="used">
+                <div><i class="fas fa-circle"></i>&nbsp;python</div>
+                <div><i class="fas fa-circle"></i>&nbsp;deep learning</div>
+                <div><i class="fas fa-circle"></i>&nbsp;c++</div>
+            </div>
+            <a href="https://drive.google.com/file/d/1kk1flGyukGmRpfEqWEbFPj52W1duNdbo/view?usp=share_link" target="_blank"><button class="btn_one">See Resume</button></a>
+            <a href="exciting.html"><button class="btn_two">something exciting</button></a>
+        </section>
+    </div>
+    <div id="about_container" class="container">
+            <div onclick="closeabout()"><i class="fas fa-angle-left"></i></div>
+            <h1>about.</h1>
+            <section>
+                <h2>about me</h2>
+                <p>
+                    Like a well-tuned algorithm, I have a knack for picking up subtle shifts in the environment, the one who can sense a change in the room's atmosphere when the Wi-Fi strength drops from five bars to four. It's a tough job, but someone's got to do it!
+                </p>
+                <p>
+                    Hello! I'm Shashikant Chaudhary, a Computer Science Engineer with a deep fascination for AI. My passion lies in harnessing the power of technology to solve problems and create solutions that make a difference in the world.
+                </p>
+                <p>
+                    I am always open to discussing interesting projects or opportunities. Feel free to reach out to me.<br>
+                    mailshashi122@gmail.com
+                </p>
+            </section>
+        </div>
+          <div id="contact_container" class="container">
+            <div onclick="closecontact()"><i class="fas fa-angle-down"></i></div>
+            <h1>contact.</h1>
+            <section>
+                <h2>contact me</h2>
+                <p>
+                    <form>
+                        <input type="text" placeholder="name" required>
+                        <input type="email" placeholder="email" required><br>
+                        <textarea placeholder="your message" required rows="5"></textarea><br>
+                        <a href="mailto:mailshashi122@gmail.com?subject=Contact%20Form%20Submission&body=Message%20Content" class="btn_one">send</a>
+                    </form> 
+                </p>
+            </section>
+        </div>
+        <div id="spotifyPlaylist">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2zEXPo0D6zeYFHJeJRNWit?utm_source=generator" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+        <button id="removeButton" onclick="removePlayer()">x</button>
+
+        <div id="footer">
+            <!-- made on earth by a human <br> <a href="https://imfunniee.github.io">imfunniee</a> -->
+        </div>
+    <script src="index.js" type="text/javascript"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function removePlayer() {
+            var player = document.getElementById("spotifyPlaylist");
+            player.style.display = "none";
+            var button = document.getElementById("removeButton");
+            button.style.display = "none";
+        }
+    </script>
+</body>
+</html>
