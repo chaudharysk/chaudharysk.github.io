@@ -1,9 +1,9 @@
 # My Amazing Personal Portfolio
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yourusername/your-repo-name/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/your-repo-name.svg)](https://github.com/yourusername/your-repo-name/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/your-repo-name.svg)](https://github.com/yourusername/your-repo-name/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/yourusername/your-repo-name.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20personal%20portfolio%20by%20@yourusername)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chaudharysk/chaudharysk.github.io/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/network)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/chaudharysk/chaudharysk.github.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20personal%20portfolio%20by%20@chaudharysk)
 
 Welcome to my personal portfolio, where creativity meets quirkiness! This is the place where my ideas take shape, my skills are showcased, and my accomplishments are celebrated. With the perfect blend of design and technology, this portfolio page is a testament to my awesomeness (if I may say so myself).
 
@@ -28,8 +28,8 @@ This portfolio page represents who I am, both professionally and personally. It 
 
 ## Installation
 
-1. Clone this repository to your local machine using `git clone https://github.com/yourusername/your-repo-name.git`
-2. Navigate into the cloned directory: `cd your-repo-name`
+1. Clone this repository to your local machine using `git clone https://github.com/chaudharysk/chaudharysk.github.io.git`
+2. Navigate into the cloned directory: `cd chaudharysk.github.io`
 3. Open the `index.html` file in your favorite web browser.
 4. Voila! You're now witnessing the magic of my portfolio page.
 
@@ -41,9 +41,4 @@ If you find something intriguing, don't hesitate to reach out to me. I'm always 
 
 ## Contributing
 
-If you'd like to contribute to my personal portfolio (because you recognize my genius and want to be a part of it), I'm more than happy to welcome your contributions. Whether it's adding new features, fixing bugs, or suggesting improvements, your ideas are valuable.
-
-To contribute, follow these steps:
-
-1. Fork this repository.
-2. Create a new branch: `git
+If you'd like to contribute to my personal portfolio (because you recognize my genius and want to be a part of it), I'm more than
