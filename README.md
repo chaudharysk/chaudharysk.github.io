@@ -7,14 +7,6 @@
 
 Welcome to my personal portfolio, where creativity meets quirkiness! This is the place where my ideas take shape, my skills are showcased, and my accomplishments are celebrated. With the perfect blend of design and technology, this portfolio page is a testament to my awesomeness (if I may say so myself).
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -38,7 +30,3 @@ This portfolio page represents who I am, both professionally and personally. It 
 Feel free to browse through my portfolio and get inspired by my projects. Marvel at the creativity, gasp at the technical brilliance, and try not to blink, as you might miss a whimsical animation or a mind-boggling interaction.
 
 If you find something intriguing, don't hesitate to reach out to me. I'm always up for collaboration, brainstorming sessions, or simply discussing the mysteries of the universe. You can find my contact information on the portfolio page itself. Let's connect and create something extraordinary together!
-
-## Contributing
-
-If you'd like to contribute to my personal portfolio (because you recognize my genius and want to be a part of it), I'm more than
