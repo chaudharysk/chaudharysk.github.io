@@ -1,4 +1,4 @@
-# My Amazing Personal Portfolio
+# My Portfolio Website
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chaudharysk/chaudharysk.github.io/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/stargazers)
