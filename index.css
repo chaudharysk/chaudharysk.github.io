@@ -157,6 +157,24 @@ body {
     transition:0.4s ease-in-out;
     border-radius:100px 100px 0px 0px;
 }
+#math {
+    width:10vw;
+    height:10vw;
+    text-align:center;
+    font-size:25px;
+    background:transparent;
+    color:#fff;
+    position:fixed;
+    top:0;
+    left:45vw;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    z-index:4;
+    transition:0.4s ease-in-out;
+    border-radius:0px 0px 100px 100px;
+    text-decoration:none;
+}
 #about:hover {
     background:rgba(255,50,50,0.9);
     cursor:pointer;
@@ -166,6 +184,10 @@ body {
     cursor:pointer;
 }
 #contact:hover {
+    background:rgba(255,50,50,0.9);
+    cursor:pointer;
+}
+#math:hover {
     background:rgba(255,50,50,0.9);
     cursor:pointer;
 }
@@ -349,6 +371,9 @@ body {
         display:none;
     }
     #work {
+        display:none;
+    }
+    #math {
         display:none;
     }
     #footer {
