@@ -160,9 +160,17 @@ new IntersectionObserver(entries => { avatarVisible = entries[0].isIntersecting;
 setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),150); } }, 7500);
 
 const revealObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, {threshold:.07});
+document.querySelectorAll('.bench-card').forEach(card => card.classList.add('reveal'));
 document.querySelectorAll('.reveal').forEach(e => revealObserver.observe(e));
+const chapterLinks = [...navigation.querySelectorAll('a[href^="#"]')].map(link => ({link, section:document.querySelector(link.getAttribute('href'))}));
+function updateChapter() {
+  let current;
+  for (const chapter of chapterLinks) { if (chapter.section.getBoundingClientRect().top <= 160) current = chapter; }
+  if (scrollY + innerHeight >= document.documentElement.scrollHeight - 3) current = chapterLinks.at(-1);
+  chapterLinks.forEach(chapter => { if (chapter === current) chapter.link.setAttribute('aria-current', 'location'); else chapter.link.removeAttribute('aria-current'); });
+}
 let scrollFrame = 0;
-function updateProgress() { scrollFrame = 0; const max = document.documentElement.scrollHeight - innerHeight; document.querySelector('.scroll-progress').style.transform = `scaleX(${max > 0 ? Math.min(1,scrollY / max) : 0})`; }
+function updateProgress() { scrollFrame = 0; const max = document.documentElement.scrollHeight - innerHeight; document.querySelector('.scroll-progress').style.transform = `scaleX(${max > 0 ? Math.min(1,scrollY / max) : 0})`; updateChapter(); }
 addEventListener('scroll', () => { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateProgress); }, {passive:true});
 addEventListener('resize', updateProgress); updateProgress();
 document.addEventListener('visibilitychange', () => document.documentElement.classList.toggle('tab-hidden', document.hidden));
@@ -171,7 +179,11 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   const filter = button.dataset.filter;
   document.querySelectorAll('[data-filter]').forEach(b => { const active = b === button; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active)); });
   let count = 0;
-  document.querySelectorAll('.project[data-category]').forEach(project => { const visible = filter === 'all' || project.dataset.category === filter; project.hidden = !visible; if (visible) count++; });
+  document.querySelectorAll('.project[data-category]').forEach(project => {
+    const visible = filter === 'all' || project.dataset.category === filter;
+    project.classList.remove('filter-enter'); project.hidden = !visible;
+    if (visible) { count++; if (!paused) { void project.offsetWidth; project.classList.add('filter-enter'); } }
+  });
   document.querySelector('#project-count').textContent = `Showing ${count} projects`;
   updateProgress();
 }));
