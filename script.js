@@ -51,7 +51,7 @@ const projects = {
       ['MY WORK', ['Developed firmware for a learning board with environmental sensors and onboard peripherals.', 'Created a Python library for hardware control, including sensor readings, RGB lighting, navigation switches, and a buzzer.', 'Built a GUI for monitoring sensor readings and worked on device-to-dashboard data flow using MQTT.']],
       ['THE CONNECTION', 'The project brought together embedded programming, communication protocols, a usable Python interface, and a visual way to inspect what the hardware was doing.']
     ],
-    links: [['Python library', 'https://github.com/chaudharysk/ArBd1Firmata'], ['Dashboard repository', 'https://github.com/chaudharysk/ARBD-DASHBOARD']]
+    links: [['Python library', 'https://github.com/chaudharysk/ArBd1Firmata'], ['Dashboard repository', 'https://github.com/chaudharysk/ARBD-DASHBOARD'], ['Watch the ARBD1 recordings', '#bench']]
   }
 };
 
@@ -139,7 +139,7 @@ let surpriseIndex = 0;
 const surprises = ['AI + maths + teaching. Three different ways to make something click.', 'Two master’s degrees. A published paper. And plenty more questions to ask.', 'From Arduino sensors to learning agents. Curiosity is the connecting thread.'];
 function surprise() { clearExpressionTimer(); setExpression(1); speech.textContent = surprises[surpriseIndex++ % surprises.length]; confetti(); document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed','false')); resetTimer = setTimeout(()=>setExpression(0),200); }
 document.querySelector('#surprise-button').addEventListener('click', surprise);
-document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 's' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('#project-dialog').open) surprise(); });
+document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 's' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('dialog[open]')) surprise(); });
 new IntersectionObserver(entries => { avatarVisible = entries[0].isIntersecting; }).observe(scene);
 setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),150); } }, 7500);
 
@@ -176,7 +176,7 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   });
   if (project.note) { const note = document.createElement('p'); note.className = 'dialog-note'; note.textContent = project.note; content.append(note); }
   const links = document.querySelector('#dialog-links'); links.replaceChildren();
-  project.links.forEach(([label, url]) => { const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'text-link'; a.textContent = `${label} ↗`; links.append(a); });
+  project.links.forEach(([label, url]) => { const a = document.createElement('a'); a.href = url; if (url.startsWith('#')) { a.dataset.benchFilter = 'arbd'; } else { a.target = '_blank'; a.rel = 'noopener noreferrer'; } a.className = 'text-link'; a.textContent = `${label} ↗`; links.append(a); });
   document.body.classList.add('dialog-open'); dialog.showModal(); dialog.scrollTop = 0;
 }));
 document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
