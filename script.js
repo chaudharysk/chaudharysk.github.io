@@ -145,7 +145,7 @@ function wave() {
 }
 avatar.addEventListener('click', wave);
 const interests = {
-  ai: {expression:2, text:'My AI side: learning agents, language models, and published research into conversational risk.'},
+  ai: {expression:0, text:'My AI side: learning agents, language models, and published research into conversational risk.'},
   maths: {expression:2, text:'My maths side: a master’s in Mathematics & Computing, AI reasoning evaluation, and university teaching.'},
   human: {expression:3, text:'My human side: helping a difficult idea click, supporting students, and making technology useful to people.'}
 };
