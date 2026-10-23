@@ -84,13 +84,13 @@ function applyMotion() {
 motionButton.addEventListener('click', () => { paused = !paused; applyMotion(); try { localStorage.setItem('shashi-motion', paused ? 'off' : 'on'); } catch {} });
 motionQuery.addEventListener('change', e => { paused = e.matches; applyMotion(); });
 
-// This is a locally scripted portrait, with expressions generated from Shashi's reference photo.
+// This is a locally scripted portrait, with expressions adapted from Shashi's chosen illustration.
 const avatar = document.querySelector('#avatar-button');
 const sprite = document.querySelector('#avatar-sprite');
 const scene = document.querySelector('#avatar-scene');
 const speech = document.querySelector('#avatar-speech');
 let resetTimer, blinkTimer, avatarVisible = true;
-const expressions = ['smiling', 'winking', 'thinking', 'waving'];
+const expressions = ['smiling', 'blinking', 'thinking', 'greeting'];
 function setExpression(index) { sprite.dataset.expression = String(index); sprite.setAttribute('aria-label', `An illustrated avatar of Shashikant, ${expressions[index]}`); }
 function clearExpressionTimer() { clearTimeout(resetTimer); clearTimeout(blinkTimer); avatar.classList.remove('wave'); }
 function resetTilt() { ['--avatar-x','--avatar-y','--avatar-rx','--avatar-ry'].forEach(p => avatar.style.removeProperty(p)); }
@@ -100,8 +100,8 @@ scene.addEventListener('pointermove', event => {
   const r = scene.getBoundingClientRect();
   const x = Math.max(-1, Math.min(1, ((event.clientX - r.left) / r.width - .5) * 2));
   const y = Math.max(-1, Math.min(1, ((event.clientY - r.top) / r.height - .5) * 2));
-  avatar.style.setProperty('--avatar-x', `${x * 7}px`); avatar.style.setProperty('--avatar-y', `${y * 3}px`);
-  avatar.style.setProperty('--avatar-rx', `${-y * 6}deg`); avatar.style.setProperty('--avatar-ry', `${x * 10}deg`);
+  avatar.style.setProperty('--avatar-x', `${x * 3}px`); avatar.style.setProperty('--avatar-y', `${y * 2}px`);
+  avatar.style.setProperty('--avatar-rx', `${-y * 3}deg`); avatar.style.setProperty('--avatar-ry', `${x * 6}deg`);
 }, {passive:true});
 scene.addEventListener('pointerleave', resetTilt);
 function confetti() {
@@ -122,7 +122,7 @@ function wave() {
   clearExpressionTimer(); setExpression(3);
   document.querySelectorAll('[data-avatar]').forEach(b => b.setAttribute('aria-pressed','false'));
   speech.textContent = 'Hey! Great to meet you. Take a look around — there’s AI, maths, and a bit of me in everything.';
-  if (!paused) { void avatar.offsetWidth; avatar.classList.add('wave'); confetti(); }
+  if (!paused) { void avatar.offsetWidth; avatar.classList.add('wave'); }
   resetTimer = setTimeout(() => { setExpression(0); avatar.classList.remove('wave'); }, 2400);
 }
 avatar.addEventListener('click', wave);
@@ -137,7 +137,7 @@ document.querySelectorAll('[data-avatar]').forEach(button => button.addEventList
 }));
 let surpriseIndex = 0;
 const surprises = ['AI + maths + teaching. Three different ways to make something click.', 'Two master’s degrees. A published paper. And plenty more questions to ask.', 'From Arduino sensors to learning agents. Curiosity is the connecting thread.'];
-function surprise() { clearExpressionTimer(); setExpression(1); speech.textContent = surprises[surpriseIndex++ % surprises.length]; confetti(); document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed','false')); resetTimer = setTimeout(()=>setExpression(0),2200); }
+function surprise() { clearExpressionTimer(); setExpression(1); speech.textContent = surprises[surpriseIndex++ % surprises.length]; confetti(); document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed','false')); resetTimer = setTimeout(()=>setExpression(0),200); }
 document.querySelector('#surprise-button').addEventListener('click', surprise);
 document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 's' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('#project-dialog').open) surprise(); });
 new IntersectionObserver(entries => { avatarVisible = entries[0].isIntersecting; }).observe(scene);
