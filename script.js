@@ -43,6 +43,22 @@ const projects = {
     ],
     links: [['Explore the team repository', 'https://github.com/chaudharysk/GovNav']]
   },
+  hermes: {
+    title: 'Hermes Watcher', category: 'EMBEDDED AI INTERFACES / PERSONAL PROJECT',
+    summary: 'A physical status display that brings Hermes Agent activity to the desk through an animated face, sound cues, and alerts on a SenseCAP Watcher.',
+    fact: 'Hermes Agent \u2192 Python hooks \u2192 MQTT \u2192 SenseCAP Watcher',
+    media: [
+      {src: 'assets/media/hermes-watcher-working.webp', alt: 'SenseCAP Watcher showing the blue Hermes face and a WORKING task card over its native interface.', caption: 'WORKING / Live task activity, at a glance.'},
+      {src: 'assets/media/hermes-watcher-done.webp', alt: 'SenseCAP Watcher showing the smiling Hermes face and a DONE task card.', caption: 'DONE / A smile when the task is complete.'}
+    ],
+    sections: [
+      ['THE IDEA', 'See what an agent is doing without repeatedly checking a chat window, and notice when it needs a human answer.'],
+      ['WHAT I BUILT', ['Python hooks and an observer plugin that publish agent activity, permission requests, and clarification questions over MQTT.', 'A C firmware integration with a translucent animated face, blinking, state-dependent expressions, and seven locally embedded sound cues.', 'Persistent amber alerts for requests that need attention, while preserving the Watcher\u2019s native touch controls.', 'Request IDs, display acknowledgements, and a diagnostic tool to trace the path from the agent to the device.']],
+      ['THE HUMAN IN THE LOOP', 'Hermes runs on the computer. The Watcher displays activity and calls attention to requests; answers and approvals stay in the original Hermes chat or terminal.'],
+      ['OPEN SOURCE', 'The repository includes the firmware patch, laptop integration, a reference Mosquitto setup, installation tutorial, protocol documentation, and offline Python tests.']
+    ],
+    links: [['Explore the repository', 'https://github.com/chaudharysk/hermes-sensecap-watcher'], ['Read the setup guide', 'https://github.com/chaudharysk/hermes-sensecap-watcher/blob/main/docs/TUTORIAL.md'], ['Validation notes', 'https://github.com/chaudharysk/hermes-sensecap-watcher/blob/main/docs/VALIDATION.md']]
+  },
   sensors: {
     title: 'A bridge from sensors to software', category: 'EMBEDDED SYSTEMS / HATCHNHACK INTERNSHIP',
     summary: 'Practical hardware and software work for ARBD1, an Arduino-based educational electronics board.',
@@ -168,6 +184,17 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   document.querySelector('#dialog-title').textContent = project.title;
   document.querySelector('#dialog-summary').textContent = project.summary;
   const content = document.querySelector('#dialog-content'); content.replaceChildren();
+  if (project.media) {
+    const photos = document.createElement('div'); photos.className = 'dialog-photos';
+    project.media.forEach(({src, alt, caption}) => {
+      const figure = document.createElement('figure');
+      const link = document.createElement('a'); link.href = src; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.setAttribute('aria-label', `${alt} Open full-size photo in a new tab.`);
+      const img = document.createElement('img'); img.src = src; img.alt = alt; img.width = 900; img.height = 1200; img.decoding = 'async';
+      const label = document.createElement('figcaption'); label.textContent = caption;
+      link.append(img); figure.append(link, label); photos.append(figure);
+    });
+    content.append(photos);
+  }
   if (project.fact) { const fact = document.createElement('div'); fact.className = 'dialog-fact'; fact.textContent = project.fact; content.append(fact); }
   project.sections.forEach(([heading, text]) => {
     const h = document.createElement('h3'); h.textContent = heading; content.append(h);
