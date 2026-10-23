@@ -159,7 +159,7 @@ function surprise() { clearExpressionTimer(); setExpression(1); speech.textConte
 document.querySelector('#surprise-button').addEventListener('click', surprise);
 document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 's' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('dialog[open]')) surprise(); });
 new IntersectionObserver(entries => { avatarVisible = entries[0].isIntersecting; }).observe(scene);
-setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),blinkDuration); } }, 7500);
+setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),blinkDuration); } }, 2000);
 
 const revealObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, {threshold:.07});
 document.querySelectorAll('.bench-card').forEach(card => card.classList.add('reveal'));
