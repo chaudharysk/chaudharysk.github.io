@@ -96,6 +96,7 @@ function applyMotion() {
   motionButton.setAttribute('aria-label', paused ? 'Turn motion on' : 'Turn motion off');
   document.querySelector('#motion-label').textContent = paused ? 'MOTION OFF' : 'MOTION ON';
   if (paused) { document.querySelector('#confetti').replaceChildren(); resetTilt(); }
+  if (paused && sprite.dataset.expression === '1') { clearTimeout(blinkTimer); setExpression(0); }
 }
 motionButton.addEventListener('click', () => { paused = !paused; applyMotion(); try { localStorage.setItem('shashi-motion', paused ? 'off' : 'on'); } catch {} });
 motionQuery.addEventListener('change', e => { paused = e.matches; applyMotion(); });
@@ -107,7 +108,8 @@ const scene = document.querySelector('#avatar-scene');
 const speech = document.querySelector('#avatar-speech');
 let resetTimer, blinkTimer, avatarVisible = true;
 const expressions = ['smiling', 'blinking', 'thinking', 'greeting'];
-function setExpression(index) { sprite.dataset.expression = String(index); sprite.setAttribute('aria-label', `An illustrated avatar of Shashikant, ${expressions[index]}`); }
+const blinkDuration = 240;
+function setExpression(index) { if (index === 1 && paused) index = 0; sprite.dataset.expression = String(index); sprite.setAttribute('aria-label', `An illustrated avatar of Shashikant, ${expressions[index]}`); }
 function clearExpressionTimer() { clearTimeout(resetTimer); clearTimeout(blinkTimer); avatar.classList.remove('wave'); }
 function resetTilt() { ['--avatar-x','--avatar-y','--avatar-rx','--avatar-ry'].forEach(p => avatar.style.removeProperty(p)); }
 applyMotion();
@@ -153,11 +155,11 @@ document.querySelectorAll('[data-avatar]').forEach(button => button.addEventList
 }));
 let surpriseIndex = 0;
 const surprises = ['AI + maths + teaching. Three different ways to make something click.', 'Two master’s degrees. A published paper. And plenty more questions to ask.', 'From Arduino sensors to learning agents. Curiosity is the connecting thread.'];
-function surprise() { clearExpressionTimer(); setExpression(1); speech.textContent = surprises[surpriseIndex++ % surprises.length]; confetti(); document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed','false')); resetTimer = setTimeout(()=>setExpression(0),200); }
+function surprise() { clearExpressionTimer(); setExpression(1); speech.textContent = surprises[surpriseIndex++ % surprises.length]; confetti(); document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed','false')); resetTimer = setTimeout(()=>setExpression(0),blinkDuration); }
 document.querySelector('#surprise-button').addEventListener('click', surprise);
 document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 's' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,select,[contenteditable]') && !document.querySelector('dialog[open]')) surprise(); });
 new IntersectionObserver(entries => { avatarVisible = entries[0].isIntersecting; }).observe(scene);
-setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),150); } }, 7500);
+setInterval(() => { if (!paused && !document.hidden && avatarVisible && sprite.dataset.expression === '0') { setExpression(1); blinkTimer = setTimeout(()=>setExpression(0),blinkDuration); } }, 7500);
 
 const revealObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, {threshold:.07});
 document.querySelectorAll('.bench-card').forEach(card => card.classList.add('reveal'));
