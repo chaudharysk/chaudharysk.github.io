@@ -1,5 +1,7 @@
 # My Portfolio Website
 
+[Coursework, attached submissions, and assessment scores](courses/README.md).
+
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chaudharysk/chaudharysk.github.io/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/network)
