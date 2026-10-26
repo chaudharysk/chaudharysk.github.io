@@ -2,7 +2,7 @@
 
 Live at https://chaudharysk.github.io/.
 
-A calm, playful portfolio covering AI, data, mathematics, research, teaching, and hands-on projects. The site uses static HTML, one shared stylesheet, self-hosted fonts, and small browser scripts.
+An expressive portfolio covering AI, data, mathematics, research, teaching, and hands-on projects. Kinetic typography, an original interactive SVG curiosity engine, dimensional previews, magnetic controls, and native page transitions bring back the earlier visual energy. The site uses static HTML, shared layout/motion styles, self-hosted fonts, and small browser scripts. Primary references and design decisions are documented in [MOTION.md](MOTION.md).
 
 ## Explore
 
@@ -19,9 +19,9 @@ Run `python -m http.server 4173` from the repository root, then open http://loca
 
 ## Edit
 
-The root HTML files contain the page content. `projects/` contains the six individual project pages. `site.css` provides the shared responsive design. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
+The root HTML files contain the page content. `projects/` contains the six individual project pages. `site.css` provides the shared responsive layout and `studio.css` adds the researched motion direction. `motion.js` handles magnetic contents, pointer artwork depth, mode graphics, scroll choreography, and offscreen loop pausing. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
 
-The motion preference persists across pages and respects reduced motion. Videos load only when opened; closing the viewer releases playback. Existing standalone pages and unrelated repository files are preserved.
+The AI, Maths, and Human buttons change both portrait pose and surrounding graphics. The motion preference persists across pages and respects reduced motion; decorative loops also pause offscreen and in a hidden tab. Magnetic link targets stay fixed, pointer depth is limited to fine pointers, and normal touch navigation remains available. Videos load only when opened; closing the viewer releases playback. Existing standalone pages and unrelated repository files are preserved.
 
 ## Coursework and privacy
 
@@ -32,3 +32,5 @@ The site excludes home address, phone number, visa details, referee contacts, si
 ## Validation
 
 Checked 12 page routes, local file links, 77 page/viewport combinations from 320 to 1440 pixels, mobile menus, project filters, all six detail routes, three PDF responses, gallery/video/caption controls, focus restoration, distinct avatar poses, the two-second eye-only blink, motion preferences across pages, legacy links, and CV access. No horizontal overflow, clipped headings, or runtime/HTTP errors were found. Automated axe WCAG A/AA checks passed on the five main pages and Hermes project page.
+
+Motion-specific validation: native page transitions in Chrome, all three scene modes, fixed magnetic hit targets, card depth, offscreen pause, reduced motion, touch interactions, and a measured 2,000ms blink interval with unchanged portrait bounds.

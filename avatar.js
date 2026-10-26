@@ -38,9 +38,10 @@
   scene.addEventListener('pointerleave', resetTilt);
   avatar.addEventListener('click', () => {
     clearTimers(); expression(3);
+    document.dispatchEvent(new CustomEvent('portfolio:topic',{detail:{topic:'human'}}));
     topicButtons.forEach(button => button.setAttribute('aria-pressed','false'));
     speech.textContent = 'Hey! Good to meet you. Take a look around—there’s AI, maths, and a bit of making things.';
-    resetTimer = setTimeout(() => expression(0), 2400);
+    resetTimer = setTimeout(() => { expression(0); document.dispatchEvent(new CustomEvent('portfolio:topic',{detail:{topic:'ai'}})); }, 2400);
   });
   const topics = {
     ai:{pose:0,text:'My AI side: learning agents, language models, and research into conversational risk.'},
@@ -51,6 +52,7 @@
     clearTimers();
     const topic = topics[button.dataset.avatar];
     expression(topic.pose); speech.textContent = topic.text;
+    document.dispatchEvent(new CustomEvent('portfolio:topic',{detail:{topic:button.dataset.avatar}}));
     topicButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
   }));
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }).observe(scene);

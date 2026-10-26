@@ -41,6 +41,11 @@
     try { localStorage.setItem('shashi-motion', paused ? 'off' : 'on'); } catch {}
   });
   motionQuery.addEventListener('change', event => { paused = event.matches; applyMotion(); });
+  addEventListener('pageshow',event=>{
+    if(!event.persisted)return;
+    let storedOff=false;try{storedOff=localStorage.getItem('shashi-motion')==='off'}catch{}
+    paused=motionQuery.matches||storedOff;applyMotion();
+  });
   applyMotion();
 
   const observer = new IntersectionObserver(entries => {
