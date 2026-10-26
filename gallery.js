@@ -83,6 +83,8 @@
     if (!link) return;
     setFilter(link.dataset.benchFilter);
     const projectDialog = document.querySelector('#project-dialog');
-    if (projectDialog.open) projectDialog.close();
+    if (projectDialog?.open) projectDialog.close();
   });
+  const requestedFilter = new URLSearchParams(location.search).get('filter');
+  if (['all', 'arbd', 'hobby'].includes(requestedFilter)) setFilter(requestedFilter);
 })();

@@ -1,32 +1,34 @@
-# My Portfolio Website
+# Shashikant Chaudhary - portfolio
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chaudharysk/chaudharysk.github.io/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/chaudharysk/chaudharysk.github.io.svg)](https://github.com/chaudharysk/chaudharysk.github.io/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/chaudharysk/chaudharysk.github.io.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20personal%20portfolio%20by%20@chaudharysk)
+Live at https://chaudharysk.github.io/.
 
-Welcome to my personal portfolio, where creativity meets quirkiness! This is the place where my ideas take shape, my skills are showcased, and my accomplishments are celebrated. With the perfect blend of design and technology, this portfolio page is a testament to my awesomeness (if I may say so myself).
+A calm, playful portfolio covering AI, data, mathematics, research, teaching, and hands-on projects. The site uses static HTML, one shared stylesheet, self-hosted fonts, and small browser scripts.
 
+## Explore
 
-## Introduction
+- [Home](https://chaudharysk.github.io/): introduction and interactive avatar.
+- [Projects](https://chaudharysk.github.io/projects.html): six projects, each with its own detail page and source links.
+- [Coursework](https://chaudharysk.github.io/coursework.html): three Deep Learning Fundamentals assignments with short descriptions, public PDF reports, and code repositories.
+- [Playground](https://chaudharysk.github.io/playground.html): six real video recordings and two hardware photos.
+- [About](https://chaudharysk.github.io/about.html): background, education, experience, and published research.
+- [Public CV](https://chaudharysk.github.io/cv.html).
 
-This portfolio page represents who I am, both professionally and personally. It is a virtual gateway into my mind, revealing my passions, skills, and projects in a visually captivating way. Here, you'll find a vibrant showcase of my work that will leave you in awe and wondering if I'm a magician or a coding prodigy.
+## Run locally
 
-## Features
+Run `python -m http.server 4173` from the repository root, then open http://localhost:4173. No build or dependency installation is required for these static files. GitHub Pages serves the root of `main`; `.nojekyll` keeps the static pages and assets intact.
 
-- Stunning visual effects powered by particle.js: Because why settle for plain, boring websites when you can have an explosion of colorful particles that dance across the screen? Prepare to have your eyes dazzled!
-- Responsive design: Whether you're browsing on a desktop, a laptop, a tablet, or even your trusty old smartphone, this portfolio page will adapt to your screen size and provide an optimal viewing experience.
-- Easy navigation: Finding your way through my portfolio is a breeze. The intuitive navigation menu will guide you effortlessly to different sections, so you can explore my projects, read my blog, and discover more about me with ease.
+## Edit
 
-## Installation
+The root HTML files contain the page content. `projects/` contains the six individual project pages. `site.css` provides the shared responsive design. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
 
-1. Clone this repository to your local machine using `git clone https://github.com/chaudharysk/chaudharysk.github.io.git`
-2. Navigate into the cloned directory: `cd chaudharysk.github.io`
-3. Open the `index.html` file in your favorite web browser.
-4. Voila! You're now witnessing the magic of my portfolio page.
+The motion preference persists across pages and respects reduced motion. Videos load only when opened; closing the viewer releases playback. Existing standalone pages and unrelated repository files are preserved.
 
-## Usage
+## Coursework and privacy
 
-Feel free to browse through my portfolio and get inspired by my projects. Marvel at the creativity, gasp at the technical brilliance, and try not to blink, as you might miss a whimsical animation or a mind-boggling interaction.
+Only the three requested Deep Learning Fundamentals reports are included. See [COURSEWORK.md](COURSEWORK.md) for the artifact mapping and review context. Public PDF copies remove the first-page location/student email and clear metadata while retaining author/university attribution, figures, and source links. The original files are unchanged.
 
-If you find something intriguing, don't hesitate to reach out to me. I'm always up for collaboration, brainstorming sessions, or simply discussing the mysteries of the universe. You can find my contact information on the portfolio page itself. Let's connect and create something extraordinary together!
+The site excludes home address, phone number, visa details, referee contacts, signatures, original application documents, private LMS records, grades, and dataset archives. Concepts of AI and ML materials are deferred as requested.
+
+## Validation
+
+Checked 12 page routes, local file links, 77 page/viewport combinations from 320 to 1440 pixels, mobile menus, project filters, all six detail routes, three PDF responses, gallery/video/caption controls, focus restoration, distinct avatar poses, the two-second eye-only blink, motion preferences across pages, legacy links, and CV access. No horizontal overflow, clipped headings, or runtime/HTTP errors were found. Automated axe WCAG A/AA checks passed on the five main pages and Hermes project page.
