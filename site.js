@@ -74,7 +74,7 @@
     const legacy = {
       '#work':'projects.html', '#project-hermes':'projects/hermes.html',
       '#bench':'playground.html#bench', '#about':'about.html',
-      '#journey':'about.html#experience', '#research':'about.html#research',
+      '#journey':'experience.html', '#research':'about.html#research',
       '#contact':'about.html#contact', '#overview':'index.html#intro'
     };
     if (legacy[location.hash]) location.replace(legacy[location.hash]);

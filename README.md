@@ -10,7 +10,8 @@ An expressive portfolio covering AI, data, mathematics, research, teaching, and 
 - [Projects](https://chaudharysk.github.io/projects.html): six projects, each with its own detail page and source links.
 - [Coursework](https://chaudharysk.github.io/coursework.html): three Deep Learning Fundamentals assignments with short descriptions, public PDF reports, and code repositories.
 - [Playground](https://chaudharysk.github.io/playground.html): six real video recordings and two hardware photos.
-- [About](https://chaudharysk.github.io/about.html): background, education, experience, and published research.
+- [About](https://chaudharysk.github.io/about.html): detailed story, education, research, skills, community work, interests, and working approach.
+- [Experience](https://chaudharysk.github.io/experience.html): eight roles with responsibilities and six supported teaching courses.
 - [Public CV](https://chaudharysk.github.io/cv.html).
 
 ## Run locally
@@ -19,7 +20,7 @@ Run `python -m http.server 4173` from the repository root, then open http://loca
 
 ## Edit
 
-The root HTML files contain the page content. `projects/` contains the six individual project pages. `site.css` provides the shared responsive layout and `studio.css` adds the researched motion direction. `motion.js` handles magnetic contents, pointer artwork depth, mode graphics, scroll choreography, and offscreen loop pausing. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
+The root HTML files contain the page content. `projects/` contains the six individual project pages. `profile.css` styles the detailed About and Experience sections. `site.css` provides the shared responsive layout and `studio.css` adds the researched motion direction. `motion.js` handles magnetic contents, pointer artwork depth, mode graphics, scroll choreography, and offscreen loop pausing. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
 
 The AI, Maths, and Human buttons change both portrait pose and surrounding graphics. The motion preference persists across pages and respects reduced motion; decorative loops also pause offscreen and in a hidden tab. Magnetic link targets stay fixed, pointer depth is limited to fine pointers, and normal touch navigation remains available. Videos load only when opened; closing the viewer releases playback. Existing standalone pages and unrelated repository files are preserved.
 
@@ -34,3 +35,5 @@ The site excludes home address, phone number, visa details, referee contacts, si
 Checked 12 page routes, local file links, 77 page/viewport combinations from 320 to 1440 pixels, mobile menus, project filters, all six detail routes, three PDF responses, gallery/video/caption controls, focus restoration, distinct avatar poses, the two-second eye-only blink, motion preferences across pages, legacy links, and CV access. No horizontal overflow, clipped headings, or runtime/HTTP errors were found. Automated axe WCAG A/AA checks passed on the five main pages and Hermes project page.
 
 Motion-specific validation: native page transitions in Chrome, all three scene modes, fixed magnetic hit targets, card depth, offscreen pause, reduced motion, touch interactions, and a measured 2,000ms blink interval with unchanged portrait bounds.
+
+The detailed profile update adds a separate Experience page and seven labelled About sections, with local section navigation and links to supporting projects. Both profile pages passed axe WCAG A/AA checks, local-link and section-navigation checks, and seven viewport widths from 320 to 1440 pixels. Historical roles are not asserted to be current; team results are qualified, and application titles are not presented as employment. The site now has 13 routes including the public CV.
