@@ -6,7 +6,7 @@ An expressive portfolio covering AI, data, mathematics, research, teaching, and 
 
 ## Explore
 
-- [Home](https://chaudharysk.github.io/): introduction and interactive avatar.
+- [Home](https://chaudharysk.github.io/): detailed profile with nine sections covering story, education, experience, projects, research, skills, coursework, community, and hardware interests, alongside the interactive avatar.
 - [Projects](https://chaudharysk.github.io/projects.html): six projects, each with its own detail page and source links.
 - [Coursework](https://chaudharysk.github.io/coursework.html): three Deep Learning Fundamentals assignments with short descriptions, public PDF reports, and code repositories.
 - [Playground](https://chaudharysk.github.io/playground.html): six real video recordings and two hardware photos.
@@ -37,3 +37,5 @@ Checked 12 page routes, local file links, 77 page/viewport combinations from 320
 Motion-specific validation: native page transitions in Chrome, all three scene modes, fixed magnetic hit targets, card depth, offscreen pause, reduced motion, touch interactions, and a measured 2,000ms blink interval with unchanged portrait bounds.
 
 The detailed profile update adds a separate Experience page and seven labelled About sections, with local section navigation and links to supporting projects. Both profile pages passed axe WCAG A/AA checks, local-link and section-navigation checks, and seven viewport widths from 320 to 1440 pixels. Historical roles are not asserted to be current; team results are qualified, and application titles are not presented as employment. The site now has 13 routes including the public CV.
+
+The detailed homepage presents the background and contributions directly, with nine local jump links. Verified at seven widths from 320 to 1440 pixels, with automated axe checks, every local homepage link, and section navigation that stays on Home. The existing avatar modes, native transitions, motion preferences, offscreen pausing, and measured 2,000ms eye-only blink also pass.
