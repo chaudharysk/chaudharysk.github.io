@@ -1,0 +1,21 @@
+/* A quiet orbital desktop, retaining the approved Mac interaction language. */
+.desktop-page{--wallpaper-x:0;--wallpaper-y:0;background:#16334e}
+.desktop-page .desktop-wallpaper{inset:-12px;background:#173854 url('assets/desktop-orbital-horizon.png') center/cover no-repeat;transform:translate(calc(var(--wallpaper-x)*3px),calc(var(--wallpaper-y)*3px)) scale(1.012);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.desktop-page[data-wallpaper=coast] .desktop-wallpaper{background-image:url('assets/desktop-wallpaper.svg')}
+.desktop-page .desktop-menubar{background:#e4f1f9cc;border-bottom:1px solid #d9f3ff66;box-shadow:0 2px 18px #09284618;backdrop-filter:blur(26px) saturate(1.15)}
+.desktop-page .desktop-window{border-color:#effbffbb;box-shadow:0 22px 70px #071d3f4d,0 0 0 .5px #6a9bb742,0 1px 0 #fff inset}
+.desktop-page .desktop-window.active{border-color:#e5faff;box-shadow:0 25px 85px #071c3e66,0 0 0 .6px #a7d9edb3,0 1px 0 #fff inset}
+.desktop-page .window-titlebar{background:linear-gradient(180deg,#f5fafdde,#e7eff4ed);border-bottom-color:#d7e5ee}
+.desktop-page .desktop-window.active .window-titlebar{background:linear-gradient(180deg,#fcfefff0,#eaf3f9ef)}
+.desktop-page .window-title{color:#4e6578;letter-spacing:.01em}.desktop-page .document-toolbar,.desktop-page .file-address{background:#eff5fa;border-bottom-color:#dae6ee}
+.desktop-page .file-sidebar{background:#eaf1f7e8;border-right-color:#d4e2ec}.desktop-page .file-sidebar>button.active{background:#cfdfed;color:#2b5279}
+.desktop-page .desktop-taskbar{background:#d9ecf459;border-color:#e5f9ffc7;box-shadow:0 10px 35px #031b3f55,0 1px 0 #fff9 inset;backdrop-filter:blur(28px) saturate(1.25)}
+.desktop-page .task-app>span:first-child{box-shadow:0 3px 7px #0a294943,inset 0 1px 0 #ffffffa8}.desktop-page .task-app.running:after{background:#d3edfb;box-shadow:0 0 4px #143c5b}.desktop-page .task-app[aria-pressed=true]:after{background:#fff;box-shadow:0 0 6px #caefff}
+.desktop-page .desktop-start-menu{background:#f3f9fdf2;border-color:#e6f5ffc7;box-shadow:0 17px 55px #06224055;backdrop-filter:blur(26px) saturate(1.15)}
+.desktop-page .desktop-shortcuts>button>span:last-child{color:#fff;text-shadow:0 1px 4px #102b4c,0 0 3px #102b4c}.desktop-page .desktop-hint{color:#e7f3fb;text-shadow:0 1px 5px #092746}
+.desktop-page .companion-popover{background:#f4fbfff2;border-color:#d9efffc7;box-shadow:0 12px 38px #0c2b4a55}.desktop-page .desktop-companion>button{filter:drop-shadow(0 7px 12px #031b3f80)}
+.desktop-page .assistant-dialog{--agent-accent:#286da9}.desktop-page .assistant-title-group h2{color:#365574}.desktop-page .assistant-indicator{border-color:#729fbe;background:#e0effb}.desktop-page .assistant-indicator:after{border-color:#729fbe}
+.wallpaper-options{margin-top:16px;padding-top:14px;border-top:1px solid #d4e0ea;display:grid;grid-template-columns:1fr 1fr;gap:9px}.wallpaper-options>span{grid-column:1/-1;font-size:10px;font-weight:500;color:#5b6d81}.wallpaper-options>button{border:1px solid #c5d3e0;border-radius:7px;background:#e9f0f7;text-align:left;padding:5px;color:#425c78;display:flex;flex-direction:column;gap:6px;font-size:10px;line-height:1.5}.wallpaper-options>button:before{content:'';display:block;width:100%;height:48px;border-radius:4px;background:center/cover no-repeat}.wallpaper-options>button[data-wallpaper-choice=orbital]:before{background-image:url('assets/desktop-orbital-horizon.png')}.wallpaper-options>button[data-wallpaper-choice=coast]:before{background-image:url('assets/desktop-wallpaper.svg')}.wallpaper-options>button[aria-pressed=true]{border-color:#568fbd;box-shadow:0 0 0 1px #568fbd33;background:#e2edf9}.wallpaper-options>button>span{padding:0 3px 3px}.wallpaper-options>button:hover{border-color:#568fbd}
+.motion-off .desktop-wallpaper{transform:none!important}
+@media(max-width:700px){.desktop-page .desktop-wallpaper{background-position:100% center;inset:0;transform:none}.desktop-page .desktop-menubar{background:#e4f1f9eb}.desktop-page .desktop-taskbar{background:#d9ecf480}.desktop-page .desktop-window,.desktop-page .desktop-window.active{border-color:#d3e6f2;box-shadow:none}.wallpaper-options>button:before{height:45px}}
+@media(prefers-reduced-motion:reduce){.desktop-page .desktop-wallpaper{transform:none!important;transition:none!important}}
