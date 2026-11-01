@@ -1,41 +1,37 @@
-# Shashikant Chaudhary - portfolio
+# Shashikant Chaudhary — desktop portfolio
 
 Live at https://chaudharysk.github.io/.
 
-An expressive portfolio covering AI, data, mathematics, research, teaching, and hands-on projects. Kinetic typography, an original interactive SVG curiosity engine, dimensional previews, magnetic controls, and native page transitions bring back the earlier visual energy. The site uses static HTML, shared layout/motion styles, self-hosted fonts, and small browser scripts. Primary references and design decisions are documented in [MOTION.md](MOTION.md).
+A Mac-style personal desktop with movable windows, traffic-light controls, a translucent Dock, Finder-like project folders, a portfolio terminal, an illustrated avatar companion, and JARVIS / FRIDAY / EDITH portfolio guides. The detailed profile opens on arrival.
 
 ## Explore
 
-- [Home](https://chaudharysk.github.io/): detailed profile with nine sections covering story, education, experience, projects, research, skills, coursework, community, and hardware interests, alongside the interactive avatar.
-- [Projects](https://chaudharysk.github.io/projects.html): six projects, each with its own detail page and source links.
-- [Coursework](https://chaudharysk.github.io/coursework.html): three Deep Learning Fundamentals assignments with short descriptions, public PDF reports, and code repositories.
-- [Playground](https://chaudharysk.github.io/playground.html): six real video recordings and two hardware photos.
-- [About](https://chaudharysk.github.io/about.html): detailed story, education, research, skills, community work, interests, and working approach.
-- [Experience](https://chaudharysk.github.io/experience.html): eight roles with responsibilities and six supported teaching courses.
-- [Public CV](https://chaudharysk.github.io/cv.html).
+The Dock and menu open Profile, Projects, Experience, Coursework, Playground, Assistants, Terminal, CV, Contact, and Help. Drag title bars, resize windows, minimise/restore, or maximise for reading. Mobile app windows fill the available screen. The clock shows actual Adelaide time.
+
+The regular document pages remain available:
+- [Detailed profile](https://chaudharysk.github.io/about.html)
+- [Experience](https://chaudharysk.github.io/experience.html)
+- [Six projects](https://chaudharysk.github.io/projects.html)
+- [Three deep learning assignments](https://chaudharysk.github.io/coursework.html)
+- [Hardware recordings and photos](https://chaudharysk.github.io/playground.html)
+- [Public CV](https://chaudharysk.github.io/cv.html)
 
 ## Run locally
 
-Run `python -m http.server 4173` from the repository root, then open http://localhost:4173. No build or dependency installation is required for these static files. GitHub Pages serves the root of `main`; `.nojekyll` keeps the static pages and assets intact.
+Run python -m http.server 4173 from this repository and open http://localhost:4173. These are static files; no installation, account, or backend is needed. GitHub Pages serves the repository root from main, with .nojekyll retained. Existing unrelated standalone pages are preserved.
 
-## Edit
+desktop.js manages windows, search, app navigation, terminal commands, and the Dock. desktop.css and macos.css style the desktop; desktop-frame.css styles documents. site.js handles document navigation, motion, and filters. assistants.js reads assets/portfolio-knowledge.json. gallery.js handles media viewing and playback cleanup.
 
-The root HTML files contain the page content. `projects/` contains the six individual project pages. `profile.css` styles the detailed About and Experience sections. `site.css` provides the shared responsive layout and `studio.css` adds the researched motion direction. `motion.js` handles magnetic contents, pointer artwork depth, mode graphics, scroll choreography, and offscreen loop pausing. `site.js` handles navigation, motion preferences, project filtering, and redirects for old section links. `avatar.js` provides the distinct AI, Maths, and Human poses and the eye-only blink every two seconds. `gallery.js` handles the media viewer and filters.
+## Guides and privacy
 
-The AI, Maths, and Human buttons change both portrait pose and surrounding graphics. The motion preference persists across pages and respects reduced motion; decorative loops also pause offscreen and in a hidden tab. Magnetic link targets stay fixed, pointer depth is limited to fine pointers, and normal touch navigation remains available. Videos load only when opened; closing the viewer releases playback. Existing standalone pages and unrelated repository files are preserved.
+The three assistants answer from reviewed portfolio records, with topic matching and source links. They are not connected to an external language model or live web search. Unrelated questions receive a clear fallback. Chat text stays in the browser. Optional speech starts only after selecting Read reply.
 
-## Coursework and privacy
+The site excludes home address, phone number, student IDs, visa information, referees, signatures, original resumes, and private LMS content. Only the three approved Deep Learning Fundamentals reports are included; Concepts of AI and ML materials remain deferred. Existing cleaned public PDFs are unchanged. PROFILE.md and COURSEWORK.md record factual and artifact scope.
 
-Only the three requested Deep Learning Fundamentals reports are included. See [COURSEWORK.md](COURSEWORK.md) for the artifact mapping and review context. Public PDF copies remove the first-page location/student email and clear metadata while retaining author/university attribution, figures, and source links. The original files are unchanged.
+The active avatar is an unchanged copy of the supplied illustration, with native silhouette clipping and registered eyelids on a two-second cycle. The real photo is not served. Motion controls respect reduced motion. See AVATAR.md.
 
-The site excludes home address, phone number, visa details, referee contacts, signatures, original application documents, private LMS records, grades, and dataset archives. Concepts of AI and ML materials are deferred as requested.
+## Design and validation
 
-## Validation
+WORKSPACE.md records primary research and implementation choices, including Apple's window and toolbar guidance. This is a personal portfolio, not an Apple or Marvel product.
 
-Checked 12 page routes, local file links, 77 page/viewport combinations from 320 to 1440 pixels, mobile menus, project filters, all six detail routes, three PDF responses, gallery/video/caption controls, focus restoration, distinct avatar poses, the two-second eye-only blink, motion preferences across pages, legacy links, and CV access. No horizontal overflow, clipped headings, or runtime/HTTP errors were found. Automated axe WCAG A/AA checks passed on the five main pages and Hermes project page.
-
-Motion-specific validation: native page transitions in Chrome, all three scene modes, fixed magnetic hit targets, card depth, offscreen pause, reduced motion, touch interactions, and a measured 2,000ms blink interval with unchanged portrait bounds.
-
-The detailed profile update adds a separate Experience page and seven labelled About sections, with local section navigation and links to supporting projects. Both profile pages passed axe WCAG A/AA checks, local-link and section-navigation checks, and seven viewport widths from 320 to 1440 pixels. Historical roles are not asserted to be current; team results are qualified, and application titles are not presented as employment. The site now has 13 routes including the public CV.
-
-The detailed homepage presents the background and contributions directly, with nine local jump links. Verified at seven widths from 320 to 1440 pixels, with automated axe checks, every local homepage link, and section navigation that stays on Home. The existing avatar modes, native transitions, motion preferences, offscreen pausing, and measured 2,000ms eye-only blink also pass.
+Browser checks passed for window movement/resizing, traffic-light controls, pinned Dock launchers, menu search, project folders, terminal commands/history, all three guides, safe text rendering, unknown-question fallback, source links opening in desktop apps, phone layouts, PDFs, and media playback. Axe WCAG A/AA checks passed on the desktop, phone versions, and six main document routes. The registered avatar blink retains the source and body bounds. This is automated/interaction validation, not formal accessibility certification.

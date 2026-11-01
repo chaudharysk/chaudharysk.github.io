@@ -48,6 +48,16 @@
   });
   applyMotion();
 
+  // Documents opened by the desktop keep ordinary links inside their app window.
+  const embedded=new URLSearchParams(location.search).get('desktop')==='1';
+  if(embedded){
+    document.documentElement.classList.add('desktop-document');
+    if(location.pathname.endsWith('/about.html'))document.querySelector('h1').textContent='Shashikant Chaudhary';
+    document.querySelectorAll('.profile-section-label h2').forEach(h=>h.innerHTML=h.innerHTML.replace(/<br\s*\/?>/gi,' '));
+    document.querySelectorAll('a[href]').forEach(link=>{const href=link.getAttribute('href');if(!href||href.startsWith('#')||link.target==='_blank')return;const url=new URL(href,location.href);if(url.origin===location.origin&&url.pathname.endsWith('.html')){url.searchParams.set('desktop','1');link.href=url.href;}});
+    addEventListener('message',event=>{if(event.origin!==location.origin||event.data?.type!=='portfolio:motion'||typeof event.data.paused!=='boolean')return;paused=event.data.paused;applyMotion();});
+  }
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
