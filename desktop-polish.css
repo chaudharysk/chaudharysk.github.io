@@ -1,0 +1,200 @@
+/* Field notes — a quiet desktop with real objects, paper and deliberate motion. */
+.desktop-page{--blue:#236f9c;--yellow:#ba7049;--ink:#252b31;--copy:#59636a;--line:#d8dde0;background:#13202b}
+.desktop-page .desktop-menubar{height:36px;background:#122331bf;color:#f2f5f7;border-bottom:1px solid #e5f3ff26;box-shadow:0 1px 14px #07172226;backdrop-filter:blur(24px) saturate(1.25)}
+.desktop-page .desktop-system-button>strong,.desktop-page .system-glyph,.desktop-page .desktop-menubar-path,.desktop-page .desktop-menu-word,.desktop-page .desktop-menubar-actions>button,.desktop-page #desktop-clock{color:#f3f5f7}
+.desktop-page .system-glyph{font-size:20px;color:#e5bc86}
+.desktop-page .desktop-system-button{gap:9px;font-size:12px}
+.desktop-page .desktop-menubar-path>span:last-child{font-weight:500;color:#d8e2e8}
+.desktop-page .desktop-surface{top:36px;bottom:104px}
+.desktop-page .desktop-shortcuts{top:48px;right:42px;left:auto;width:auto;grid-template-columns:repeat(3,106px);gap:16px 18px}
+.desktop-page .desktop-shortcuts>button{width:106px;min-height:110px;padding:6px 3px 8px;gap:3px;border-radius:8px;position:relative;perspective:500px;animation:shortcut-arrive .5s cubic-bezier(.2,.75,.25,1) both;animation-delay:calc(var(--shortcut-index,0)*35ms)}
+.desktop-page .desktop-shortcuts>button:hover,.desktop-page .desktop-shortcuts>button:focus-visible{background:#cde9ff16;border-color:#d5edff30}
+.desktop-page .desktop-shortcuts>button:active{background:#d0e9ff28}
+.desktop-page .desktop-shortcuts .desktop-app-icon{display:block;background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;width:76px;height:76px;rotate:0;filter:none;transition:none;overflow:visible}
+.desktop-page .desktop-shortcuts .desktop-app-icon:before{display:none}
+.desktop-page .desktop-app-icon>img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 3px #0004);transform:perspective(400px) rotateX(var(--icon-rx,0deg)) rotateY(var(--icon-ry,0deg));transition:transform .28s cubic-bezier(.2,.8,.2,1),filter .25s;pointer-events:none;user-select:none}
+.desktop-page .desktop-shortcuts>button:hover .desktop-app-icon,.desktop-page .desktop-shortcuts>button:focus-visible .desktop-app-icon{translate:0 0;scale:1;filter:none}
+.desktop-page .desktop-shortcuts>button:hover .desktop-app-icon>img,.desktop-page .desktop-shortcuts>button:focus-visible .desktop-app-icon>img{transform:perspective(400px) translateY(-6px) rotateX(var(--icon-rx,-5deg)) rotateY(var(--icon-ry,7deg)) scale(1.06);filter:drop-shadow(0 12px 6px #0005)}
+.desktop-page .desktop-shortcuts>button:active .desktop-app-icon>img{transform:translateY(-1px) scale(.96)}
+.desktop-page .desktop-shortcuts>button>span:last-child{font-size:11px;font-weight:550;color:#fff;text-shadow:0 1px 3px #000,0 1px 8px #0009;line-height:1.4;max-width:100%;padding:2px 5px;border-radius:4px}
+.desktop-page .desktop-shortcuts>button:hover>span:last-child{background:#122c4580}
+.desktop-note{position:absolute;top:65px;left:62px;width:282px;padding:29px 27px 23px;background:#f2edde;color:#30352f;box-shadow:1px 4px 7px #0003,0 22px 40px #0003;rotate:-2deg;border-radius:1px 1px 12px 1px;z-index:2;animation:note-arrive .65s cubic-bezier(.2,.8,.2,1) both}
+.desktop-note:before{content:'';position:absolute;top:-13px;left:95px;width:87px;height:27px;background:#dfcda68c;rotate:3deg;box-shadow:0 1px 2px #372b1710;border-inline:1px solid #f5e5c055}
+.desktop-note-kicker{font:10px/1.5 var(--mono);letter-spacing:.07em;color:#77745f;margin:0 0 14px}
+.desktop-note h1{font:400 30px/1.15 Georgia,'Times New Roman',serif;letter-spacing:-.9px;margin:0 0 13px;color:#30352f}
+.desktop-note>p:not(.desktop-note-kicker){font:13px/1.75 var(--font);color:#666655;margin:0 0 18px}
+.desktop-note>button{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:9px 0 0;border:0;border-top:1px solid #cfc9b5;background:none;width:100%;font:600 11px/1.5 var(--font);color:#3e6456;text-align:left}
+.desktop-note>button>span{font-size:18px;font-weight:400;transition:translate .2s}
+.desktop-note>button:hover>span{translate:3px -3px}
+.desktop-signature{position:absolute;right:50px;bottom:10px;font:10px/1.8 var(--mono);letter-spacing:.06em;color:#e5eef3b3;text-align:right;pointer-events:none;margin:0;text-shadow:0 1px 8px #000}
+.desktop-page .desktop-hint{bottom:10px;color:#dce8ef;font-size:10px;text-shadow:0 1px 4px #000;max-width:50%}
+.desktop-page .desktop-taskbar{bottom:16px;height:78px;border-radius:23px;background:#d7e8f12b;border:1px solid #ffffff4a;box-shadow:0 12px 35px #02101c55,0 1px 0 #ffffff3d inset;backdrop-filter:blur(28px) saturate(1.4);padding:7px 11px;gap:9px}
+.desktop-page .desktop-taskbar>button{color:#eef5fa;width:33px;background:transparent!important;border:0!important;box-shadow:none!important;height:47px}
+.desktop-page .desktop-taskbar>#desktop-show-all{font-size:26px;border-right:1px solid #d2e4ee40!important;border-radius:0;padding-right:9px;width:42px}
+.desktop-page .desktop-taskbar>#desktop-search-button{font-size:26px}
+.desktop-page .desktop-task-apps{height:63px;gap:9px}
+.desktop-page .task-app{height:63px;width:54px;min-width:54px;border-radius:0}
+.desktop-page .task-app>span:first-child{width:54px;height:54px;border:0!important;box-shadow:none!important;background:transparent!important;border-radius:0;overflow:visible}
+.desktop-page .task-app>span:first-child>img{width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 4px 3px #0615234d);border-radius:0;pointer-events:none}
+.desktop-page .task-app.running:after{background:#e8f6ff;box-shadow:0 1px 3px #03132180;bottom:-1px}
+.desktop-page .task-app[aria-pressed=true]:after{background:#fff;width:5px;height:5px;left:calc(50% - 2.5px)}
+.desktop-page .task-app>span:last-child{background:#eef3f7f5;color:#253a46;border-color:#ffffffa6;box-shadow:0 4px 12px #0002;border-radius:7px;bottom:calc(100% + 17px)}
+.desktop-page .desktop-window{border:1px solid #ffffffb3;background:#fbfbf9;border-radius:12px;box-shadow:0 22px 64px #010b1759,0 0 0 .5px #06152433;animation:desk-window-in .28s cubic-bezier(.16,1,.3,1) both}
+.desktop-page .desktop-window.active{border-color:#ffffffd9;box-shadow:0 27px 85px #010b176b,0 0 0 .5px #0615244d}
+.desktop-page .window-titlebar,.desktop-page .desktop-window.active .window-titlebar{height:46px;min-height:46px;background:#e9edefed;border-bottom:1px solid #ccd4d9;backdrop-filter:blur(20px)}
+.desktop-page .window-title{color:#4b555d;font-weight:600;font-size:12px}
+.desktop-page .window-title-icon{display:block;width:20px;height:20px;margin-left:81px;position:absolute;left:15px}
+.desktop-page .window-title-icon>img{width:100%;height:100%;object-fit:contain;display:block}
+.desktop-page .desktop-window.restoring{animation:desk-window-in .28s cubic-bezier(.16,1,.3,1) both}
+.desktop-page .desktop-window.dragging{animation:none;box-shadow:0 32px 80px #0007}
+.desktop-page .window-body,.desktop-page .window-body iframe{background:#fbfaf7}
+.desktop-page .document-toolbar,.desktop-page .file-address{background:#f3f5f5;border-bottom-color:#dce1e3}
+.desktop-page .document-toolbar>span{color:#73808a;font-size:10px}
+.desktop-page .document-toolbar>button{background:#e5eaec;color:#45606f}
+.desktop-page .file-sidebar{background:#e8edf0;border-color:#d2dce1;padding-top:22px}
+.desktop-page .file-sidebar>button{color:#52616b;margin-bottom:4px;padding:9px 12px}
+.desktop-page .file-sidebar>button.active{background:#cbdde8;color:#214f6b}
+.desktop-page .file-list{padding:25px 27px;background:#fafbf9}
+.desktop-page .file-list>h2{font:600 23px/1.2 var(--font);letter-spacing:-.6px;color:#333d43}
+.desktop-page .file-list>p{font-size:12px;color:#6c777d;max-width:460px}
+.desktop-page .file-list-row{gap:15px;padding:13px 9px;border-color:#e2e6e7;border-radius:7px}
+.desktop-page .file-list-row>span:first-child{display:block;width:46px;height:43px;flex-shrink:0}
+.desktop-page .file-list-row>span:first-child>img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 3px 2px #132e3b1f)}
+.desktop-page .file-list-row:hover{background:#eaf2f7;padding-left:13px}
+.desktop-page .file-list-row strong{font-weight:600;font-size:13px;color:#34454f}
+.desktop-page .file-list-row small{color:#71808a;line-height:1.7}
+.desktop-page .desktop-start-menu{top:44px;left:13px;background:#f0f3f5f5;border-color:#f5fcffb3;box-shadow:0 20px 55px #0005;border-radius:13px;padding:18px;backdrop-filter:blur(26px)}
+.desktop-page .start-app-list{gap:2px}
+.desktop-page .start-app-list>button{grid-template-columns:39px 1fr;padding:6px 8px;gap:1px 10px}
+.desktop-page .start-app-list>button>span{width:34px;height:34px}
+.desktop-page .start-app-list>button>span>img{width:100%;height:100%;object-fit:contain;display:block}
+.desktop-page .start-app-list strong{font-size:12px;color:#364952;font-weight:550}
+.desktop-page .start-app-list small{color:#72818a;font-size:10px}
+.desktop-page .start-app-list>button:hover{background:#d6e5ee}
+.desktop-page .desktop-start-menu>input{background:#fff8;border-color:#cad6dd;color:#344b59;font-size:13px;border-radius:8px}
+.desktop-page .wallpaper-options{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:13px;border-color:#d0dce3}
+.desktop-page .wallpaper-options>button{background:#e8eff3;border-color:#ccd9e2;color:#536b7c;font-size:9px}
+.desktop-page .wallpaper-options>button[aria-pressed=true]{border-color:#5b8daf;box-shadow:0 0 0 1px #5b8daf40;background:#dceaf4}
+.desktop-page .desktop-toast{background:#f0f5f8f5;color:#385366;border-color:#e0eef8}
+.desktop-page .contact-app,.desktop-page .help-app{background:#fbfaf7;min-height:100%;padding:30px}
+.desktop-page .contact-app h2,.desktop-page .help-app h2{font:400 32px/1.2 Georgia,serif;color:#2d393f}
+.desktop-page .contact-app>a{display:block;border-bottom:1px solid #dce3e5;padding:12px 0;font-size:14px;color:#276b90}
+.desktop-page .terminal-app,.desktop-page .desktop-window[data-app=terminal] .window-body{background:#1b242b;color:#d0dce3}
+.desktop-page .terminal-input-row>label{color:#93c7b1}
+.desktop-page .assistant-dialog{--agent-accent:#286581}
+.desktop-page .assistant-dialog[data-assistant=friday]{--agent-accent:#5f7357}
+.desktop-page .assistant-dialog[data-assistant=edith]{--agent-accent:#9a6a47}
+.desktop-page .assistant-header{background:#eef2f3;border-bottom:1px solid #dce3e6;padding:17px 19px}
+.desktop-page .assistant-title-group h2{color:#344d5e;font-size:17px}
+.desktop-page .assistant-indicator{background:#d8e8ed;border-color:#729cac}
+.desktop-page .assistant-indicator:after{border-color:#729cac}
+.desktop-page .assistant-tabs{background:#e5ecef;border-color:#d5e0e5}
+.desktop-page .assistant-tabs>button[aria-pressed=true]{background:#fbfcfc;color:var(--agent-accent);box-shadow:0 1px 4px #15374c1a}
+.desktop-page .assistant-scope,.desktop-page .assistant-prompts,.desktop-page .assistant-form{background:#f7f9f8}
+.desktop-page .assistant-transcript{background:#fbfcfa}
+.desktop-page .message-user{background:#e8f0f0}
+.desktop-page .message-label,.desktop-page .message-sources a{color:var(--agent-accent)}
+.desktop-page .assistant-prompts button{background:#fff;border-color:#d4dfe4;color:#557183}
+.desktop-page .assistant-form button{background:var(--agent-accent);color:#fff;border-radius:6px}
+.desktop-page .assistant-bottom{background:#edf1f2;border-color:#dae2e5;color:#6a7b85}
+
+/* Reading pages feel like documents, not marketing cards. */
+html.mac-style:not(:has(.desktop-page)){--blue:#276c91;--yellow:#276c91;--ink:#30393f;--paper:#fbfaf7;--copy:#58636a;--line:#dde1df;background:#fbfaf7!important}
+.mac-style body:not(.desktop-page){background:#fbfaf7!important;color:#4e5b62!important}
+.mac-style .site-header{background:#f3f3efe8;border-color:#dedfd9}
+.mac-style .brand{color:#384548}
+.mac-style .brand>span{color:#b66b45}
+.mac-style .header-guide{background:#e4eaeb;color:#355e73;border-color:#c7d4da}
+.mac-style .page-hero{padding-top:34px!important;padding-bottom:30px!important;border-bottom-color:#d9dedc}
+.mac-style .page-hero h1{font:400 40px/1.16 Georgia,'Times New Roman',serif!important;letter-spacing:-1.3px!important;color:#303c42!important}
+.mac-style .page-hero>.eyebrow,.mac-style .profile-section-label>span{color:#956541!important;letter-spacing:.08em!important}
+.mac-style .page-hero>p:last-child{font-size:14px!important;line-height:1.9!important;color:#647077!important;max-width:760px}
+.mac-style .profile-section-label h2,.mac-style .section-heading h2{font:400 26px/1.3 Georgia,'Times New Roman',serif!important;color:#39494f!important;letter-spacing:-.5px!important}
+.mac-style .profile-section-label>span:before{content:'';display:inline-block;width:17px;height:1px;background:#b1875f;margin-right:9px;vertical-align:middle}
+.mac-style .profile-band{background:#f0f0e9!important;border-color:#dedfd3!important}
+.mac-style .profile-skills-band{background:#eff2ef!important;border-color:#dce3dc!important}
+.mac-style .profile-maker-band{background:#eaf0f1!important;border-color:#d4e0e1!important}
+.mac-style .profile-degree h3,.mac-style .profile-research h3,.mac-style .community-list h3,.mac-style .career-role h3{color:#3b4a50!important}
+.mac-style .skill-grid{border:0!important;gap:0 26px;background:transparent}
+.mac-style .skill-card{background:transparent!important;border:0!important;border-top:1px solid #d4ddd7!important;border-radius:0!important;padding:22px 0!important}
+.mac-style .skill-symbol{color:#7b8d78!important;font-size:23px!important}
+.mac-style .skill-card>a,.mac-style .text-link,.mac-style .project-link{color:#2a6b89!important}
+.mac-style .button-blue,.mac-style .button-yellow{background:#355e6c!important;color:#fff!important;border-color:#355e6c!important;border-radius:6px!important}
+.mac-style .button-ink{background:#e9edeb!important;color:#3b626c!important;border-color:#cbd6d4!important;border-radius:6px!important}
+.mac-style .project-card{background:#fcfcf9!important;border-color:#d8dfdd!important;border-radius:8px!important;box-shadow:0 3px 7px #192b3010!important}
+.mac-style .project-card-copy{background:#fcfcf9}
+.mac-style .tags>span{color:#5c7378!important;background:#eaf0ef;border-color:#d4e1df!important;border-radius:4px!important}
+.mac-style .filters button,.mac-style .bench-filters button{border-radius:5px!important}
+.mac-style .filters button.active,.mac-style .bench-filters button.active{background:#3c6374!important;color:#fff!important}
+.mac-style .course-heading{background:#e8eeed!important;border-color:#cddad6!important;border-radius:7px!important}
+.mac-style .assignment-number{color:#a27b55!important}
+.mac-style .detail-hero h1{font-family:Georgia,'Times New Roman',serif!important;font-weight:400!important;color:#354951!important}
+.mac-style .detail-fact{background:#e9f0ee!important;border-color:#6f9a99!important;color:#4d6c70!important}
+.mac-style .site-footer{background:#e9eeeb;border-color:#ccd8d2}
+.mac-style .footer-top h2{font-family:Georgia,'Times New Roman',serif}
+.mac-style .footer-top h2>span{color:#6f897b}
+.mac-style .assistant-launcher{background:#344e5b;color:#f5f9fa;border-color:#91a9b3;box-shadow:0 4px 16px #1d333b26}
+.mac-style .launcher-orbit,.mac-style .launcher-orbit:before{border-color:#c7dfe5}
+.mac-style .launcher-orbit i{background:#d9b57b}
+.mac-style :is(a,button,input,[tabindex]):focus-visible,.desktop-page :is(a,button,input,[tabindex]):focus-visible{outline:2px solid #83c8ef;outline-offset:3px}
+.mac-style ::selection{background:#c8dfeb;color:#16384a}
+
+@keyframes shortcut-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes note-arrive{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+@keyframes desk-window-in{from{opacity:0;translate:0 18px;scale:.97}to{opacity:1;translate:0 0;scale:1}}
+@media(min-width:701px) and (max-width:1100px){.desktop-page .desktop-shortcuts{right:22px;grid-template-columns:repeat(3,95px);gap:9px}.desktop-note{left:38px;top:65px;width:252px}.desktop-page .desktop-shortcuts>button{width:95px}.desktop-page .task-app{width:48px;min-width:48px}.desktop-page .task-app>span:first-child{width:48px;height:48px}}
+@media(max-height:740px) and (min-width:701px){.desktop-page .desktop-shortcuts{top:22px;gap:5px 18px}.desktop-page .desktop-shortcuts>button{min-height:99px}.desktop-page .desktop-shortcuts .desktop-app-icon{width:66px;height:66px}.desktop-note{top:48px}}
+@media(max-width:700px){
+ .desktop-page .desktop-menubar{height:36px;padding-inline:11px;gap:10px;background:#132b3ce6}
+ .desktop-page .desktop-system-button{font-size:11px}
+ .desktop-page .desktop-menubar-actions{gap:8px}
+ .desktop-page .desktop-surface{top:36px;bottom:82px;overflow-y:auto;scrollbar-width:none}
+ .desktop-note{left:22px;top:29px;width:calc(100% - 44px);padding:20px 23px 16px;rotate:-1deg;max-width:390px}
+ .desktop-note:before{left:calc(50% - 42px);height:22px;top:-12px}
+ .desktop-note-kicker{margin-bottom:9px;font-size:9px}
+ .desktop-note h1{font-size:27px;margin-bottom:9px}
+ .desktop-note>p:not(.desktop-note-kicker){font-size:12px;line-height:1.6;margin-bottom:12px}
+ .desktop-note>button{font-size:10px;padding-top:7px}
+ .desktop-page .desktop-shortcuts{top:268px;right:0;left:0;width:100%;padding:0 15px 35px;justify-content:center;grid-template-columns:repeat(3,minmax(0,102px));gap:7px 3px}
+ .desktop-page .desktop-shortcuts>button{width:100%;min-height:99px;gap:1px;padding:4px 2px}
+ .desktop-page .desktop-shortcuts .desktop-app-icon{width:66px;height:66px}
+ .desktop-page .desktop-shortcuts>button>span:last-child{font-size:10px}
+ .desktop-page .desktop-window,.desktop-page .desktop-window.active{position:fixed;top:36px!important;bottom:82px!important;left:0!important;right:0!important;height:calc(100dvh - 118px)!important;border-radius:0!important;box-shadow:none!important;z-index:20}
+ .desktop-page .window-titlebar{height:42px;min-height:42px}
+ .desktop-page .window-title-icon{left:auto;right:13px;margin:0;width:20px;height:20px}
+ .desktop-page .desktop-window-layer{position:static}
+ .desktop-page .desktop-hint,.desktop-signature{display:none}
+ .desktop-page .desktop-taskbar{bottom:10px;height:64px;padding:6px 7px;border-radius:18px;gap:5px;background:#a9c5d342;max-width:calc(100% - 18px)}
+ .desktop-page .desktop-taskbar>button{width:26px;height:36px;font-size:22px}
+ .desktop-page .desktop-taskbar>#desktop-show-all{width:31px;padding-right:5px;font-size:23px}
+ .desktop-page .desktop-taskbar>#desktop-search-button{width:24px;font-size:23px}
+ .desktop-page .desktop-task-apps{height:48px;max-width:calc(100vw - 105px);gap:4px}
+ .desktop-page .task-app{width:38px;min-width:38px;height:47px}
+ .desktop-page .task-app>span:first-child{width:38px;height:38px}
+ .desktop-page .task-app:hover,.desktop-page .task-app:focus-visible{translate:0;scale:1}
+ .desktop-page .task-app.running:after{bottom:0}
+ .desktop-page .desktop-start-menu{top:44px;max-height:calc(100dvh - 133px);left:8px;padding:16px;width:360px;max-width:calc(100% - 16px)}
+ .desktop-page .file-list{padding:20px 17px}
+ .desktop-page .file-list-row{gap:10px;padding:12px 0}
+ .desktop-page .file-list-row>span:first-child{width:38px;height:36px}
+ .desktop-page .file-list-row strong{font-size:12px}
+ .desktop-page .file-list-row small{font-size:10px}
+ .desktop-page .file-sidebar>button{font-size:10px}
+ .mac-style .page-hero h1{font-size:33px!important;letter-spacing:-1px!important}
+ .mac-style .profile-section-label h2{font-size:24px!important}
+ .mac-style #navigation{background:#f1f3ef;border-color:#d5ded8}
+}
+.motion-off .desktop-shortcuts>button,.motion-off .desktop-note,.motion-off .desktop-window{animation:none!important}
+.motion-off .desktop-app-icon>img,.motion-off .desktop-note>button>span{transform:none!important;translate:0!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.desktop-page .desktop-shortcuts>button,.desktop-note,.desktop-page .desktop-window{animation:none!important}.desktop-page .desktop-app-icon>img,.desktop-note>button>span{transform:none!important;translate:0!important;transition:none!important}}
+@media print{html.mac-style:not(:has(.desktop-page)),.mac-style body:not(.desktop-page){background:#fff!important}.mac-style .profile-band,.mac-style .profile-skills-band,.mac-style .profile-maker-band{background:#fff!important}}
+
+/* Alpine Lake: real landscape photography; no floating portrait or live scene. */
+.desktop-page #main,.desktop-page .film-desktop{overflow:clip}
+.desktop-page .desktop-wallpaper{background:#34434b url('assets/desktop-alpine-lake.jpg') center/cover no-repeat}
+.desktop-page[data-wallpaper=slate] .desktop-wallpaper{background:#34434b}
+.desktop-page .wallpaper-options>button[data-wallpaper-choice=alpine]:before{background-image:url('assets/desktop-alpine-lake.jpg')}
+.desktop-page .wallpaper-options>button[data-wallpaper-choice=slate]:before{background:#34434b}
+.desktop-page .desktop-shortcuts>button>span:last-child{background:#15242e60;text-shadow:0 1px 3px #101c26}
+.desktop-page .desktop-shortcuts>button:hover>span:last-child{background:#15242e9c}
+@media(max-width:700px){.desktop-page[data-wallpaper=alpine] .desktop-wallpaper{background-position:58% center}}

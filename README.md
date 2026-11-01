@@ -2,7 +2,7 @@
 
 Live at https://chaudharysk.github.io/.
 
-A Mac-style personal desktop with movable windows, traffic-light controls, a translucent Dock, Finder-like project folders, a portfolio terminal, an illustrated avatar companion, and JARVIS / FRIDAY / EDITH portfolio guides. The detailed profile opens on arrival.
+A Mac-style personal desktop with movable windows, traffic-light controls, a translucent Dock, Finder-like project folders, a portfolio terminal, and JARVIS / FRIDAY / EDITH portfolio guides. The desktop opens on arrival with nine labelled shortcuts; the welcome note opens the detailed profile.
 
 ## Explore
 
@@ -28,7 +28,7 @@ The three assistants answer from reviewed portfolio records, with topic matching
 
 The site excludes home address, phone number, student IDs, visa information, referees, signatures, original resumes, and private LMS content. Only the three approved Deep Learning Fundamentals reports are included; Concepts of AI and ML materials remain deferred. Existing cleaned public PDFs are unchanged. PROFILE.md and COURSEWORK.md record factual and artifact scope.
 
-The active avatar is an unchanged copy of the supplied illustration, with native silhouette clipping and registered eyelids on a two-second cycle. The real photo is not served. Motion controls respect reduced motion. See AVATAR.md.
+The current desktop uses a real alpine-lake photograph with a plain slate alternative. The floating portrait companion has been removed. Motion controls still govern the Dock and window animations. See `assets/WALLPAPER-CREDIT.md` for the photograph source and license.
 
 ## Design and validation
 
@@ -39,3 +39,15 @@ Browser checks passed for window movement/resizing, traffic-light controls, pinn
 The futuristic finish adds Orbital Horizon, a cinematic ocean-and-research-outpost wallpaper, with cool glass chrome, restrained reflections, and pointer-responsive background depth. The desktop menu remembers the selected wallpaper; the original Coast remains available. Motion off and reduced motion keep the background static. The generated wallpaper asset and exact prompt are documented in WORKSPACE.md. New wallpaper-selection, persistence, mobile crop, and accessibility checks passed, along with the desktop interaction suite.
 
 Cyber City is the new default live wallpaper, with animated rain, elevated transit, avenue traffic, skyline mist, and soft navigation lights behind the familiar Mac windows. The menu retains Orbital Horizon and Coast and remembers subsequent choices. Dock proximity magnification, launch bounces, window restoration, menu transitions, and project-folder hover add motion. The canvas caps rendering at 30fps and 1.5 pixel density, uses fewer drops on phones, and stops when hidden, on another wallpaper, or when motion is disabled. The supplied avatar and its registered two-second eye animation are preserved. Full asset dimensions, generation method, and exact prompt are in WORKSPACE.md. Live motion, freezing/resuming, wallpaper selection/persistence, mobile sizing, and menu accessibility checks passed, along with the full desktop interaction suite.
+
+
+## Field Notes desktop
+
+Nine object-shaped 3D shortcuts and a matching Dock open the profile, projects, experience, coursework, playground, CV, contact, terminal, and assistants. A small paper note introduces the desktop; no windows obscure the shortcuts on arrival. The Explore menu and Ctrl/Command + K provide search. Existing deep links still open their corresponding app.
+
+`desktop-polish.css` supplies neutral desktop chrome and paper-like reading pages. `desktop-polish.js` adds small, fine-pointer icon tilts. Window minimising travels toward the actual Dock position; opening, restoring, and icon launches share short, consistent transitions. Motion off and reduced motion suppress decorative animation. All pages remain static GitHub Pages files with no new runtime dependencies.
+
+The 3D icons are self-hosted Microsoft Fluent Emoji assets under the MIT license, retained at `assets/icons/FLUENT-LICENSE.txt`; `assets/icons/SOURCES.json` records provenance and file hashes. The terminal SVG is original. Current research and the resulting design decisions are documented in `DESIGN-NOTES.md`.
+
+
+The Alpine update replaces the cinematic city wallpaper with Philippe Toupet’s real Vanoise National Park landscape, self-hosted under the Unsplash License. The wallpaper menu now offers Alpine Lake and Plain Slate. The floating portrait markup, interaction handlers, and live-city canvas are removed from the homepage. The nine 3D shortcuts, Dock, and app/window navigation remain available.

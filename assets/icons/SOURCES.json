@@ -1,0 +1,16 @@
+{
+  "collection": "Microsoft Fluent Emoji, 3D assets",
+  "source": "https://github.com/microsoft/fluentui-emoji",
+  "license": "FLUENT-LICENSE.txt",
+  "files": {
+    "cv.png": "f212d11ed09cfef2ca9cfd3b6b35b29ad7a57eb677aa6611fe284763303a1c57",
+    "contact.png": "9671859aa64b65b6977b7ab6adc2e64220e75edf531a8e67c4b76e01ace04230",
+    "profile.png": "5a8ce65f80e7072b64fa70d8dd07c730d9e99c3d004d0644b76729fd2601ca89",
+    "experience.png": "b1cee11c4212de4d401109251f79ee875762b88d8b64d89a82847b8ebc0878e0",
+    "projects.png": "beedae7737b8e50045b51a25c5d2153bf911c558d8743f5c4a4a75bd18f6c009",
+    "assistants.png": "3f9b5a00b53c8bddda36b6a3f68d00718d9d7d8c04f986a3248e55ae93a7961b",
+    "playground.png": "1a6e2d6681865c8834b29576398f82045b170177e4e745d7bce210e80cc98561",
+    "coursework.png": "36f75eaa1e1a849fc950f43962b447c206d96244858468240a6a81beaa97f7be"
+  },
+  "terminal.svg": "Original vector artwork created for this website."
+}
