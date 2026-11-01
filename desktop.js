@@ -15,14 +15,41 @@
   try{if(localStorage.getItem('shashi-motion')==='off')paused=true;}catch{}
   function applyMotion(){document.documentElement.classList.toggle('motion-off',paused);const b=document.querySelector('#desktop-motion');b.textContent=paused?'Motion off':'Motion on';b.setAttribute('aria-pressed',String(paused));window.portfolioMotion={paused};document.dispatchEvent(new CustomEvent('portfolio:motion',{detail:{paused}}));windows.forEach(win=>{const frame=win.element.querySelector('iframe');frame?.contentWindow?.postMessage({type:'portfolio:motion',paused},location.origin);});}
   applyMotion();document.querySelector('#desktop-motion').addEventListener('click',()=>{paused=!paused;try{localStorage.setItem('shashi-motion',paused?'off':'on');}catch{}applyMotion();});motionQuery.addEventListener('change',e=>{paused=e.matches;applyMotion();});
-  function selectWallpaper(choice,save=false){if(!['orbital','coast'].includes(choice))choice='orbital';document.body.dataset.wallpaper=choice;document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.wallpaperChoice===choice)));if(save)try{localStorage.setItem('shashi-wallpaper',choice);}catch{}}
-  let savedWallpaper='orbital';try{savedWallpaper=localStorage.getItem('shashi-wallpaper')||'orbital';}catch{}selectWallpaper(savedWallpaper);
-  document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.addEventListener('click',()=>{selectWallpaper(button.dataset.wallpaperChoice,true);toast(button.dataset.wallpaperChoice==='orbital'?'Orbital Horizon wallpaper selected.':'Coast wallpaper selected.');}));
+  function selectWallpaper(choice,save=false){
+    if(!['cyberpunk','orbital','coast'].includes(choice))choice='cyberpunk';
+    document.body.dataset.wallpaper=choice;
+    document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.wallpaperChoice===choice)));
+    if(save)try{localStorage.setItem('shashi-wallpaper',choice);}catch{}
+    document.dispatchEvent(new CustomEvent('portfolio:wallpaper',{detail:{choice}}));
+  }
+  // Show this requested edition once to returning visitors; then honour their choice.
+  let savedWallpaper='cyberpunk';
+  try{
+    if(localStorage.getItem('shashi-wallpaper-edition')==='cyber-city-v1')savedWallpaper=localStorage.getItem('shashi-wallpaper')||'cyberpunk';
+    else{localStorage.setItem('shashi-wallpaper-edition','cyber-city-v1');localStorage.setItem('shashi-wallpaper','cyberpunk');}
+  }catch{}
+  selectWallpaper(savedWallpaper);
+  document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.addEventListener('click',()=>{
+    selectWallpaper(button.dataset.wallpaperChoice,true);
+    const names={cyberpunk:'Cyber City live',orbital:'Orbital Horizon',coast:'Coast'};
+    toast(names[button.dataset.wallpaperChoice]+' wallpaper selected.');
+  }));
+  taskApps.addEventListener('pointermove',event=>{
+    if(paused||event.pointerType==='touch'||!matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+    dockButtons.forEach(button=>{const box=button.getBoundingClientRect(),distance=Math.abs(event.clientX-box.x-box.width/2);button.style.setProperty('--dock-near',Math.max(0,1-distance/100).toFixed(3));});
+  },{passive:true});
+  taskApps.addEventListener('pointerleave',()=>dockButtons.forEach(button=>button.style.setProperty('--dock-near','0')));
+  function launchMotion(id){
+    if(paused||motionQuery.matches)return;
+    const button=dockButtons.get(id);button.classList.remove('launching');
+    void button.offsetWidth;button.classList.add('launching');
+    clearTimeout(button.launchTimer);button.launchTimer=setTimeout(()=>button.classList.remove('launching'),750);
+  }
   document.querySelector('#film-desktop').addEventListener('pointermove',event=>{if(paused||event.pointerType==='touch'||!matchMedia('(hover: hover) and (pointer: fine)').matches)return;document.body.style.setProperty('--wallpaper-x',Math.max(-1,Math.min(1,event.clientX/innerWidth*2-1)).toFixed(3));document.body.style.setProperty('--wallpaper-y',Math.max(-1,Math.min(1,event.clientY/innerHeight*2-1)).toFixed(3));},{passive:true});
   document.querySelector('#film-desktop').addEventListener('pointerleave',()=>{document.body.style.setProperty('--wallpaper-x','0');document.body.style.setProperty('--wallpaper-y','0');});
   function toast(text){const el=document.querySelector('#desktop-toast');el.textContent=text;el.classList.add('shown');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('shown'),3600);}
   function bounds(){return {w:surface.clientWidth,h:surface.clientHeight};}
-  function activate(id){const state=windows.get(id);if(!state)return;state.element.hidden=false;state.minimised=false;if(order>400){let next=20;[...windows.values()].sort((a,b)=>(+a.element.style.zIndex)-(+b.element.style.zIndex)).forEach(w=>w.element.style.zIndex=++next);order=next;}
+  function activate(id){const state=windows.get(id);if(!state)return;if(state.element.hidden){state.element.classList.remove('restoring');void state.element.offsetWidth;state.element.classList.add('restoring');clearTimeout(state.restoreTimer);state.restoreTimer=setTimeout(()=>state.element.classList.remove('restoring'),350);}state.element.hidden=false;state.minimised=false;if(order>400){let next=20;[...windows.values()].sort((a,b)=>(+a.element.style.zIndex)-(+b.element.style.zIndex)).forEach(w=>w.element.style.zIndex=++next);order=next;}
     active=id;state.element.style.zIndex=String(++order);windows.forEach((win,key)=>{win.element.classList.toggle('active',key===id);win.task.setAttribute('aria-pressed',String(key===id&&!win.element.hidden));win.task.classList.toggle('minimised',win.element.hidden);});document.querySelector('#desktop-active-name').textContent=apps[id].name;
   }
   function setRect(state,x,y,w,h){const b=bounds();w=Math.max(Math.min(360,b.w),Math.min(w,b.w));h=Math.max(Math.min(230,b.h),Math.min(h,b.h));x=Math.max(0,Math.min(x,b.w-w));y=Math.max(0,Math.min(y,b.h-h));Object.assign(state.element.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});}
@@ -42,7 +69,7 @@
     if(app.doc)documentView(id,app.doc);else if(id==='projects')projectBrowser(win);else if(id==='assistants')win.body.append(document.querySelector('#desktop-assistant-content').content.cloneNode(true));else if(id==='terminal')terminal(win);else if(id==='contact')win.body.innerHTML='<div class="contact-app"><h2>Let’s talk.</h2><p>For opportunities, collaboration, or a good technical question, these are the places to find me.</p><a href="mailto:mailshashi122@gmail.com">mailshashi122@gmail.com ↗</a><a href="https://www.linkedin.com/in/chaudharysk" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/chaudharysk" target="_blank" rel="noopener noreferrer">GitHub ↗</a><p>Shashikant Chaudhary<br>AI · Mathematics · Research · Teaching</p></div>';else if(id==='help')win.body.innerHTML='<div class="help-app"><h2>Your workspace, your way.</h2><p>This desktop is a way to explore Shashi’s actual work and background.</p><ul><li>Open applications from the desktop or system menu.</li><li>Drag a title bar to move a window. Drag its bottom-right corner to resize.</li><li>Use the title-bar buttons to minimise, maximise, restore, or close.</li><li>Restore an app from the taskbar. The grid button shows the desktop.</li><li>Search the menu for a project or app. Type help in Terminal for commands.</li><li>JARVIS, FRIDAY, and EDITH answer from portfolio information and include source links.</li><li>Use Motion off to stop decorative movement. On a phone, apps open one at a time.</li></ul><p><a href="about.html" target="_blank" rel="noopener">Prefer the regular profile page? Open it here ↗</a></p></div>';
     return win;
   }
-  function open(id){if(!apps[id])return;setMenu(false);if(!windows.has(id))create(id);activate(id);if(id==='terminal')windows.get(id).body.querySelector('input').focus();return windows.get(id);}
+  function open(id){if(!apps[id])return;setMenu(false);if(!windows.has(id))create(id);activate(id);launchMotion(id);if(id==='terminal')windows.get(id).body.querySelector('input').focus();return windows.get(id);}
   function setMenu(value){menuOpen=value;menu.hidden=!value;document.querySelector('#desktop-start').setAttribute('aria-expanded',String(value));if(value)search.focus();}
   document.addEventListener('click',event=>{const opener=event.target.closest('[data-open-app]');if(opener)open(opener.dataset.openApp);if(menuOpen&&!event.target.closest('#desktop-start-menu,#desktop-start,#desktop-search-button'))setMenu(false);});document.querySelector('#desktop-start').addEventListener('click',()=>setMenu(!menuOpen));document.querySelector('#desktop-close-menu').addEventListener('click',()=>setMenu(false));document.querySelector('#desktop-search-button').addEventListener('click',()=>setMenu(true));document.querySelector('#desktop-help').addEventListener('click',()=>open('help'));document.querySelector('#desktop-show-all').addEventListener('click',()=>{windows.forEach(win=>{win.element.hidden=true;win.task.classList.add('minimised');win.task.setAttribute('aria-pressed','false');});active=null;document.querySelector('#desktop-active-name').textContent='Desktop';});
   search.addEventListener('input',()=>{const value=search.value.trim().toLowerCase(),results=document.querySelector('#desktop-search-results'),list=document.querySelector('#start-app-list');list.hidden=!!value;results.hidden=!value;results.replaceChildren();if(!value)return;const hits=[...Object.entries(apps).filter(([id,app])=>(id+' '+app.name).toLowerCase().includes(value)).map(([id,app])=>({name:app.name,action:()=>open(id)})),...projects.filter(project=>(project.name+' '+project.id+' '+project.type+' '+project.description).toLowerCase().includes(value)).map(project=>({name:project.name+' — '+project.type,action:()=>{open('projects');documentView('projects','projects/'+project.id+'.html');}}))];hits.forEach(hit=>{const button=document.createElement('button');button.type='button';button.textContent=hit.name;button.addEventListener('click',()=>{setMenu(false);hit.action();});results.append(button);});if(!hits.length){const p=document.createElement('p');p.textContent='No matching app or project. Try “Hermes”, “research”, or “coursework”.';results.append(p);}});
