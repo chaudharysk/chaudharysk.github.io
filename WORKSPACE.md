@@ -1,5 +1,7 @@
 # Desktop design and interaction notes
 
+Current revision, 2 November 2026: the latest public GitHub workspace has been imported. The homepage now retains the alpine photograph, three featured projects and 3D icons, with contextual menus and a live landscape. See DESIGN-NOTES.md for the current implementation. Earlier sections below record preceding versions.
+
 The final direction is a Mac-style personal desktop, following the user's latest preference. A menu bar, translucent Dock, traffic-light controls, light document windows, Finder-like folders, and terminal provide a coherent way to explore the portfolio. The detailed profile opens immediately.
 
 ## Primary references

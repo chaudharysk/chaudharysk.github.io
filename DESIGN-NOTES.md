@@ -64,3 +64,20 @@ On phones the introduction, selected projects and labelled shortcuts form a scro
 - Keyboard launcher search and result activation; project deep links on reload, Back and Forward.
 - Phone layouts at 390 × 844 and 320 × 740, including no horizontal overflow, project filtering and return to the desktop.
 - Local references in the updated homepage resolve; no additional runtime dependency or external asset request was introduced.
+
+
+## Live landscape and contextual actions - 2 November 2026
+
+This revision starts from the user's latest GitHub main, 4db5800, rather than the earlier Cyber City checkout. The current alpine photograph, 3D icons and their source/license files were downloaded unchanged. Featured work, the gallery and modal launcher are retained. The portrait remains absent from the homepage, following that newer revision.
+
+[Apple's context-menu guidance](https://developer.apple.com/design/human-interface-guidelines/context-menus) informed the decision to show a short list of useful actions related to the clicked object. [W3C's menu pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) informed menuitem roles, checked radio/checkbox states, roving focus, arrows, Home/End, first-letter navigation, Escape and submenu focus return. Ordinary document and text-input menus retain browser behaviour.
+
+The contextual menu uses a light material, concise labels, restrained icons, separators, checked settings and submenus. Menus are measured at their full unanimated dimensions before clamping to screen edges. Outside clicks, wheel/touch scrolling and focus loss dismiss them. Delayed gallery scroll events do not dismiss a newly opened menu. A visible wallpaper control supplies the same actions without requiring a secondary mouse button.
+
+The alpine cinemagraph uses the original photograph at runtime. Only a conservative lake mask receives horizontal reflection displacement; the mountains, shore and reading text stay registered. Small ripples, reflected highlights, drifting valley mist, high wisps and distant birds create several motion depths. Pointer presses on exposed lake water add temporary ripples. The photograph itself is unchanged. Cinematic and Calm presets persist locally. Plain Slate remains static.
+
+The canvas caps drawing at 30fps, pixel density at 1.5 and resolution at 2.6 megapixels. It uses wider lake bands on phones, reuses a small atmosphere texture, stops scheduling frames when hidden, and follows Motion off/reduced motion. A paused scene retains its last frame. No sound, network animation library, shader runtime or new service is added.
+
+Window dragging accepts only the primary pointer button. The entrance animation is disabled during a drag and remains disabled on release so the window does not jump or shrink; restoring a minimised window re-enables its short entrance animation. Native title-bar and Dock controls continue to work.
+
+Validation: focused desktop and phone browser checks, all contextual actions, keyboard/submenu focus, edge fitting, preferences, live canvas/pause/reduced-motion output, gallery navigation and launcher, window drag/resize, terminal facts and all three guide personas. Axe scans of the desktop, phone homepage, root context menu and Animation submenu found no violations in the checked states. All eleven generated document bodies were compared with the downloaded version and are unchanged; the alpine image and icon/license hashes also match. This is focused validation, not formal accessibility certification.
