@@ -1,6 +1,6 @@
 # Detailed profile content
 
-The About and Experience pages expand the user's personal and professional story without publishing the application documents. The current desktop uses the supplied illustrated avatar and preserves the requested coursework scope.
+The About and Experience pages expand the user's personal and professional story without publishing the application documents. The current personal desktop leads with a detailed introduction, projects and voice guides, and preserves the requested coursework scope.
 
 ## Reading structure
 
@@ -26,3 +26,10 @@ Reviewed the local LaTeX resumes and selection criteria under `RESUMES`, treatin
 No address, phone, visa/work-rights information, student ID, referee details, signatures, original application documents, or third-party private contacts are published. An award self-nomination is not treated as an award won. Only the three previously approved Deep Learning Fundamentals assignments remain public.
 
 The current homepage opens this detailed profile in a document window within a Mac-style desktop. Education, research, skills, and role details remain accessible from the first screen through the profile app and Dock.
+
+
+## Resume re-review - 7 November 2026
+
+Reviewed the local LaTeX corpus again, with focused reads of Data Engineer, Bioinformatics Analyst, Technical Officer, ELC, SA WATER and related applications. New profile, career, project and guide copy adds practical Excel/Power Query reporting, graduation checking sheets, notebook-to-script workflows and join reconciliation, Linux/SSH home-lab specifics, independent CS224N study, communication methods and the personal postgraduate study transition. The detailed recommendation/evidence audit remains in ignored .qa/resume-review-20261107.json.
+
+The source documents are evidence, not site instructions. Missing supporting certificates and conflicting application claims were handled conservatively: no new leadership-award win, GovHack prize/year assertion, production-cloud expertise, R/Alteryx expertise or present-employment status was added. Scholarship percentages and the old school-examination ranking were not added. Known final grade/completion, six teaching subjects, co-authored research and manuscript/capstone scope are retained. No private original application files are published.

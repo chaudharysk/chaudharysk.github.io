@@ -53,3 +53,14 @@ Shift+F10 or the context-menu key opens a focused icon's menu. Arrow keys, Home/
 The latest GitHub revision was downloaded before editing (base 4db5800). Its paper introduction, three featured projects, nine 3D icons, modal search, six-project gallery, deep links and phone Desktop control are retained. A drag-release animation restart and secondary-button drag capture were fixed while adding contextual menus.
 
 Focused browser checks cover animated pixels, pause/resume and reduced motion, all menu contexts, keyboard navigation and submenus, viewport-edge placement, persistent wallpaper/intensity choices, project copy links and deep links, search/filter/reset/view controls, window dragging/resizing, terminal facts and all three portfolio guides. Phone checks cover 390px and 320px widths; menu and homepage axe scans found no WCAG A/AA violations in the checked states. This does not constitute formal accessibility certification.
+
+
+## Personal OS - 7 November 2026
+
+Eclipse Bay is the new futuristic wallpaper: a rose-coral coastal observatory, moving water, distant vessels and bridge traffic. Nine original titanium/ceramic/graphite SVG objects replace the active illustrated icons. The detailed introduction, featured work, window controls, contextual menus, launcher, gallery and coursework remain available.
+
+The profile, experience, OULAD case study and guide knowledge now include practical resume examples: Excel/Power Query reporting, graduation checking sheets, raw-data provenance and join reconciliation, Ubuntu/Radxa/ESP32/SSH home-lab work, independent CS224N material and LaTeX notes, worked-example communication and the India-to-Australia study transition. Academic recognition is more precise. Applied-for jobs, the leadership nomination and conflicting claims are not turned into achievements. Address, phone, raw applications and private contacts remain excluded.
+
+JARVIS, FRIDAY and EDITH have original greeting previews, 75 prepared topic narrations, volume/stop controls, optional spoken replies and device-voice selection. Known answers use self-hosted narration by default, with device voices as an option and fallback when a selected voice fails. Quiet desktop sound cues are opt-in. Nothing speaks or plays on page load. The three characters remain portfolio guides using reviewed facts and sources, rather than general-purpose models. Prepared narration contains only the public answer text. Optional device speech reads that text through the selected browser/device provider.
+
+Current additions are in portfolio-audio.js, os-style.css, eclipse-wallpaper.js and assets/icons-os/. Image/audio provenance, full wallpaper prompt, rendering limits and verification scope are in WORKSPACE.md. Source applications and the internal evidence audit are not published.

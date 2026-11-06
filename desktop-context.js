@@ -25,7 +25,7 @@
   window.portfolioScene={intensity};
   const trigger=document.querySelector('#desktop-scene-control');
   const isPaused=()=>!!window.portfolioMotion?.paused;
-  const isLive=()=>document.body.dataset.wallpaper==='alpine'&&!isPaused()&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isLive=()=>['eclipse','alpine'].includes(document.body.dataset.wallpaper)&&!isPaused()&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
   function updateControl(){
     const live=isLive();
     trigger.querySelector('strong').textContent=live?'Live wallpaper':'Wallpaper';
@@ -46,7 +46,8 @@
   const windowAction=(app,action)=>windowFor(app)?.querySelector('[data-window-action="'+action+'"]')?.click();
   function wallpaperItems(){
     return [
-      {label:'Alpine Lake',radio:true,checked:document.body.dataset.wallpaper==='alpine',action:()=>document.querySelector('[data-wallpaper-choice="alpine"]').click()},
+      {label:'Eclipse Bay',radio:true,checked:document.body.dataset.wallpaper==='eclipse',action:()=>document.querySelector('[data-wallpaper-choice="eclipse"]').click()},
+      {label:'Alpine Lake',radio:true,checked:['eclipse','alpine'].includes(document.body.dataset.wallpaper),action:()=>document.querySelector('[data-wallpaper-choice="alpine"]').click()},
       {label:'Plain Slate',radio:true,checked:document.body.dataset.wallpaper==='slate',action:()=>document.querySelector('[data-wallpaper-choice="slate"]').click()}
     ];
   }

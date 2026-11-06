@@ -19,7 +19,7 @@
   };
   const conversations = {jarvis:[], friday:[], edith:[]};
   const lastTopics = {};
-  let active = 'jarvis', trigger = null, latestReply = '', busy = false, knowledgePromise;
+  let active = 'jarvis', trigger = null, latestReply = '', latestReplyTopic = null, busy = false, knowledgePromise;
   const stopWords = new Set('a an and are as at be been by can could did do does for from give has have he her him his how i in is it me my of on or please she shashi shashikant should some tell that the their them there these they this to us was what when where which who why will with would you your about'.split(' '));
   function normalise(value) { return value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); }
   function tokens(value) { return [...new Set(normalise(value).split(' ').filter(word=>word.length>1&&!stopWords.has(word)).map(word=>word.length>4?word.replace(/s$/,''):word))]; }
@@ -47,18 +47,18 @@
     if(message.topic)article.dataset.topic=message.topic;
     if(message.links?.length){const links=document.createElement('div');links.className='message-sources';message.links.forEach(([label,href])=>{const link=linkElement(label,href);if(link)links.append(link)});article.append(links);}
     transcript.append(article);
-    if(!message.user)latestReply=message.paragraphs.join(' ');
+    if(!message.user){latestReply=message.paragraphs.join(' ');latestReplyTopic=message.topic||null;}
     if(announce)transcript.scrollTop=message.user?transcript.scrollHeight:transcript.scrollTop+article.getBoundingClientRect().top-transcript.getBoundingClientRect().top-10;
   }
   function addMessage(message) {conversations[active].push(message);renderMessage(message);}
   function renderPrompts() {prompts.replaceChildren();personas[active].prompts.forEach(text=>{const button=document.createElement('button');button.type='button';button.textContent=text;button.addEventListener('click',()=>ask(text));prompts.append(button)});}
   function setPersona(id) {
     if(!personas[id]||busy)return;
-    if('speechSynthesis' in window) speechSynthesis.cancel();
+    window.portfolioAudio?.setPersona(id);
     active=id;dialog.dataset.assistant=id;title.textContent=personas[id].name;
     document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.assistantTab===id)));
     transcript.setAttribute('aria-live','off');transcript.replaceChildren();latestReply='';
-    if(!conversations[id].length)conversations[id].push({paragraphs:[personas[id].greeting]});
+    if(!conversations[id].length)conversations[id].push({topic:'welcome',paragraphs:[personas[id].greeting]});
     conversations[id].forEach(message=>renderMessage(message,false));
     transcript.setAttribute('aria-live','polite');const last=transcript.lastElementChild;if(last)transcript.scrollTop+=last.getBoundingClientRect().top-transcript.getBoundingClientRect().top-10;renderPrompts();
   }
@@ -86,9 +86,9 @@
       else {
         const record=bestRecord(text,records);
         if(record){lastTopics[active]=record.id;reply={topic:record.id,paragraphs:[personas[active].intro,...record.answer],links:record.links};}
-        else reply={paragraphs:['That’s outside my portfolio knowledge. I can help with Shashi’s education, research, projects, teaching, experience, coursework, and contact details. Try a project name or a more specific question.'],links:[['Explore the detailed profile','about.html'],['Browse projects','projects.html']]};
+        else reply={topic:'outside-portfolio',paragraphs:['That’s outside my portfolio knowledge. I can help with Shashi’s education, research, projects, teaching, experience, coursework, and contact details. Try a project name or a more specific question.'],links:[['Explore the detailed profile','about.html'],['Browse projects','projects.html']]};
       }
-      pending.remove();addMessage(reply);
+      pending.remove();addMessage(reply);window.portfolioAudio?.reply(reply.paragraphs.join(' '),reply.topic);
     } catch {pending.remove();addMessage({paragraphs:['I couldn’t load the portfolio notes. Please try again, or use these pages to explore the information directly.'],links:[['Detailed profile','about.html'],['Projects','projects.html'],['Contact Shashi','mailto:mailshashi122@gmail.com']]});}
     finally {busy=false;send.disabled=false;question.disabled=false;transcript.setAttribute('aria-busy','false');document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.disabled=false);renderPrompts();if(dialog.open||desktopMode)question.focus();}
   }
@@ -103,9 +103,10 @@
   document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.addEventListener('click',()=>setPersona(button.dataset.assistantTab)));
   document.querySelector('#assistant-close').addEventListener('click',()=>{if(desktopMode)window.dispatchEvent(new CustomEvent('desktop:close',{detail:{app:'assistants'}}));else dialog.close();});
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-  dialog.addEventListener('close',()=>{document.body.classList.remove('assistant-open');if('speechSynthesis' in window)speechSynthesis.cancel();trigger?.focus();});
+  dialog.addEventListener('close',()=>{document.body.classList.remove('assistant-open');window.portfolioAudio?.stop();trigger?.focus();});
   form.addEventListener('submit',event=>{event.preventDefault();ask(question.value)});
   document.querySelector('#assistant-clear').addEventListener('click',()=>{if(busy)return;conversations[active]=[];delete lastTopics[active];setPersona(active);question.focus();});
-  if('speechSynthesis' in window&&'SpeechSynthesisUtterance' in window){speak.hidden=false;speak.addEventListener('click',()=>{if(!latestReply)return;speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(latestReply);utterance.rate=personas[active].rate;const code={jarvis:'en-GB',friday:'en-AU',edith:'en-US'}[active];const voice=speechSynthesis.getVoices().find(voice=>voice.lang===code);if(voice)utterance.voice=voice;speechSynthesis.speak(utterance);});}
+  addEventListener('portfolio:choose-persona',event=>setPersona(event.detail.persona));
+  if(speak){speak.hidden=!window.portfolioAudio;speak.addEventListener('click',()=>{const audio=window.portfolioAudio;if(!audio)return;if(['speaking','starting'].includes(audio.state.state))audio.stop();else audio.read(latestReply,dialog.dataset.assistant,latestReplyTopic);});}
   setPersona(active);
 })();

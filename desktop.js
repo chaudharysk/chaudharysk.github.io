@@ -15,7 +15,7 @@
   };
   const windows=new Map();let order=20,active=null,toastTimer,menuOpen=false,routing=false;
   const dockButtons=new Map(),pinned=new Set(['profile','projects','experience','coursework','playground','assistants','terminal','cv','contact']);
-  const iconAsset=id=>'assets/icons/'+(id==='help'?'assistants':id)+(id==='terminal'?'.svg':'.png');
+  const iconAsset=id=>'assets/icons-os/'+(id==='help'?'assistants':id)+'.svg';
   function appImage(id){const image=document.createElement('img');image.src=iconAsset(id);image.alt='';image.draggable=false;image.width=128;image.height=128;return image;}
   function dockItem(id){
     if(dockButtons.has(id))return dockButtons.get(id);
@@ -24,7 +24,7 @@
     button.setAttribute('aria-label','Show '+app.name);button.setAttribute('aria-pressed','false');
     const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.append(appImage(id));
     const label=document.createElement('span');label.textContent=app.name;button.append(icon,label);
-    button.addEventListener('click',()=>{const state=windows.get(id);if(state&&!state.element.hidden&&active===id)minimise(id);else open(id);});
+    button.addEventListener('click',()=>{const state=windows.get(id);if(state&&!state.element.hidden&&active===id&&!state.minimising)minimise(id);else open(id);});
     taskApps.append(button);dockButtons.set(id,button);return button;
   }
   document.querySelectorAll('.start-app-list [data-open-app]').forEach(button=>button.querySelector('span').replaceChildren(appImage(button.dataset.openApp)));
@@ -35,22 +35,22 @@
   function applyMotion(){document.documentElement.classList.toggle('motion-off',paused);const b=document.querySelector('#desktop-motion');b.textContent=paused?'Motion off':'Motion on';b.setAttribute('aria-pressed',String(paused));window.portfolioMotion={paused};document.dispatchEvent(new CustomEvent('portfolio:motion',{detail:{paused}}));windows.forEach(win=>{const frame=win.element.querySelector('iframe');frame?.contentWindow?.postMessage({type:'portfolio:motion',paused},location.origin);});}
   applyMotion();document.querySelector('#desktop-motion').addEventListener('click',()=>{paused=!paused;try{localStorage.setItem('shashi-motion',paused?'off':'on');}catch{}applyMotion();});motionQuery.addEventListener('change',e=>{paused=e.matches;applyMotion();});
   function selectWallpaper(choice,save=false){
-    if(!['alpine','slate'].includes(choice))choice='alpine';
+    if(!['eclipse','alpine','slate'].includes(choice))choice='eclipse';
     document.body.dataset.wallpaper=choice;
     document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.wallpaperChoice===choice)));
     if(save)try{localStorage.setItem('shashi-wallpaper',choice);}catch{}
     document.dispatchEvent(new CustomEvent('portfolio:wallpaper',{detail:{choice}}));
   }
   // Show this requested edition once to returning visitors; then honour their choice.
-  let savedWallpaper='alpine';
+  let savedWallpaper='eclipse';
   try{
-    if(localStorage.getItem('shashi-wallpaper-edition')==='alpine-v1')savedWallpaper=localStorage.getItem('shashi-wallpaper')||'alpine';
-    else{localStorage.setItem('shashi-wallpaper-edition','alpine-v1');localStorage.setItem('shashi-wallpaper','alpine');}
+    if(localStorage.getItem('shashi-wallpaper-edition')==='eclipse-v1')savedWallpaper=localStorage.getItem('shashi-wallpaper')||'eclipse';
+    else{localStorage.setItem('shashi-wallpaper-edition','eclipse-v1');localStorage.setItem('shashi-wallpaper','eclipse');}
   }catch{}
   selectWallpaper(savedWallpaper);
   document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.addEventListener('click',()=>{
     selectWallpaper(button.dataset.wallpaperChoice,true);
-    const names={alpine:'Alpine Lake',slate:'Plain Slate'};
+    const names={eclipse:'Eclipse Bay',alpine:'Alpine Lake',slate:'Plain Slate'};
     toast(names[button.dataset.wallpaperChoice]+' wallpaper selected.');
   }));
   taskApps.addEventListener('pointermove',event=>{

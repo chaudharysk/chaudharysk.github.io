@@ -81,3 +81,14 @@ The canvas caps drawing at 30fps, pixel density at 1.5 and resolution at 2.6 meg
 Window dragging accepts only the primary pointer button. The entrance animation is disabled during a drag and remains disabled on release so the window does not jump or shrink; restoring a minimised window re-enables its short entrance animation. Native title-bar and Dock controls continue to work.
 
 Validation: focused desktop and phone browser checks, all contextual actions, keyboard/submenu focus, edge fitting, preferences, live canvas/pause/reduced-motion output, gallery navigation and launcher, window drag/resize, terminal facts and all three guide personas. Axe scans of the desktop, phone homepage, root context menu and Animation submenu found no violations in the checked states. All eleven generated document bodies were compared with the downloaded version and are unchanged; the alpine image and icon/license hashes also match. This is focused validation, not formal accessibility certification.
+
+
+## Personal OS - 7 November 2026
+
+The new direction uses a cinematic future observatory, warm rose/coral light, tactile objects and deliberate voice controls. [Geoff McFetridge's interview about Her](https://www.pushing-pixels.org/2018/04/05/screen-graphics-of-her-interview-with-geoff-mcfetridge.html) informed the interest in a personal, approachable near-future interface. The identity, artwork, nine SVG objects and controls here are original.
+
+[MDN's speech-voice documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices) informed voice discovery and updates when available voices change. [Web Audio best practices](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices) informed visitor-started audio and visible controls. Prepared topic narrations supply a reliable default across devices; custom device voices are optional. Interface cues start only after a visitor enables them. There is no continuous soundtrack or microphone request.
+
+Icon assets use one lighting direction, material palette and object scale, preserving recognisable folder, document, terminal and contact metaphors. HTML labels supply accessible names. No continuous motion is embedded inside the SVGs; interaction motion follows the site's existing reduced-motion controls. The older Fluent assets and their upstream licence are preserved but are not the active desktop icon family.
+
+The independent left column prevents detailed introductory copy from colliding with featured work. The phone wallpaper control is in the scroll flow. The voice waveform represents playback state, not microphone input. The answers remain scoped to the reviewed public portfolio. Exact asset metadata, complete image prompt, narration methods and verification scope are in WORKSPACE.md.

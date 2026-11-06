@@ -25,3 +25,12 @@
   document.addEventListener('portfolio:motion',event=>{if(event.detail.paused)reset();});
   fine.addEventListener('change',reset);reduced.addEventListener('change',reset);
 })();
+
+// Put the wallpaper control in the scrolling page on phones, clear of voice buttons.
+(() => {
+  const mobile=matchMedia('(max-width:700px)'),control=document.querySelector('#desktop-scene-control');
+  if(!control)return;
+  const desktop=document.querySelector('#film-desktop'),surface=document.querySelector('#desktop-surface'),toast=document.querySelector('#desktop-toast');
+  const place=()=>{if(mobile.matches)surface.append(control);else desktop.insertBefore(control,toast);};
+  place();mobile.addEventListener('change',place);
+})();
