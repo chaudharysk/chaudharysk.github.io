@@ -13,9 +13,9 @@
   const send = document.querySelector('#assistant-send');
   const speak = document.querySelector('#assistant-speak');
   const personas = {
-    jarvis: {name:'J.A.R.V.I.S.', greeting:'Good to meet you. I’m JARVIS, your guide to Shashi’s research and engineering. Which idea shall we examine?', intro:'Here’s the technical picture.', prompts:['Explain the OULAD pipeline','Tell me about Hermes Watcher','What research has Shashi published?'], rate:.94},
-    friday: {name:'F.R.I.D.A.Y.', greeting:'Hello. I’m FRIDAY. I can help you get to know Shashi’s background, teaching, and experience. What would be useful to know?', intro:'Here’s the background and contribution.', prompts:['Give me a short introduction to Shashi','What has he taught?','What skills does he bring?'], rate:1},
-    edith: {name:'E.D.I.T.H.', greeting:'I’m EDITH. Looking for a project, repository, report, or demo? Tell me what you want to explore and I’ll find the way.', intro:'Here’s what to explore, with the sources below.', prompts:['Show me the project code','Where are the deep learning reports?','How can I contact Shashi?'], rate:.98}
+    jarvis: {name:'J.A.R.V.I.S.', greeting:"Hello. I'm Jarvis. Ready when you are. Let's take a look at Shashi's research, and the things he's built.", intro:'Here’s the technical picture.', prompts:['Explain the OULAD pipeline','Tell me about Hermes Watcher','What research has Shashi published?'], rate:.94},
+    friday: {name:'F.R.I.D.A.Y.', greeting:"Hi. I'm Friday. Want to get to know Shashi? I can walk you through his story, his teaching, and the way he works.", intro:'Here’s the background and contribution.', prompts:['Give me a short introduction to Shashi','What has he taught?','What skills does he bring?'], rate:1},
+    edith: {name:'E.D.I.T.H.', greeting:"Hello, I'm Edith. Let's find you something interesting. Projects, experiments, reports. Where would you like to start?", intro:'Here’s what to explore, with the sources below.', prompts:['Show me the project code','Where are the deep learning reports?','How can I contact Shashi?'], rate:.98}
   };
   const conversations = {jarvis:[], friday:[], edith:[]};
   const lastTopics = {};
@@ -76,20 +76,20 @@
   }
   async function ask(value) {
     const text=value.trim().slice(0,500);if(!text||busy)return;
-    busy=true;send.disabled=true;question.disabled=true;prompts.querySelectorAll('button').forEach(button=>button.disabled=true);document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.disabled=true);
+    window.portfolioAudio?.stop();busy=true;send.disabled=true;question.disabled=true;prompts.querySelectorAll('button').forEach(button=>button.disabled=true);document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.disabled=true);
     addMessage({user:true,paragraphs:[text]});question.value='';transcript.setAttribute('aria-busy','true');
     const pending=document.createElement('p');pending.className='assistant-pending';pending.textContent='Checking the portfolio…';transcript.append(pending);transcript.scrollTop=transcript.scrollHeight;
     try {
       const records=await loadKnowledge();
       let reply;
-      if(/^(hi|hello|hey|help|thanks|thank you|what can you do)[ !?.]*$/i.test(text))reply={paragraphs:[/thank/i.test(text)?'You’re welcome. What else would you like to explore?':personas[active].greeting]};
+      if(/^(hi|hello|hey|help|thanks|thank you|what can you do)[ !?.]*$/i.test(text))reply={topic:/thank/i.test(text)?'thanks':'welcome',paragraphs:[/thank/i.test(text)?'You’re welcome. What else would you like to explore?':personas[active].greeting]};
       else {
         const record=bestRecord(text,records);
         if(record){lastTopics[active]=record.id;reply={topic:record.id,paragraphs:[personas[active].intro,...record.answer],links:record.links};}
         else reply={topic:'outside-portfolio',paragraphs:['That’s outside my portfolio knowledge. I can help with Shashi’s education, research, projects, teaching, experience, coursework, and contact details. Try a project name or a more specific question.'],links:[['Explore the detailed profile','about.html'],['Browse projects','projects.html']]};
       }
       pending.remove();addMessage(reply);window.portfolioAudio?.reply(reply.paragraphs.join(' '),reply.topic);
-    } catch {pending.remove();addMessage({paragraphs:['I couldn’t load the portfolio notes. Please try again, or use these pages to explore the information directly.'],links:[['Detailed profile','about.html'],['Projects','projects.html'],['Contact Shashi','mailto:mailshashi122@gmail.com']]});}
+    } catch {pending.remove();addMessage({topic:'notes-unavailable',paragraphs:['I couldn’t load the portfolio notes. Please try again, or use these pages to explore the information directly.'],links:[['Detailed profile','about.html'],['Projects','projects.html'],['Contact Shashi','mailto:mailshashi122@gmail.com']]});}
     finally {busy=false;send.disabled=false;question.disabled=false;transcript.setAttribute('aria-busy','false');document.querySelectorAll('[data-assistant-tab]').forEach(button=>button.disabled=false);renderPrompts();if(dialog.open||desktopMode)question.focus();}
   }
   function openAssistant(id,element,initialQuestion) {

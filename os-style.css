@@ -105,6 +105,7 @@
 .desktop-page .assistant-title-group h2{color:#79503a}
 .desktop-page .assistant-message.message-user{background:#f1e2d3}
 .desktop-page .assistant-message.message-user .message-label{color:#725343}
+.desktop-page .assistant-bottom>span{color:#68574b}
 .desktop-page .assistant-prompts button{background:#fff7ec;color:#82513a;border-color:#d8c0a9}
 .desktop-context{background:#faf5eeed;border-color:#fff0decc}
 .desktop-context button:focus,.desktop-context button:hover,.desktop-context button[aria-expanded=true]:focus,.desktop-context button[aria-expanded=true]:hover{background:#934832;color:#fff4e7}
@@ -156,3 +157,5 @@
 @media(max-width:700px){.desktop-page .desktop-surface{display:flex;flex-direction:column}.desk-profile-column{display:contents}.desktop-page .desk-profile-column .desktop-note{order:0;width:calc(100% - 30px);max-width:440px;margin:22px auto 0}.desk-voice{order:1}.desktop-page .desk-profile-column .featured-desk{order:2;width:calc(100% - 30px);max-width:440px;margin:16px auto 0}.desktop-page .desktop-apps-heading{order:3}.desktop-page .desktop-shortcuts{order:4}.desktop-window-layer{order:5}}
 
 @media(max-width:700px){.desktop-page .desktop-scene-control{position:relative;order:6;left:auto;right:auto;bottom:auto;align-self:center;margin:6px auto 24px;flex-shrink:0}}
+
+.voice-delivery{font:11px/1.6 var(--font);color:#74513d;margin:1px 0 8px}.assistant-voice-settings input[type=range]{accent-color:#a85c42}

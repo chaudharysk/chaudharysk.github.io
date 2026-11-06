@@ -1,66 +1,34 @@
-# Shashikant Chaudhary — desktop portfolio
+# Shashikant Chaudhary - personal desktop portfolio
 
 Live at https://chaudharysk.github.io/.
 
-A personal portfolio presented as a desktop: a paper introduction, three selected projects, nine labelled 3D shortcuts, a Dock and movable app windows. A real alpine-lake photograph provides the wallpaper, with a plain slate alternative.
+A personal OS with Eclipse Bay, a warm futuristic live wallpaper, original sculpted SVG icons, a detailed introduction, featured projects, a Dock and movable app windows. The profile combines AI research, mathematics, teaching, university operations and connected hardware. The new resume review adds concrete reporting, data-quality, home-lab, communication and independent-study examples.
+
+JARVIS, FRIDAY and EDITH have distinct natural character-style voices. Press Hear voice for a greeting, Read reply for the current answer, or enable Voice replies. Volume, pitch-preserving speaking pace and opt-in desktop sound effects are in Voice & sound. There is no page-load autoplay. The recordings use neural speech and load from this site; no visitor speech-generation service, microphone or API key is required. These remain portfolio guides with reviewed facts and evidence links.
 
 ## Explore
-
-Start with Explore my work, Read my CV, or a featured project. The complete gallery contains six projects, with search, AI/data and hardware filters, grid/list views and shareable project links.
-
-The desktop icons, Dock and Apps menu open Profile, Projects, Experience, Coursework, Playground, Assistants, Terminal, CV and Contact. Search portfolio or Ctrl/Command + K opens the keyboard-accessible launcher. Desktop shortcuts also support arrow keys, Home and End. Drag title bars to move windows; resize, minimise or maximise for reading. On phones, apps fill the available area and a labelled Desktop button returns to the homepage.
-
-Regular document pages remain available:
 
 - [Detailed profile](https://chaudharysk.github.io/about.html)
 - [Experience](https://chaudharysk.github.io/experience.html)
 - [Six projects](https://chaudharysk.github.io/projects.html)
-- [Coursework](https://chaudharysk.github.io/coursework.html)
-- [Hardware recordings and photos](https://chaudharysk.github.io/playground.html)
+- [Three deep learning reports](https://chaudharysk.github.io/coursework.html)
+- [Hardware recordings and photographs](https://chaudharysk.github.io/playground.html)
 - [Public CV](https://chaudharysk.github.io/cv.html)
+
+Open apps from the desktop, Dock, contextual menu or Ctrl/Command+K search. Project search, category filters, grid/list preferences and deep links work in the browser. Move, resize, minimise, maximise and close windows. Right-click the desktop or an object for relevant actions. Phones use a scrolling introduction and full-area app windows with a labelled Desktop control.
 
 ## Run locally
 
-Run `python -m http.server 4173` from this repository and open http://localhost:4173. These are static files; no installation, account or backend is needed. GitHub Pages serves the repository root from `main`, with `.nojekyll` retained. Existing unrelated standalone pages are preserved.
+Run python -m http.server 4173 from the public repository and open http://localhost:4173. These are static files; GitHub Pages serves the root of main with .nojekyll. Unrelated standalone repository pages are preserved.
 
-`desktop.js` manages windows, app/project navigation, search, terminal commands and the Dock. `desktop-polish.css` supplies the current desktop and paper-like reading surfaces; `desktop-polish.js` adds fine-pointer icon tilts and shortcut keyboard navigation. `desktop-context.js` and `desktop-context.css` provide contextual desktop, app, project and window actions. `alpine-wallpaper.js` animates the landscape with a 30fps cap, at most 1.5 pixel density and a 2.6-megapixel canvas budget. `site.js` handles document navigation, motion and filters. `assistants.js` reads `assets/portfolio-knowledge.json`; `gallery.js` handles media viewing and playback cleanup.
+## Assets and scope
 
-## Motion and assets
+The active icons under assets/icons-os are original SVG objects. Older Fluent icons and their MIT licence remain available. Eclipse Bay's exact generation prompt, native dimensions and method are in WORKSPACE.md. The alpine photograph retains its source credit. Audio provenance is in assets/audio/README.md.
 
-Opening, restoring, minimising and Dock launches use short transitions. The alpine photograph now has animated lake reflections, ripples, drifting mountain mist, soft sky wisps and a small distant flock. Cinematic and Calm settings are available from the right-click Animation submenu. The live canvas stops on Plain Slate, in a hidden tab, with Motion off, or when reduced motion is requested. Motion off and operating-system reduced-motion preferences suppress decorative movement; touch devices do not use pointer tilt.
+The current audio edition has three neural greeting MP3s and 81 reply MP3s, with a shared player and explicit stop/volume/pace controls. The known public answers are prerecorded; the guide is not a general-purpose model or live web search. Raw chat questions stay in the browser.
 
-The 3D icons are self-hosted Microsoft Fluent Emoji assets under the MIT license, retained at `assets/icons/FLUENT-LICENSE.txt`; `assets/icons/SOURCES.json` records provenance and hashes. The terminal SVG is original. The alpine photograph source and license are in `assets/WALLPAPER-CREDIT.md`. The original photograph and icon files are unchanged. No floating portrait or live-city canvas appears on the homepage.
+No home address, phone number, signature, visa details, student IDs, private referees, raw resumes or LMS files are published. Qualification/publication scope and the three approved coursework reports are preserved. PROFILE.md and COURSEWORK.md record the evidence boundaries.
 
-## Guides and privacy
+## Verification
 
-JARVIS, FRIDAY and EDITH answer from reviewed portfolio records with source links. They are not connected to an external language model or live web search. Chat text stays in the browser; optional speech starts only after selecting Read reply.
-
-The site excludes home address, phone number, student IDs, visa information, referees, signatures, original resumes and private LMS content. Existing cleaned public PDFs are unchanged. `PROFILE.md` and `COURSEWORK.md` record factual and artifact scope.
-
-## Research and validation
-
-`DESIGN-NOTES.md` records the current research, design decisions and checks. `WORKSPACE.md` retains earlier implementation history.
-
-This revision was checked in the browser for the homepage, gallery, project search/filter/reset, grid/list preference, keyboard launcher, shareable project routes and browser Back/Forward. Phone layouts were reviewed at 390 × 844 and 320 × 740. JavaScript syntax, local references in the updated homepage and whitespace checks also passed. This is focused browser and code validation, not a formal accessibility certification.
-
-
-## Right-click desktop and live landscape
-
-Right-click empty desktop space for Show Desktop, Explore Projects, Search Portfolio, Wallpaper, Animation and Desktop Controls. App icons and the Dock offer relevant launch/window actions; project tiles offer project opening, a direct page, and copy link. Right-click a title bar to minimise, zoom/restore or close its window. Ordinary reading-page, text-input and external-link browser menus remain available. Shift + right-click also retains the browser menu.
-
-Shift+F10 or the context-menu key opens a focused icon's menu. Arrow keys, Home/End, first-letter navigation and Escape work through the menus; Right/Left opens and closes submenus. Menus fit the viewport, and the Live wallpaper button offers the same controls on touch devices. Preferences stay in this browser.
-
-The latest GitHub revision was downloaded before editing (base 4db5800). Its paper introduction, three featured projects, nine 3D icons, modal search, six-project gallery, deep links and phone Desktop control are retained. A drag-release animation restart and secondary-button drag capture were fixed while adding contextual menus.
-
-Focused browser checks cover animated pixels, pause/resume and reduced motion, all menu contexts, keyboard navigation and submenus, viewport-edge placement, persistent wallpaper/intensity choices, project copy links and deep links, search/filter/reset/view controls, window dragging/resizing, terminal facts and all three portfolio guides. Phone checks cover 390px and 320px widths; menu and homepage axe scans found no WCAG A/AA violations in the checked states. This does not constitute formal accessibility certification.
-
-
-## Personal OS - 7 November 2026
-
-Eclipse Bay is the new futuristic wallpaper: a rose-coral coastal observatory, moving water, distant vessels and bridge traffic. Nine original titanium/ceramic/graphite SVG objects replace the active illustrated icons. The detailed introduction, featured work, window controls, contextual menus, launcher, gallery and coursework remain available.
-
-The profile, experience, OULAD case study and guide knowledge now include practical resume examples: Excel/Power Query reporting, graduation checking sheets, raw-data provenance and join reconciliation, Ubuntu/Radxa/ESP32/SSH home-lab work, independent CS224N material and LaTeX notes, worked-example communication and the India-to-Australia study transition. Academic recognition is more precise. Applied-for jobs, the leadership nomination and conflicting claims are not turned into achievements. Address, phone, raw applications and private contacts remain excluded.
-
-JARVIS, FRIDAY and EDITH have original greeting previews, 75 prepared topic narrations, volume/stop controls, optional spoken replies and device-voice selection. Known answers use self-hosted narration by default, with device voices as an option and fallback when a selected voice fails. Quiet desktop sound cues are opt-in. Nothing speaks or plays on page load. The three characters remain portfolio guides using reviewed facts and sources, rather than general-purpose models. Prepared narration contains only the public answer text. Optional device speech reads that text through the selected browser/device provider.
-
-Current additions are in portfolio-audio.js, os-style.css, eclipse-wallpaper.js and assets/icons-os/. Image/audio provenance, full wallpaper prompt, rendering limits and verification scope are in WORKSPACE.md. Source applications and the internal evidence audit are not published.
+Focused browser checks cover desktop/phone navigation and contextual menus, gallery and deep links, live wallpaper/reduced motion, actual media playback, stopping, volume/pace preferences, no autoplay, new resume-backed facts and checked axe states. This is focused validation rather than formal accessibility certification.

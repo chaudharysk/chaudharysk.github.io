@@ -92,3 +92,10 @@ The new direction uses a cinematic future observatory, warm rose/coral light, ta
 Icon assets use one lighting direction, material palette and object scale, preserving recognisable folder, document, terminal and contact metaphors. HTML labels supply accessible names. No continuous motion is embedded inside the SVGs; interaction motion follows the site's existing reduced-motion controls. The older Fluent assets and their upstream licence are preserved but are not the active desktop icon family.
 
 The independent left column prevents detailed introductory copy from colliding with featured work. The phone wallpaper control is in the scroll flow. The voice waveform represents playback state, not microphone input. The answers remain scoped to the reviewed public portfolio. Exact asset metadata, complete image prompt, narration methods and verification scope are in WORKSPACE.md.
+
+
+## Natural voice revision - 7 November 2026
+
+The user clarified natural character-style delivery rather than the exact VisionQuest actors. The earlier Windows desktop speech was replaced by Ryan, Sonia and Aria neural voices. Previews were generated before the full narration set. The neural service supplies finished audio during preparation; the published website uses only self-hosted MP3s. The player no longer falls back to a robotic device voice. A pitch-preserving pace control and volume replace the device-voice selector.
+
+The generation interface follows the [edge-tts project documentation](https://github.com/rany2/edge-tts), using supported voice, rate and pitch parameters. The Irish preview voice returned no audio, so the selected FRIDAY delivery uses Sonia. A small footer contrast fix is included in this edition. WORKSPACE.md and assets/audio/README.md identify the current assets and validation scope.
