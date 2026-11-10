@@ -64,7 +64,7 @@
     return [
       {label:'Show Desktop',icon:'desktop',action:()=>document.querySelector('#desktop-show-all').click()},
       {label:'Explore Projects',icon:'open',action:()=>openApp('projects')},
-      {label:'Search Portfolio',icon:'search',key:'Ctrl / ⌘ K',action:()=>document.querySelector('#desktop-search-button').click()},
+      {label:'Search Portfolio',icon:'search',key:'Ctrl / ⌘ K',action:()=>document.querySelector('#desktop-quick-find').click()},
       separator(),
       {label:'Wallpaper',icon:'wallpaper',children:wallpaperItems()},
       {label:'Animation',icon:'motion',children:animationItems()},

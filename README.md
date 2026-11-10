@@ -2,7 +2,7 @@
 
 Live at https://chaudharysk.github.io/.
 
-The homepage presents a short introduction and three selected projects. The public pages share a compact navigation and Adobe Source Sans 3, self-hosted under the SIL Open Font License. The optional [Desktop edition](https://chaudharysk.github.io/desktop.html) retains Pacific wallpaper, app icons, movable windows and the startup animation.
+The homepage is a desktop workspace with a compact introduction, three shortcuts, a Dock and movable app windows. Source Sans 3 is shared with the public reading pages. The Studio wallpaper, flat app glyphs and window controls are rendered locally.
 
 JARVIS, FRIDAY and EDITH have distinct natural character-style voices. Press Hear voice for a greeting, Read reply for the current answer, or enable Voice replies. Volume, pitch-preserving speaking pace and opt-in desktop sound effects are in Voice & sound. There is no page-load autoplay. The recordings use neural speech and load from this site; no visitor speech-generation service, microphone or API key is required. These remain portfolio guides with reviewed facts and evidence links.
 
@@ -23,7 +23,7 @@ Run python -m http.server 4173 from the public repository and open http://localh
 
 ## Assets and scope
 
-The active icons under assets/icons-os are original SVG objects. Older Fluent icons and their MIT licence remain available. Eclipse Bay's exact generation prompt, native dimensions and method are in WORKSPACE.md. The alpine photograph retains its source credit. Audio provenance is in assets/audio/README.md.
+The active icons in `assets/desktop-glyphs.svg` are original SVG drawings. Older Fluent icons and their MIT licence remain available. Eclipse Bay's exact generation prompt, native dimensions and method are in WORKSPACE.md. The alpine photograph retains its source credit. Audio provenance is in assets/audio/README.md.
 
 The current audio edition has three neural greeting MP3s and 81 reply MP3s, with a shared player and explicit stop/volume/pace controls. The known public answers are prerecorded; the guide is not a general-purpose model or live web search. Raw chat questions stay in the browser.
 

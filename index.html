@@ -1,76 +1,108 @@
-<!doctype html>
-<html lang="en-AU" class="folio">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f8f4">
-  <title>Shashikant Chaudhary | AI, mathematics and teaching</title>
-  <meta name="description" content="Shashikant Chaudhary’s portfolio. Explore work in AI, mathematics, university teaching and connected hardware.">
-  <link rel="canonical" href="https://chaudharysk.github.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Shashikant Chaudhary | Portfolio">
-  <meta property="og:description" content="Projects, research and teaching in AI, mathematics and computing.">
-  <meta property="og:image" content="https://chaudharysk.github.io/assets/media/hermes-watcher-working.webp">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="folio.css?v=20261110-editorial">
-  <script src="folio-routes.js" defer></script>
-</head>
-<body id="top" class="folio-home">
-  <a class="folio-skip" href="#main">Skip to content</a>
-  <header class="folio-header">
-    <div class="folio-shell folio-header-inner">
-      <a class="folio-brand" href="index.html" aria-label="Shashikant Chaudhary, home">Shashi Chaudhary</a>
-      <nav class="folio-nav" aria-label="Main navigation">
-        <a href="projects.html">Work</a>
-        <a href="experience.html">Experience</a>
-        <a href="about.html">About</a>
-        <a href="cv.html">CV</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main" class="folio-shell">
-    <section class="folio-intro" id="intro" aria-labelledby="intro-title">
-      <div>
-        <p class="folio-label">AI · MATHEMATICS · TEACHING</p>
-        <h1 id="intro-title">Shashikant Chaudhary</h1>
-        <p class="folio-intro-copy">I build learning agents and data tools, teach mathematics and computing, and help students navigate university life.</p>
+<!doctype html><html lang="en-AU" class="mac-style"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#dce6e8"><title>Shashikant Chaudhary | Portfolio</title><meta name="description" content="Explore Shashikant Chaudhary’s AI desktop: detailed profile, education, experience, research, projects, deep learning coursework, terminal, and portfolio assistants."><link rel="canonical" href="https://chaudharysk.github.io/"><meta property="og:title" content="Shashikant Chaudhary — AI, Mathematics & Making"><meta property="og:description" content="A personal desktop for AI, mathematics, research, teaching, and hands-on projects."><meta property="og:type" content="website"><meta property="og:image" content="https://chaudharysk.github.io/assets/media/hermes-watcher-working.webp"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="desktop.css?v=20261110-studio"><link rel="stylesheet" href="assistants.css?v=20261110-studio"><link rel="stylesheet" href="macos.css?v=20261110-studio"><link rel="preload" as="image" href="assets/desktop-studio.svg"><link rel="stylesheet" href="future-desktop.css?v=20261110-studio"><script src="desktop.js?v=20261110-studio" defer></script><script src="portfolio-audio.js?v=20261110-studio" defer></script><script src="assistants.js?v=20261110-studio" defer></script><link rel="stylesheet" href="desktop-polish.css?v=20261110-studio"><script src="desktop-polish.js?v=20261110-studio" defer></script><link rel="stylesheet" href="desktop-context.css?v=20261110-studio"><script src="desktop-context.js?v=20261110-studio" defer></script><script src="alpine-wallpaper.js?v=20261110-studio" defer></script><link rel="stylesheet" href="os-style.css?v=20261110-studio"><script src="eclipse-wallpaper.js?v=20261110-studio" defer></script><style>
+  #workspace-startup { display: none; }
+  .workspace-starting .film-desktop { visibility: hidden; }
+  .workspace-starting #workspace-startup {
+    position: fixed; inset: 0; z-index: 9998; display: grid; place-content: center;
+    justify-items: center; gap: 14px; background: #dce6e8; color: #22343d;
+    font: 14px system-ui, sans-serif;
+  }
+  .startup-monogram {
+    display: grid; place-items: center; width: 60px; height: 60px; border-radius: 17px;
+    background: #36565f; color: #f5faf9;
+    box-shadow: 0 8px 20px #35515d22;
+    font-size: 23px; font-weight: 700; letter-spacing: -.06em;
+  }
+  .startup-track { width: 132px; height: 3px; overflow: hidden; border-radius: 8px; background: #b6c7cd; }
+  .startup-track::after {
+    content: ''; display: block; width: 45%; height: 100%; border-radius: inherit;
+    background: #36565f; animation: startup-sweep 1s ease-in-out infinite alternate;
+  }
+  @keyframes startup-sweep { from { translate: -100%; } to { translate: 225%; } }
+  @media (prefers-reduced-motion: reduce) { .startup-track::after { animation: none; width: 100%; } }
+  .motion-off .startup-track::after { animation: none; width: 100%; }
+</style>
+<script>
+  (() => {
+    const root = document.documentElement;
+    try { if (localStorage.getItem('shashi-motion') === 'off') root.classList.add('motion-off'); } catch {}
+    root.classList.add('workspace-starting');
+    const reveal = () => {
+      clearTimeout(deadline);
+      root.classList.remove('workspace-starting');
+    };
+    // A slow or failed resource must never lock the desktop.
+    const deadline = setTimeout(reveal, 7000);
+    addEventListener('load', async () => {
+      const icons = [...document.querySelectorAll('.desktop-shortcuts img')];
+      await Promise.allSettled([document.fonts.ready, ...icons.map(image => image.decode())]);
+      reveal();
+    }, { once: true });
+  })();
+</script>
+<link rel="stylesheet" href="desktop-studio.css?v=20261110-studio"></head><body class="desktop-page" id="top" data-page="home" data-wallpaper="studio"><div id="workspace-startup" role="status">
+  <span class="startup-monogram" aria-hidden="true">SC</span>
+  <span>Loading Shashi’s workspace</span>
+  <span class="startup-track" aria-hidden="true"></span>
+</div>
+<main id="main" aria-label="Shashi’s interactive desktop"><div class="film-desktop" id="film-desktop">
+<div aria-hidden="true" class="desktop-wallpaper"><canvas aria-hidden="true" class="eclipse-motion" id="eclipse-motion"></canvas><canvas aria-hidden="true" class="alpine-motion" id="alpine-motion"></canvas></div>
+<header class="desktop-menubar">
+  <span class="studio-brand">Shashi</span>
+  <button type="button" class="desktop-system-button" id="desktop-start" aria-controls="desktop-start-menu" aria-expanded="false">Apps <span aria-hidden="true">⌄</span></button>
+  <div class="studio-window-name"><span id="desktop-active-name">Portfolio</span></div>
+  <div class="desktop-menubar-actions">
+    <button type="button" id="desktop-quick-find" aria-label="Search portfolio" aria-keyshortcuts="Control+k Meta+k">
+      <svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.4"/><path d="m13 13 4 4"/></svg><span>Search</span><kbd>⌘ K</kbd>
+    </button>
+    <button type="button" id="desktop-scene-control" class="desktop-scene-control" aria-label="Desktop settings" aria-haspopup="menu" aria-expanded="false">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/></svg>
+      <span hidden><strong>Wallpaper</strong><small>Desktop settings</small></span>
+    </button>
+    <time id="desktop-clock"></time>
+  </div>
+</header>
+<div class="desktop-surface" id="desktop-surface">
+  <div class="studio-content">
+    <aside class="desktop-note" aria-label="About Shashikant Chaudhary">
+      <p class="desktop-note-kicker">ADELAIDE, AUSTRALIA</p>
+      <h1>Shashikant Chaudhary</h1>
+      <p>I build AI and data tools and teach mathematics and computing.</p>
+      <div class="note-actions">
+        <button type="button" data-open-app="projects">Explore projects <span aria-hidden="true">↗</span></button>
+        <a href="about.html" data-open-app="profile">About me</a>
       </div>
-      <aside id="contact" class="folio-intro-links" aria-label="Location and contact">
-        <p>Adelaide, Australia</p>
-        <ul>
-          <li><a href="mailto:mailshashi122@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://github.com/chaudharysk">GitHub <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://www.linkedin.com/in/chaudharysk/">LinkedIn <span aria-hidden="true">↗</span></a></li>
-        </ul>
-      </aside>
-    </section>
-    <section id="work" class="folio-work" aria-labelledby="work-title">
-      <div class="folio-section-heading">
-        <h2 id="work-title">Selected work</h2>
-        <a href="projects.html">All projects <span aria-hidden="true">↗</span></a>
-      </div>
-      <article class="folio-feature">
-        <a class="folio-feature-photo" href="projects/hermes.html" aria-label="View Hermes Watcher project">
-          <img src="assets/media/hermes-watcher-working.webp" width="900" height="1200" alt="SenseCAP Watcher displaying a task in progress">
-        </a>
-        <div class="folio-feature-copy">
-          <p class="folio-label">AI &amp; HARDWARE</p>
-          <h3><a href="projects/hermes.html">Hermes Watcher <span aria-hidden="true">↗</span></a></h3>
-          <p>A desk display that shows what Hermes Agent is doing and when it needs my input. I connected the agent to a SenseCAP Watcher using Python and MQTT.</p>
-        </div>
-      </article>
-      <ul class="folio-work-list">
-        <li><a href="projects/edtuned.html"><span class="folio-label">EDUCATION</span><strong>edTuned</strong><span class="folio-row-description">A capstone exploring how learning agents can adapt practice to individual students.</span><span class="folio-row-arrow" aria-hidden="true">↗</span></a></li>
-        <li><a href="projects/risk.html"><span class="folio-label">RESEARCH</span><strong>Conversational Risk Analysis</strong><span class="folio-row-description">A co-authored chapter on identifying potential threats in text and audio.</span><span class="folio-row-arrow" aria-hidden="true">↗</span></a></li>
-      </ul>
-    </section>
-  </main>
-  <footer class="folio-footer">
-    <div class="folio-shell folio-footer-inner">
-      <p>Shashikant Chaudhary <span aria-hidden="true">·</span> Adelaide, Australia</p>
-      <nav aria-label="More from Shashi"><a href="coursework.html">Coursework</a><a href="playground.html">Playground</a><a href="desktop.html">Desktop edition</a></nav>
-    </div>
-  </footer>
-</body>
-</html>
+    </aside>
+    <nav aria-label="Desktop shortcuts" class="desktop-shortcuts">
+    <button type="button" data-open-app="projects"><span class="desktop-app-icon" aria-hidden="true"><img src="assets/desktop-glyphs.svg#projects" width="64" height="64" alt="" draggable="false"></span><span>Projects</span></button>
+    <button type="button" data-open-app="experience"><span class="desktop-app-icon" aria-hidden="true"><img src="assets/desktop-glyphs.svg#experience" width="64" height="64" alt="" draggable="false"></span><span>Experience</span></button>
+    <button type="button" data-open-app="cv"><span class="desktop-app-icon" aria-hidden="true"><img src="assets/desktop-glyphs.svg#cv" width="64" height="64" alt="" draggable="false"></span><span>My CV</span></button>
+    </nav>
+  </div>
+  <div class="desktop-window-layer" id="desktop-window-layer"></div>
+</div>
+<nav class="desktop-taskbar" aria-label="Dock">
+  <button type="button" id="desktop-show-all" aria-label="Show desktop" title="Show desktop"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M9 21h6m-3-4v4"/></svg></button>
+  <div class="desktop-task-apps" id="desktop-task-apps"></div>
+</nav>
+<dialog aria-label="Search and applications" class="desktop-start-menu" id="desktop-start-menu"><div class="start-menu-header"><span>SEARCH &amp; APPLICATIONS</span><button aria-label="Close applications menu" id="desktop-close-menu" type="button">×</button></div><label for="desktop-search">Find an app or project</label><input autocomplete="off" id="desktop-search" placeholder="Try Hermes, research, teaching…" type="search"/><div class="start-app-list" id="start-app-list"><button data-open-app="profile" type="button"><span aria-hidden="true">SC</span><strong>About Shashi</strong><small>Story, education, research, skills</small></button><button data-open-app="projects" type="button"><span aria-hidden="true">▰</span><strong>Projects</strong><small>Six builds and their source code</small></button><button data-open-app="experience" type="button"><span aria-hidden="true">▥</span><strong>Experience</strong><small>Teaching, student services and technical work</small></button><button data-open-app="coursework" type="button"><span aria-hidden="true">≡</span><strong>Coursework</strong><small>Three deep learning reports and code</small></button><button data-open-app="playground" type="button"><span aria-hidden="true">▷</span><strong>Playground</strong><small>Hardware videos and photos</small></button><button data-open-app="assistants" type="button"><span aria-hidden="true">◎</span><strong>Assistants</strong><small>JARVIS, FRIDAY, EDITH</small></button><button data-open-app="terminal" type="button"><span aria-hidden="true">›_</span><strong>Terminal</strong><small>Explore with commands</small></button><button data-open-app="cv" type="button"><span aria-hidden="true">↗</span><strong>CV</strong><small>Read, print, or download</small></button><button data-open-app="contact" type="button"><span aria-hidden="true">@</span><strong>Contact</strong><small>Email and professional links</small></button></div><p aria-live="polite" class="desktop-search-count" hidden="" id="desktop-search-count" role="status"></p><div class="desktop-search-results" hidden="" id="desktop-search-results"></div><details class="studio-preferences"><summary>Appearance and controls</summary><div aria-label="Choose a desktop wallpaper" class="wallpaper-options" role="group"><span>Wallpaper</span><button aria-pressed="true" data-wallpaper-choice="studio" type="button"><span>Studio</span></button><button aria-pressed="false" data-wallpaper-choice="pacific" type="button"><span>Pacific</span></button><button aria-pressed="false" data-wallpaper-choice="eclipse" type="button"><span>Eclipse Bay</span></button><button aria-pressed="false" data-wallpaper-choice="alpine" type="button"><span>Alpine Lake</span></button><button aria-pressed="false" data-wallpaper-choice="slate" type="button"><span>Plain Slate</span></button></div><div class="studio-settings" aria-label="Desktop controls">
+  <button type="button" id="desktop-motion" aria-pressed="false">Motion on</button>
+  <button type="button" data-sound-toggle aria-pressed="false"><span>Sounds off</span></button>
+  <button type="button" id="desktop-fullscreen">Fullscreen</button>
+  <button type="button" id="desktop-help">Help</button>
+</div></details></dialog>
+
+<div class="desktop-toast" id="desktop-toast" role="status"></div>
+</div>
+<template id="desktop-assistant-content"><section data-desktop="true" aria-describedby="assistant-scope" aria-labelledby="assistant-title" class="assistant-dialog" id="assistant-dialog"><div class="assistant-shell">
+<div class="assistant-header"><div class="assistant-title-group"><span aria-hidden="true" class="assistant-indicator"></span><div><p>YOUR PORTFOLIO GUIDE</p><h2 id="assistant-title">J.A.R.V.I.S.</h2></div></div><button aria-label="Close assistant" class="icon-button" id="assistant-close" type="button"><svg aria-hidden="true" height="18" viewbox="0 0 20 20" width="18"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg></button></div>
+<div aria-label="Choose your assistant" class="assistant-tabs" role="group"><button aria-pressed="true" data-assistant-tab="jarvis" type="button">JARVIS</button><button aria-pressed="false" data-assistant-tab="friday" type="button">FRIDAY</button><button aria-pressed="false" data-assistant-tab="edith" type="button">EDITH</button></div>
+<div class="assistant-voice-bar"><div aria-hidden="true" class="speech-meter"><i></i><i></i><i></i><i></i><i></i></div><span aria-live="polite" id="assistant-voice-status" role="status">JARVIS · voice ready</span><button aria-pressed="false" id="assistant-voice-test" type="button">Hear JARVIS</button><button aria-pressed="false" id="assistant-auto-voice" type="button">Voice replies off</button></div>
+<details class="assistant-voice-settings"><summary>Voice &amp; sound</summary><div><p class="voice-delivery" id="assistant-voice-delivery">Calm British delivery</p><label class="volume-label" for="assistant-pace">Speaking pace <output for="assistant-pace" id="assistant-pace-value">1.00×</output></label><input id="assistant-pace" max="1.1" min="0.9" step="0.05" type="range" value="1"/><label class="volume-label" for="assistant-volume">Volume <output for="assistant-volume" id="assistant-volume-value">55%</output></label><input id="assistant-volume" max="100" min="0" step="5" type="range" value="55"/><button aria-pressed="false" id="assistant-sound-toggle" type="button">Desktop sounds off</button></div></details>
+<p class="assistant-scope" id="assistant-scope">Answers about Shashi, based on this portfolio. Source links included.</p>
+<div aria-label="Conversation" aria-live="polite" aria-relevant="additions" class="assistant-transcript" id="assistant-transcript" role="log" tabindex="0"></div>
+<div aria-label="Suggested questions" class="assistant-prompts" id="assistant-prompts" role="group"></div>
+<form class="assistant-form" id="assistant-form"><label for="assistant-question">Ask about my work</label><div><input autocomplete="off" id="assistant-question" maxlength="500" name="question" placeholder="Projects, research, experience…" required=""/><button aria-label="Send question" id="assistant-send" type="submit"><svg aria-hidden="true" height="20" viewbox="0 0 20 20" width="20"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg></button></div></form>
+<div class="assistant-bottom"><span>Portfolio knowledge · no web search</span><div><button hidden="" id="assistant-speak" type="button">Read reply</button><button id="assistant-clear" type="button">Clear chat</button></div></div>
+</div></section>
+</template>
+</main><noscript><section style="padding:30px;background:#10212b;color:white;position:fixed;inset:0;overflow:auto;z-index:9999"><h1>Shashikant Chaudhary</h1><p>AI, mathematics, research, teaching, and connected hardware.</p><p>This desktop uses JavaScript. You can also read the regular pages directly:</p><p><a href="about.html">Detailed profile</a> · <a href="experience.html">Experience</a> · <a href="projects.html">Projects</a> · <a href="coursework.html">Coursework</a> · <a href="playground.html">Playground</a> · <a href="cv.html">CV</a></p></section></noscript></body></html>
