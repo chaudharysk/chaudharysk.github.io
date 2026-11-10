@@ -99,3 +99,9 @@ The independent left column prevents detailed introductory copy from colliding w
 The user clarified natural character-style delivery rather than the exact VisionQuest actors. The earlier Windows desktop speech was replaced by Ryan, Sonia and Aria neural voices. Previews were generated before the full narration set. The neural service supplies finished audio during preparation; the published website uses only self-hosted MP3s. The player no longer falls back to a robotic device voice. A pitch-preserving pace control and volume replace the device-voice selector.
 
 The generation interface follows the [edge-tts project documentation](https://github.com/rany2/edge-tts), using supported voice, rate and pitch parameters. The Irish preview voice returned no audio, so the selected FRIDAY delivery uses Sonia. A small footer contrast fix is included in this edition. WORKSPACE.md and assets/audio/README.md identify the current assets and validation scope.
+
+## Editorial homepage · 10 November 2026
+
+- A consistent, responsive type scale follows the readability approach in the [GOV.UK Design System type scale](https://design-system.service.gov.uk/styles/type-scale/). Source Sans 3 is self-hosted from [Adobe's release branch](https://github.com/adobe-fonts/source-sans/tree/87b37a2daaed80fcb8e8ccb0085c4d72ddade12e), with its license beside the font.
+- The introduction and project descriptions use a short reading measure, informed by [W3C's visual presentation guidance](https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html).
+- The homepage uses spacing and rules to separate sections, as described in [GOV.UK's section break guidance](https://design-system.service.gov.uk/styles/section-break/). The Hermes photograph gives one project a clear visual focus. The full project list and Desktop edition have separate links.

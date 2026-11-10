@@ -1,8 +1,8 @@
-# Shashikant Chaudhary - personal desktop portfolio
+# Shashikant Chaudhary | Portfolio
 
 Live at https://chaudharysk.github.io/.
 
-A personal desktop portfolio with Pacific, an original macOS-inspired vector wallpaper, a set of nine SVG app icons, featured projects, a Dock and movable windows. The startup screen clears when the initial page assets are ready, with a seven-second fallback. The profile covers AI research, mathematics, teaching, university operations and connected hardware.
+The homepage presents a short introduction and three selected projects. The public pages share a compact navigation and Adobe Source Sans 3, self-hosted under the SIL Open Font License. The optional [Desktop edition](https://chaudharysk.github.io/desktop.html) retains Pacific wallpaper, app icons, movable windows and the startup animation.
 
 JARVIS, FRIDAY and EDITH have distinct natural character-style voices. Press Hear voice for a greeting, Read reply for the current answer, or enable Voice replies. Volume, pitch-preserving speaking pace and opt-in desktop sound effects are in Voice & sound. There is no page-load autoplay. The recordings use neural speech and load from this site; no visitor speech-generation service, microphone or API key is required. These remain portfolio guides with reviewed facts and evidence links.
 
