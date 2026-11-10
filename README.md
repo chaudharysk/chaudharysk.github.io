@@ -2,7 +2,7 @@
 
 Live at https://chaudharysk.github.io/.
 
-A personal OS with Eclipse Bay, a warm futuristic live wallpaper, original sculpted SVG icons, a detailed introduction, featured projects, a Dock and movable app windows. The profile combines AI research, mathematics, teaching, university operations and connected hardware. The new resume review adds concrete reporting, data-quality, home-lab, communication and independent-study examples.
+A personal desktop portfolio with Pacific, an original macOS-inspired vector wallpaper, a set of nine SVG app icons, featured projects, a Dock and movable windows. The startup screen clears when the initial page assets are ready, with a seven-second fallback. The profile covers AI research, mathematics, teaching, university operations and connected hardware.
 
 JARVIS, FRIDAY and EDITH have distinct natural character-style voices. Press Hear voice for a greeting, Read reply for the current answer, or enable Voice replies. Volume, pitch-preserving speaking pace and opt-in desktop sound effects are in Voice & sound. There is no page-load autoplay. The recordings use neural speech and load from this site; no visitor speech-generation service, microphone or API key is required. These remain portfolio guides with reviewed facts and evidence links.
 

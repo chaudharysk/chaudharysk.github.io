@@ -45,11 +45,12 @@
   const windowFor=app=>document.querySelector('.desktop-window[data-app="'+app+'"]');
   const windowAction=(app,action)=>windowFor(app)?.querySelector('[data-window-action="'+action+'"]')?.click();
   function wallpaperItems(){
-    return [
-      {label:'Eclipse Bay',radio:true,checked:document.body.dataset.wallpaper==='eclipse',action:()=>document.querySelector('[data-wallpaper-choice="eclipse"]').click()},
-      {label:'Alpine Lake',radio:true,checked:['eclipse','alpine'].includes(document.body.dataset.wallpaper),action:()=>document.querySelector('[data-wallpaper-choice="alpine"]').click()},
-      {label:'Plain Slate',radio:true,checked:document.body.dataset.wallpaper==='slate',action:()=>document.querySelector('[data-wallpaper-choice="slate"]').click()}
-    ];
+    return [...document.querySelectorAll('[data-wallpaper-choice]')].map(button => ({
+      label: button.textContent.trim(),
+      radio: true,
+      checked: document.body.dataset.wallpaper === button.dataset.wallpaperChoice,
+      action: () => button.click()
+    }));
   }
   function animationItems(){
     return [
