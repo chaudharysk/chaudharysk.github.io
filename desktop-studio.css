@@ -78,21 +78,21 @@
 .desktop-page .note-actions>a { font-size: 14px; font-weight: 600; color: var(--studio-accent); }
 .desktop-page .studio-content .desktop-shortcuts {
   position: static; width: auto; display: grid; padding: 0;
-  grid-template-columns: 84px; gap: 7px; z-index: 2;
+  grid-template-columns: 88px; gap: 9px; z-index: 2;
 }
 .desktop-page .studio-content .desktop-shortcuts>button {
-  width: 100%; min-height: 66px; gap: 2px; padding: 4px 1px; border-radius: 8px;
+  width: 100%; min-height: 78px; gap: 2px; padding: 4px 1px; border-radius: 8px;
   animation: none; transition: background .15s;
 }
 .desktop-page .studio-content .desktop-shortcuts>button:hover { background: #ffffff68; border-color: #ffffff8a; }
-.desktop-page .studio-content .desktop-shortcuts .desktop-app-icon { width: 47px; height: 47px; }
-.desktop-page .studio-content .desktop-shortcuts .desktop-app-icon>img { filter: drop-shadow(0 2px 2px #21384322); transform: none; }
+.desktop-page .studio-content .desktop-shortcuts .desktop-app-icon { width: 59px; height: 59px; }
+.desktop-page .studio-content .desktop-shortcuts .desktop-app-icon>img { filter: drop-shadow(0 3px 2px #13275845); transform: none; }
 .desktop-page .studio-content .desktop-shortcuts>button>span:last-child {
   border: 0; border-radius: 6px; background: #162248a6; color: #fff;
   text-shadow: 0 1px 2px #19295436; padding: 2px 6px; font: 600 13px/1.25 var(--font);
 }
 .desktop-page .desktop-taskbar {
-  height: 52px; bottom: 11px; padding: 4px 6px; gap: 5px;
+  height: 59px; bottom: 11px; padding: 4px 6px; gap: 5px;
   max-width: calc(100% - 22px); border-radius: 17px; background: linear-gradient(150deg, #f3f7ffc9, #e7efff7d);
   border-color: #f3f7ffc2; box-shadow: inset 0 1px 0 #fff8, 0 8px 26px #13266050;
   backdrop-filter: blur(24px) saturate(1.65);
@@ -102,10 +102,10 @@
   border: 0!important; border-right: 1px solid #bdcdd1!important; border-radius: 0;
   background: transparent!important; box-shadow: none; padding: 0 3px 0 0; color: var(--studio-copy)!important;
 }
-.desktop-page .desktop-task-apps { height: 42px; gap: 3px; max-width: none; }
-.desktop-page .task-app { min-width: 38px; width: 38px; height: 40px; padding: 0; border-radius: 7px; }
-.desktop-page .task-app>span:first-child { width: 34px; height: 34px; }
-.desktop-page .task-app>span:first-child>img { filter: none; }
+.desktop-page .desktop-task-apps { height: 48px; gap: 3px; max-width: none; }
+.desktop-page .task-app { min-width: 44px; width: 44px; height: 46px; padding: 0; border-radius: 9px; }
+.desktop-page .task-app>span:first-child { width: 43px; height: 43px; overflow: visible; }
+.desktop-page .task-app>span:first-child>img { filter: drop-shadow(0 2px 1px #172b5945); }
 .desktop-page .task-app:hover, .desktop-page .task-app:focus-visible { scale: 1; translate: 0 -2px; }
 .desktop-page .task-app.running:after { background: #496763; bottom: 0; }
 .desktop-page .task-app[aria-pressed=true]:after { background: var(--studio-accent); }
@@ -128,7 +128,7 @@
 .desktop-page .desktop-start-menu>label { font: 650 22px/1.15 var(--font); color: var(--studio-ink); }
 .desktop-page .desktop-start-menu .start-menu-header { margin-bottom: 7px; }
 .desktop-page .start-app-list>button { min-height: 68px; padding: 6px; gap: 3px; }
-.desktop-page .start-app-list>button>span { width: 33px; height: 33px; }
+.desktop-page .start-app-list>button>span { width: 40px; height: 40px; }
 .desktop-page .start-app-list>button strong { font-size: 13px; }
 .desktop-page .start-app-list>button small { display: none; }
 .desktop-page .wallpaper-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -150,6 +150,12 @@
     top: 37px!important; bottom: 76px!important; height: calc(100dvh - 113px)!important;
   }
   .desktop-page .wallpaper-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .desktop-page .desktop-taskbar { height: 52px; }
+  .desktop-page .desktop-task-apps { height: 42px; }
+  .desktop-page .task-app { min-width: 38px; width: 38px; height: 40px; }
+  .desktop-page .task-app>span:first-child { width: 37px; height: 37px; }
 }
 @media (max-width: 370px) {
   #desktop-quick-find>span { display: none; }

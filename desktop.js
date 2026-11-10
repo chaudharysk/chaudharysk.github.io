@@ -15,14 +15,14 @@
   };
   const windows=new Map();let order=20,active=null,toastTimer,menuOpen=false,routing=false;
   const dockButtons=new Map(),pinned=new Set(['profile','projects','experience','cv','contact','assistants']);
-  const iconAsset=id=>'assets/desktop-glyphs.svg#'+(id==='help'?'assistants':id);
+  const iconAsset=id=>'assets/desktop-glyphs.svg?v=20261110-mac#'+(id==='help'?'assistants':id);
   function appImage(id){const image=document.createElement('img');image.src=iconAsset(id);image.alt='';image.draggable=false;image.width=128;image.height=128;return image;}
   function dockItem(id){
     if(dockButtons.has(id))return dockButtons.get(id);
     const app=apps[id],button=document.createElement('button');
     button.type='button';button.className='task-app';button.dataset.app=id;
     button.setAttribute('aria-label','Show '+app.name);button.setAttribute('aria-pressed','false');
-    const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.append(appImage(id));
+    const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.append(appImage(id === 'projects' ? 'finder' : id));
     const label=document.createElement('span');label.textContent=app.name;button.append(icon,label);
     button.addEventListener('click',()=>{const state=windows.get(id);if(state&&!state.element.hidden&&active===id&&!state.minimising)minimise(id);else open(id);});
     taskApps.append(button);dockButtons.set(id,button);return button;
