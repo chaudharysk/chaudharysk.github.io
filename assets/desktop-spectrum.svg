@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1=".11" y1=".06" x2=".86" y2=".94"><stop stop-color="#447ae2"/><stop offset=".48" stop-color="#3f57c5"/><stop offset="1" stop-color="#202477"/></linearGradient>
+    <linearGradient id="plum" x1=".16" y1=".9" x2=".83" y2=".1"><stop stop-color="#2f48b3"/><stop offset=".55" stop-color="#816de1"/><stop offset="1" stop-color="#e18ec1"/></linearGradient>
+    <linearGradient id="warm" x1=".1" y1=".2" x2=".91" y2=".84"><stop stop-color="#ffc298"/><stop offset=".52" stop-color="#f387b8"/><stop offset="1" stop-color="#9e78e3"/></linearGradient>
+    <linearGradient id="blue" x1=".16" y1=".86" x2=".94" y2=".16"><stop stop-color="#203184"/><stop offset=".46" stop-color="#376be0"/><stop offset="1" stop-color="#81c7ff"/></linearGradient>
+    <linearGradient id="light" x1=".08" y1="1" x2=".96" y2=".22"><stop stop-color="#2f43ac"/><stop offset=".52" stop-color="#5e7de8"/><stop offset="1" stop-color="#a5e2f3"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1920v1080H0z"/>
+  <path fill="url(#plum)" d="M447 0h1473v1080H693C851 821 835 606 673 434 552 305 396 197 447 0Z"/>
+  <path fill="url(#warm)" d="M1167 0h753v553c-195-25-412-140-545-302C1283 137 1237 47 1167 0Z"/>
+  <path fill="url(#blue)" d="M0 827c352 84 570 34 848-126 316-182 650-351 1072-243v622H0Z"/>
+  <path fill="url(#light)" d="M491 1080c261-172 478-331 737-388 227-50 462-48 692 41v347Z"/>
+  <path d="M0 828c352 84 570 34 848-126 316-182 650-351 1072-243M491 1080c261-172 478-331 737-388 227-50 462-48 692 41" fill="none" stroke="#ecf4ff" stroke-opacity=".42" stroke-width="2"/>
+</svg>

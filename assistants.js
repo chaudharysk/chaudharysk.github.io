@@ -13,9 +13,9 @@
   const send = document.querySelector('#assistant-send');
   const speak = document.querySelector('#assistant-speak');
   const personas = {
-    jarvis: {name:'J.A.R.V.I.S.', greeting:"Hello. I'm Jarvis. Ready when you are. Let's take a look at Shashi's research, and the things he's built.", intro:'Here’s the technical picture.', prompts:['Explain the OULAD pipeline','Tell me about Hermes Watcher','What research has Shashi published?'], rate:.94},
-    friday: {name:'F.R.I.D.A.Y.', greeting:"Hi. I'm Friday. Want to get to know Shashi? I can walk you through his story, his teaching, and the way he works.", intro:'Here’s the background and contribution.', prompts:['Give me a short introduction to Shashi','What has he taught?','What skills does he bring?'], rate:1},
-    edith: {name:'E.D.I.T.H.', greeting:"Hello, I'm Edith. Let's find you something interesting. Projects, experiments, reports. Where would you like to start?", intro:'Here’s what to explore, with the sources below.', prompts:['Show me the project code','Where are the deep learning reports?','How can I contact Shashi?'], rate:.98}
+    jarvis: {name:desktopMode?'Jarvis':'J.A.R.V.I.S.', greeting:"Hello. I'm Jarvis. Ready when you are. Let's take a look at Shashi's research, and the things he's built.", intro:'Here’s the technical picture.', prompts:['Explain the OULAD pipeline','Tell me about Hermes Watcher','What research has Shashi published?'], rate:.94},
+    friday: {name:desktopMode?'Friday':'F.R.I.D.A.Y.', greeting:"Hi. I'm Friday. Want to get to know Shashi? I can walk you through his story, his teaching, and the way he works.", intro:'Here’s the background and contribution.', prompts:['Give me a short introduction to Shashi','What has he taught?','What skills does he bring?'], rate:1},
+    edith: {name:desktopMode?'Edith':'E.D.I.T.H.', greeting:"Hello, I'm Edith. Let's find you something interesting. Projects, experiments, reports. Where would you like to start?", intro:'Here’s what to explore, with the sources below.', prompts:['Show me the project code','Where are the deep learning reports?','How can I contact Shashi?'], rate:.98}
   };
   const conversations = {jarvis:[], friday:[], edith:[]};
   const lastTopics = {};
@@ -51,7 +51,32 @@
     if(announce)transcript.scrollTop=message.user?transcript.scrollHeight:transcript.scrollTop+article.getBoundingClientRect().top-transcript.getBoundingClientRect().top-10;
   }
   function addMessage(message) {conversations[active].push(message);renderMessage(message);}
-  function renderPrompts() {prompts.replaceChildren();personas[active].prompts.forEach(text=>{const button=document.createElement('button');button.type='button';button.textContent=text;button.addEventListener('click',()=>ask(text));prompts.append(button)});}
+  const desktopPromptLabels = {
+    jarvis: ['OULAD pipeline', 'Hermes Watcher', 'Published research'],
+    friday: ['About Shashi', 'Teaching', 'Skills'],
+    edith: ['Project code', 'Course reports', 'Contact']
+  };
+  function renderPrompts() {
+    prompts.replaceChildren();
+    personas[active].prompts.forEach((text, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = desktopMode ? desktopPromptLabels[active][index] : text;
+      button.addEventListener('click', () => ask(text));
+      prompts.append(button);
+    });
+  }
+  const voiceSettings = desktopMode ? dialog.querySelector('.assistant-voice-settings') : null;
+  if (voiceSettings) {
+    voiceSettings.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !voiceSettings.open) return;
+      voiceSettings.open = false;
+      voiceSettings.querySelector('summary').focus();
+    });
+    dialog.addEventListener('pointerdown', event => {
+      if (!voiceSettings.contains(event.target)) voiceSettings.open = false;
+    });
+  }
   function setPersona(id) {
     if(!personas[id]||busy)return;
     window.portfolioAudio?.setPersona(id);

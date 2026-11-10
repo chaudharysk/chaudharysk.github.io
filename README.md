@@ -2,7 +2,7 @@
 
 Live at https://chaudharysk.github.io/.
 
-The homepage is a desktop workspace with a compact introduction, three shortcuts, a Dock and movable app windows. Source Sans 3 is shared with the public reading pages. The Studio wallpaper, flat app glyphs and window controls are rendered locally.
+The homepage is a desktop workspace with a compact introduction, three shortcuts, a Dock and movable app windows. Native system typography is shared with the public reading pages. The Spectrum wallpaper, glass app glyphs and window controls are rendered locally.
 
 JARVIS, FRIDAY and EDITH have distinct natural character-style voices. Press Hear voice for a greeting, Read reply for the current answer, or enable Voice replies. Volume, pitch-preserving speaking pace and opt-in desktop sound effects are in Voice & sound. There is no page-load autoplay. The recordings use neural speech and load from this site; no visitor speech-generation service, microphone or API key is required. These remain portfolio guides with reviewed facts and evidence links.
 

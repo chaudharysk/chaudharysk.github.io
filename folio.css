@@ -1,13 +1,5 @@
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('assets/source-sans-3.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
 .folio {
-  --folio-font: 'Source Sans 3', system-ui, sans-serif;
+  --folio-font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --folio-paper: #f8f8f4;
   --folio-ink: #20241f;
   --folio-copy: #475049;

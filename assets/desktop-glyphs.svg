@@ -1,47 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <view id="profile" viewBox="0 0 64 64"/>
   <g transform="translate(0)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#dcece6" stroke="#28624f" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-0" x2=".7" y2="1"><stop stop-color="#e5faff"/><stop offset="1" stop-color="#8fcaf6"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-0)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#28624f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="24" r="6"/><path d="M20 43v-3c0-5 5-9 12-9s12 4 12 9v3"/></g>
   </g>
   <view id="projects" viewBox="64 0 64 64"/>
   <g transform="translate(64)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#dceaf8" stroke="#2d5b88" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-1" x2=".7" y2="1"><stop stop-color="#e6f5ff"/><stop offset="1" stop-color="#9ac0fb"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-1)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#2d5b88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 25v-4h12l4 5h14v19H17zM17 30h30"/></g>
   </g>
   <view id="experience" viewBox="128 0 64 64"/>
   <g transform="translate(128)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#f1e7d9" stroke="#7c5031" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-2" x2=".7" y2="1"><stop stop-color="#fff0de"/><stop offset="1" stop-color="#f3ba96"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-2)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#7c5031" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="24" width="28" height="21" rx="4"/><path d="M27 24v-5h10v5M18 32c9 5 19 5 28 0M30 35h4"/></g>
   </g>
   <view id="coursework" viewBox="192 0 64 64"/>
   <g transform="translate(192)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#e3e9f7" stroke="#485b91" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-3" x2=".7" y2="1"><stop stop-color="#f0efff"/><stop offset="1" stop-color="#b7abf3"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-3)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#485b91" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 22c-6-4-12-5-16-3v24c5-2 10-1 16 3 6-4 11-5 16-3V19c-4-2-10-1-16 3zm0 0v24"/></g>
   </g>
   <view id="playground" viewBox="256 0 64 64"/>
   <g transform="translate(256)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#e7ede2" stroke="#486847" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-4" x2=".7" y2="1"><stop stop-color="#e3ffed"/><stop offset="1" stop-color="#9bdcc8"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-4)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#486847" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="19" y="22" width="26" height="21" rx="4"/><path d="m29 28 8 4-8 5zM28 48h8"/></g>
   </g>
   <view id="cv" viewBox="320 0 64 64"/>
   <g transform="translate(320)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#e9e5f4" stroke="#5f4d84" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-5" x2=".7" y2="1"><stop stop-color="#f8eeff"/><stop offset="1" stop-color="#c9b1f1"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-5)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#5f4d84" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 17h13l7 7v23H23zm13 0v8h7M28 31h10m-10 6h10m-10 5h6"/></g>
   </g>
   <view id="contact" viewBox="384 0 64 64"/>
   <g transform="translate(384)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#e0edf0" stroke="#32606f" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-6" x2=".7" y2="1"><stop stop-color="#e5fbff"/><stop offset="1" stop-color="#a1d9ef"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-6)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#32606f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="22" width="30" height="22" rx="4"/><path d="m19 25 13 10 13-10"/></g>
   </g>
   <view id="terminal" viewBox="448 0 64 64"/>
   <g transform="translate(448)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#e2e8eb" stroke="#354c59" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-7" x2=".7" y2="1"><stop stop-color="#edf3fc"/><stop offset="1" stop-color="#adc0df"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-7)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#354c59" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="19" width="32" height="27" rx="5"/><path d="m23 27 6 6-6 6m10 0h9"/></g>
   </g>
   <view id="assistants" viewBox="512 0 64 64"/>
   <g transform="translate(512)">
-    <rect x="4" y="4" width="56" height="56" rx="13" fill="#efe5f0" stroke="#75507c" stroke-opacity=".22"/>
+    <defs><linearGradient id="glyph-8" x2=".7" y2="1"><stop stop-color="#fceaff"/><stop offset="1" stop-color="#d3a9ee"/></linearGradient></defs>
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#glyph-8)" stroke="#fff" stroke-opacity=".86"/>
+    <path d="M9 18c0-6 4-10 10-10h26" fill="none" stroke="#fff" stroke-opacity=".65"/>
     <g fill="none" stroke="#75507c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 31v6m7-12v18m7-24v30m7-24v18m7-12v6"/></g>
   </g>
 </svg>
