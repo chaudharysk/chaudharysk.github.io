@@ -18,6 +18,26 @@
       "Shashikant Chaudhary works across AI, mathematics, research, teaching, and connected hardware. His education combines a B.Tech in Computer Science and Engineering with master’s degrees in Mathematics and Computing and Artificial Intelligence and Machine Learning.",
       "His work includes personalised learning with LLMs, conversational risk analysis, student learning analytics, firmware and Python tools, and university teaching. Student-facing university roles have also shaped his clear, practical approach to communication."
     ],
+    "visuals": [
+      {
+        "src": "assets/media/oulad-workflow.svg",
+        "alt": "A three-stage diagram from seven OULAD tables to weekly activity features and risk modelling",
+        "title": "Student learning analytics",
+        "caption": "Joined seven tables to study student withdrawal and failure.",
+        "href": "projects/oulad.html",
+        "width": 640,
+        "height": 420
+      },
+      {
+        "src": "assets/media/hermes-watcher-working.webp",
+        "alt": "The SenseCAP Watcher screen showing a task in progress",
+        "title": "Hermes Watcher",
+        "caption": "Shows what a computer-based AI agent is doing on a desk display.",
+        "href": "projects/hermes.html",
+        "width": 900,
+        "height": 1200
+      }
+    ],
     "links": [
       [
         "Read the detailed profile",
@@ -90,6 +110,17 @@
       "As a Casual Academic / Teaching Support during 2025–2026, Shashi supported undergraduate and postgraduate tutorials, practical sessions, workshops, assessment, and constructive feedback with course teams.",
       "Across different teaching periods, he supported Mathematics for Machine Learning; Mathematics for Data Analytics A and B; Advanced Topics in AI and Machine Learning; Concepts in Cyber Security; and Mathematics for Data Science. He helped connect mathematical concepts with practical implementation.",
       "He adapts explanations using pictures and small worked examples, checks for understanding, and prepares clear technical notes and feedback."
+    ],
+    "visuals": [
+      {
+        "src": "assets/media/teaching-subjects.svg",
+        "alt": "Selected courses in machine learning mathematics, data analytics and advanced AI",
+        "title": "Subjects Shashi supported",
+        "caption": "Tutorials, practicals and assessment across mathematics, data analytics and AI.",
+        "href": "experience.html#teaching",
+        "width": 640,
+        "height": 420
+      }
     ],
     "links": [
       [
@@ -205,6 +236,17 @@
       "Hermes Watcher connects Hermes Agent to a SenseCAP Watcher so agent activity and requests for input are visible on a physical device. The bridge uses Python, MQTT, and embedded C firmware.",
       "The agent runs on the computer; the Watcher displays its status. Approval stays in chat. The project includes a setup guide and validation notes, rather than claiming the model runs on the small device."
     ],
+    "visuals": [
+      {
+        "src": "assets/media/hermes-watcher-working.webp",
+        "alt": "The SenseCAP Watcher screen showing a task in progress",
+        "title": "Hermes Watcher in use",
+        "caption": "The display updates as the agent works on the computer.",
+        "href": "projects/hermes.html",
+        "width": 900,
+        "height": 1200
+      }
+    ],
     "links": [
       [
         "Read the case study",
@@ -238,6 +280,17 @@
       "Shashi combined seven linked Open University Learning Analytics Dataset tables, covering 32,593 student records and 10,655,280 interaction records, to explore withdrawal and failure prediction.",
       "His work included validation, cleaning, joins, weekly activity aggregation, feature engineering, and modelling. Repeatable Python scripts and row/key checks helped keep the data workflow consistent. The associated manuscript is in preparation, not a published result.",
       "He kept raw files unchanged, checked row counts and totals after joins, and documented activity-trend and submission-timing features. Settled exploratory logic was moved into reusable Python code."
+    ],
+    "visuals": [
+      {
+        "src": "assets/media/oulad-workflow.svg",
+        "alt": "A three-stage diagram from seven OULAD tables to weekly activity features and risk modelling",
+        "title": "From raw tables to weekly features",
+        "caption": "Python checks and joins prepare the activity data for modelling.",
+        "href": "projects/oulad.html",
+        "width": 640,
+        "height": 420
+      }
     ],
     "links": [
       [
@@ -361,6 +414,17 @@
     "answer": [
       "During his January–April 2020 technical internship at Hatchnhack, Shashi worked on an Arduino-based educational board: firmware, a Python hardware-control library, and a GUI for monitoring sensors and controlling actuators.",
       "The work connected device readings to a dashboard using MQTT, with Git for collaboration. The Playground includes three recordings showing the board and desktop interface in action."
+    ],
+    "visuals": [
+      {
+        "src": "assets/media/arbd1-board-interface.webp",
+        "alt": "The ARBD1 board and its Python monitoring interface",
+        "title": "ARBD1 board and interface",
+        "caption": "Firmware and Python bring live readings from the board into a monitoring interface.",
+        "href": "projects/sensors.html",
+        "width": 960,
+        "height": 540
+      }
     ],
     "links": [
       [

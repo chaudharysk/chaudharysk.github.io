@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-labelledby="title desc">
+  <title id="title">University teaching</title>
+  <desc id="desc">Selected teaching areas include mathematics for machine learning, mathematics for data analytics, and advanced artificial intelligence.</desc>
+  <rect width="640" height="420" fill="#e8f4ef"/>
+  <g font-family="system-ui, sans-serif" fill="#173b33">
+    <text x="48" y="57" fill="#286350" font-size="26" font-weight="650" letter-spacing="2">UNIVERSITY TEACHING</text>
+    <path d="M48 164h544m-544 108h544m-544 108h544" stroke="#9dc9b9" stroke-width="2"/>
+    <g font-size="35" font-weight="650">
+      <text x="48" y="112">Maths for Machine Learning</text>
+      <text x="48" y="220">Maths for Data Analytics</text>
+      <text x="48" y="328">Advanced Topics in AI &amp; ML</text>
+    </g>
+    <g fill="#36685a" font-size="25">
+      <text x="48" y="145">MATH 1022</text>
+      <text x="48" y="253">MATH 5109 · MATH 5110</text>
+      <text x="48" y="361">Adelaide University</text>
+    </g>
+  </g>
+</svg>

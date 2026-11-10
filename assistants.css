@@ -8,3 +8,38 @@
 @media(max-width:680px){.assistant-launcher{right:14px;bottom:15px;width:48px;height:48px;padding:11px;justify-content:center}.assistant-launcher>span:not(.launcher-orbit),.assistant-launcher>svg{display:none}.assistant-dialog{inset:auto 10px 10px;width:calc(100% - 20px);max-width:none;height:min(720px,calc(100dvh - 20px));border-radius:15px}.assistant-header{padding:17px}.assistant-title-group h2{font-size:16px}.assistant-transcript{padding:17px}.assistant-scope{padding-inline:17px;font-size:10px}.assistant-prompts{padding-inline:17px}.assistant-form{padding-inline:17px}.assistant-form input{font-size:16px;padding-block:12px}.assistant-bottom{padding-inline:17px;font-size:7px}.assistant-bottom button{font-size:9px}.message-user{margin-left:20px}.assistant-message p{font-size:13px}}
 @media(max-height:600px){.assistant-prompts,.assistant-scope{display:none}.assistant-header{padding:10px 17px}.assistant-transcript{min-height:50px}.assistant-bottom{padding:7px 17px}.assistant-form{padding-bottom:10px}.assistant-tabs button{min-height:36px}}
 @media print{.assistant-launcher,.assistant-dialog{display:none!important}}
+
+.message-visuals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.message-visuals figure {
+  max-width: 290px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 19%, transparent);
+  border-radius: 12px;
+}
+.message-visuals img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 32 / 21;
+  object-fit: cover;
+  object-position: center 32%;
+}
+.message-visuals figcaption {
+  display: grid;
+  gap: 3px;
+  padding: 9px 10px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.message-visuals a {
+  color: inherit;
+  font-weight: 650;
+  text-underline-offset: 2px;
+}

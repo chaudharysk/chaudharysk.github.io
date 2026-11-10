@@ -14,3 +14,39 @@
 @media(min-width:681px){.profile-section-label{position:sticky;top:115px;align-self:start}}
 @media(max-width:1000px){.profile-section{gap:40px;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr)}.profile-degree{grid-template-columns:1fr;gap:10px}.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.maker-layout{gap:40px}.maker-layout img{height:270px}.approach-grid{gap:24px}}
 @media(max-width:680px){.profile-hero{padding-bottom:20px}.profile-facts{gap:18px 24px;margin-top:27px}.profile-facts>span{font-size:11px;max-width:145px;gap:9px}.profile-facts strong{font-size:44px}.profile-tabs{gap:24px}.profile-tabs>a{font-size:14px;padding-block:12px}.section-index{gap:10px 19px;padding-top:17px}.section-index>span{width:100%}.section-index>a{font-size:12px}.profile-section{display:block;padding-block:42px}.profile-section-label{margin-bottom:28px}.profile-section-label>span{margin-bottom:15px;font-size:10px}.profile-section-label h2{font-size:42px}.profile-section-label>p{max-width:none;font-size:15px;margin-top:18px}.profile-prose>.profile-lead{font-size:19px}.profile-prose>p,.profile-research>p:not(.eyebrow),.community-list p,.career-role>p,.career-role li{font-size:15px}.profile-prose>.text-link{font-size:12px}.profile-degree h3{font-size:29px}.profile-degree{padding-bottom:28px;margin-bottom:28px}.profile-degree>span{font-size:10px}.profile-degree .degree-detail{font-size:14px}.profile-degree .degree-note{font-size:11px}.profile-research h3{font-size:21px}.profile-research>.profile-citation{font-size:11px!important}.profile-skills-band{padding-block:42px}.section-intro{max-width:none;margin-top:19px}.skill-grid{grid-template-columns:1fr}.skill-card{padding:25px}.skill-symbol{margin-bottom:17px}.skill-card>p{font-size:14px}.skill-card h3{font-size:20px}.community-list h3{font-size:20px}.maker-layout{grid-template-columns:1fr;gap:32px}.profile-maker-band{padding-block:42px}.maker-layout h2{font-size:50px}.maker-layout p:not(.eyebrow){font-size:15px}.maker-layout figure{margin:6px 10px 8px 2px}.maker-layout img{height:240px}.approach-grid{grid-template-columns:1fr;gap:25px}.approach-grid article{position:relative;padding-left:50px}.approach-grid article>span{position:absolute;left:0;top:22px;font-size:30px}.approach-grid h3{margin-top:0;font-size:19px}.approach-grid p{font-size:14px;margin-bottom:0}.profile-next{display:block;margin-top:32px;padding-top:24px}.profile-next>p{font-size:18px}.profile-next .button{margin-top:10px;font-size:13px}.profile-next h2{font-size:31px}.career-role h3{font-size:24px}.career-organisation{font-size:13px}.career-role li{padding-left:2px;margin-bottom:12px}.course-list{padding:18px 16px}.course-list dl>div{grid-template-columns:1fr;gap:3px}.course-list dt{font-size:11px}.course-list dd{font-size:13px}.career-stack>.career-role{padding-bottom:30px;margin-bottom:30px}}
+
+.profile-work-visuals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.profile-work-visual {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--folio-line, #d4dbe6);
+  border-radius: 12px;
+}
+.profile-work-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 32 / 21;
+  object-fit: cover;
+  object-position: center 32%;
+}
+.profile-work-visual figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 11px 13px 13px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.profile-work-visual figcaption a {
+  font-weight: 650;
+  text-underline-offset: 3px;
+}
+.profile-work-visual-teaching {
+  max-width: 420px;
+  margin-block: 20px;
+}

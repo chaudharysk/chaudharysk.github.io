@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-labelledby="title desc">
+  <title id="title">Student learning analytics</title>
+  <desc id="desc">Seven linked OULAD tables are cleaned and joined. Activity and submissions become weekly features for models of withdrawal and failure.</desc>
+  <rect width="640" height="420" fill="#e9f1ff"/>
+  <path d="M87 109v202" stroke="#8aa9e2" stroke-width="4"/>
+  <g font-family="system-ui, sans-serif" fill="#172d54">
+    <text x="48" y="57" fill="#285397" font-size="26" font-weight="650" letter-spacing="2">OULAD · DATA WORKFLOW</text>
+    <g fill="#fff" stroke="#a6bee9" stroke-width="2">
+      <rect x="48" y="83" width="78" height="70" rx="15"/>
+      <rect x="48" y="194" width="78" height="70" rx="15"/>
+      <rect x="48" y="305" width="78" height="70" rx="15"/>
+    </g>
+    <g fill="none" stroke="#245cb2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="67" y="102" width="40" height="32" rx="4"/><path d="M67 113h40m-40 10h40m-26-21v32"/>
+      <path d="M69 246v-14m12 14v-22m12 22v-17m12 17v-33"/>
+      <path d="M68 345l13 11 25-27"/>
+    </g>
+    <g font-size="39" font-weight="660">
+      <text x="154" y="115">7 linked tables</text>
+      <text x="154" y="226">Weekly activity</text>
+      <text x="154" y="337">Risk modelling</text>
+    </g>
+    <g fill="#3b537a" font-size="28">
+      <text x="154" y="149">Clean, validate and join</text>
+      <text x="154" y="260">Build features from logs</text>
+      <text x="154" y="371">Explore withdrawal and failure</text>
+    </g>
+  </g>
+</svg>

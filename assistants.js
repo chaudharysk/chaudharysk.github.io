@@ -24,26 +24,54 @@
   function normalise(value) { return value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); }
   function tokens(value) { return [...new Set(normalise(value).split(' ').filter(word=>word.length>1&&!stopWords.has(word)).map(word=>word.length>4?word.replace(/s$/,''):word))]; }
   function loadKnowledge() {
-    if (!knowledgePromise) knowledgePromise = fetch(new URL('assets/portfolio-knowledge.json',scriptBase)).then(response=>{if(!response.ok)throw new Error('Knowledge unavailable');return response.json()}).then(records=>{
+    if (!knowledgePromise) knowledgePromise = fetch(new URL('assets/portfolio-knowledge.json?v=20261110-visuals',scriptBase)).then(response=>{if(!response.ok)throw new Error('Knowledge unavailable');return response.json()}).then(records=>{
       if(!Array.isArray(records))throw new Error('Invalid knowledge');
       records.forEach(record=>{record.tokenSet=new Set(tokens(record.keywords.join(' ')));});
       return records;
     }).catch(error=>{knowledgePromise=null;throw error});
     return knowledgePromise;
   }
-  function linkElement(label,href) {
+  function linkElement(label,href,showArrow=true) {
     const url=new URL(href,scriptBase);
     if(!['https:','http:','mailto:'].includes(url.protocol))return null;
-    const link=document.createElement('a');link.href=url.href;link.textContent=label+' ↗';
+    const link=document.createElement('a');link.href=url.href;link.textContent=showArrow?label+' ↗':label;
     if(desktopMode&&url.origin===location.origin&&url.pathname.endsWith('.html'))link.addEventListener('click',event=>{event.preventDefault();window.dispatchEvent(new CustomEvent('desktop:navigate',{detail:{href:url.href}}));});
     if(url.origin!==location.origin&&url.protocol!=='mailto:'){link.target='_blank';link.rel='noopener noreferrer';}
     if(url.pathname.endsWith('.pdf')){link.target='_blank';link.rel='noopener';}
     return link;
   }
+  function renderVisuals(visuals) {
+    const gallery = document.createElement('div');
+    gallery.className = 'message-visuals';
+    visuals.forEach(visual => {
+      const figure = document.createElement('figure');
+      const image = document.createElement('img');
+      image.src = new URL(visual.src, scriptBase).href;
+      image.alt = visual.alt;
+      image.width = visual.width;
+      image.height = visual.height;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      const caption = document.createElement('figcaption');
+      const link = linkElement(visual.title, visual.href, false);
+      const detail = document.createElement('span');
+      detail.textContent = visual.caption;
+      if (link) caption.append(link);
+      caption.append(detail);
+      figure.append(image, caption);
+      gallery.append(figure);
+    });
+    return gallery;
+  }
   function renderMessage(message,announce=true) {
     const article=document.createElement('article');article.className='assistant-message '+(message.user?'message-user':'message-guide');
     const label=document.createElement('span');label.className='message-label';label.textContent=message.user?'YOU':personas[active].name;article.append(label);
-    message.paragraphs.forEach(text=>{const p=document.createElement('p');p.textContent=text;article.append(p)});
+    message.paragraphs.forEach((text, index) => {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = text;
+      article.append(paragraph);
+      if (index === 0 && message.visuals?.length) article.append(renderVisuals(message.visuals));
+    });
     if(message.topic)article.dataset.topic=message.topic;
     if(message.links?.length){const links=document.createElement('div');links.className='message-sources';message.links.forEach(([label,href])=>{const link=linkElement(label,href);if(link)links.append(link)});article.append(links);}
     transcript.append(article);
@@ -110,7 +138,7 @@
       if(/^(hi|hello|hey|help|thanks|thank you|what can you do)[ !?.]*$/i.test(text))reply={topic:/thank/i.test(text)?'thanks':'welcome',paragraphs:[/thank/i.test(text)?'You’re welcome. What else would you like to explore?':personas[active].greeting]};
       else {
         const record=bestRecord(text,records);
-        if(record){lastTopics[active]=record.id;reply={topic:record.id,paragraphs:[personas[active].intro,...record.answer],links:record.links};}
+        if(record){lastTopics[active]=record.id;reply={topic:record.id,paragraphs:[personas[active].intro,...record.answer],links:record.links,visuals:record.visuals};}
         else reply={topic:'outside-portfolio',paragraphs:['That’s outside my portfolio knowledge. I can help with Shashi’s education, research, projects, teaching, experience, coursework, and contact details. Try a project name or a more specific question.'],links:[['Explore the detailed profile','about.html'],['Browse projects','projects.html']]};
       }
       pending.remove();addMessage(reply);window.portfolioAudio?.reply(reply.paragraphs.join(' '),reply.topic);
