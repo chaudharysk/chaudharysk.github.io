@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1190" viewBox="0 0 960 1190" role="group" aria-labelledby="path-title path-description" class="learning-path-svg">
+<title id="path-title">AI learning path: starting in 2027 and building toward expertise</title>
+<desc id="path-description">Three lanes run alongside each other: foundations, language models, and applications. Six aligned learning bands run from recovering Python and maths to an evaluated capstone. Read across a row for parallel study and down a column for progression. Evaluation and research accompany every band. Rows are competency groups rather than fixed weeks. Each learning box opens the relevant band.</desc>
+<defs><marker id="path-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 L6 4 L1 7" fill="none" stroke="#9a9a9a" stroke-width="1.2"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;font-style:normal;fill:#292929}a{cursor:pointer}a:hover rect,a:focus rect{stroke:#1766a6;stroke-width:2}a:focus{outline:none}.topic{font-size:14px}.small{font-size:12px;fill:#666}.header{font-size:16px;font-weight:600}.band-label{font-size:13px;font-weight:600}.connector{stroke:#aaa;stroke-width:1.2;fill:none;marker-end:url(#path-arrow)}</style>
+<rect width="960" height="1190" fill="white"/>
+<text x="20" y="27" font-size="20" font-weight="600">Starting AI in 2027: learn these lanes together</text>
+<text x="20" y="51" class="small">Read across: parallel study. Read down: build on what you understand.</text>
+<rect x="190" y="72" width="740" height="43" fill="#f5f5f5" stroke="#ddd"/>
+<text x="560" y="98" text-anchor="middle" font-size="13">Every band: evaluation, failure analysis and research reading</text>
+<text x="305.0" y="145" class="header" text-anchor="middle">Foundations</text>
+<text x="305.0" y="165" class="small" text-anchor="middle">Maths, code and statistics</text>
+<line x1="190" y1="181" x2="420" y2="181" stroke="#999"/>
+<text x="560.0" y="145" class="header" text-anchor="middle">Language models</text>
+<text x="560.0" y="165" class="small" text-anchor="middle">Mechanisms and training</text>
+<line x1="445" y1="181" x2="675" y2="181" stroke="#999"/>
+<text x="815.0" y="145" class="header" text-anchor="middle">Applications</text>
+<text x="815.0" y="165" class="small" text-anchor="middle">Retrieval, agents and systems</text>
+<line x1="700" y1="181" x2="930" y2="181" stroke="#999"/>
+<a href="../#/band/1" target="_top" aria-label="Open band 1: Recover &amp; orient">
+<text x="20" y="222" class="small">BAND 01</text>
+<text x="20" y="244" class="band-label">Recover &amp; orient</text>
+</a>
+<a href="../#/band/1" target="_top" aria-label="Open band 1: Recover &amp; orient">
+<rect x="190" y="201" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="231" class="topic">Python, arrays</text>
+<text x="204" y="253" class="topic">Maths refresher</text>
+</a>
+<path d="M305.0 279 V303" class="connector"/>
+<a href="../#/band/1" target="_top" aria-label="Open band 1: Recover &amp; orient">
+<rect x="445" y="201" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="231" class="topic">Tokens, messages</text>
+<text x="459" y="253" class="topic">Run an existing model</text>
+</a>
+<path d="M560.0 279 V303" class="connector"/>
+<a href="../#/band/1" target="_top" aria-label="Open band 1: Recover &amp; orient">
+<rect x="700" y="201" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="231" class="topic">Documents, simple search</text>
+<text x="714" y="253" class="topic">First model call</text>
+</a>
+<path d="M815.0 279 V303" class="connector"/>
+<a href="../#/band/2" target="_top" aria-label="Open band 2: Represent &amp; predict">
+<text x="20" y="332" class="small">BAND 02</text>
+<text x="20" y="354" class="band-label">Represent &amp; predict</text>
+</a>
+<a href="../#/band/2" target="_top" aria-label="Open band 2: Represent &amp; predict">
+<rect x="190" y="311" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="341" class="topic">Probability, gradients</text>
+<text x="204" y="363" class="topic">Linear / neural baselines</text>
+</a>
+<path d="M305.0 389 V413" class="connector"/>
+<a href="../#/band/2" target="_top" aria-label="Open band 2: Represent &amp; predict">
+<rect x="445" y="311" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="341" class="topic">N-grams, TF-IDF</text>
+<text x="459" y="363" class="topic">Embeddings</text>
+</a>
+<path d="M560.0 389 V413" class="connector"/>
+<a href="../#/band/2" target="_top" aria-label="Open band 2: Represent &amp; predict">
+<rect x="700" y="311" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="341" class="topic">Lexical retrieval</text>
+<text x="714" y="363" class="topic">Relevance labels</text>
+</a>
+<path d="M815.0 389 V413" class="connector"/>
+<a href="../#/band/3" target="_top" aria-label="Open band 3: Understand transformers">
+<text x="20" y="442" class="small">BAND 03</text>
+<text x="20" y="464" class="band-label">Understand</text>
+<text x="20" y="482" class="band-label">transformers</text>
+</a>
+<a href="../#/band/3" target="_top" aria-label="Open band 3: Understand transformers">
+<rect x="190" y="421" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="451" class="topic">Chain rule, optimisation</text>
+<text x="204" y="473" class="topic">Numerical stability</text>
+</a>
+<path d="M305.0 499 V523" class="connector"/>
+<a href="../#/band/3" target="_top" aria-label="Open band 3: Understand transformers">
+<rect x="445" y="421" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="451" class="topic">BPE, causal attention</text>
+<text x="459" y="473" class="topic">Train a tiny decoder</text>
+</a>
+<path d="M560.0 499 V523" class="connector"/>
+<a href="../#/band/3" target="_top" aria-label="Open band 3: Understand transformers">
+<rect x="700" y="421" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="451" class="topic">Dense retrieval, RAG</text>
+<text x="714" y="473" class="topic">Citations and evidence</text>
+</a>
+<path d="M815.0 499 V523" class="connector"/>
+<a href="../#/band/4" target="_top" aria-label="Open band 4: Adapt &amp; use tools">
+<text x="20" y="552" class="small">BAND 04</text>
+<text x="20" y="574" class="band-label">Adapt &amp; use tools</text>
+</a>
+<a href="../#/band/4" target="_top" aria-label="Open band 4: Adapt &amp; use tools">
+<rect x="190" y="531" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="561" class="topic">KL, regularisation</text>
+<text x="204" y="583" class="topic">Statistical uncertainty</text>
+</a>
+<path d="M305.0 609 V633" class="connector"/>
+<a href="../#/band/4" target="_top" aria-label="Open band 4: Adapt &amp; use tools">
+<rect x="445" y="531" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="561" class="topic">Data quality, SFT</text>
+<text x="459" y="583" class="topic">LoRA adaptation</text>
+</a>
+<path d="M560.0 609 V633" class="connector"/>
+<a href="../#/band/4" target="_top" aria-label="Open band 4: Adapt &amp; use tools">
+<rect x="700" y="531" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="561" class="topic">Tool loop, validation</text>
+<text x="714" y="583" class="topic">State and recovery</text>
+</a>
+<path d="M815.0 609 V633" class="connector"/>
+<a href="../#/band/5" target="_top" aria-label="Open band 5: Learn from feedback">
+<text x="20" y="662" class="small">BAND 05</text>
+<text x="20" y="684" class="band-label">Learn from feedback</text>
+</a>
+<a href="../#/band/5" target="_top" aria-label="Open band 5: Learn from feedback">
+<rect x="190" y="641" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="671" class="topic">MDPs, policy gradients</text>
+<text x="204" y="693" class="topic">Preference likelihood</text>
+</a>
+<path d="M305.0 719 V743" class="connector"/>
+<a href="../#/band/5" target="_top" aria-label="Open band 5: Learn from feedback">
+<rect x="445" y="641" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="671" class="topic">Reward model, DPO</text>
+<text x="459" y="693" class="topic">PPO / GRPO examples</text>
+</a>
+<path d="M560.0 719 V743" class="connector"/>
+<a href="../#/band/5" target="_top" aria-label="Open band 5: Learn from feedback">
+<rect x="700" y="641" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="671" class="topic">Workflow vs. agent</text>
+<text x="714" y="693" class="topic">Memory and reliability</text>
+</a>
+<path d="M815.0 719 V743" class="connector"/>
+<a href="../#/band/6" target="_top" aria-label="Open band 6: Integrate &amp; investigate">
+<text x="20" y="772" class="small">BAND 06</text>
+<text x="20" y="794" class="band-label">Integrate &amp;</text>
+<text x="20" y="812" class="band-label">investigate</text>
+</a>
+<a href="../#/band/6" target="_top" aria-label="Open band 6: Integrate &amp; investigate">
+<rect x="190" y="751" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="204" y="781" class="topic">Paired comparisons</text>
+<text x="204" y="803" class="topic">Calibration, ablations</text>
+</a>
+<a href="../#/band/6" target="_top" aria-label="Open band 6: Integrate &amp; investigate">
+<rect x="445" y="751" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="459" y="781" class="topic">Inference trade-offs</text>
+<text x="459" y="803" class="topic">One frontier question</text>
+</a>
+<a href="../#/band/6" target="_top" aria-label="Open band 6: Integrate &amp; investigate">
+<rect x="700" y="751" width="230" height="76" rx="0" fill="white" stroke="#bbb"/>
+<text x="714" y="781" class="topic">Profiling, small service</text>
+<text x="714" y="803" class="topic">Capstone integration</text>
+</a>
+<path d="M305.0 829 V853" class="connector"/>
+<path d="M560.0 829 V853" class="connector"/>
+<path d="M815.0 829 V853" class="connector"/>
+<rect x="190" y="861" width="740" height="66" fill="#f5f5f5" stroke="#aaa"/>
+<text x="560" y="887" text-anchor="middle" class="header">One evaluated capstone</text>
+<text x="560" y="910" text-anchor="middle" font-size="13">Working system + controlled comparison + reproducible report</text>
+<path d="M560 929 V951" class="connector"/>
+<a href="../#/2027" target="_top" aria-label="Explore specialisation and expertise beyond the core">
+<rect x="190" y="958" width="740" height="58" fill="white" stroke="#aaa"/>
+<text x="560" y="982" text-anchor="middle" class="header">Choose one specialisation · 200–400 further hours</text>
+<text x="560" y="1003" text-anchor="middle" font-size="13">Model training · AI systems and agents · Statistical machine learning</text>
+</a>
+<path d="M560 1018 V1040" class="connector"/>
+<rect x="190" y="1047" width="740" height="58" fill="#f5f5f5" stroke="#aaa"/>
+<text x="560" y="1071" text-anchor="middle" class="header">Develop independent expertise through repeated work</text>
+<text x="560" y="1092" text-anchor="middle" font-size="13">Replicate a result → evaluate → improve → explain → seek review</text>
+<text x="20" y="1142" class="small">Core: 540–760 active hours. Lanes can move at different speeds. Progress by demonstrated understanding.</text>
+<text x="20" y="1164" class="small">Specialisation hours are planning estimates. Expertise grows through sustained practice beyond a course.</text>
+</svg>

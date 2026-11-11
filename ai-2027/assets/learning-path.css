@@ -1,0 +1,13 @@
+.path-page{padding-bottom:25px}
+.path-controls{font-size:14px;margin:0 0 22px}
+.path-figure{margin:0}
+.path-scroll{overflow-x:auto;width:100%;border:1px solid #ddd;background:white}
+.learning-path-svg{display:block;width:100%;height:auto;min-width:780px}
+.path-figure figcaption{font-size:12px;line-height:1.6;color:#666;margin:12px 0 22px}
+.path-text{margin:20px 0;font-size:14px}
+.path-text summary{cursor:pointer}
+.path-text-table{width:100%;min-width:720px;font-size:13px;border-collapse:collapse}
+.path-text-table th,.path-text-table td{padding:12px;border-top:1px solid #ddd;text-align:left;vertical-align:top;font-weight:400}
+.path-text-table thead th{background:#f5f5f5;font-weight:600}
+.path-text-table tbody th{min-width:155px}
+@media print{.path-controls,.path-text{display:none}.path-scroll{overflow:visible;border:0}.learning-path-svg{min-width:0;width:100%;max-height:90vh}}
