@@ -1,36 +1,45 @@
 # Learn AI in 2027
 
-A plain, parallel self-study curriculum for students with some Python and engineering maths experience.
+A study plan for language models and agents. It assumes you have used Python and studied engineering maths before.
 
 **Website:** https://chaudharysk.github.io/ai-2027/
 
-**Start here:** https://chaudharysk.github.io/ai-2027/#/2027
+**Diagram:** https://chaudharysk.github.io/ai-2027/#/path
 
-**Learning diagram:** https://chaudharysk.github.io/ai-2027/#/path
+## What to study
 
-Study foundations, language models and applications together through six learning bands. The core covers statistical ML, NLP, transformers, pretraining, SFT/LoRA, preferences/RLHF, RAG, agents, metrics and systems. Selected materials have assigned sections and practical completion checks.
+1. Python and maths refresher
+2. Machine learning and NLP basics
+3. Build a language model
+4. Fine-tuning and agents
+5. RLHF and reinforcement learning
+6. Evaluation and a final project
 
-The estimated core workload is 540–760 active hours. A focused 200–400-hour specialisation block follows; independent expertise develops through sustained experiments, replication and review. The start year is 2027, with the research selection explicitly dated November 2026.
+Each part has three tracks: maths and code, language models, and applications. Read the assigned sections, write code and test the results. You do not need to finish every linked course.
+
+Allow an estimated 540–760 hours for the main course, including reading, coding and debugging. After that, choose one subject and allow another 200–400 hours for selected lessons and a project. Further progress comes from working on new problems and getting feedback.
+
+The plan is for a 2027 start. Course and research links were checked in November 2026.
 
 ## Files
 
-- `index.html`: static page shell.
-- `assets/app.js` and `assets/style.css`: routes, interactions and plain system-font design.
-- `assets/study-plan.md`: the complete editable curriculum; section 17 is the 2027 route toward expertise.
+- `index.html`: page shell.
+- `assets/app.js` and `assets/style.css`: pages, interactions and layout.
+- `assets/study-plan.md`: editable course notes. Section 17 covers further study.
 - `assets/data.js`: generated course content.
 - `assets/parallel-learning-path.svg` and `assets/learning-path.js`: downloadable and embedded diagram.
-- `source/`: Python generators and the portable rebuild helper.
+- `source/`: Python generators and rebuild helper.
 
 ## Edit and rebuild
 
-Edit the curriculum in `assets/study-plan.md`, the curated data in `source/build_data.py`, or the diagram in `source/build_path.py`. From this directory run:
+Edit `assets/study-plan.md` for course notes, `source/build_data.py` for lesson summaries and materials, or `source/build_path.py` for the diagram. From this directory, run:
 
 ```sh
 python3 source/rebuild.py
 ```
 
-No package installation or JavaScript bundler is required. To preview, serve this directory using any static web server.
+The rebuild uses Python 3 with no extra packages. To preview the site, use a static web server.
 
-All page navigation and assets support the `/ai-2027/` GitHub Pages subpath. The SVG hosted in `assets/` links back to its learning bands. Progress and saved resources use browser-local storage and are not synced to an account.
+The links work under the `/ai-2027/` GitHub Pages path. Saved materials and completion checks stay in your browser and are not synced to an account.
 
-External resources retain their own licences and terms. This is an independent educational synthesis with no institutional affiliation.
+External resources have their own licences and terms. This study plan is independent of the institutions and people it links to.

@@ -1,54 +1,54 @@
-# Learn AI in 2027: A Parallel Path toward Expertise
+# Learn AI in 2027
 
-2027 starting edition. Curriculum reviewed 11 November 2026; learning-path framing updated 12 November 2026.
+A study plan for language models and agents. Updated 12 November 2026. Course and research links checked 11 November 2026.
 
-For students who have studied engineering mathematics and used Python, but need to recover fluency. Study the foundations, language models and practical systems together, with statistics, evaluation and research woven through the work.
+This plan assumes you have used Python and studied engineering maths before. If you have forgotten some of it, start with the refresher.
 
-The core is a 540–760 active-hour route to solid implementation and evaluation skills. Then choose one specialisation and build depth through independent experiments, replication and feedback. Expertise is demonstrated through repeated good work and develops beyond a single course or calendar year.
+Study maths and code, language models, and applications at the same time. Start with small examples, train models, look at their mistakes and test your changes. The main course takes an estimated 540–760 hours, including reading, coding and debugging.
 
-Use the six learning bands below as the core curriculum. Section 17 explains how to start in 2027, extend the core and assess your progress toward independent expertise. The emphasis remains on course structure and materials; hours help control scope.
+After the course, choose one subject to study in more detail. Getting good at this takes practice on problems you have not seen before, plus feedback from other people.
 
-## 1. What parallel learning means here
+## 1. How to study these topics together
 
-Work on these three lanes together. Progress within a lane depends on understanding, while progress in another lane can continue independently.
+Study these three tracks at the same time. You can make progress in one while practising something in another.
 
-| Parallel lane | What belongs here | Typical connection to the other lanes |
+| Parallel track | What belongs here | Example |
 | --- | --- | --- |
 | Foundations | Python, PyTorch, mathematics, probability, statistics, classical ML and optimisation | Learn a derivative while implementing a loss; learn sampling uncertainty while comparing systems. |
 | Language models and training | NLP, tokens, embeddings, transformers, pretraining, SFT, preferences and RL | Explain mechanisms, implement small examples and adapt an existing model. |
 | Applications and systems | Retrieval, RAG, tools, agents, inference, state and deployment | Build a useful system early, then measure whether added components help. |
 
-Evaluation belongs in every lane. Research reading also runs throughout, initially as short guided reading and later as a small replication or critique. They remain essential subjects without becoming two more weekly course schedules.
+Test your work in all three tracks. Read papers alongside the coding exercises. Start with a short discussion of a paper; later, try to reproduce one result.
 
-**Parallel does not mean that every topic starts at full depth immediately.** You can build document search before deriving attention. You can use an existing model before training one. Policy optimisation needs gradients and probabilities; sophisticated agent orchestration needs a working single-agent baseline.
+Some tasks can start early. You can build document search before learning attention, and use an existing model before training one. Other tasks have prerequisites: learn gradients and probabilities before policy optimisation, and get one agent working before trying several.
 
-At any time, keep one main implementation task and one smaller exercise active. For example, while the main task is building a tiny transformer, the application lane might only compare two retrieval settings. This keeps all lanes moving without maintaining three demanding builds simultaneously.
+Work on one main coding task and one smaller exercise at a time. For example, while training a small transformer, you might compare two retrieval settings in the application track. Three tracks do not need to mean three large projects at once.
 
-### The expected depth
+### What to implement and what to understand
 
 | Depth | Required topics |
 | --- | --- |
 | Implement and explain | Tensor operations; a small loss and gradient; classical text baseline; causal attention; a tiny decoder and training loop; a toy BPE tokenizer; evaluation metrics; a basic tool loop; a toy policy-gradient update. |
 | Use, inspect and evaluate | Pretrained tokenizers and encoders; a small SFT/LoRA run; a small DPO run; retrieval and reranking libraries; structured outputs; checkpointing; a simple service. |
 | Explain with a worked example | RLHF pipeline; reward modelling; PPO clipping; GRPO group advantages; KL regularisation; scaling trade-offs; KV cache; quantisation; distributed-training concepts; multimodal representations. |
-| Optional implementation depth | Full LLM PPO/GRPO, large reward models, multiple agents, learned long-term memory, custom GPU kernels, distributed training, full benchmark suites and large-scale multimodal training. |
+| Optional projects | Full LLM PPO/GRPO, large reward models, multiple agents, learned long-term memory, custom GPU kernels, distributed training, full benchmark suites and large-scale multimodal training. |
 
-Using a mature library is appropriate for engineering tasks. For the mechanisms in the first row, reproduce the central calculation and explain it independently of a tutorial or coding assistant.
+Use libraries where they help. For the topics in the first row, write the main calculation yourself and explain it without reading the tutorial.
 
-## 2. The teaching materials to actually follow
+## 2. Courses, books and tutorials
 
-These are selected sections, not a list of entire courses to finish. The named assignment and its completion check determine when to stop reading.
+Read the assigned sections and do the exercises. You do not need to finish every linked course. Move on when you can do the check for that topic.
 
-### Default teaching route
+### Main materials
 
-| Resource | Assigned material | Use and stopping point |
+| Resource | Assigned material | What to do |
 | --- | --- | --- |
-| [PyTorch: Learn the Basics](https://docs.pytorch.org/tutorials/beginner/basics/intro.html) | Tensors, datasets/data loaders, model building, autograd, optimisation, saving and loading. | The initial framework route. Stop when you can write and debug a small training loop without copying the complete example. |
-| [Karpathy: Neural Networks — Zero to Hero](https://github.com/karpathy/nn-zero-to-hero) | Micrograd; initial makemore bigram and MLP lessons; later “Let's build GPT”. Use the tokenizer lesson for the BPE exercise. | The default implementation route. Rebuild small sections and do exercises. Additional makemore lessons are targeted help when gradients or training behaviour remain unclear. |
-| [Jurafsky and Martin: Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) | Selected material from chapters 2–8 and 11 in the 19 August 2026 draft; chapter 9 for the masked-LM/encoder comparison. | The main NLP explanation. Use the chapter corresponding to the current build, rather than reading the book first. |
-| [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) | Chapters 1–3 and 5–6; one classification example from chapter 7; selected data curation and fine-tuning material from chapters 10–11. | The practical bridge to existing models and datasets. Chapter 12 is later reinforcement-learning support. Publishing and demo chapters are optional. |
+| [PyTorch: Learn the Basics](https://docs.pytorch.org/tutorials/beginner/basics/intro.html) | Tensors, datasets/data loaders, model building, autograd, optimisation, saving and loading. | Write and debug a small training loop without copying the full example. |
+| [Karpathy: Neural Networks — Zero to Hero](https://github.com/karpathy/nn-zero-to-hero) | Micrograd; initial makemore bigram and MLP lessons; later “Let's build GPT”. Use the tokenizer lesson for the BPE exercise. | Code along, then write the important parts again yourself. Use the extra makemore lessons if gradients or training are still unclear. |
+| [Jurafsky and Martin: Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) | Selected material from chapters 2–8 and 11 in the 19 August 2026 draft; chapter 9 for the masked-LM/encoder comparison. | Read the chapter for your current topic. You can look up the rest later. |
+| [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) | Chapters 1–3 and 5–6; one classification example from chapter 7; selected data curation and fine-tuning material from chapters 10–11. | Practise loading models, tokenizers and datasets. Use chapter 12 later for RL. Publishing and demo chapters are optional. |
 | [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) | Unit 1; then one framework section from Unit 2 if useful; relevant agentic-RAG and evaluation material. | Start after basic Python and LLM messages make sense. First build the loop in Python. Completing every framework or certification challenge is unnecessary. |
-| [Spinning Up: RL concepts](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html) and [policy optimisation](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) | States/actions/rewards, policies, returns, policy gradients and baselines. | The conceptual RL route. Reimplement the small calculation in the current environment; installing the old full software stack is unnecessary. |
+| [Spinning Up: RL concepts](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html) and [policy optimisation](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) | States/actions/rewards, policies, returns, policy gradients and baselines. | Learn the ideas and implement a small policy-gradient calculation. You do not need the old software stack. |
 
 The SLP draft currently labels chapter 2 “Words and Tokens”, 3 “N-gram Language Models”, 4 “Logistic Regression and Text Classification”, 5 “Embeddings”, 6 “Neural Networks”, 7 “Transformers and Pretraining”, 8 “Post-training” and 11 “Information Retrieval and RAG”. Its agents chapter is not yet written, which is why a separate agent resource is used.
 
@@ -64,32 +64,32 @@ The SLP draft currently labels chapter 2 “Words and Tokens”, 3 “N-gram Lan
 | Agent design and evaluation | [Building effective agents](https://www.anthropic.com/research/building-effective-agents) and [Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents) | Choose a workflow or agent deliberately, then define observable task outcomes and credible graders. These are engineering reports, not course textbooks. |
 | Inference and tool interoperability | [vLLM documentation](https://docs.vllm.ai/en/latest/) and [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro) | Read the relevant serving or interface section after the basic system works. A particular server or protocol is not required for core completion. |
 
-### Alternatives and later depth
+### Other materials
 
-Use [Raschka's LLMs-from-scratch repository](https://github.com/rasbt/LLMs-from-scratch), chapters 2–5, **instead of** the corresponding Karpathy tokenizer/transformer implementation route if you prefer written notebooks. Chapter 7 can support instruction tuning. The code is public; the accompanying book is separate. Do not complete both implementations unless repetition is addressing a specific weakness.
+Use [Raschka's LLMs-from-scratch repository](https://github.com/rasbt/LLMs-from-scratch), chapters 2–5, **instead of** the corresponding Karpathy tokenizer/transformer coding exercises if you prefer written notebooks. Chapter 7 can support instruction tuning. The code is public; the accompanying book is separate. Do not complete both implementations unless repetition is addressing a specific weakness.
 
 [MIT 6.S191](https://introtodeeplearning.com/) provides concise introductory and broader AI lectures. Use a selected explanation in place of an equivalent reading, especially for neural-network, vision or generative-model intuition.
 
 [CS224N](https://web.stanford.edu/class/cs224n/) is a deeper NLP reference. Its official page links the public 2024 lecture videos; the 2026 recordings require enrolled-student access. Select an embeddings, attention or NLP-task lecture when needed.
 
-[CS336](https://cs336.stanford.edu/) is the advanced continuation. Its full assignments are substantial work in their own right. During this core plan, consult selected basics, data, scaling or alignment material after the corresponding implementation gate. Full systems and distributed assignments belong in a later specialisation.
+[CS336](https://cs336.stanford.edu/) is the advanced continuation. Its full assignments are substantial work in their own right. During this core plan, consult selected basics, data, scaling or alignment material after the corresponding prerequisite exercises. Full systems and distributed assignments belong in a later specialisation.
 
-## 3. The parallel curriculum map
+## 3. The study plan
 
-Each row is a learning band, not a fixed month or a requirement to stop every lane until the others catch up.
+Each row groups topics you can study together. The rows are not fixed months. Spend more time on a topic when you need to.
 
-| Learning band | Foundations lane | Language-model lane | Applications lane | Evidence of progress |
+| Part | Foundations track | Language-model track | Applications track | What you will make |
 | --- | --- | --- | --- | --- |
-| 1. Recover and orient | Python, arrays, shapes, diagnostic problems | Tokens, messages, next-token prediction; run an existing model | Small document collection and a simple baseline | Reproducible script and clearly recorded failures |
-| 2. Represent and predict | Probability, losses, train/dev/test, linear models and MLPs | N-grams, TF-IDF, embeddings, encoder/decoder distinctions | Lexical retrieval, relevance labels and structured output | Baseline comparison and an explained error analysis |
-| 3. Understand transformers | Gradients, optimisation, tensor operations and numerical stability | BPE, causal attention, decoder training, data splits and held-out loss | Dense retrieval, RAG, citations and missing-evidence handling | Tiny LM plus a measured grounded-QA baseline |
-| 4. Adapt and use tools | Uncertainty, KL intuition, regularisation and controlled comparisons | Data curation, instruction tuning, LoRA and behavioural regressions | A bounded tool loop, schema validation, state and recovery | SFT comparison and reliable single-agent trace |
-| 5. Learn from feedback | MDPs, expected return, policy gradients, preference likelihoods | Reward-model exercise, DPO, RLHF/PPO/GRPO mechanisms and toy RL | Workflow versus agent comparison; budget and context control | Preference comparison and a verifier failure analysis |
-| 6. Integrate and investigate | Paired inference, calibration, experimental design | A selected frontier question; inference and architecture trade-offs | Profiling, service, regression suite and capstone | Reproducible result, limitations and usable demonstration |
+| 1. Python and maths refresher | Python, arrays, shapes, diagnostic problems | Tokens, messages, next-token prediction; run an existing model | Small document collection and a simple baseline | A script you can rerun, with notes on its mistakes |
+| 2. Machine learning and NLP basics | Probability, losses, train/dev/test, linear models and MLPs | N-grams, TF-IDF, embeddings, encoder/decoder distinctions | Lexical retrieval, relevance labels and structured output | Classifier results and an explanation of the errors |
+| 3. Build a language model | Gradients, optimisation, tensor operations and numerical stability | BPE, causal attention, decoder training, data splits and held-out loss | Dense retrieval, RAG, citations and missing-evidence handling | A small language model and tested document QA |
+| 4. Fine-tuning and agents | Uncertainty, KL intuition, regularisation and controlled comparisons | Data curation, instruction tuning, LoRA and behavioural regressions | A bounded tool loop, schema validation, state and recovery | An SFT comparison and logs from a working agent |
+| 5. RLHF and reinforcement learning | MDPs, expected return, policy gradients, preference likelihoods | Reward-model exercise, DPO, RLHF/PPO/GRPO mechanisms and toy RL | Workflow versus agent comparison; budget and context control | DPO results and mistakes made by a reward checker |
+| 6. Evaluation and a final project | Paired inference, calibration, experimental design | A selected frontier question; inference and architecture trade-offs | Profiling, service, regression suite and final project | Code, results, limitations and running instructions |
 
-Research reading accompanies the current band. A newcomer can discuss what a paper claims before being able to derive every equation. Detailed replication waits until the underlying mechanism is understood.
+Research reading accompanies the current part. A newcomer can discuss what a paper claims before being able to derive every equation. Detailed replication waits until the underlying mechanism is understood.
 
-### Dependencies that matter
+### What you need to know first
 
 | Before this work | Demonstrate this first | Work that can continue in parallel |
 | --- | --- | --- |
@@ -97,21 +97,21 @@ Research reading accompanies the current band. A newcomer can discuss what a pap
 | Fine-tuning a model | Understand the pretrained model's tokenizer/template and inspect the exact supervised tokens. | Tool design and statistical exercises |
 | DPO training | Have a stable starting checkpoint and usable preference pairs; calculate completion log-probabilities correctly. | RAG improvements and RL concepts |
 | Online LLM RL | Understand policy gradients; test the verifier; measure initial success and rollout cost. | Toy RL and critique of published experiments |
-| Multiple agents or learned memory | Have a working single-agent baseline and tasks that require the extra component. | Reliability, deployment and capstone analysis |
+| Multiple agents or learned memory | Have a working single-agent baseline and tasks that require the extra component. | Reliability, deployment and final project analysis |
 
 A stable SFT checkpoint before DPO is the default teaching route here, not a claim that every DPO research setup must train a new SFT model first.
 
-## 4. Learning band 1: Recover and orient
+## 4. Part 1: Python and maths refresher
 
-**Purpose:** make the first real experiment possible while identifying prerequisite gaps.
+Set up your tools, run a model and check what you need to revise.
 
-Begin with a roughly two-hour diagnostic. Multiply compatible matrices and state the output shape; differentiate a small scalar expression; solve a conditional-probability question; explain why test data cannot select hyperparameters; write a function that batches records and handles malformed input.
+Start with a short self-check, about two hours. Multiply compatible matrices and state the output shape; differentiate a small scalar expression; solve a conditional-probability question; explain why test data cannot select hyperparameters; write a function that batches records and handles malformed input.
 
-This is a placement exercise, not a score to optimise. Recover a weak topic through a short explanation, a worked example and an unfamiliar problem the next session. If Python functions, arrays or basic algebra are largely new, use a separate preparatory block; the time estimates later in this plan assume prior exposure.
+Use the self-check to find what you have forgotten. For each weak topic, read a short explanation, work through an example and try a different problem the next day. If Python functions, arrays or basic algebra are new to you, learn them first. The hour estimates assume you have seen them before.
 
-| Lane | Study and do |
+| Track | Study and do |
 | --- | --- |
-| Foundations | Use the PyTorch tensor and autograd basics. Recover Python functions, indexing, loops, files, JSON, exceptions, environments and basic Git use through the project. |
+| Foundations | Use the PyTorch tensor and autograd basics. Revise Python functions, indexing, loops, files, JSON, exceptions, environments and basic Git use through the project. |
 | Language models | Use SLP chapter 2 and HF introductory model/tokenizer material. Trace text to token IDs, embeddings, logits, probabilities and generated tokens at an introductory level. Distinguish a base model from an instruction-tuned model. |
 | Applications | Choose a small collection of public technical documents. Run one model call and a simple literal-search baseline. Write 10–20 development questions with source IDs. |
 
@@ -119,9 +119,9 @@ This is a placement exercise, not a score to optimise. Recover a weak topic thro
 
 Keep the document collection small enough to inspect manually. Use stable source versions and record permission/licence information. A local program can simulate tool calls while external model access is being set up.
 
-## 5. Learning band 2: Represent and predict
+## 5. Part 2: Machine learning and NLP basics
 
-**Purpose:** connect probability and optimisation to practical NLP before the transformer becomes a black box.
+Train a few simple models on text. Use them to learn probability, gradients and evaluation before adding a transformer.
 
 ### Concepts to learn
 
@@ -142,25 +142,25 @@ Compare a majority-class predictor, TF-IDF with logistic regression and a small 
 
 Implement stable softmax and cross-entropy on a small input. Check a gradient numerically, then compare it with autograd. Train a bigram model as a short language-modelling exercise; it need not become another polished portfolio project.
 
-In the application lane, build lexical retrieval and label relevant sources for development queries. Define the output schema and record incorrect or unsupported answers.
+In the application track, build lexical retrieval and label relevant sources for development queries. Define the output schema and record incorrect or unsupported answers.
 
 For breadth, learn what tree models, k-means and PCA are good for. Inspect one short example if unfamiliar. Comprehensive classical ML is a separate course.
 
 **Completion check:** explain why the baseline is fair, why a split is appropriate, what the loss optimises and which errors remain. From saved predictions, compute a confusion matrix and macro-F1. Overfit a tiny neural batch deliberately and explain why that is a debugging check, not evidence of generalisation.
 
-## 6. Learning band 3: Understand transformers and grounded generation
+## 6. Part 3: Build a language model
 
-**Purpose:** build the model mechanism while developing a useful application independently.
+Write and train a small transformer. In the application track, add retrieval to your document assistant.
 
-### Foundations and model work
+### Maths and model code
 
 Study the chain rule, matrix derivatives as needed, gradient flow, initialisation, residual paths, normalisation, Adam and learning-rate schedules. Learn enough numerical stability to recognise overflow, vanishing gradients and incorrect masking.
 
-Follow the chosen implementation route through scaled dot-product attention, causal masking, multi-head attention, positional information, feed-forward layers and the decoder. Understand how modern choices such as RoPE, RMSNorm, gated MLPs and grouped-query attention differ from a basic teaching implementation; implementing all of them is optional.
+Follow the chosen coding exercises through scaled dot-product attention, causal masking, multi-head attention, positional information, feed-forward layers and the decoder. Understand how modern choices such as RoPE, RMSNorm, gated MLPs and grouped-query attention differ from a basic teaching implementation; implementing all of them is optional.
 
 Use a tiny BPE example to learn how merge rules are trained. Inspect English, Hindi, numbers and code. Explain why the same text can have different token counts under different tokenizers.
 
-Train a **roughly 1–10 million parameter decoder** on a documented text subset. Start even smaller for debugging. These are suggested teaching scales, not guarantees of memory use or useful generation quality. A character tokenizer is acceptable for the first correct training run; the BPE exercise can remain separate.
+Train a **roughly 1–10 million parameter decoder** on a documented text subset. Start even smaller for debugging. Check memory use with a small run first. A model this size is for learning and may generate poor text. A character tokenizer is acceptable for the first correct training run; the BPE exercise can remain separate.
 
 **Materials:** SLP chapter 7; Karpathy “Let's build GPT”, or Raschka chapters 2–5; HF tokenizer/dataset sections. Read the mechanism sections of [Attention Is All You Need](https://arxiv.org/abs/1706.03762) alongside your implementation.
 
@@ -175,7 +175,7 @@ Train a **roughly 1–10 million parameter decoder** on a documented text subset
 
 Inspect [FineWeb](https://arxiv.org/abs/2406.17557) for a data-filtering example and [Chinchilla](https://arxiv.org/abs/2203.15556) for compute/data/model trade-offs. The task is to explain the assumption behind an ablation, not recreate a web-scale dataset or fit a reliable scaling law from two tiny runs.
 
-### Parallel application work
+### Work on the document assistant
 
 Use SLP chapter 11 and the Sentence Transformers retrieval guide to add a dense retriever. Compare it with the lexical baseline before assuming it is better. Then build retrieve-then-generate QA with source references and an explicit missing-evidence response.
 
@@ -183,15 +183,15 @@ Add a reranker only after measuring the simpler retrieval pipeline. Keep context
 
 **Completion check:** show training and validation curves; explain next-token label alignment; resume a run; report held-out token loss. For RAG, distinguish “the source was not retrieved” from “the model ignored or misused a retrieved source”. The tiny language model and the useful assistant can use different models.
 
-## 7. Learning band 4: Adapt models and build a tool loop
+## 7. Part 4: Fine-tuning and agents
 
-**Purpose:** understand when changing weights helps, while learning how a model interacts with a system.
+Fine-tune a small model on one task. Separately, let your assistant call tools and test the results.
 
-### Adaptation work
+### Fine-tuning
 
 Choose a narrow, checkable task: structured extraction, response formatting, or a well-defined instruction task. Create or select a modest training dataset and inspect examples before increasing its size. A pilot of hundreds of examples can teach the pipeline; the amount needed for a useful improvement depends on the task and model.
 
-Start from a small existing pretrained or instruction-tuned model suitable for the task. Record which kind it is. Your tiny decoder from the previous band is a mechanism exercise and may not be capable enough for useful instruction-following comparisons.
+Start from a small existing pretrained or instruction-tuned model suitable for the task. Record which kind it is. The small decoder from the previous part teaches you how training works. Use a stronger pretrained model for the instruction-following experiment.
 
 Study instruction data, chat templates, special tokens, sequence packing, assistant/completion loss masking, full fine-tuning versus adapters, LoRA, and the idea of a quantised frozen base. Use the [LoRA paper](https://arxiv.org/abs/2106.09685), selected SLP chapter 8 material, HF fine-tuning lessons and the PEFT/TRL guides.
 
@@ -199,11 +199,11 @@ Run one small SFT/LoRA experiment. Compare the starting checkpoint, a reasonable
 
 **Required checks:** inspect a token-level training example and its mask; count trainable parameters; save and reload the adapter; verify identical evaluation formatting. Current TRL's assistant-only loss relies on compatible chat-template support, so check the installed version and actual masks rather than assuming a flag is sufficient.
 
-In the foundations lane, learn entropy, cross-entropy, KL divergence, confidence intervals and the difference between a measured effect and sampling noise. Apply them to an experiment you already ran.
+In the foundations track, learn entropy, cross-entropy, KL divergence, confidence intervals and the difference between a measured effect and sampling noise. Apply them to an experiment you already ran.
 
 Connect sampling variability to the intuition behind the law of large numbers and the central limit theorem. For the classifier, plot a reliability diagram and try temperature scaling only if probability estimates matter; fit the calibration step on development data and assess it on held-out data.
 
-### Parallel agent work
+### Work on the agent
 
 Start with an explicit workflow: retrieve evidence, run a calculation when needed, then produce an answer. Next implement a plain-Python loop in which the model can choose a tool and react to its result.
 
@@ -217,9 +217,9 @@ Include public or synthetic examples involving conflicting evidence, unsupported
 
 Adding a framework is optional. If one helps, port the existing small loop to one framework and compare behaviour. Do not build three implementations merely to collect framework names.
 
-## 8. Learning band 5: Preferences, RLHF and reliable agents
+## 8. Part 5: RLHF and reinforcement learning
 
-**Purpose:** understand feedback optimisation through manageable experiments.
+Run small experiments with rewards and response preferences.
 
 ### Reinforcement-learning foundations
 
@@ -249,11 +249,11 @@ Study group-relative advantages in [DeepSeekMath](https://arxiv.org/abs/2402.033
 
 Build a toy verifier for a narrow task with an unambiguous answer, and deliberately try malformed answers, correct formatting with wrong content and repeated guesses. Explain how a policy could optimise the checker while missing the intended task.
 
-**Core completion:** a toy policy-gradient run, a preference/reward exercise, a small DPO run, worked PPO/GRPO calculations and a verifier audit. A full LLM PPO run and an online LLM GRPO training run are extensions. The original brief's RLHF and reasoning-training topics are still covered.
+**Before moving on:** a toy policy-gradient run, a preference/reward exercise, a small DPO run, worked PPO/GRPO calculations and a verifier audit. A full LLM PPO run and an online LLM GRPO training run are extensions. 
 
 An optional LLM GRPO pilot needs a model that sometimes succeeds on the chosen task, a nontrivial reward signal and measured rollout costs. Groups with identical rewards can provide no useful within-group learning signal; scaling up a broken or all-zero-reward experiment is not a solution.
 
-### Parallel agent work
+### Work on the agent
 
 Compare the fixed workflow with the single-agent loop. Use the same model and task suite and record total budgets. Test interruption, checkpoint/resume, stale context and repeated tool errors.
 
@@ -261,11 +261,11 @@ Introduce memory only for tasks where past interactions should help. Reset it be
 
 The two-agent extension requires a concrete hypothesis, such as independent evidence checking. Count both agents' tokens and time. Improvement should justify the coordination overhead.
 
-## 9. Learning band 6: Systems, research and the final project
+## 9. Part 6: Evaluation and a final project
 
-**Purpose:** turn the work into a usable, defensible result.
+Choose one question, run a comparison and write up what happened.
 
-### Systems essentials
+### Running and serving models
 
 Learn the difference between prefill and decoding, weights and KV cache, latency and throughput, and active versus total MoE parameters. Explain mixed precision, quantisation, batching, activation checkpointing and gradient accumulation.
 
@@ -275,7 +275,7 @@ Understand data parallelism, parameter sharding and tensor/pipeline parallelism 
 
 Expose the assistant through a small local service or demonstration. Include input validation, bounded requests, reproducible configuration, useful error reporting and a regression check. A polished frontend is optional.
 
-### Choose one capstone question
+### Choose one final project question
 
 | Option | Main comparison | What must stay comparable |
 | --- | --- | --- |
@@ -346,13 +346,13 @@ For repeated generation, “at least one of k attempts succeeded” is different
 
 Cost per successful task is total cost of all attempts divided by successful tasks; with zero successes it is undefined. Citation support also needs a published annotation rule rather than an unexplained score.
 
-## 12. Frontier research without overwhelming the core
+## 12. Reading recent research
 
-The frontier component is a recurring part of the course. In the opening bands, a short guided discussion is enough. Later, choose material that answers a question raised by your own model or assistant.
+Read a little research as you go. At first, explain the main question and result. Later, choose a paper that helps with a problem in your own code.
 
-**Core research output:** three short notes across different themes, plus one deeper critique with a small experiment where feasible. The capstone can supply that experiment. Allow roughly 25–40 active hours across the whole plan for this frontier work, already included in the learning-band estimates. Foundational paper reading is included in its corresponding technical work.
+Write three short paper notes on different topics. Pick one paper to examine in more detail and, if possible, try a small experiment. This can be part of the final project. The plan already includes about 25–40 hours for this work; do not add those hours again.
 
-### A current reading menu
+### Papers and reports to choose from
 
 Verified during the review on 11 November 2026. Choose from this table; completing every row is unnecessary.
 
@@ -366,33 +366,33 @@ Verified during the review on 11 November 2026. Choose from this table; completi
 | Architecture and inference | [DeepSeek-V4.1-Flash release](https://www.deepseek.com/en/news/deepseek-v4-1-flash/), 10 September 2026; [DiffusionGemma model card](https://ai.google.dev/gemma/docs/diffusiongemma/model_card) | Compare asymmetric/MoE computation and block denoising with the basic decoder. Separate architectural ideas from reported benchmark or speed claims. |
 | Evaluation validity and oversight | [OpenAI: Eval-production behaviour gaps](https://alignment.openai.com/eval-production-behavior-gap/), 3 November 2026; [CoT monitorability across the model lifecycle](https://alignment.openai.com/cot-monitorability-model-lifecycle/), 10 November 2026 | What can a benchmark result or observed trace establish, and what remains unmeasured? |
 
-These are a dated educational selection, not an exhaustive list of current research or a ranking of labs. Release reports and engineering accounts have a different evidential role from controlled research papers. Open the linked technical paper when assessing a release's scientific claim; unavailable methods limit what can be assessed.
+This list was checked in November 2026. It is a starting point for reading. For a product release, read the technical paper too and check whether its methods are available. A reported benchmark score alone tells you little about how the result was obtained.
 
-### Multimodal and architecture literacy
+### Images and other model designs
 
 Everyone should understand the idea of image patches/vision encoders, joint text–image representations and why OCR alone can miss layout or chart information. A short MIT vision/generative lecture or the chosen multimodal report can support this. Training a vision-language model is optional.
 
 Likewise, learn the purpose of sparse expert routing, long-context methods, recurrent/hybrid alternatives, speculative decoding and text diffusion at an explanatory level. Select one for depth; do not create a second full architecture course inside the core plan.
 
-### Read actively
+### How to read a paper
 
 For a first pass, identify the question, central claim, comparison and limitation. For a deeper pass, trace the data, objective, baseline, evaluation and compute. For the chosen experiment, change one relevant factor and write down what a small-scale result cannot establish.
 
 Use a one-page note with: claim; mechanism; evidence; confounders; relevance to the project; and the cheapest useful next experiment. Revisit the frontier menu after each substantial project milestone. A new release should replace an older reading when it teaches the same idea better, rather than continually increasing the workload.
 
-## 13. Three continuing work products
+## 13. Three projects to keep working on
 
-| Work product | Develop it through | Final evidence |
+| Project | Develop it through | What to include |
 | --- | --- | --- |
-| Text baseline and evaluation notebook | Bands 1–2, with an optional encoder comparison later | Fixed splits, classical/neural baselines, metric calculations, a small error taxonomy and reproducible results |
-| Model-training laboratory | Bands 2–5 | Tiny decoder, tokenizer exercise, data/training ablation, SFT comparison, DPO comparison and toy preference/RL exercises |
-| Grounded document assistant | Bands 1–6 | Lexical/dense retrieval, RAG, a bounded tool loop, evaluation cases, traces, profiling and the final capstone |
+| Text baseline and evaluation notebook | Parts 1–2, with an optional encoder comparison later | Fixed splits, classical/neural baselines, metric calculations, a small error taxonomy and reproducible results |
+| Model-training laboratory | Parts 2–5 | Tiny decoder, tokenizer exercise, data/training ablation, SFT comparison, DPO comparison and toy preference/RL exercises |
+| Grounded document assistant | Parts 1–6 | Lexical/dense retrieval, RAG, a bounded tool loop, evaluation cases, traces, profiling and the final final project |
 
-Small exercises belong inside these work products. They do not all need separate repositories, demos or reports. Use the same environment, experiment log and evaluation conventions where practical, but allow different datasets and models when the task requires them.
+Keep the small exercises in these projects. They do not each need a separate repository or demo. Reuse your environment and experiment log where possible. Use different data or models when the task needs them.
 
-Each substantial milestone should include a brief explanation without notes, an unfamiliar problem, and one modification made independently. Return to a central mechanism after a gap and reconstruct it. Watching a video or successfully running a provided notebook alone is insufficient evidence of understanding.
+After each large exercise, explain it without notes, try a new problem and change something yourself. Come back a few days later and write the main calculation again. This will tell you more than getting a provided notebook to run.
 
-## 14. Hardware and realistic scope
+## 14. Hardware and model sizes
 
 | Available resources | Practical approach |
 | --- | --- |
@@ -409,25 +409,25 @@ A CPU-only student may use smaller adaptation tasks or arrange brief GPU access.
 
 Avoid making a large model, a full benchmark leaderboard run or an expensive cloud setup a condition of learning the mechanism. Financial cost is separate from active study hours and should be estimated from a measured pilot and current provider rates.
 
-## 15. Workload estimates and pacing
+## 15. How much time to allow
 
-The structure, materials and completion checks above take priority. Use the estimates to reserve time and limit scope.
+Use the topics, materials and exercises to decide what to study. Use the hours to plan how much you can take on.
 
-These are curriculum-design estimates for selected lessons and small experiments, **not published course workloads or measured learning-time guarantees**. The ranges include reading, exercises, setup, normal debugging, annotation, evaluation, revision and concise write-ups.
+These are estimates for the lessons and small experiments in this plan. They include reading, exercises, setup, debugging, labelling data, testing, revision and short write-ups. They are not official course workloads.
 
-| Learning band | Estimated active hours | Main work consuming the time |
+| Part | Estimated active hours | Main work consuming the time |
 | --- | --- | --- |
-| 1. Recover and orient | 20–30 | Diagnostic, environment, targeted recovery and a first working baseline |
-| 2. Represent and predict | 80–110 | ML/probability practice, NLP representations, gradients and baseline comparison |
-| 3. Understand transformers | 120–160 | Tokenizer and attention work, decoder training, data checks, RAG and evaluation |
-| 4. Adapt and use tools | 100–140 | Data preparation, SFT/LoRA, statistical comparison and a reliable tool loop |
-| 5. Learn from feedback | 100–140 | RL foundations, preference/reward exercise, DPO, verifier work and agent reliability |
-| 6. Integrate and investigate | 120–180 | Systems work, targeted frontier reading, final evaluation, capstone and reproduction |
-| **Core total** | **540–760** | All three lanes, research and their shared projects |
+| 1. Python and maths refresher | 20–30 | Diagnostic, environment, targeted recovery and a first working baseline |
+| 2. Machine learning and NLP basics | 80–110 | ML/probability practice, NLP representations, gradients and baseline comparison |
+| 3. Build a language model | 120–160 | Tokenizer and attention work, decoder training, data checks, RAG and evaluation |
+| 4. Fine-tuning and agents | 100–140 | Data preparation, SFT/LoRA, statistical comparison and a reliable tool loop |
+| 5. RLHF and reinforcement learning | 100–140 | RL foundations, preference/reward exercise, DPO, verifier work and agent reliability |
+| 6. Evaluation and a final project | 120–180 | Systems work, targeted frontier reading, final evaluation, final project and reproduction |
+| **Core total** | **540–760** | All three tracks, research and their shared projects |
 
 Time is counted once. Projects, frontier notes and evaluation are already included; do not add the section-specific activities to this total again. Unattended GPU runtime and waiting are not active study, although diagnosing a failed run is.
 
-The lower end assumes retained fundamentals, limited environment friction and tightly scoped projects. The upper end allows more practice and iteration. Substantial relearning, ambitious extensions or a broad change of project require a new estimate.
+Use the lower end if you remember the basics and keep the projects small. Allow more time if you need extra practice, have setup problems or change the project.
 
 | Sustainable pace | Active study weeks for the core | Calendar illustration with about 20% extra weeks for breaks/disruption |
 | --- | --- | --- |
@@ -437,11 +437,11 @@ The lower end assumes retained fundamentals, limited environment friction and ti
 
 The calendar margin is time for availability, not another 20% of required coursework. It is optional planning slack. At 15 active hours per week, the illustrated calendar is roughly 10–14 months.
 
-An example 15-hour week is eight hours of building/debugging, four hours of concepts and worked problems, two hours of evaluation/write-up and one hour of research reading. Shift the balance when a concept is blocking the build. Those are activity categories within the same three lanes, not extra tasks.
+An example 15-hour week is eight hours of building/debugging, four hours of concepts and worked problems, two hours of evaluation/write-up and one hour of research reading. Shift the balance when a concept is blocking the build. Those are activity categories within the same three tracks, not extra tasks.
 
 Re-estimate after the first 25–30 active hours and after each major working result. If progress is slow, reduce model size, dataset size, framework migration or optional features before removing the evaluation and understanding checks.
 
-### Optional depth after the core
+### Optional work after the course
 
 Choose one direction initially. The ranges below are additional planning allowances, not completion guarantees.
 
@@ -452,72 +452,72 @@ Choose one direction initially. The ranges below are additional planning allowan
 | RL and reasoning | 100–180 | More complete RL foundations, a small online LLM RL experiment, verifier analysis and training/inference comparisons |
 | NLP or multimodal depth | 100–180 | Selected CS224N work, sequence labelling or retrieval training, or a carefully evaluated multimodal task |
 
-## 16. The first actions
+## 16. What to do first
 
-1. Complete the diagnostic and record the specific gaps.
+1. Do the self-check and list the topics you need to revise.
 2. Open PyTorch Basics, the first relevant SLP chapter and the chosen implementation resource. Keep other courses closed until needed.
 3. Create the text-baseline notebook and the document-assistant baseline.
 4. Write the initial development cases and keep an experiment log from the first run.
-5. At the first checkpoint, demonstrate the completed work and adjust the workload estimate.
+5. After part 1, check the exercises and update your time estimate.
 
-Completion of this plan should leave a student able to explain central language-model mechanisms, run small training/adaptation experiments, build a grounded tool-using system and judge evidence critically. It provides a practical base for further engineering or research; specialist depth comes from the chosen continuation.
-
-
+By the end, you should be able to explain the main parts of a language model, run small training and fine-tuning experiments, build a document assistant with tools and test whether it works. Then pick a subject and study it in more detail.
 
 
-## 17. Starting in 2027 and building toward expertise
 
-### Your starting point and destination
 
-Start with rusty engineering maths and some Python experience. Aim to become someone who can explain the mechanism, implement a small version, evaluate it fairly and decide what to investigate next. This curriculum focuses on machine learning, language models and AI systems; advanced vision, robotics and other fields are further specialisations.
+## 17. What to study after this course
 
-The six core bands build a shared foundation. A focused specialisation follows. Research reading, evaluation and clear writing continue throughout both. Choose depth in one area while maintaining working knowledge of the others.
+### Who this is for
 
-### Three levels of progress
+You have some Python and engineering maths experience and want to learn how language models and agents work. This course also covers the machine learning and statistics needed to train and test them. Vision, robotics and other areas need further study.
 
-| Level | Work to do | Evidence that you are ready for more |
+Start with the six parts of the course. After that, choose one subject and spend more time on it. Keep reading papers, running experiments and writing down what you find.
+
+### What you should be able to do
+
+| Work | Approximate time | Check your understanding |
 | --- | --- | --- |
-| Core practitioner: six parallel learning bands | 540–760 active hours across Python/maths recovery, statistical ML, NLP, transformers, pretraining, SFT, preference learning, RAG, agents and evaluation. | Rebuild the central calculations, debug a training run, compare systems on unseen cases and deliver a reproducible capstone. |
-| Focused specialist: one chosen route | Plan a further 200–400 active hours for selected advanced material, one bounded replication and controlled extensions. | Explain a paper's method, reproduce a meaningful baseline and show what an ablation changes under a matched budget. |
-| Independent expertise: sustained practice | Repeat the research and engineering cycle on harder questions, with external review and real constraints. | Solve unfamiliar failures, defend experimental choices, make useful contributions and help other people understand or reproduce the work. |
+| Complete the main course | 540–760 hours | Explain the main calculations, debug a training run, compare models on unseen data and finish a project that someone else can run. |
+| Study one subject in more detail | A further 200–400 hours for a small project and selected advanced lessons | Reproduce a result from a paper. Change one thing and test whether it helps. Keep the data and compute budget comparable. |
+| Work on harder problems yourself | Ongoing | Diagnose unfamiliar errors, explain your decisions, write useful code or reports and respond to review. |
 
-These hours are independent planning estimates. Completing the estimated hours does not confer an expert title. New domains and unfamiliar systems will continue to require learning.
+These hours are estimates. Finishing a course is a start. You get better by using what you learned on new problems and finding out where your understanding breaks down.
 
-### Pick one specialisation after the core
+### Choose a subject
 
-| Route | Material to use | Bounded project and completion evidence |
+| Subject | What to read | What to build and test |
 | --- | --- | --- |
-| Language-model training and post-training | [Stanford CS336](https://cs336.stanford.edu/): selected basics, data, systems or alignment assignments after the relevant prerequisites. Use [TRL documentation](https://huggingface.co/docs/trl/index) for the chosen post-training method. | Reproduce a small-model result, change one data or objective choice, and report quality, uncertainty, resource use and regressions. Full multi-GPU assignments are optional and require a separate compute plan. |
-| Reliable AI systems and agents | Revisit the core [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction), selected [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/) design/LLMOps lectures, and current documentation for the serving/tool stack you actually use. | Compare a fixed workflow with a bounded agent on held-out tasks. Measure repeated-trial success, latency, cost and recovery from tool failures. Add memory or multiple agents only to test a specific hypothesis. |
-| Statistical machine learning | [Stanford CS229 public materials](https://see.stanford.edu/Course/CS229): selected model-selection, learning-theory and unsupervised-learning notes. Use [ISLP](https://www.statlearning.com/) for complementary exercises. | Study one real dataset with leakage checks, strong classical baselines, calibration and subgroup/error analysis. Explain when an LLM adds value and when a simpler method is sufficient. |
+| Language-model training | Selected [CS336](https://cs336.stanford.edu/) assignments on model code, data, systems or alignment. Use [TRL](https://huggingface.co/docs/trl/index) for the post-training method you choose. | Reproduce a small-model result. Change one data or training choice. Report quality, uncertainty, cost and tasks that got worse. |
+| AI systems and agents | The relevant [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) sections, [Full Stack LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/) design and LLMOps lectures, and the documentation for your tools. | Compare a fixed workflow with an agent on held-out tasks. Measure success over repeated runs, time, cost and tool errors. Add memory or multiple agents only when you have a reason to test them. |
+| Statistical machine learning | Selected [CS229 notes](https://see.stanford.edu/Course/CS229) on model selection, learning theory and unsupervised learning, with [ISLP](https://www.statlearning.com/) exercises. | Study a real dataset. Check for leakage, compare simple models, measure calibration and inspect errors across groups. Test whether an LLM adds anything useful. |
 
-CS336 expects strong Python, PyTorch, ML and systems preparation. Use the core checkpoints to establish that preparation. The Full Stack bootcamp is from 2023: use its engineering ideas and check current APIs separately. The CS229 public archive is foundational material, rather than a source of current model releases. Select the work needed for your question; the 200–400-hour block does not assume finishing all of these courses.
+CS336 assumes strong Python, PyTorch, ML and systems skills. Work through the main course exercises first. The Full Stack bootcamp is from 2023, so check current APIs when using its examples. The CS229 archive is useful for the basic ideas. The 200–400 hours are for selected lessons and one project, not all three routes or every assignment.
 
-A possible specialisation budget is 40–80 hours of targeted study, 80–160 hours of replication, 60–120 hours of controlled extensions and evaluation, and 20–40 hours of documentation and review. Reduce the experiment scale before removing the evaluation.
+For one project, you might allow 40–80 hours for reading and exercises, 80–160 for reproducing a result, 60–120 for changes and evaluation, and 20–40 for writing and review. If it is too much work, reduce the model or dataset size and keep the comparison.
 
-### What expertise should look like in your work
+### How to tell whether you are improving
 
-- Explain tokenisation, attention, learning objectives and evaluation choices from a blank page, with a small numerical example.
-- Implement an unfamiliar variant from its specification and diagnose a failed run using evidence.
-- Keep a simple baseline, frozen evaluation cases, meaningful metrics and a record of data and resource choices.
-- Separate a paper's claims from what your reproduction actually establishes. Report negative and inconclusive results clearly.
-- Release code that another person can run, write a concise technical report and respond constructively to review.
-- Contribute a useful replication, bug fix, dataset analysis, benchmark improvement or documented engineering result.
+- Explain tokenisation, attention, losses and metrics with a small example, without reading your notes.
+- Implement a method from its description and work out why a run failed.
+- Compare with a simple baseline on data you did not use for tuning.
+- Describe what your experiment shows, what it does not show and what you would test next.
+- Give someone the code and instructions, and see whether they can run it.
+- Ask for review. Fix a bug, improve a test or reproduce a result that someone else can use.
 
-Review these abilities after each substantial project. Ask a peer or mentor to inspect the code, reproduce one result and challenge the interpretation. A polished demo and course completion are useful milestones; repeated independent work supplies stronger evidence of expertise.
+After each project, ask a peer or mentor to check the code and question the results. A demo is useful, but the interesting part is whether the system works on new cases and whether your explanation holds up.
 
-### A realistic 2027 start
+### Starting in 2027
 
-Begin with band 1's diagnostic and all three lanes. Keep one main build and one smaller exercise active. Follow the assigned core material, use references to repair gaps, and move on when you can demonstrate the checkpoint. The start year gives the plan context; it does not turn each band into a fixed month.
+Start with the self-check in part 1. Work on all three tracks, with one main coding task and one smaller exercise at a time. Use extra readings when a topic is unclear. Move on when you can do the exercises and explain the result.
 
-| Active study per week | Core study time | Calendar illustration with 20% extra weeks for breaks |
+| Study time each week | Main course, in study weeks | With about 20% extra weeks for breaks |
 | --- | --- | --- |
 | 10 hours | 54–76 weeks | 65–92 weeks |
 | 15 hours | 36–51 weeks | 44–61 weeks |
 | 20 hours | 27–38 weeks | 33–46 weeks |
 
-A learner starting in 2027 may continue the core into 2028, especially alongside work or university. The specialisation comes after its prerequisite skills and adds further time. Use your actual pace and debugging experience to revise the estimate.
+If you start in 2027 alongside work or university, the course may continue into 2028. Further study adds more time. Update the estimate after you have done some of the work.
 
-### Keep the frontier current
+### Updating the reading list
 
-This is a 2027 starting edition built from materials available in November 2026. Its research page is a dated selection, not a prediction of 2027's frontier. Before a new experiment, check the official course or project page, pin software/model versions and read a recent original paper connected to your question. Replace an older reading when a newer one teaches the same mechanism better; preserve foundational explanations that remain useful.
+The course uses materials available in November 2026. The research page is dated; it does not claim to describe the 2027 frontier. Before an experiment, check the official documentation, record your software and model versions, and read a recent paper on your question. Keep older explanations when they still teach the topic well.
