@@ -1,10 +1,10 @@
 .folio {
   --folio-font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --folio-paper: #f8f8f4;
-  --folio-ink: #20241f;
-  --folio-copy: #475049;
-  --folio-line: #d5d9cf;
-  --folio-accent: #245941;
+  --folio-paper: #fafbfd;
+  --folio-ink: #15233b;
+  --folio-copy: #384960;
+  --folio-line: #d7e0ee;
+  --folio-accent: #174fb5;
   color-scheme: light;
   scroll-padding-top: 24px;
   scroll-behavior: auto;
@@ -21,7 +21,7 @@
   outline-offset: 4px;
 }
 .folio-document .skip-link:focus { background: var(--folio-accent); color: #fff; }
-.folio ::selection { color: #132f24; background: #d7e8db; }
+.folio ::selection { color: #122a57; background: #dbe8ff; }
 .folio-shell, .folio-document .wrap { width: min(1080px, calc(100% - 56px)); margin-inline: auto; }
 .folio-skip {
   position: absolute; z-index: 50; top: 10px; left: 12px;
@@ -123,13 +123,54 @@
   font: 650 clamp(23px, 3.4vw, 30px)/1.2 var(--folio-font)!important;
   color: var(--folio-ink)!important; letter-spacing: -.025em!important;
 }
-.folio-document :is(.profile-band,.profile-skills-band,.profile-maker-band) { background: #eef1e9!important; border-color: var(--folio-line)!important; }
+.folio-document :is(.profile-band,.profile-skills-band,.profile-maker-band) { background: #edf2fa!important; border-color: var(--folio-line)!important; }
+.folio-document .about-section-links {
+  padding-block: 6px;
+  gap: 0 16px;
+  border-bottom: 1px solid var(--folio-line);
+}
+.folio-document .about-section-links>a {
+  display: inline-block;
+  padding-block: 8px;
+  color: var(--folio-accent);
+  font-size: 13px;
+  font-weight: 580;
+  text-underline-offset: 3px;
+}
+.folio-document .profile-degree h3 {
+  font-family: var(--folio-font);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 640;
+  letter-spacing: -.027em;
+  line-height: 1.2;
+  text-transform: none;
+}
+.folio-document .profile-degree { border-color: var(--folio-line); }
+.folio-document :is(.profile-skills-band, .profile-maker-band) {
+  color: var(--folio-ink);
+}
+.folio-document .profile-skills-band :is(.section-intro,.skill-card>p),
+.folio-document .maker-layout p:not(.eyebrow) {
+  color: var(--folio-copy);
+}
+.folio-document :is(.skill-grid,.skill-card) { border-color: var(--folio-line); }
+.folio-document .maker-layout figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  rotate: none;
+  border: 1px solid var(--folio-line);
+  border-radius: 13px;
+  background: var(--folio-paper);
+  box-shadow: 0 8px 24px #18336618;
+}
+.folio-document .maker-layout figcaption { padding: 11px 14px; }
 .folio-document :is(.profile-prose,.career-role,.detail-content) p { max-width: 68ch; }
 .folio-document :is(.text-link,.project-link,.skill-card>a,.detail-content a) { color: var(--folio-accent)!important; }
 .folio-document :is(.button-blue,.button-yellow,.filters button.active,.bench-filters button.active) {
   background: var(--folio-accent)!important; border-color: var(--folio-accent)!important; color: #fff!important;
 }
-.folio-document .detail-fact { background: #eaf0e6!important; border-color: #a2b6a7!important; color: #2e5944!important; }
+.folio-document .detail-fact { background: #eaf1ff!important; border-color: #b5c9ef!important; color: #28467e!important; }
 .folio-document .project-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
 .folio-document .project-card {
   background: transparent!important; border: 0!important; border-top: 1px solid var(--folio-line)!important;

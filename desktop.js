@@ -7,8 +7,8 @@
   const projects=[{id:'edtuned',name:'edTuned',type:'AI & education',description:'Personalised learning agents and capstone exploration.'},{id:'hermes',name:'Hermes Watcher',type:'AI meets hardware',description:'Python, MQTT, and a SenseCAP status display.'},{id:'oulad',name:'Understanding student success',type:'Data & research',description:'Seven OULAD tables, repeatable data workflows, and predictive modelling.'},{id:'risk',name:'Conversational risk analysis',type:'Published research',description:'Co-authored Springer chapter on text and audio classification.'},{id:'govnav',name:'GovNav',type:'GovHack team prototype',description:'AI-assisted government service navigation.'},{id:'sensors',name:'ARBD1: board to dashboard',type:'Firmware & Python',description:'Educational electronics, a hardware-control library, and monitoring GUI.'}];
   const projectMeta={
     edtuned:{category:'ai',style:'learning',mark:'edTuned',caption:'Learning agents / capstone'},
-    hermes:{category:'hardware',image:'assets/media/hermes-watcher-working.webp',caption:'AI meets a physical display'},
-    oulad:{category:'ai',style:'data',mark:'OULAD',caption:'Learning analytics / data workflows'},
+    hermes:{category:'hardware',image:'assets/media/hermes-watcher-done.webp',caption:'AI meets a physical display'},
+    oulad:{category:'ai',style:'workflow',image:'assets/media/oulad-workflow.svg',caption:'Learning analytics / data workflows'},
     risk:{category:'ai',style:'research',mark:'Text + audio',caption:'Published research / Springer'},
     govnav:{category:'ai',style:'navigation',mark:'GovNav',caption:'GovHack / team prototype'},
     sensors:{category:'hardware',image:'assets/media/arbd1-board-interface.webp',caption:'Firmware / Python / monitoring'}
@@ -115,7 +115,12 @@
     win.body.style.display='flex';win.body.style.flexDirection='column';frame.style.flex='1';frame.style.minHeight='0';win.body.append(toolbar,frame);
   }
   function projectBrowser(win){
-    win.path='';win.route='projects';win.title='Projects';win.element.querySelector('.window-title').textContent='Projects';if(win.ready)setRoute('projects');
+    win.path = '';
+    win.route = 'projects';
+    win.title = 'Projects';
+    win.element.querySelector('.window-title').textContent = win.title;
+    if (active === 'projects') document.querySelector('#desktop-active-name').textContent = win.title;
+    if (win.ready) setRoute(win.route);
     win.body.style.display='';win.body.replaceChildren();
     const browser=document.createElement('div');browser.className='file-browser project-library';
     browser.innerHTML='<div class="file-address"><span>▰</span> Portfolio <span>›</span> Projects</div><div class="file-browser-main"><nav class="file-sidebar" aria-label="Workspace folders"><p>LIBRARY</p><button type="button" data-open-app="profile">About me</button><button type="button" class="active" data-open-app="projects">Projects</button><button type="button" data-open-app="experience">Experience</button><button type="button" data-open-app="coursework">Coursework</button><button type="button" data-open-app="playground">Playground</button><button type="button" data-open-app="cv">My CV</button></nav><div class="project-library-content"><header class="project-library-heading"><div><h2>Projects</h2></div><div class="project-view-switch" role="group" aria-label="Project view"><button type="button" data-project-view="grid" aria-pressed="true" aria-label="Grid view" title="Grid view">▦</button><button type="button" data-project-view="list" aria-pressed="false" aria-label="List view" title="List view">☷</button></div></header><label class="project-find"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input type="search" aria-label="Search projects" placeholder="Search projects, tools or topics…"></label><div class="project-filter-bar"><div class="project-category-filters" role="group" aria-label="Project category"><button type="button" data-project-category="all" aria-pressed="true">All projects</button><button type="button" data-project-category="ai" aria-pressed="false">AI &amp; data</button><button type="button" data-project-category="hardware" aria-pressed="false">Hardware</button></div><p class="project-result-count" role="status" aria-live="polite"></p></div><div class="project-tiles"></div><div class="project-empty" hidden><h3>No projects found.</h3><p>Try a different topic, or reset the filters.</p><button type="button">Show all projects</button></div></div></div>';
@@ -130,7 +135,17 @@
         const meta=projectMeta[project.id],tile=document.createElement('a');tile.href='projects/'+project.id+'.html';tile.className='project-tile';tile.dataset.openProject=project.id;
         const art=document.createElement('span');art.className='project-tile-art '+(meta.style||'photo');art.setAttribute('aria-hidden','true');
         if(meta.image){const image=document.createElement('img');image.src=meta.image;image.alt='';image.loading='lazy';art.append(image);}else{const mark=document.createElement('strong');mark.textContent=meta.mark;art.append(mark);const detail=document.createElement('span');detail.textContent=meta.caption;art.append(detail);}
-        const copy=document.createElement('span');copy.className='project-tile-copy';const label=document.createElement('small');label.textContent=project.type;const name=document.createElement('strong');name.textContent=project.name;const desc=document.createElement('span');desc.textContent=project.description;const link=document.createElement('b');link.textContent='View project ↗';copy.append(label,name,desc,link);tile.append(art,copy);tiles.append(tile);
+        const copy = document.createElement('span');
+        copy.className = 'project-tile-copy';
+        const label = document.createElement('small');
+        label.textContent = project.type;
+        const title = document.createElement('strong');
+        title.textContent = project.name;
+        const description = document.createElement('span');
+        description.textContent = project.description;
+        copy.append(label, title, description);
+        tile.append(art, copy);
+        tiles.append(tile);
       });
     }
     find.addEventListener('input',render);

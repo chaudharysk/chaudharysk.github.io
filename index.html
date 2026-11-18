@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-AU" class="mac-style"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#526dd5"><title>Shashikant Chaudhary | Portfolio</title><meta name="description" content="Explore Shashikant Chaudhary’s AI desktop: detailed profile, education, experience, research, projects, deep learning coursework, terminal, and portfolio assistants."><link rel="canonical" href="https://chaudharysk.github.io/"><meta property="og:title" content="Shashikant Chaudhary — AI, Mathematics & Making"><meta property="og:description" content="A personal desktop for AI, mathematics, research, teaching, and hands-on projects."><meta property="og:type" content="website"><meta property="og:image" content="https://chaudharysk.github.io/assets/media/hermes-watcher-working.webp"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="desktop.css?v=20261110-mac"><link rel="stylesheet" href="assistants.css?v=20261110-visuals"><link rel="stylesheet" href="macos.css?v=20261110-mac"><link rel="preload" as="image" href="assets/desktop-spectrum.svg"><link rel="stylesheet" href="future-desktop.css?v=20261110-mac"><script src="desktop.js?v=20261110-mac" defer></script><script src="portfolio-audio.js?v=20261110-mac" defer></script><script src="assistants.js?v=20261110-visuals" defer></script><link rel="stylesheet" href="desktop-polish.css?v=20261110-mac"><script src="desktop-polish.js?v=20261110-mac" defer></script><link rel="stylesheet" href="desktop-context.css?v=20261110-mac"><script src="desktop-context.js?v=20261110-mac" defer></script><script src="alpine-wallpaper.js?v=20261110-mac" defer></script><link rel="stylesheet" href="os-style.css?v=20261110-mac"><script src="eclipse-wallpaper.js?v=20261110-mac" defer></script><style>
+<!doctype html><html lang="en-AU" class="mac-style"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#526dd5"><title>Shashikant Chaudhary | Portfolio</title><meta name="description" content="Explore Shashikant Chaudhary’s AI desktop: detailed profile, education, experience, research, projects, deep learning coursework, terminal, and portfolio assistants."><link rel="canonical" href="https://chaudharysk.github.io/"><meta property="og:title" content="Shashikant Chaudhary — AI, Mathematics & Making"><meta property="og:description" content="A personal desktop for AI, mathematics, research, teaching, and hands-on projects."><meta property="og:type" content="website"><meta property="og:image" content="https://chaudharysk.github.io/assets/media/hermes-watcher-working.webp"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="desktop.css?v=20261110-mac"><link rel="stylesheet" href="assistants.css?v=20261110-visuals"><link rel="stylesheet" href="macos.css?v=20261110-mac"><link rel="preload" as="image" href="assets/desktop-spectrum.svg"><link rel="stylesheet" href="future-desktop.css?v=20261110-mac"><script src="desktop.js?v=20261119-portfolio" defer></script><script src="portfolio-audio.js?v=20261110-mac" defer></script><script src="assistants.js?v=20261110-visuals" defer></script><link rel="stylesheet" href="desktop-polish.css?v=20261110-mac"><script src="desktop-polish.js?v=20261110-mac" defer></script><link rel="stylesheet" href="desktop-context.css?v=20261110-mac"><script src="desktop-context.js?v=20261110-mac" defer></script><script src="alpine-wallpaper.js?v=20261110-mac" defer></script><link rel="stylesheet" href="os-style.css?v=20261110-mac"><script src="eclipse-wallpaper.js?v=20261110-mac" defer></script><style>
   #workspace-startup { display: none; }
   .workspace-starting .film-desktop { visibility: hidden; }
   .workspace-starting #workspace-startup {
@@ -33,13 +33,13 @@
     // A slow or failed resource must never lock the desktop.
     const deadline = setTimeout(reveal, 7000);
     addEventListener('load', async () => {
-      const icons = [...document.querySelectorAll('.desktop-shortcuts img')];
-      await Promise.allSettled([document.fonts.ready, ...icons.map(image => image.decode())]);
+      const images = [...document.querySelectorAll('.desktop-shortcuts img, .desktop-feature img')];
+      await Promise.allSettled([document.fonts.ready, ...images.map(image => image.decode())]);
       reveal();
     }, { once: true });
   })();
 </script>
-<link rel="stylesheet" href="desktop-studio.css?v=20261110-mac"></head><body class="desktop-page" id="top" data-page="home" data-wallpaper="spectrum"><div id="workspace-startup" role="status">
+<link rel="stylesheet" href="desktop-studio.css?v=20261119-portfolio"></head><body class="desktop-page" id="top" data-page="home" data-wallpaper="spectrum"><div id="workspace-startup" role="status">
   <span class="startup-monogram" aria-hidden="true">SC</span>
   <span>Loading Shashi’s workspace</span>
   <span class="startup-track" aria-hidden="true"></span>
@@ -63,15 +63,26 @@
 </header>
 <div class="desktop-surface" id="desktop-surface">
   <div class="studio-content">
-    <aside class="desktop-note" aria-label="About Shashikant Chaudhary">
-      <p class="desktop-note-kicker">Adelaide, Australia</p>
-      <h1>Shashikant Chaudhary</h1>
-      <p>I build AI and data tools and teach mathematics and computing.</p>
-      <div class="note-actions">
-        <button type="button" data-open-app="projects">Explore projects <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 12l8-8M6 4h6v6"/></svg></button>
-        <a href="about.html" data-open-app="profile">About me</a>
+    <section class="portfolio-overview" aria-labelledby="portfolio-name">
+      <div class="desktop-note">
+        <p class="desktop-note-kicker">Adelaide, Australia</p>
+        <h1 id="portfolio-name">Shashikant Chaudhary</h1>
+        <p>I build AI and data tools and teach mathematics and computing.</p>
+        <div class="note-actions">
+          <a class="note-primary" href="projects.html" data-open-app="projects">View projects <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4"/></svg></a>
+          <a href="about.html" data-open-app="profile">About me</a>
+        </div>
       </div>
-    </aside>
+      <a class="desktop-feature" href="projects/hermes.html" data-open-project="hermes" aria-labelledby="featured-title" aria-describedby="featured-description">
+        <img src="assets/media/hermes-watcher-done.webp" alt="SenseCAP Watcher with a completed task on its round screen" width="900" height="1200" fetchpriority="high" draggable="false">
+        <div class="desktop-feature-caption">
+          <p>Featured project</p>
+          <h2 id="featured-title">Hermes Watcher</h2>
+          <p id="featured-description">A desk display for an AI agent’s activity and requests.</p>
+          <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9"/></svg>
+        </div>
+      </a>
+    </section>
     <nav aria-label="Desktop shortcuts" class="desktop-shortcuts">
     <button type="button" data-open-app="projects"><span class="desktop-app-icon" aria-hidden="true"><img src="assets/desktop-glyphs.svg?v=20261110-mac#projects" width="64" height="64" alt="" draggable="false"></span><span>Projects</span></button>
     <button type="button" data-open-app="experience"><span class="desktop-app-icon" aria-hidden="true"><img src="assets/desktop-glyphs.svg?v=20261110-mac#experience" width="64" height="64" alt="" draggable="false"></span><span>Experience</span></button>
