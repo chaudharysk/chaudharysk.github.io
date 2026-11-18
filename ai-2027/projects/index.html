@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Keep three small projects going as you learn. Use one of them for your final comparison.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Projects | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/projects/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../plan/">Study plan</a> <a href="../projects/" class="nav-active" aria-current="page">Projects</a> <a href="../materials/">Materials</a> <a href="../research/">Research</a> <a href="../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Projects</li></ol></nav>
+    <header class="page-heading"><h1>Projects</h1><p class="lede">Keep three small projects going as you learn. Use one of them for your final comparison.</p></header><article class="prose">
+      <h2>What to build</h2>
+      <table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Project</th><th scope="col" role="columnheader">Develop it through</th><th scope="col" role="columnheader">What to include</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Text baseline and evaluation notebook</th><td role="cell"><span class="cell-label" aria-hidden="true">Develop it through</span>Parts 1–2, with an optional encoder comparison later</td><td role="cell"><span class="cell-label" aria-hidden="true">What to include</span>Fixed splits, classical/neural baselines, metric calculations, a small error taxonomy and reproducible results</td></tr><tr role="row"><th scope="row" role="rowheader">Model-training laboratory</th><td role="cell"><span class="cell-label" aria-hidden="true">Develop it through</span>Parts 2–5</td><td role="cell"><span class="cell-label" aria-hidden="true">What to include</span>Tiny decoder, tokenizer exercise, data/training ablation, SFT comparison, DPO comparison and toy preference/RL exercises</td></tr><tr role="row"><th scope="row" role="rowheader">Grounded document assistant</th><td role="cell"><span class="cell-label" aria-hidden="true">Develop it through</span>Parts 1–6</td><td role="cell"><span class="cell-label" aria-hidden="true">What to include</span>Lexical and dense retrieval, RAG, a bounded tool loop, evaluation cases, traces, profiling and a final comparison</td></tr></tbody></table>
+<p>Keep the small exercises in these projects. They do not each need a separate repository or demo. Reuse your environment and experiment log where possible. Use different data or models when the task needs them.</p>
+<p>After each large exercise, explain it without notes, try a new problem and change something yourself. Come back a few days later and write the main calculation again. This will tell you more than getting a provided notebook to run.</p>
+      <h2 id="final-project">The final project</h2>
+      <table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Option</th><th scope="col" role="columnheader">Main comparison</th><th scope="col" role="columnheader">What must stay comparable</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Recommended: RAG versus a bounded tool-using assistant</th><td role="cell"><span class="cell-label" aria-hidden="true">Main comparison</span>Does a tool loop improve tasks requiring evidence and calculation?</td><td role="cell"><span class="cell-label" aria-hidden="true">What must stay comparable</span>Model version, question set, accessible sources and total resource ceiling</td></tr><tr role="row"><th scope="row" role="rowheader">Adaptation</th><td role="cell"><span class="cell-label" aria-hidden="true">Main comparison</span>Does SFT or DPO improve a narrow behaviour over a well-designed prompt?</td><td role="cell"><span class="cell-label" aria-hidden="true">What must stay comparable</span>Starting model family, held-out task families, grading and generation settings</td></tr><tr role="row"><th scope="row" role="rowheader">Test-time computation</th><td role="cell"><span class="cell-label" aria-hidden="true">Main comparison</span>How does accuracy change as you sample more answers and use a verifier to pick one?</td><td role="cell"><span class="cell-label" aria-hidden="true">What must stay comparable</span>Hold the model, tasks and verifier fixed. Set a token cap per run and report the actual cost at each budget.</td></tr><tr role="row"><th scope="row" role="rowheader">Memory extension</th><td role="cell"><span class="cell-label" aria-hidden="true">Main comparison</span>Does useful past experience help later tasks?</td><td role="cell"><span class="cell-label" aria-hidden="true">What must stay comparable</span>Chronological task stream, starting memory, memory-construction cost and evaluation protocol</td></tr></tbody></table>
+<p>Use the existing project rather than starting a new application. State one hypothesis, one primary outcome, a credible baseline and one informative ablation. Register these in your project notes before the final comparison.</p>
+<p><strong>Submission:</strong> a runnable demo or command; a results table; uncertainty where justified; failure analysis; a short explanation of the mechanism; resource costs; and clear reproduction instructions. Inspect all failures if there are fewer than 20, otherwise a representative labelled sample of at least 20.</p>
+<p>A negative result is acceptable when the implementation and comparison are sound. A working demo without a valid comparison is incomplete.</p>
+      <p><a href="../reference/metrics/">Pick metrics and set up the comparison</a> · <a href="../study/6-evaluation-and-final-project/">Read the final lesson</a></p>
+    </article>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

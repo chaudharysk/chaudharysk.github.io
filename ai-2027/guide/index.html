@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Set up a small experiment first. Use the work to see which parts of Python and maths you need to revise.">
+  <meta name="theme-color" content="#ffffff">
+  <title>How to use the plan | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/guide/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../plan/" class="nav-active">Study plan</a> <a href="../projects/">Projects</a> <a href="../materials/">Materials</a> <a href="../research/">Research</a> <a href="../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="../plan/">Study plan</a></li><li aria-current="page">How to use the plan</li></ol></nav>
+    <header class="page-heading"><h1>How to use the plan</h1><p class="lede">Set up a small experiment first. Use the work to see which parts of Python and maths you need to revise.</p></header><article class="prose">
+      <h2>What to do first</h2>
+      <ol><li>Do the self-check and list the topics you need to revise.</li><li>Open PyTorch Basics, the first relevant SLP chapter and the chosen implementation resource. Keep other courses closed until needed.</li><li>Create the text-baseline notebook and the document-assistant baseline.</li><li>Write the initial development cases and keep an experiment log from the first run.</li><li>After part 1, check the exercises and update your time estimate.</li></ol>
+<p>By the end, you should be able to explain the main parts of a language model, run small training and fine-tuning experiments, build a document assistant with tools and test whether it works. Then pick a subject and study it in more detail.</p>
+      <p><a href="../study/1-python-and-maths/" class="primary-link">Open the self-check in part 1</a></p>
+      <h2>Study three tracks together</h2>
+      <p>Study these three tracks at the same time. You can make progress in one while practising something in another.</p>
+<table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Parallel track</th><th scope="col" role="columnheader">What belongs here</th><th scope="col" role="columnheader">Example</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Foundations</th><td role="cell"><span class="cell-label" aria-hidden="true">What belongs here</span>Python, PyTorch, mathematics, probability, statistics, classical ML and optimisation</td><td role="cell"><span class="cell-label" aria-hidden="true">Example</span>Learn a derivative while implementing a loss; learn sampling uncertainty while comparing systems.</td></tr><tr role="row"><th scope="row" role="rowheader">Language models and training</th><td role="cell"><span class="cell-label" aria-hidden="true">What belongs here</span>NLP, tokens, embeddings, transformers, pretraining, SFT, preferences and RL</td><td role="cell"><span class="cell-label" aria-hidden="true">Example</span>Explain mechanisms, implement small examples and adapt an existing model.</td></tr><tr role="row"><th scope="row" role="rowheader">Applications and systems</th><td role="cell"><span class="cell-label" aria-hidden="true">What belongs here</span>Retrieval, RAG, tools, agents, inference, state and deployment</td><td role="cell"><span class="cell-label" aria-hidden="true">Example</span>Build a useful system early, then measure whether added components help.</td></tr></tbody></table>
+<p>Test your work in all three tracks. Read papers alongside the coding exercises. Start with a short discussion of a paper; later, try to reproduce one result.</p>
+<p>Some tasks can start early. You can build document search before learning attention, and use an existing model before training one. Other tasks have prerequisites: learn gradients and probabilities before policy optimisation, and get one agent working before trying several.</p>
+<p>Work on one main coding task and one smaller exercise at a time. For example, while training a small transformer, you might compare two retrieval settings in the application track. Three tracks do not need to mean three large projects at once.</p>
+<h2 id="what-to-implement-and-what-to-understand">What to implement and what to understand</h2>
+<table class="reading-table" role="table"><caption class="sr-only">What to implement and what to understand</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Depth</th><th scope="col" role="columnheader">Required topics</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Implement and explain</th><td role="cell"><span class="cell-label" aria-hidden="true">Required topics</span>Tensor operations; a small loss and gradient; classical text baseline; causal attention; a tiny decoder and training loop; a toy BPE tokenizer; evaluation metrics; a basic tool loop; a toy policy-gradient update.</td></tr><tr role="row"><th scope="row" role="rowheader">Use, inspect and evaluate</th><td role="cell"><span class="cell-label" aria-hidden="true">Required topics</span>Pretrained tokenizers and encoders; a small SFT/LoRA run; a small DPO run; retrieval and reranking libraries; structured outputs; checkpointing; a simple service.</td></tr><tr role="row"><th scope="row" role="rowheader">Explain with a worked example</th><td role="cell"><span class="cell-label" aria-hidden="true">Required topics</span>RLHF pipeline; reward modelling; PPO clipping; GRPO group advantages; KL regularisation; scaling trade-offs; KV cache; quantisation; distributed-training concepts; multimodal representations.</td></tr><tr role="row"><th scope="row" role="rowheader">Optional projects</th><td role="cell"><span class="cell-label" aria-hidden="true">Required topics</span>Full LLM PPO/GRPO, large reward models, multiple agents, learned long-term memory, custom GPU kernels, distributed training, full benchmark suites and large-scale multimodal training.</td></tr></tbody></table>
+<p>Use libraries where they help. For the topics in the first row, write the main calculation yourself and explain it without reading the tutorial.</p>
+      <h2>What you need to know first</h2>
+      <table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Before this work</th><th scope="col" role="columnheader">Demonstrate this first</th><th scope="col" role="columnheader">Work that can continue in parallel</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Training a transformer</th><td role="cell"><span class="cell-label" aria-hidden="true">Demonstrate this first</span>Understand batched tensor shapes, shifted labels, cross-entropy and autograd; overfit a tiny batch.</td><td role="cell"><span class="cell-label" aria-hidden="true">Work that can continue in parallel</span>Retrieval, dataset inspection and evaluation design</td></tr><tr role="row"><th scope="row" role="rowheader">Fine-tuning a model</th><td role="cell"><span class="cell-label" aria-hidden="true">Demonstrate this first</span>Understand the pretrained model&#x27;s tokenizer/template and inspect the exact supervised tokens.</td><td role="cell"><span class="cell-label" aria-hidden="true">Work that can continue in parallel</span>Tool design and statistical exercises</td></tr><tr role="row"><th scope="row" role="rowheader">DPO training</th><td role="cell"><span class="cell-label" aria-hidden="true">Demonstrate this first</span>Have a stable starting checkpoint and usable preference pairs; calculate completion log-probabilities correctly.</td><td role="cell"><span class="cell-label" aria-hidden="true">Work that can continue in parallel</span>RAG improvements and RL concepts</td></tr><tr role="row"><th scope="row" role="rowheader">Online LLM RL</th><td role="cell"><span class="cell-label" aria-hidden="true">Demonstrate this first</span>Understand policy gradients; test the verifier; measure initial success and rollout cost.</td><td role="cell"><span class="cell-label" aria-hidden="true">Work that can continue in parallel</span>Toy RL and critique of published experiments</td></tr><tr role="row"><th scope="row" role="rowheader">Multiple agents or learned memory</th><td role="cell"><span class="cell-label" aria-hidden="true">Demonstrate this first</span>Have a working single-agent baseline and tasks that require the extra component.</td><td role="cell"><span class="cell-label" aria-hidden="true">Work that can continue in parallel</span>Reliability, deployment and final project analysis</td></tr></tbody></table>
+<p>A stable SFT checkpoint before DPO is the default teaching route here, not a claim that every DPO research setup must train a new SFT model first.</p>
+      <p><a href="../plan/">See the six parts</a> · <a href="../workload/">Estimate your study time</a></p>
+    </article>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find a course, paper or guide for the part you’re studying. Each entry includes a reading assignment and an exercise.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Learning materials | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/materials/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../plan/">Study plan</a> <a href="../projects/">Projects</a> <a href="../materials/" class="nav-active" aria-current="page">Materials</a> <a href="../research/">Research</a> <a href="../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Learning materials</li></ol></nav>
+    <header class="page-heading"><h1>Learning materials</h1><p class="lede">Find a course, paper or guide for the part you’re studying. Each entry includes a reading assignment and an exercise.</p></header>
+    <div class="reading-wide" data-filter-list data-item-label="materials">
+      <div class="filter-controls" data-filter-controls hidden>
+        <label class="search-field">Search materials<input type="search" data-search placeholder="Try tokenisation or RLHF"></label>
+        <label>Track<select data-track-filter><option value="">All tracks</option><option value="foundations">Maths and code</option><option value="models">Language models</option><option value="applications">Applications</option></select></label>
+        <label>Part<select data-part-filter><option value="">All parts</option>
+          <option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option><option value="4">Part 4</option><option value="5">Part 5</option><option value="6">Part 6</option>
+        </select></label>
+        <label class="checkbox-label"><input type="checkbox" data-saved-only> Saved only</label>
+      </div>
+      <p data-results-count class="source-meta" role="status" hidden></p>
+      <p data-no-results hidden>Nothing matches. Try another search or change the filters.</p>
+      <ul class="reading-list"><li data-result data-track="foundations" data-parts="1 2" data-resource="pytorch" id="pytorch">
+          <div class="material-title"><h2><a href="https://docs.pytorch.org/tutorials/beginner/basics/intro.html">Learn the Basics</a></h2>
+            <button type="button" data-save="pytorch" aria-label="Save Learn the Basics" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">PyTorch · Main material · <a href="../study/1-python-and-maths/">Part 1</a> · <a href="../study/2-machine-learning-and-nlp/">Part 2</a></p>
+          <p>Tensors, data loaders, model building, autograd, optimisation, saving and loading.</p>
+          <p><strong>Try it.</strong> Write and debug a small training loop without copying the whole example.</p>
+        </li><li data-result data-track="models" data-parts="2 3" data-resource="karpathy" id="karpathy">
+          <div class="material-title"><h2><a href="https://github.com/karpathy/nn-zero-to-hero">Neural Networks: Zero to Hero</a></h2>
+            <button type="button" data-save="karpathy" aria-label="Save Neural Networks: Zero to Hero" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Andrej Karpathy · Main material · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a></p>
+          <p>Micrograd; initial makemore bigram and MLP lessons; Let&#x27;s build GPT; tokenizer lesson for BPE.</p>
+          <p><strong>Try it.</strong> Write the calculations yourself, then build the small decoder. Use extra lessons when something is unclear.</p>
+        </li><li data-result data-track="models" data-parts="1 2 3 4 5" data-resource="slp" id="slp">
+          <div class="material-title"><h2><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a></h2>
+            <button type="button" data-save="slp" aria-label="Save Speech and Language Processing" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Dan Jurafsky &amp; James H. Martin · Main material · <a href="../study/1-python-and-maths/">Part 1</a> · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Selected chapters 2–8 and 11 in the August 2026 draft; chapter 9 for masked models.</p>
+          <p><strong>Try it.</strong> Read the chapter for the topic you are working on. Explain it with a small example.</p>
+        </li><li data-result data-track="models" data-parts="1 2 3 4 5" data-resource="hfllm" id="hfllm">
+          <div class="material-title"><h2><a href="https://huggingface.co/learn/llm-course/chapter1/1">The LLM Course</a></h2>
+            <button type="button" data-save="hfllm" aria-label="Save The LLM Course" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · Main material · <a href="../study/1-python-and-maths/">Part 1</a> · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Chapters 1–3, 5–6; one chapter 7 classification example; selected chapters 10–11. Chapter 12 later.</p>
+          <p><strong>Try it.</strong> Load and inspect models, datasets and tokenizers; complete a small fine-tuning experiment.</p>
+        </li><li data-result data-track="applications" data-parts="4 5" data-resource="agents" id="agents">
+          <div class="material-title"><h2><a href="https://huggingface.co/learn/agents-course/en/unit0/introduction">AI Agents Course</a></h2>
+            <button type="button" data-save="agents" aria-label="Save AI Agents Course" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · Main material · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Unit 1, one useful framework from Unit 2, relevant RAG and evaluation material.</p>
+          <p><strong>Try it.</strong> Write the loop in Python first. Log tool calls, handle errors and set a step limit.</p>
+        </li><li data-result data-track="models" data-parts="5" data-resource="rl" id="rl">
+          <div class="material-title"><h2><a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro.html">Spinning Up: RL Concepts</a></h2>
+            <button type="button" data-save="rl" aria-label="Save Spinning Up: RL Concepts" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">OpenAI · Main material · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>States, actions, rewards, policies and returns; continue to the policy-optimisation notes.</p>
+          <p><strong>Try it.</strong> Calculate a policy-gradient update, then implement it. You do not need to install the old software stack.</p>
+        </li><li data-result data-track="models" data-parts="5" data-resource="policy-gradient" id="policy-gradient">
+          <div class="material-title"><h2><a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html">Spinning Up: Policy Optimisation</a></h2>
+            <button type="button" data-save="policy-gradient" aria-label="Save Spinning Up: Policy Optimisation" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">OpenAI · Reference · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Read the policy-gradient derivation and the explanation of baselines.</p>
+          <p><strong>Try it.</strong> Calculate a return and one policy-gradient update on a toy problem.</p>
+        </li><li data-result data-track="models" data-parts="5" data-resource="instructgpt" id="instructgpt">
+          <div class="material-title"><h2><a href="https://arxiv.org/abs/2203.02155">InstructGPT and RLHF</a></h2>
+            <button type="button" data-save="instructgpt" aria-label="Save InstructGPT and RLHF" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">OpenAI · Research paper · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Read the training workflow and the human evaluation setup.</p>
+          <p><strong>Try it.</strong> Trace how demonstrations and preference labels enter the pipeline, then explain what the reward model learns.</p>
+        </li><li data-result data-track="foundations" data-parts="1 2 3 4" data-resource="mml" id="mml">
+          <div class="material-title"><h2><a href="https://mml-book.com">Mathematics for Machine Learning</a></h2>
+            <button type="button" data-save="mml" aria-label="Save Mathematics for Machine Learning" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Deisenroth, Faisal &amp; Ong · Reference · <a href="../study/1-python-and-maths/">Part 1</a> · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a></p>
+          <p>Relevant parts of chapters 2–3 and 5–7; chapter 4 for decomposition/PCA intuition.</p>
+          <p><strong>Try it.</strong> Work out matrix shapes, calculate a gradient and explain cosine similarity.</p>
+        </li><li data-result data-track="foundations" data-parts="2 4 6" data-resource="stat110" id="stat110">
+          <div class="material-title"><h2><a href="https://stat110.hsites.harvard.edu/">Statistics 110</a></h2>
+            <button type="button" data-save="stat110" aria-label="Save Statistics 110" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Harvard · Joe Blitzstein · Reference · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Conditional probability, random variables, expectation and variance. Use practice problems.</p>
+          <p><strong>Try it.</strong> Solve a Bayes problem, then check it with a simulation. Read more when you need it.</p>
+        </li><li data-result data-track="foundations" data-parts="2 4 6" data-resource="islp" id="islp">
+          <div class="material-title"><h2><a href="https://www.statlearning.com/">Statistical Learning with Python</a></h2>
+            <button type="button" data-save="islp" aria-label="Save Statistical Learning with Python" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">James, Witten, Hastie, Tibshirani &amp; Taylor · Reference · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Chapter 2; selected chapters 3–6 for regression, classification, resampling and regularisation.</p>
+          <p><strong>Try it.</strong> Train a baseline, check for data leakage and estimate uncertainty when comparing predictions.</p>
+        </li><li data-result data-track="applications" data-parts="2 3" data-resource="retrieval" id="retrieval">
+          <div class="material-title"><h2><a href="https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></h2>
+            <button type="button" data-save="retrieval" aria-label="Save Retrieve &amp; Re-Rank" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Sentence Transformers · Practical guide · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a></p>
+          <p>Lexical and bi-encoder retrieval, then cross-encoder reranking if justified.</p>
+          <p><strong>Try it.</strong> Compare retrievers on the same labelled queries before adding another component.</p>
+        </li><li data-result data-track="models" data-parts="4" data-resource="peft" id="peft">
+          <div class="material-title"><h2><a href="https://huggingface.co/docs/peft/developer_guides/quantization">Efficient adaptation &amp; quantisation</a></h2>
+            <button type="button" data-save="peft" aria-label="Save Efficient adaptation &amp; quantisation" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · PEFT · Practical guide · <a href="../study/4-fine-tuning-and-agents/">Part 4</a></p>
+          <p>Frozen base weights, adapters, quantisation and the full memory budget.</p>
+          <p><strong>Try it.</strong> Count trainable parameters and measure memory with a minimal run.</p>
+        </li><li data-result data-track="models" data-parts="4" data-resource="sft" id="sft">
+          <div class="material-title"><h2><a href="https://huggingface.co/docs/trl/sft_trainer">SFT Trainer</a></h2>
+            <button type="button" data-save="sft" aria-label="Save SFT Trainer" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · TRL · Practical guide · <a href="../study/4-fine-tuning-and-agents/">Part 4</a></p>
+          <p>Data formats, chat templates, assistant/completion loss masking and adapter integration.</p>
+          <p><strong>Try it.</strong> Inspect the loss masks. Test on held-out examples and check which tasks got better or worse.</p>
+        </li><li data-result data-track="models" data-parts="5" data-resource="dpo" id="dpo">
+          <div class="material-title"><h2><a href="https://huggingface.co/docs/trl/dpo_trainer">DPO Trainer</a></h2>
+            <button type="button" data-save="dpo" aria-label="Save DPO Trainer" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · TRL · Practical guide · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Preference pairs, completion log-probabilities, the reference policy and one small training run.</p>
+          <p><strong>Try it.</strong> Compare the starting, SFT and DPO models on the same test cases, with the same grading rules.</p>
+        </li><li data-result data-track="models" data-parts="5" data-resource="grpo" id="grpo">
+          <div class="material-title"><h2><a href="https://huggingface.co/docs/trl/grpo_trainer">GRPO Trainer</a></h2>
+            <button type="button" data-save="grpo" aria-label="Save GRPO Trainer" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Hugging Face · TRL · Reference · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Read how the trainer samples a group of completions and calculates relative advantages.</p>
+          <p><strong>Try it.</strong> Work out the advantages for a group of four answers. Test what happens when all four receive the same reward.</p>
+        </li><li data-result data-track="applications" data-parts="3 4 5 6" data-resource="evals" id="evals">
+          <div class="material-title"><h2><a href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents">Demystifying evals for AI agents</a></h2>
+            <button type="button" data-save="evals" aria-label="Save Demystifying evals for AI agents" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Anthropic · Practical guide · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Task success, grading rules, repeated trials and test cases.</p>
+          <p><strong>Try it.</strong> Write a small set of tasks with clear grading rules. Check cases where graders disagree.</p>
+        </li><li data-result data-track="applications" data-parts="4 5" data-resource="workflows" id="workflows">
+          <div class="material-title"><h2><a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents</a></h2>
+            <button type="button" data-save="workflows" aria-label="Save Building effective agents" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Anthropic · Practical guide · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a></p>
+          <p>Read the workflow and agent examples. Start with the simplest system that can perform your task.</p>
+          <p><strong>Try it.</strong> Run a fixed workflow and a tool-using loop on the same cases and compare the outcomes.</p>
+        </li><li data-result data-track="applications" data-parts="4 6" data-resource="mcp" id="mcp">
+          <div class="material-title"><h2><a href="https://modelcontextprotocol.io/docs/getting-started/intro">Model Context Protocol introduction</a></h2>
+            <button type="button" data-save="mcp" aria-label="Save Model Context Protocol introduction" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">MCP · Reference · <a href="../study/4-fine-tuning-and-agents/">Part 4</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Read how clients discover tools and resources supplied by servers.</p>
+          <p><strong>Try it.</strong> Describe the interface between your document assistant and a search tool. List what the tool needs access to.</p>
+        </li><li data-result data-track="applications" data-parts="6" data-resource="vllm" id="vllm">
+          <div class="material-title"><h2><a href="https://docs.vllm.ai/en/latest/">Inference &amp; serving</a></h2>
+            <button type="button" data-save="vllm" aria-label="Save Inference &amp; serving" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">vLLM · Reference · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Relevant serving, profiling, caching and batching sections.</p>
+          <p><strong>Try it.</strong> Measure quality, memory and end-to-end latency. A specific serving stack is optional.</p>
+        </li><li data-result data-track="models" data-parts="2 3 4" data-resource="raschka" id="raschka">
+          <div class="material-title"><h2><a href="https://github.com/rasbt/LLMs-from-scratch">Build an LLM from Scratch</a></h2>
+            <button type="button" data-save="raschka" aria-label="Save Build an LLM from Scratch" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Sebastian Raschka · Alternative · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/4-fine-tuning-and-agents/">Part 4</a></p>
+          <p>Chapters 2–5 instead of the equivalent Karpathy implementation; chapter 7 for instruction tuning.</p>
+          <p><strong>Try it.</strong> Choose this written route when it suits you. Public code; the book is separate.</p>
+        </li><li data-result data-track="foundations" data-parts="2 3 6" data-resource="mit" id="mit">
+          <div class="material-title"><h2><a href="https://introtodeeplearning.com/">Introduction to Deep Learning</a></h2>
+            <button type="button" data-save="mit" aria-label="Save Introduction to Deep Learning" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">MIT · 6.S191 · Alternative · <a href="../study/2-machine-learning-and-nlp/">Part 2</a> · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Selected neural-network, sequence, vision or generative-model lectures.</p>
+          <p><strong>Try it.</strong> Replace an equivalent explanation rather than adding another full course.</p>
+        </li><li data-result data-track="models" data-parts="3 6" data-resource="cs224n" id="cs224n">
+          <div class="material-title"><h2><a href="https://web.stanford.edu/class/cs224n/">NLP with Deep Learning</a></h2>
+            <button type="button" data-save="cs224n" aria-label="Save NLP with Deep Learning" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Stanford · CS224N · Extension · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Selected embeddings, attention or NLP-task lectures. The page links public 2024 videos.</p>
+          <p><strong>Try it.</strong> Pick the lectures you need. The 2026 recordings require enrolled-student access.</p>
+        </li><li data-result data-track="models" data-parts="3 5 6" data-resource="cs336" id="cs336">
+          <div class="material-title"><h2><a href="https://cs336.stanford.edu/">Language Modeling from Scratch</a></h2>
+            <button type="button" data-save="cs336" aria-label="Save Language Modeling from Scratch" aria-pressed="false" class="quiet-button" hidden>Save</button>
+          </div>
+          <p class="source-meta">Stanford · CS336 · Extension · <a href="../study/3-build-a-language-model/">Part 3</a> · <a href="../study/5-rlhf-and-reinforcement-learning/">Part 5</a> · <a href="../study/6-evaluation-and-final-project/">Part 6</a></p>
+          <p>Selected basics, data, scaling or alignment lessons after you can do the exercises for that topic.</p>
+          <p><strong>Try it.</strong> Leave the full systems and distributed-training assignments until after the main course.</p>
+        </li></ul>
+      <p class="page-links"><a href="../reference/">Browse the reference pages</a> · <a href="../research/">Read recent research</a></p>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

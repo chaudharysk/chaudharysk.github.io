@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Size models for the hardware you have and measure a small pilot.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Compute and hardware | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/reference/compute/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/" class="nav-active">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../reference/">Reference</a></li><li aria-current="page">Compute and hardware</li></ol></nav>
+    <header class="page-heading"><h1>Compute and hardware</h1><p class="lede">Size models for the hardware you have and measure a small pilot.</p></header><article class="prose"><table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Available resources</th><th scope="col" role="columnheader">Practical approach</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">CPU/laptop only</th><td role="cell"><span class="cell-label" aria-hidden="true">Practical approach</span>Complete foundations, classical ML, retrieval, toy transformers and toy RL locally. Use very small pretrained models or measured remote access for heavier inference. Large adaptation runs are unnecessary.</td></tr><tr role="row"><th scope="row" role="rowheader">Approximately 8–12 GB GPU memory</th><td role="cell"><span class="cell-label" aria-hidden="true">Practical approach</span>Begin with a tiny decoder and small pretrained models; roughly 0.5–1B parameters is a sensible pilot range for adaptation, subject to measurement. Use short sequences and small batches.</td></tr><tr role="row"><th scope="row" role="rowheader">Approximately 16–24 GB GPU memory</th><td role="cell"><span class="cell-label" aria-hidden="true">Practical approach</span>More flexibility for small-model adaptation and selected rollout experiments. Still start with a minimal measured run.</td></tr><tr role="row"><th scope="row" role="rowheader">Multiple GPUs</th><td role="cell"><span class="cell-label" aria-hidden="true">Practical approach</span>Optional training/systems specialisation. Not assumed by the core curriculum.</td></tr></tbody></table>
+<p>Parameter counts are starting points, not fit guarantees. At 16 bits, one billion raw weights occupy roughly 2 GB in decimal units, before activations, gradients, optimiser states, KV cache and runtime overhead. Quantisation and LoRA change parts of this budget, not all of it.</p>
+<p>Run a short pilot before choosing the final model or dataset size. Measure peak memory, time per step, generation length and total expected cost. Use package versions compatible with the hardware and examples; save the exact environment. Current documentation may describe newer APIs than an older notebook.</p>
+<p>A CPU-only student may use smaller adaptation tasks or arrange brief GPU access. Analysing supplied training logs is useful conceptual work, but it does not replace actually running SFT and DPO if claiming practical competence in those methods.</p>
+<p>Avoid making a large model, a full benchmark leaderboard run or an expensive cloud setup a condition of learning the mechanism. Financial cost is separate from active study hours and should be estimated from a measured pilot and current provider rates.</p><nav class="page-links" aria-label="Other reference pages"><ul class="text-links"><li><a href="../../reference/glossary/">Key terms</a></li><li><a href="../../reference/training/">Training methods</a></li><li><a href="../../reference/metrics/">Metrics and statistics</a></li></ul></nav></article>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

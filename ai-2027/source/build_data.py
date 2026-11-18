@@ -1,63 +1,26 @@
+"""Course part summaries and reading assignments used by rebuild.py."""
+
 from pathlib import Path
-import re, json, html
+import re
 
-ROOT = Path(__file__).resolve().parent
-source = (ROOT / "dist/assets/study-plan.md").read_text()
 
-def inline(s):
-    s = html.escape(s)
-    s = re.sub(r'\[([^\]]+)\]\((https?://[^\s]+)\)', r'<a href="\2" target="_blank" rel="noopener noreferrer">\1<span class="external" aria-hidden="true"> ↗</span></a>', s)
-    s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
-    return s
+SITE = Path(__file__).resolve().parents[1]
+TRACKS = {
+    "foundations": ("Maths and code", "maths-and-code", "Python, probability, statistics and the maths behind the models."),
+    "models": ("Language models", "language-models", "Tokens, transformers, training and learning from feedback."),
+    "applications": ("Applications", "applications", "Retrieval, tools, agents and running models."),
+}
+PART_SLUGS = (
+    "python-and-maths", "machine-learning-and-nlp", "build-a-language-model",
+    "fine-tuning-and-agents", "rlhf-and-reinforcement-learning", "evaluation-and-final-project",
+)
 
-def markdown(text):
-    lines = text.strip().splitlines()
-    out = []
-    i = 0
-    while i < len(lines):
-        line = lines[i].strip()
-        if not line:
-            i += 1
-            continue
-        if line.startswith('#'):
-            match = re.match(r'^(#+) (.+)', line)
-            if match:
-                level = max(2, min(4, len(match[1])-1))
-                out.append(f'<h{level}>{inline(match[2])}</h{level}>')
-                i += 1
-                continue
-        if line.startswith('|'):
-            rows = []
-            while i < len(lines) and lines[i].strip().startswith('|'):
-                cells = [x.strip() for x in lines[i].strip().strip('|').split('|')]
-                if not all(re.match(r'^:?-+:?$', c) for c in cells):
-                    rows.append(cells)
-                i += 1
-            head = ''.join('<th scope="col">'+inline(c)+'</th>' for c in rows[0])
-            body = ''.join('<tr>'+''.join('<td>'+inline(c)+'</td>' for c in r)+'</tr>' for r in rows[1:])
-            out.append('<div class="table-scroll" tabindex="0" aria-label="Scrollable reference table"><table><thead><tr>'+head+'</tr></thead><tbody>'+body+'</tbody></table></div>')
-            continue
-        if re.match(r'^(- |\d+\. )', line):
-            ordered = bool(re.match(r'^\d+\.', line))
-            tag = 'ol' if ordered else 'ul'
-            items = []
-            while i < len(lines) and re.match(r'^(- |\d+\. )', lines[i].strip()):
-                item = re.sub(r'^(- |\d+\. )', '', lines[i].strip())
-                items.append('<li>'+inline(item)+'</li>')
-                i += 1
-            out.append('<'+tag+'>'+''.join(items)+'</'+tag+'>')
-            continue
-        paragraph = [line]
-        i += 1
-        while i < len(lines) and lines[i].strip() and not re.match(r'^(#|\||- |\d+\. )', lines[i].strip()):
-            paragraph.append(lines[i].strip())
-            i += 1
-        out.append('<p>'+inline(' '.join(paragraph))+'</p>')
-    return '\n'.join(out)
 
-sections = {}
-for match in re.finditer(r'^## (\d+)\. (.+)\n([\s\S]*?)(?=^## \d+\. |\Z)', source, re.M):
-    sections[int(match[1])] = {"title":match[2], "html":markdown(match[3])}
+def load_sections():
+    source = (SITE / "assets" / "study-plan.md").read_text(encoding="utf-8")
+    pattern = r"^## (\d+)\. (.+)\n([\s\S]*?)(?=^## \d+\. |\Z)"
+    return {int(n): (title, notes.strip()) for n, title, notes in re.findall(pattern, source, re.M)}
+
 
 bands = [{'id': 1,
   'title': 'Python and maths refresher',
@@ -137,9 +100,6 @@ bands = [{'id': 1,
   'check': ['Write down your question, baseline and main metric. Change one component to see what it adds.',
             'Report uncertainty, resource use and the kinds of errors you found.',
             'Provide the code, environment, data notes and commands needed to reproduce the result.']}]
-for b in bands:
-    b['html'] = sections[b['id']+3]['html']
-
 def resource(id,title,author,url,lane,kind,bands,assignment,finish):
     return dict(id=id,title=title,author=author,url=url,lane=lane,kind=kind,bands=bands,assignment=assignment,finish=finish)
 
@@ -150,6 +110,8 @@ resource("slp","Speech and Language Processing","Dan Jurafsky & James H. Martin"
 resource("hfllm","The LLM Course","Hugging Face","https://huggingface.co/learn/llm-course/chapter1/1","models","Main material",[1,2,3,4,5],"Chapters 1–3, 5–6; one chapter 7 classification example; selected chapters 10–11. Chapter 12 later.","Load and inspect models, datasets and tokenizers; complete a small fine-tuning experiment."),
 resource("agents","AI Agents Course","Hugging Face","https://huggingface.co/learn/agents-course/en/unit0/introduction","applications","Main material",[4,5],"Unit 1, one useful framework from Unit 2, relevant RAG and evaluation material.","Write the loop in Python first. Log tool calls, handle errors and set a step limit."),
 resource("rl","Spinning Up: RL Concepts","OpenAI","https://spinningup.openai.com/en/latest/spinningup/rl_intro.html","models","Main material",[5],"States, actions, rewards, policies and returns; continue to the policy-optimisation notes.","Calculate a policy-gradient update, then implement it. You do not need to install the old software stack."),
+resource("policy-gradient","Spinning Up: Policy Optimisation","OpenAI","https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html","models","Reference",[5],"Read the policy-gradient derivation and the explanation of baselines.","Calculate a return and one policy-gradient update on a toy problem."),
+resource("instructgpt","InstructGPT and RLHF","OpenAI","https://arxiv.org/abs/2203.02155","models","Research paper",[5],"Read the training workflow and the human evaluation setup.","Trace how demonstrations and preference labels enter the pipeline, then explain what the reward model learns."),
 resource("mml","Mathematics for Machine Learning","Deisenroth, Faisal & Ong","https://mml-book.com","foundations","Reference",[1,2,3,4],"Relevant parts of chapters 2–3 and 5–7; chapter 4 for decomposition/PCA intuition.","Work out matrix shapes, calculate a gradient and explain cosine similarity."),
 resource("stat110","Statistics 110","Harvard · Joe Blitzstein","https://stat110.hsites.harvard.edu/","foundations","Reference",[2,4,6],"Conditional probability, random variables, expectation and variance. Use practice problems.","Solve a Bayes problem, then check it with a simulation. Read more when you need it."),
 resource("islp","Statistical Learning with Python","James, Witten, Hastie, Tibshirani & Taylor","https://www.statlearning.com/","foundations","Reference",[2,4,6],"Chapter 2; selected chapters 3–6 for regression, classification, resampling and regularisation.","Train a baseline, check for data leakage and estimate uncertainty when comparing predictions."),
@@ -157,13 +119,13 @@ resource("retrieval","Retrieve & Re-Rank","Sentence Transformers","https://sbert
 resource("peft","Efficient adaptation & quantisation","Hugging Face · PEFT","https://huggingface.co/docs/peft/developer_guides/quantization","models","Practical guide",[4],"Frozen base weights, adapters, quantisation and the full memory budget.","Count trainable parameters and measure memory with a minimal run."),
 resource("sft","SFT Trainer","Hugging Face · TRL","https://huggingface.co/docs/trl/sft_trainer","models","Practical guide",[4],"Data formats, chat templates, assistant/completion loss masking and adapter integration.","Inspect the loss masks. Test on held-out examples and check which tasks got better or worse."),
 resource("dpo","DPO Trainer","Hugging Face · TRL","https://huggingface.co/docs/trl/dpo_trainer","models","Practical guide",[5],"Preference pairs, completion log-probabilities, the reference policy and one small training run.","Compare the starting, SFT and DPO models on the same test cases, with the same grading rules."),
+resource("grpo","GRPO Trainer","Hugging Face · TRL","https://huggingface.co/docs/trl/grpo_trainer","models","Reference",[5],"Read how the trainer samples a group of completions and calculates relative advantages.","Work out the advantages for a group of four answers. Test what happens when all four receive the same reward."),
 resource("evals","Demystifying evals for AI agents","Anthropic","https://www.anthropic.com/research/demystifying-evals-for-ai-agents","applications","Practical guide",[3,4,5,6],"Task success, grading rules, repeated trials and test cases.","Write a small set of tasks with clear grading rules. Check cases where graders disagree."),
+resource("workflows","Building effective agents","Anthropic","https://www.anthropic.com/research/building-effective-agents","applications","Practical guide",[4,5],"Read the workflow and agent examples. Start with the simplest system that can perform your task.","Run a fixed workflow and a tool-using loop on the same cases and compare the outcomes."),
+resource("mcp","Model Context Protocol introduction","MCP","https://modelcontextprotocol.io/docs/getting-started/intro","applications","Reference",[4,6],"Read how clients discover tools and resources supplied by servers.","Describe the interface between your document assistant and a search tool. List what the tool needs access to."),
 resource("vllm","Inference & serving","vLLM","https://docs.vllm.ai/en/latest/","applications","Reference",[6],"Relevant serving, profiling, caching and batching sections.","Measure quality, memory and end-to-end latency. A specific serving stack is optional."),
 resource("raschka","Build an LLM from Scratch","Sebastian Raschka","https://github.com/rasbt/LLMs-from-scratch","models","Alternative",[2,3,4],"Chapters 2–5 instead of the equivalent Karpathy implementation; chapter 7 for instruction tuning.","Choose this written route when it suits you. Public code; the book is separate."),
 resource("mit","Introduction to Deep Learning","MIT · 6.S191","https://introtodeeplearning.com/","foundations","Alternative",[2,3,6],"Selected neural-network, sequence, vision or generative-model lectures.","Replace an equivalent explanation rather than adding another full course."),
 resource("cs224n","NLP with Deep Learning","Stanford · CS224N","https://web.stanford.edu/class/cs224n/","models","Extension",[3,6],"Selected embeddings, attention or NLP-task lectures. The page links public 2024 videos.","Pick the lectures you need. The 2026 recordings require enrolled-student access."),
 resource("cs336","Language Modeling from Scratch","Stanford · CS336","https://cs336.stanford.edu/","models","Extension",[3,5,6],"Selected basics, data, scaling or alignment lessons after you can do the exercises for that topic.","Leave the full systems and distributed-training assignments until after the main course.")
 ]
-data = dict(bands=bands,resources=resources,sections=sections)
-(ROOT/'dist/assets/data.js').write_text('window.COURSE = '+json.dumps(data,ensure_ascii=False)+';\n')
-print(json.dumps({"bands":len(bands),"resources":len(resources),"reference_sections":len(sections)}))

@@ -1,41 +1,101 @@
 <!doctype html>
-<html lang="en">
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A self-study plan for building language models and agents with Python. Study maths, models and applications in parallel.">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="A study plan for learning AI, language models and agents in 2027. Read, write code, train small models and test your results.">
   <title>Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/learning-path.css">
-  <script defer src="assets/data.js"></script>
-  <script defer src="assets/learning-path.js"></script>
+  <script>
+(() => {
+  const pages = {"/curriculum": "plan/", "/path": "diagram/", "/resources": "materials/", "/frontier": "research/", "/reference": "reference/", "/guide": "guide/", "/projects": "projects/", "/pace": "workload/", "/credits": "about/", "/2027": "further-study/", "/band/1": "study/1-python-and-maths/", "/band/2": "study/2-machine-learning-and-nlp/", "/band/3": "study/3-build-a-language-model/", "/band/4": "study/4-fine-tuning-and-agents/", "/band/5": "study/5-rlhf-and-reinforcement-learning/", "/band/6": "study/6-evaluation-and-final-project/"};
+  const tracks = {"foundations": "tracks/maths-and-code/", "models": "tracks/language-models/", "applications": "tracks/applications/"};
+  function forwardOldLink() {
+    if (!location.hash.startsWith("#/")) return;
+    const [path, search = ""] = location.hash.slice(1).split("?", 2);
+    if (!Object.hasOwn(pages, path)) return;
+    const params = new URLSearchParams(search);
+    const track = params.get("lane");
+    const destination = path === "/curriculum" && Object.hasOwn(tracks, track) ? tracks[track] : pages[path];
+    const url = new URL(destination, location.href);
+    if (path === "/resources" && params.has("query")) url.searchParams.set("query", params.get("query"));
+    location.replace(url.href);
+  }
+  forwardOldLink();
+  addEventListener("hashchange", forwardOldLink);
+})();
+</script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#/" aria-label="Learn AI in 2027 home">AI / 2027</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
-      <nav id="main-nav" aria-label="Main navigation">
-        <a href="#/2027" data-nav="2027">Further study</a>
-        <a href="#/curriculum" data-nav="curriculum">Study plan</a>
-        <a href="#/path" data-nav="path">Diagram</a>
-        <a href="#/resources" data-nav="resources">Materials</a>
-        <a href="#/frontier" data-nav="frontier">Research</a>
-        <a href="#/reference" data-nav="reference">Reference</a>
-      </nav>
-      <a class="header-start" href="#/guide">How to study</a>
+    <div class="site-shell masthead">
+      <a href="./" class="site-name" aria-current="page">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="plan/">Study plan</a> <a href="projects/">Projects</a> <a href="materials/">Materials</a> <a href="research/">Research</a> <a href="reference/">Reference</a></nav>
     </div>
   </header>
-  <main id="main" tabindex="-1"></main>
-  <footer class="site-footer">
-    <p>Independent study plan · Updated November 2026.</p>
-    <p><a href="assets/study-plan.md" download="AI_LLM_Parallel_Study_Plan.md">Download the plan</a> · <a href="#/pace">Time estimates</a> · <a href="#/projects">Projects</a> · <a href="#/credits">About</a> · <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027" target="_blank" rel="noopener noreferrer">GitHub source</a></p>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+
+
+    <header class="home-intro">
+      <h1>Learn AI in 2027</h1>
+      <p class="home-lede">Train a small language model, build a document assistant and learn how to test both.</p>
+      <p>For anyone who has used Python and studied engineering maths. The first part helps you get back up to speed.</p>
+      <div class="home-actions">
+        <a href="study/1-python-and-maths/" class="primary-link">Start part 1</a>
+        <a href="plan/">See the study plan</a>
+      </div>
+      <ul class="course-facts" aria-label="Course at a glance">
+        <li>6 parts</li><li>3 tracks in parallel</li><li><a href="workload/">540–760 study hours</a></li>
+      </ul>
+    </header>
+    <div class="home-layout">
+      <section aria-labelledby="outline-title">
+        <h2 id="outline-title">Course outline</h2>
+        <ol class="course-outline"><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">1.</span>
+          <div><h3><a href="study/1-python-and-maths/">Python and maths refresher</a></h3><p>A script you can run again, with notes on three things it gets wrong.</p></div>
+          <span class="outline-hours">20–30 hours<span hidden class="status-note" data-completed="1">Complete</span></span>
+        </li><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">2.</span>
+          <div><h3><a href="study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a></h3><p>A comparison of simple text classifiers, with an explanation of their errors.</p></div>
+          <span class="outline-hours">80–110 hours<span hidden class="status-note" data-completed="2">Complete</span></span>
+        </li><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">3.</span>
+          <div><h3><a href="study/3-build-a-language-model/">Build a language model</a></h3><p>A small trained language model and a document assistant with measured results.</p></div>
+          <span class="outline-hours">120–160 hours<span hidden class="status-note" data-completed="3">Complete</span></span>
+        </li><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">4.</span>
+          <div><h3><a href="study/4-fine-tuning-and-agents/">Fine-tuning and agents</a></h3><p>An SFT experiment and an agent that handles failed tool calls.</p></div>
+          <span class="outline-hours">100–140 hours<span hidden class="status-note" data-completed="4">Complete</span></span>
+        </li><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">5.</span>
+          <div><h3><a href="study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a></h3><p>A DPO comparison, a toy RL run and examples of a reward checker getting things wrong.</p></div>
+          <span class="outline-hours">100–140 hours<span hidden class="status-note" data-completed="5">Complete</span></span>
+        </li><li class="outline-row">
+          <span class="outline-number" aria-hidden="true">6.</span>
+          <div><h3><a href="study/6-evaluation-and-final-project/">Evaluation and a final project</a></h3><p>Working code, a results table, an error analysis and instructions for running it.</p></div>
+          <span class="outline-hours">120–180 hours<span hidden class="status-note" data-completed="6">Complete</span></span>
+        </li></ol>
+      </section>
+      <aside class="home-aside" aria-labelledby="parallel-title">
+        <h2 id="parallel-title">Study in parallel</h2>
+        <p>Work on all three tracks in each part. For example, practise gradients while you write attention and try document search.</p>
+        <dl class="track-list"><div><dt><a href="tracks/maths-and-code/">Maths and code</a></dt><dd>Python, probability, statistics and the maths behind the models.</dd></div><div><dt><a href="tracks/language-models/">Language models</a></dt><dd>Tokens, transformers, training and learning from feedback.</dd></div><div><dt><a href="tracks/applications/">Applications</a></dt><dd>Retrieval, tools, agents and running models.</dd></div></dl>
+        <h2>Planning your study</h2>
+        <ul class="plain-list"><li><a href="guide/">How to use the plan</a></li><li><a href="diagram/">Study diagram</a></li><li><a href="workload/">Time estimates</a></li><li><a href="further-study/">Further study</a></li></ul>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
   </footer>
-  <div id="toast" role="status" aria-live="polite"></div>
-  <noscript><p class="wrap">Please enable JavaScript to explore the interactive guide, or <a href="assets/study-plan.md">read the complete study plan</a>.</p></noscript>
+  <p class="sr-only" id="announcement" role="status"></p>
 </body>
 </html>

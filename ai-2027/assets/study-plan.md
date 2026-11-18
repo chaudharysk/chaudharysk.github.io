@@ -1,6 +1,6 @@
 # Learn AI in 2027
 
-A study plan for language models and agents. Updated 12 November 2026. Course and research links checked 11 November 2026.
+A study plan for language models and agents. Reviewed 19 November 2026.
 
 This plan assumes you have used Python and studied engineering maths before. If you have forgotten some of it, start with the refresher.
 
@@ -105,7 +105,7 @@ A stable SFT checkpoint before DPO is the default teaching route here, not a cla
 
 Set up your tools, run a model and check what you need to revise.
 
-Start with a short self-check, about two hours. Multiply compatible matrices and state the output shape; differentiate a small scalar expression; solve a conditional-probability question; explain why test data cannot select hyperparameters; write a function that batches records and handles malformed input.
+Start with a two-hour self-check. Multiply compatible matrices and write down the output shape. Differentiate a small expression and solve a conditional probability problem. Explain how you would choose a learning rate using development data. Write a Python function that batches records and handles malformed input.
 
 Use the self-check to find what you have forgotten. For each weak topic, read a short explanation, work through an example and try a different problem the next day. If Python functions, arrays or basic algebra are new to you, learn them first. The hour estimates assume you have seen them before.
 
@@ -259,7 +259,7 @@ Compare the fixed workflow with the single-agent loop. Use the same model and ta
 
 Introduce memory only for tasks where past interactions should help. Reset it between independent evaluation runs, or define a chronological evaluation protocol. Prevent evaluation answers from accumulating in memory across supposedly independent variants.
 
-The two-agent extension requires a concrete hypothesis, such as independent evidence checking. Count both agents' tokens and time. Improvement should justify the coordination overhead.
+For the optional two-agent experiment, test one idea such as independent evidence checking. Compare it with one agent given the same total token budget. Count both agents' tokens and time. Inspect how often information gets lost between agents.
 
 ## 9. Part 6: Evaluation and a final project
 
@@ -281,7 +281,7 @@ Expose the assistant through a small local service or demonstration. Include inp
 | --- | --- | --- |
 | Recommended: RAG versus a bounded tool-using assistant | Does a tool loop improve tasks requiring evidence and calculation? | Model version, question set, accessible sources and total resource ceiling |
 | Adaptation | Does SFT or DPO improve a narrow behaviour over a well-designed prompt? | Starting model family, held-out task families, grading and generation settings |
-| Test-time computation | Does extra sampling with a specified verifier improve the selected final answer? | Total sampling budget, task set and actual selection procedure |
+| Test-time computation | How does accuracy change as you sample more answers and use a verifier to pick one? | Hold the model, tasks and verifier fixed. Set a token cap per run and report the actual cost at each budget. |
 | Memory extension | Does useful past experience help later tasks? | Chronological task stream, starting memory, memory-construction cost and evaluation protocol |
 
 Use the existing project rather than starting a new application. State one hypothesis, one primary outcome, a credible baseline and one informative ablation. Register these in your project notes before the final comparison.
@@ -354,17 +354,19 @@ Write three short paper notes on different topics. Pick one paper to examine in 
 
 ### Papers and reports to choose from
 
-Verified during the review on 11 November 2026. Choose from this table; completing every row is unnecessary.
+Reading list reviewed 19 November 2026. Pick the topics that match your project.
 
 | Theme | Primary material | Question to investigate |
 | --- | --- | --- |
 | Long-running agents | [Anthropic: Harness design for long-running application development](https://www.anthropic.com/research/harness-design-long-running-apps), 24 March 2026; engineering report | What does checkpointing, decomposition or an evaluator add beyond the model itself? |
 | External memory | [Anthropic: The components of agent memory](https://www.anthropic.com/research/components-of-agent-memory), 6 November 2026; [ReasoningBank](https://arxiv.org/abs/2509.25140), research paper revised March 2026 | When do searchable logs or selected notes help? What is the cost of creating and maintaining them? |
 | Reasoning and test-time computation | [DeepSeek-R1](https://arxiv.org/abs/2501.12948), revised January 2026; the HF reasoning material | Separate learning during training from sampling, search and selection during inference. Which part explains a gain? |
-| Continual parameter learning | [Google Research: The sleep framework](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/), 27 October 2026; research explainer linking its paper | How does learning new information in weights differ from saving external notes? How is retention of earlier knowledge measured? |
+| Continual parameter learning | [Google Research: The sleep framework](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/), 27 October 2026, research explainer | How do the researchers measure whether a weight update preserves earlier knowledge? |
 | Multimodal knowledge work | [Google DeepMind: MKA technical report](https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf), 10 November 2026 | How do visual evidence, multiple files and grading the produced artifact change evaluation? |
-| Architecture and inference | [DeepSeek-V4.1-Flash release](https://www.deepseek.com/en/news/deepseek-v4-1-flash/), 10 September 2026; [DiffusionGemma model card](https://ai.google.dev/gemma/docs/diffusiongemma/model_card) | Compare asymmetric/MoE computation and block denoising with the basic decoder. Separate architectural ideas from reported benchmark or speed claims. |
+| Architecture and inference | [DeepSeek-V4.1-Flash release](https://www.deepseek.com/en/news/deepseek-v4-1-flash/), 10 September 2026, and the [DiffusionGemma model card](https://gemma.ai/models/diffusiongemma/model-card/) | Compare sparse expert routing and block denoising with the basic decoder. Which hardware and inputs were used for the speed measurements? |
+| Coordination between agents | [Worse Together](https://alignment.anthropic.com/2026/worse-together/), 11 November 2026, Anthropic Fellows research | Why did a single coordinator do better in the four simulated settings? Try a small scheduling example and score both group success and individual constraints. |
 | Evaluation validity and oversight | [OpenAI: Eval-production behaviour gaps](https://alignment.openai.com/eval-production-behavior-gap/), 3 November 2026; [CoT monitorability across the model lifecycle](https://alignment.openai.com/cot-monitorability-model-lifecycle/), 10 November 2026 | What can a benchmark result or observed trace establish, and what remains unmeasured? |
+| Evaluation design | [Anthropic: Building strong safety evaluations](https://www.anthropic.com/research/building-strong-safety-evaluations), 13 November 2026, engineering report | Check whether the task setup, grading and uncertainty match the claim being made. |
 
 This list was checked in November 2026. It is a starting point for reading. For a product release, read the technical paper too and check whether its methods are available. A reported benchmark score alone tells you little about how the result was obtained.
 
@@ -386,7 +388,7 @@ Use a one-page note with: claim; mechanism; evidence; confounders; relevance to 
 | --- | --- | --- |
 | Text baseline and evaluation notebook | Parts 1–2, with an optional encoder comparison later | Fixed splits, classical/neural baselines, metric calculations, a small error taxonomy and reproducible results |
 | Model-training laboratory | Parts 2–5 | Tiny decoder, tokenizer exercise, data/training ablation, SFT comparison, DPO comparison and toy preference/RL exercises |
-| Grounded document assistant | Parts 1–6 | Lexical/dense retrieval, RAG, a bounded tool loop, evaluation cases, traces, profiling and the final final project |
+| Grounded document assistant | Parts 1–6 | Lexical and dense retrieval, RAG, a bounded tool loop, evaluation cases, traces, profiling and a final comparison |
 
 Keep the small exercises in these projects. They do not each need a separate repository or demo. Reuse your environment and experiment log where possible. Use different data or models when the task needs them.
 
@@ -441,9 +443,9 @@ An example 15-hour week is eight hours of building/debugging, four hours of conc
 
 Re-estimate after the first 25–30 active hours and after each major working result. If progress is slow, reduce model size, dataset size, framework migration or optional features before removing the evaluation and understanding checks.
 
-### Optional work after the course
+### Short extensions after the course
 
-Choose one direction initially. The ranges below are additional planning allowances, not completion guarantees.
+The estimates below are for a short project in one direction. A deeper specialisation has its own 200–400 hour estimate in the further-study section.
 
 | Direction | Additional active hours | Suggested work |
 | --- | --- | --- |
@@ -516,7 +518,7 @@ Start with the self-check in part 1. Work on all three tracks, with one main cod
 | 15 hours | 36–51 weeks | 44–61 weeks |
 | 20 hours | 27–38 weeks | 33–46 weeks |
 
-If you start in 2027 alongside work or university, the course may continue into 2028. Further study adds more time. Update the estimate after you have done some of the work.
+At 15 hours a week, allow 36–51 weeks of active study. Revisit your estimate after you finish the first part.
 
 ### Updating the reading list
 

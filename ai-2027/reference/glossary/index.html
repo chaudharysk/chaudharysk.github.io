@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Short definitions from tokens and embeddings to RAG, RLHF and KV cache.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Key terms | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/reference/glossary/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/" class="nav-active">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../reference/">Reference</a></li><li aria-current="page">Key terms</li></ol></nav>
+    <header class="page-heading"><h1>Key terms</h1><p class="lede">Short definitions from tokens and embeddings to RAG, RLHF and KV cache.</p></header><article class="prose"><div data-filter-list data-item-label="terms">
+              <div class="filter-controls" data-filter-controls hidden>
+                <label class="search-field">Search key terms<input type="search" data-search placeholder="Try attention or perplexity"></label>
+              </div>
+              <p data-results-count class="source-meta" role="status" hidden></p>
+              <p data-no-results hidden>No terms match. Try a different word.</p>
+              <dl class="glossary"><div data-result id="token"><dt>Token</dt><dd>A piece of input text represented by an integer ID. A token can be a word, part of a word, a punctuation mark or a byte-based piece.</dd></div><div data-result id="embedding"><dt>Embedding</dt><dd>A learned vector representation. Token embeddings turn IDs into model inputs. Sentence embeddings make it possible to compare the meaning of longer pieces of text.</dd></div><div data-result id="bpe"><dt>BPE</dt><dd>Byte-pair encoding builds a vocabulary by repeatedly merging pairs of symbols that occur frequently.</dd></div><div data-result id="attention"><dt>Attention</dt><dd>A calculation that uses queries and keys to decide how much to weight value vectors. A causal mask limits each position to information available so far.</dd></div><div data-result id="pretraining"><dt>Pretraining</dt><dd>Learning model weights on a broad data distribution. A causal language model learns to predict the next token from previous tokens.</dd></div><div data-result id="sft"><dt>SFT</dt><dd>Supervised fine-tuning uses examples of desired outputs. The chat template and loss mask determine which tokens supply supervision.</dd></div><div data-result id="lora"><dt>LoRA</dt><dd>Low-rank adaptation trains small update matrices while keeping the base weights frozen.</dd></div><div data-result id="qlora"><dt>QLoRA</dt><dd>Adapter training with a quantised frozen base model. The run still needs memory for activations and the trainable adapter.</dd></div><div data-result id="rlhf"><dt>RLHF</dt><dd>Reinforcement learning from human feedback. A common recipe fits a reward model to human preferences and then uses that reward to improve a policy.</dd></div><div data-result id="dpo"><dt>DPO</dt><dd>Direct preference optimisation fits a policy on preferred and rejected completions, usually relative to a reference policy.</dd></div><div data-result id="ppo"><dt>PPO</dt><dd>Proximal policy optimisation is a family of policy-gradient methods. PPO-Clip clips the policy ratio in its training objective to discourage overly large updates.</dd></div><div data-result id="grpo"><dt>GRPO</dt><dd>Group relative policy optimisation estimates advantages from rewards for a group of completions sampled for the same prompt.</dd></div><div data-result id="rlvr"><dt>RLVR</dt><dd>Reinforcement learning with verifiable rewards uses an automatic checker as the source of reward, such as exact agreement with a numerical answer.</dd></div><div data-result id="rag"><dt>RAG</dt><dd>Retrieval-augmented generation puts selected documents or chunks in the model&#x27;s input so it can use them when answering.</dd></div><div data-result id="ai-agent"><dt>AI agent</dt><dd>A system that uses a model to choose actions, calls tools, reads the results and updates state while working toward a goal.</dd></div><div data-result id="context-and-memory"><dt>Context and memory</dt><dd>Context is the information available to the current model call. External memory stores information that can be added to a future call.</dd></div><div data-result id="kl-divergence"><dt>KL divergence</dt><dd>A directional measure of difference between probability distributions. A training objective may use it to discourage a policy from drifting from a reference.</dd></div><div data-result id="perplexity"><dt>Perplexity</dt><dd>The exponential of mean token negative log-likelihood in natural logs. Compare it on the same data with compatible tokenisation, masking and context rules.</dd></div><div data-result id="macro-f1"><dt>Macro-F1</dt><dd>The arithmetic mean of the per-class F1 scores. Each class contributes equally, including classes with relatively few examples.</dd></div><div data-result id="calibration"><dt>Calibration</dt><dd>How well a system&#x27;s predicted probabilities match observed outcomes. For example, cases labelled 80% confident should be correct about 80% of the time.</dd></div><div data-result id="confidence-interval"><dt>Confidence interval</dt><dd>An interval from a statistical procedure that expresses uncertainty under a specified sampling design and assumptions.</dd></div><div data-result id="kv-cache"><dt>KV cache</dt><dd>Attention keys and values saved from earlier tokens in a sequence so decoding can reuse them. Its memory cost grows with the cached sequence.</dd></div><div data-result id="ablation"><dt>Ablation</dt><dd>A comparison that removes or changes one component to measure what it contributes under controlled conditions.</dd></div><div data-result id="distillation"><dt>Distillation</dt><dd>Training a student model using outputs, probabilities or trajectories from a teacher model.</dd></div></dl>
+            </div><nav class="page-links" aria-label="Other reference pages"><ul class="text-links"><li><a href="../../reference/training/">Training methods</a></li><li><a href="../../reference/metrics/">Metrics and statistics</a></li><li><a href="../../reference/compute/">Compute and hardware</a></li></ul></nav></article>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

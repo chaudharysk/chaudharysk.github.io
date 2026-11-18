@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Start with a small reinforcement-learning problem. Then train on response preferences and check whether a higher reward means better answers.">
+  <meta name="theme-color" content="#ffffff">
+  <title>RLHF and reinforcement learning | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/5-rlhf-and-reinforcement-learning/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">RLHF and reinforcement learning</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/" aria-current="page">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 5 of 6 · 100–140 hours</p><h1>RLHF and reinforcement learning</h1><p class="lede">Start with a small reinforcement-learning problem. Then train on response preferences and check whether a higher reward means better answers.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/" aria-current="page">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro.html">Spinning Up: RL Concepts</a><span class="reading-assignment">Work an example involving return, policy and advantage.</span></li><li><a href="https://huggingface.co/docs/trl/dpo_trainer">DPO Trainer</a><span class="reading-assignment">Check preference-pair formatting and completion log probabilities.</span></li><li><a href="https://huggingface.co/docs/trl/grpo_trainer">GRPO Trainer</a><span class="reading-assignment">Compare the group advantage in the paper and the trainer guide.</span></li></ul>
+          <p><a href="../../materials/?part=5">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <h2 id="reinforcement-learning-foundations">Reinforcement-learning foundations</h2>
+<p>Use Spinning Up to learn states, observations, actions, rewards, policies, returns, value functions, exploration, on-policy data and the policy-gradient idea. Implement REINFORCE on a tiny bandit or short decision task. Explain a baseline and how a reward changes an action&#x27;s probability.</p>
+<p>Add a small search/planning exercise or worked example to distinguish choosing actions with search from learning a policy. A full robotics or game-playing RL course is outside this core route.</p>
+<h2 id="preferences-and-reward">Preferences and reward</h2>
+<p>Inspect chosen/rejected response pairs. Decide what “preferred” means, check disagreement and examine whether length alone predicts the label. Separate prompt families across training, development and final testing.</p>
+<p>Fit a small Bradley–Terry-style preference model using simple features or frozen representations. This teaches the likelihood and failure modes without requiring a second large trainable language model.</p>
+<p>Read the pipeline and experimental setup in <a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>. Trace demonstrations, preference labels, a learned reward model, policy optimisation and evaluation. Distinguish human feedback from AI-generated feedback and objective correctness checks.</p>
+<h2 id="dpo">DPO</h2>
+<p>Work through the objective in the <a href="https://arxiv.org/abs/2305.18290">DPO paper</a> and calculate a loss on a tiny pair by hand or in a short function. Understand why completion log-probabilities, the reference policy and the preference coefficient matter.</p>
+<p>Run one bounded DPO experiment from the stable starting checkpoint, normally your SFT model. Reuse the same final evaluation specification and compare the starting, SFT and DPO variants where applicable. Record preference fit, task quality, response length and regressions. An apparent preference gain caused by longer answers is a result to investigate.</p>
+<h2 id="ppo-grpo-and-verifiable-reward">PPO, GRPO and verifiable reward</h2>
+<p>Read <a href="https://spinningup.openai.com/en/latest/algorithms/ppo.html">PPO&#x27;s key equations and pseudocode</a>. Compute a few clipped objective values for positive and negative advantages. Understand the role of the previous policy versus a separate reference policy; these are not interchangeable.</p>
+<p>Study group-relative advantages in <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath</a>, then selected training-recipe sections of <a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a>. Use <a href="https://huggingface.co/docs/trl/grpo_trainer">TRL&#x27;s GRPO guide</a> as an implementation reference. Current trainer defaults and loss variants can differ from the original paper; record the actual settings.</p>
+<p>Build a toy verifier for a narrow task with an unambiguous answer, and deliberately try malformed answers, correct formatting with wrong content and repeated guesses. Explain how a policy could optimise the checker while missing the intended task.</p>
+<p><strong>Before moving on:</strong> a toy policy-gradient run, a preference/reward exercise, a small DPO run, worked PPO/GRPO calculations and a verifier audit. A full LLM PPO run and an online LLM GRPO training run are extensions.</p>
+<p>An optional LLM GRPO pilot needs a model that sometimes succeeds on the chosen task, a nontrivial reward signal and measured rollout costs. Groups with identical rewards can provide no useful within-group learning signal; scaling up a broken or all-zero-reward experiment is not a solution.</p>
+<h2 id="work-on-the-agent">Work on the agent</h2>
+<p>Compare the fixed workflow with the single-agent loop. Use the same model and task suite and record total budgets. Test interruption, checkpoint/resume, stale context and repeated tool errors.</p>
+<p>Introduce memory only for tasks where past interactions should help. Reset it between independent evaluation runs, or define a chronological evaluation protocol. Prevent evaluation answers from accumulating in memory across supposedly independent variants.</p>
+<p>For the optional two-agent experiment, test one idea such as independent evidence checking. Compare it with one agent given the same total token budget. Count both agents&#x27; tokens and time. Inspect how often information gets lost between agents.</p>
+
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../reference/training/">Compare RLHF, DPO and GRPO</a></li><li><a href="../../research/#reasoning-and-test-time-computation">Read about reasoning and test-time computation</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Run a toy policy-gradient experiment and a small DPO experiment.</li><li>Calculate PPO clipping and GRPO advantages on small examples.</li><li>Try to fool a reward checker. Compare the reward with independently checked task success.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="5" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../study/4-fine-tuning-and-agents/">Part 4. Fine-tuning and agents</a></div>
+          <div><span>Next</span><a href="../../study/6-evaluation-and-final-project/">Part 6. Evaluation and a final project</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

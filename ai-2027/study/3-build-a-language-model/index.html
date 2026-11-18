@@ -1,0 +1,119 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Write a small transformer and train it to predict the next token. At the same time, add document retrieval to your assistant.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Build a language model | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/3-build-a-language-model/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">Build a language model</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/" aria-current="page">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 3 of 6 · 120–160 hours</p><h1>Build a language model</h1><p class="lede">Write a small transformer and train it to predict the next token. At the same time, add document retrieval to your assistant.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/" aria-current="page">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://github.com/karpathy/nn-zero-to-hero">Neural Networks: Zero to Hero</a><span class="reading-assignment">Try the GPT and BPE tokenizer lessons.</span></li><li><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a><span class="reading-assignment">Read chapter 7 on transformers and pretraining.</span></li><li><a href="https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a><span class="reading-assignment">Build search before trying reranking.</span></li></ul>
+          <p><a href="../../materials/?part=3">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <h2 id="maths-and-model-code">Maths and model code</h2>
+<p>Study the chain rule, matrix derivatives as needed, gradient flow, initialisation, residual paths, normalisation, Adam and learning-rate schedules. Learn enough numerical stability to recognise overflow, vanishing gradients and incorrect masking.</p>
+<p>Follow the chosen coding exercises through scaled dot-product attention, causal masking, multi-head attention, positional information, feed-forward layers and the decoder. Understand how modern choices such as RoPE, RMSNorm, gated MLPs and grouped-query attention differ from a basic teaching implementation; implementing all of them is optional.</p>
+<p>Use a tiny BPE example to learn how merge rules are trained. Inspect English, Hindi, numbers and code. Explain why the same text can have different token counts under different tokenizers.</p>
+<p>Train a <strong>roughly 1–10 million parameter decoder</strong> on a documented text subset. Start even smaller for debugging. Check memory use with a small run first. A model this size is for learning and may generate poor text. A character tokenizer is acceptable for the first correct training run; the BPE exercise can remain separate.</p>
+<p><strong>Materials:</strong> SLP chapter 7; Karpathy “Let&#x27;s build GPT”, or Raschka chapters 2–5; HF tokenizer/dataset sections. Read the mechanism sections of <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a> alongside your implementation.</p>
+<h2 id="data-and-training-checks">Data and training checks</h2>
+<ol><li>Inspect token IDs, labels, padding and loss masks directly.</li><li>Verify that the model cannot use future tokens to predict the current target.</li><li>Group exact and near-duplicate documents before assigning train/validation/test partitions; train a new tokenizer on training data only.</li><li>Keep final data out of tokenizer fitting, filter selection and hyperparameter selection. A fixed pretrained tokenizer is a different, recorded setup.</li><li>Save configuration, dataset version, model state, optimiser state and the information needed to resume training.</li><li>Compare one data or training choice while controlling the relevant budget. For a tokenizer comparison, token counts change: report raw text exposure and compute as well.</li></ol>
+<p>Inspect <a href="https://arxiv.org/abs/2406.17557">FineWeb</a> for a data-filtering example and <a href="https://arxiv.org/abs/2203.15556">Chinchilla</a> for compute/data/model trade-offs. The task is to explain the assumption behind an ablation, not recreate a web-scale dataset or fit a reliable scaling law from two tiny runs.</p>
+<h2 id="work-on-the-document-assistant">Work on the document assistant</h2>
+<p>Use SLP chapter 11 and the Sentence Transformers retrieval guide to add a dense retriever. Compare it with the lexical baseline before assuming it is better. Then build retrieve-then-generate QA with source references and an explicit missing-evidence response.</p>
+<p>Add a reranker only after measuring the simpler retrieval pipeline. Keep context length and query sets controlled when comparing systems.</p>
+<p><strong>Completion check:</strong> show training and validation curves; explain next-token label alignment; resume a run; report held-out token loss. For RAG, distinguish “the source was not retrieved” from “the model ignored or misused a retrieved source”. The tiny language model and the useful assistant can use different models.</p>
+
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../reference/training/">Compare training methods</a></li><li><a href="../../reference/compute/">Choose a model size</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Check the causal mask and shifted labels. Plot training and validation loss.</li><li>Save a checkpoint, resume training and measure loss on held-out data.</li><li>For wrong answers, check whether retrieval failed or the model misused a retrieved source.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="3" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../study/2-machine-learning-and-nlp/">Part 2. Machine learning and NLP basics</a></div>
+          <div><span>Next</span><a href="../../study/4-fine-tuning-and-agents/">Part 4. Fine-tuning and agents</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

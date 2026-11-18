@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Choose one question from your earlier work. Run a fair comparison, write up the results and make the code easy for someone else to run.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Evaluation and a final project | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/6-evaluation-and-final-project/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">Evaluation and a final project</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/" aria-current="page">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 6 of 6 · 120–180 hours</p><h1>Evaluation and a final project</h1><p class="lede">Choose one question from your earlier work. Run a fair comparison, write up the results and make the code easy for someone else to run.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/" aria-current="page">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents">Demystifying evals for AI agents</a><span class="reading-assignment">Use task outcomes, repeated trials and grader checks in your project.</span></li><li><a href="https://docs.vllm.ai/en/latest/">Inference &amp; serving</a><span class="reading-assignment">Read the serving and measurement sections relevant to your setup.</span></li></ul>
+          <p><a href="../../materials/?part=6">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <h2 id="running-and-serving-models">Running and serving models</h2>
+<p>Learn the difference between prefill and decoding, weights and KV cache, latency and throughput, and active versus total MoE parameters. Explain mixed precision, quantisation, batching, activation checkpointing and gradient accumulation.</p>
+<p>Profile one practical setting change, such as context length, batch size or quantisation. Measure quality as well as memory and time. Report input/output lengths, warm versus cold execution and the number of requests behind percentile estimates.</p>
+<p>Understand data parallelism, parameter sharding and tensor/pipeline parallelism conceptually. Multi-GPU execution and custom FlashAttention kernels are optional. Use vLLM if it fits the environment; installing a large serving stack is not the learning objective.</p>
+<p>Expose the assistant through a small local service or demonstration. Include input validation, bounded requests, reproducible configuration, useful error reporting and a regression check. A polished frontend is optional.</p>
+          <p><a href="../../projects/#final-project">Choose your final project question</a>. Set a primary metric and a budget before the final comparison.</p>
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../reference/metrics/">Choose metrics for your experiment</a></li><li><a href="../../reference/compute/">Measure compute and memory</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Write down your question, baseline and main metric. Change one component to see what it adds.</li><li>Report uncertainty, resource use and the kinds of errors you found.</li><li>Provide the code, environment, data notes and commands needed to reproduce the result.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="6" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../study/5-rlhf-and-reinforcement-learning/">Part 5. RLHF and reinforcement learning</a></div>
+          <div><span>Next</span><a href="../../projects/#final-project">Choose a final project</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

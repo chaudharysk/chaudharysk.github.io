@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Check what you remember from Python and maths. Set up PyTorch, run a model and look at its inputs and outputs.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Python and maths refresher | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/1-python-and-maths/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">Python and maths refresher</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/" aria-current="page">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 1 of 6 · 20–30 hours</p><h1>Python and maths refresher</h1><p class="lede">Check what you remember from Python and maths. Set up PyTorch, run a model and look at its inputs and outputs.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/" aria-current="page">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://docs.pytorch.org/tutorials/beginner/basics/intro.html">Learn the Basics</a><span class="reading-assignment">Start with tensors, autograd and the quickstart.</span></li><li><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a><span class="reading-assignment">Read chapter 2 on words and tokens.</span></li><li><a href="https://huggingface.co/learn/llm-course/chapter1/1">The LLM Course</a><span class="reading-assignment">Use the early inference example to run an existing model.</span></li></ul>
+          <p><a href="../../materials/?part=1">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <p>Start with a two-hour self-check. Multiply compatible matrices and write down the output shape. Differentiate a small expression and solve a conditional probability problem. Explain how you would choose a learning rate using development data. Write a Python function that batches records and handles malformed input.</p>
+<p>Use the self-check to find what you have forgotten. For each weak topic, read a short explanation, work through an example and try a different problem the next day. If Python functions, arrays or basic algebra are new to you, learn them first. The hour estimates assume you have seen them before.</p>
+<table class="reading-table" role="table"><caption class="sr-only">Comparison</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Track</th><th scope="col" role="columnheader">Study and do</th></tr></thead><tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Foundations</th><td role="cell"><span class="cell-label" aria-hidden="true">Study and do</span>Use the PyTorch tensor and autograd basics. Revise Python functions, indexing, loops, files, JSON, exceptions, environments and basic Git use through the project.</td></tr><tr role="row"><th scope="row" role="rowheader">Language models</th><td role="cell"><span class="cell-label" aria-hidden="true">Study and do</span>Use SLP chapter 2 and HF introductory model/tokenizer material. Trace text to token IDs, embeddings, logits, probabilities and generated tokens at an introductory level. Distinguish a base model from an instruction-tuned model.</td></tr><tr role="row"><th scope="row" role="rowheader">Applications</th><td role="cell"><span class="cell-label" aria-hidden="true">Study and do</span>Choose a small collection of public technical documents. Run one model call and a simple literal-search baseline. Write 10–20 development questions with source IDs.</td></tr></tbody></table>
+<p><strong>Completion check:</strong> rerun the script in a fresh session, explain a token versus an embedding, show the model input/output and name three observed failures. No fine-tuning or agent framework is required yet.</p>
+<p>Keep the document collection small enough to inspect manually. Use stable source versions and record permission/licence information. A local program can simulate tool calls while external model access is being set up.</p>
+
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../guide/">How to use the plan</a></li><li><a href="../../reference/glossary/#token">What is a token?</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Run your script in a fresh session.</li><li>Explain what a token and an embedding are. Show the model input and output.</li><li>Show three things that went wrong and explain what you would try next.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="1" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../plan/">Study plan</a></div>
+          <div><span>Next</span><a href="../../study/2-machine-learning-and-nlp/">Part 2. Machine learning and NLP basics</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

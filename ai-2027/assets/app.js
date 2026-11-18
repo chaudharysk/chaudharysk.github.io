@@ -1,175 +1,194 @@
-'use strict';
-const {bands,resources,sections}=window.COURSE;
-const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const icons={
- search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>',
- bookmark:'<svg viewBox="0 0 20 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h12v18l-6-4-6 4z"/></svg>'
-};
-function readLocal(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback}catch{return fallback}}
-let completed=readLocal('fieldguide-completed',[]);
-let saved=readLocal('fieldguide-saved',[]);
-let activeTab='study',resourceLane='all',resourceQuery='',savedOnly=false,referenceTab='terms',termQuery='';
-let toastTimer;
-function persist(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch{toast('Browser storage is unavailable; changes last for this visit.');}}
-function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2600)}
-const num=n=>String(n).padStart(2,'0');
-const laneNames={foundations:'Maths and code',models:'Language models',applications:'Applications'};
-function focusCells(b,lane='all'){return ['foundations','models','applications'].filter(k=>lane==='all'||lane===k).map(k=>'<div class="focus-cell '+k+'"><small>'+laneNames[k]+'</small><p>'+b[k]+'</p></div>').join('')}
-function pageHeading(kicker,title,description,extra=''){
- const titles={'The curriculum':'Study plan','The reading room':'Learning materials','At the frontier':'Research papers','The reference desk':'Reference','How to use this guide':'How to use the plan','Build a body of work':'Projects','Find your pace':'Time estimates','Design & sources':'About this site','Page not found':'Page not found'};
- const heading=titles[kicker]||title.replace(/<br\s*\/?\s*>/g,' ').replace(/<\/?em>/g,'');
- return '<div class="wrap page-heading '+extra+'"><h1>'+heading+'</h1><p class="lede">'+description+'</p></div>';
+"use strict";
+
+const completionKey = "fieldguide-completed";
+const readingKey = "fieldguide-saved";
+
+function readValues(key) {
+  try {
+    const values = JSON.parse(localStorage.getItem(key));
+    return new Set(Array.isArray(values) ? values : []);
+  } catch {
+    return new Set();
+  }
 }
-function bandRow(b){return '<a class="band-row" href="#/band/'+b.id+'"><span class="band-number">'+(completed.includes(b.id)?'✓':num(b.id))+'</span><div><h3>'+b.title+'</h3><p>'+b.output+'</p></div><span class="hours">'+b.hours.join('–')+' hours</span></a>'}
-function home(){
- return `<div class="wrap home-page"><header class="course-intro"><h1>Learn AI in 2027</h1><p class="course-subtitle">A study plan for language models and agents.</p><p>The plan assumes you have used Python and studied engineering maths before. If you are rusty, the first part is a refresher.</p><p>You will study three things together: maths and code, language models, and applications. Start with small examples. Train models, look at their mistakes and test your changes.</p><p class="intro-links"><a href="#/band/1">Start with part 1</a> · <a href="#/path">See the diagram</a> · <a href="#/guide">How to use this plan</a> · <a href="assets/study-plan.md" download>Download the plan</a></p></header><section class="home-section"><h2>What to study</h2><p>Six parts, with three tracks in each. The plan includes NLP, transformers, pretraining, fine-tuning, RLHF, agents, statistics and evaluation.</p><div class="curriculum-list">${bands.map(bandRow).join('')}</div><p class="small-note">Estimated total: 540–760 hours, including reading, coding and debugging. <a href="#/pace">Time estimates</a> · <a href="#/curriculum">See the three tracks side by side</a>.</p></section><section class="home-section"><h2>How to work through it</h2><dl class="track-list"><div><dt><a href="#/curriculum?lane=foundations">Maths and code</a></dt><dd>Python, PyTorch, probability, statistics and machine learning.</dd></div><div><dt><a href="#/curriculum?lane=models">Language models</a></dt><dd>Tokens, embeddings, attention, pretraining, fine-tuning and RLHF.</dd></div><div><dt><a href="#/curriculum?lane=applications">Applications</a></dt><dd>Search, RAG, tools, agents and running models.</dd></div></dl><p>Keep one main coding task and one smaller exercise going. For example, while writing a transformer, you could compare two search methods. Revise the maths when you need it, and test your work as you go.</p></section><section class="home-section"><h2>Start with these materials</h2><ul class="reading-list"><li><a href="https://docs.pytorch.org/tutorials/beginner/basics/intro.html" target="_blank" rel="noopener noreferrer">PyTorch: Learn the Basics</a>: tensors, autograd and training loops.</li><li><a href="https://github.com/karpathy/nn-zero-to-hero" target="_blank" rel="noopener noreferrer">Karpathy: Neural Networks, Zero to Hero</a>: micrograd, selected makemore lessons, GPT and tokenisation.</li><li><a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener noreferrer">Speech and Language Processing</a>: read the chapters for the topic you are working on.</li><li><a href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank" rel="noopener noreferrer">Hugging Face LLM Course</a>: work with existing models, tokenizers and datasets.</li></ul><p>You do not need to finish every linked course. <a href="#/resources">The materials page lists the sections to use and exercises to do</a>.</p></section><section class="home-section"><h2>What you will build</h2><ol class="reading-list"><li><strong>A text classifier.</strong> Compare simple and neural models on the same data. Look at the errors.</li><li><strong>A small language model.</strong> Write the training code, then use a pretrained model for fine-tuning and preference-learning experiments.</li><li><strong>A document assistant.</strong> Start with search, add RAG and tools, then test whether each change helps.</li></ol><p><a href="#/projects">Project details</a> · <a href="#/frontier">Research papers</a> · <a href="#/reference">Terms and metrics</a></p></section><section class="home-section"><h2>After this course</h2><p>Pick one subject and work on it in more detail: model training, agents and systems, or statistical machine learning. Allow another 200–400 hours for selected lessons and a small research or engineering project.</p><p>Getting good at this takes more than finishing a course. Reproduce a result, try a change, test it and ask someone to review your work. <a href="#/2027">Suggestions for further study</a>.</p></section></div>`;
+
+let completed = readValues(completionKey);
+let saved = readValues(readingKey);
+
+function announce(message) {
+  document.querySelector("#announcement").textContent = message;
 }
-function expertisePage(){return pageHeading('Further study','After this course','Choose one subject, read more and work on a problem yourself.')+'<div class="wrap reading-split"><p class="intro-links"><a href="#/path">Study diagram</a> · <a href="#/curriculum">Main course</a> · <a href="#/pace">Time estimates</a></p><article class="prose">'+sections[17].html+'</article></div>'}
-function learningPathPage(){
- const table='<div class="table-scroll"><table class="path-text-table"><thead><tr><th>Part</th><th>Maths and code</th><th>Language models</th><th>Applications</th></tr></thead><tbody>'+bands.map(b=>'<tr><th scope="row"><a href="#/band/'+b.id+'">'+num(b.id)+' '+b.title+'</a></th><td>'+b.foundations+'</td><td>'+b.models+'</td><td>'+b.applications+'</td></tr>').join('')+'</tbody></table></div>';
- return pageHeading('Learning path','Parallel learning path','Each row shows topics to study together. Follow a column down to see what comes next.')+'<section class="wrap path-page"><p class="path-controls"><a href="assets/parallel-learning-path.svg" download="AI_LLM_Parallel_Learning_Path.svg">Download diagram (SVG)</a> · <a href="#/curriculum">Full study plan</a></p><figure class="path-figure"><div class="path-scroll" tabindex="0" aria-label="Parallel learning diagram. Scroll horizontally on narrow screens.">'+window.LEARNING_PATH_SVG+'</div><figcaption>Click a box to open that part of the course. The rows are not fixed weeks. On a phone, scroll sideways to see all three tracks.</figcaption></figure><details class="path-text"><summary>Text version of the diagram</summary>'+table+'</details><p class="small-note">Start all three tracks early. You can work on one while practising another. Some later tasks have prerequisites. <a href="#/guide">Check the prerequisites</a>.</p></section>';
+
+function record(key, values) {
+  try {
+    localStorage.setItem(key, JSON.stringify([...values]));
+  } catch {
+    announce("Browser storage is unavailable. This change applies to the current page.");
+  }
 }
-function curriculum(params){
- const lane=['foundations','models','applications'].includes(params.get('lane'))?params.get('lane'):'all';
- return pageHeading('The curriculum','Parallel curriculum','Study the three tracks together. Each part has readings, coding exercises and a few checks. Move on when you can do the exercises and explain the results.')+'<section class="wrap section-compact"><p class="small-note"><a href="#/path">View the parallel learning path diagram</a></p><div class="curriculum-toolbar"><div class="filters" aria-label="Show curriculum track">'+[['all','All three tracks'],['foundations','Maths and code'],['models','Language models'],['applications','Applications']].map(([k,v])=>'<a class="filter '+(lane===k?'active':'')+'" href="#/curriculum'+(k==='all'?'':'?lane='+k)+'" '+(lane===k?'aria-current="true"':'')+' style="text-decoration:none">'+v+'</a>').join('')+'</div></div><div class="lane-legend"><span><i class="swatch"></i>Maths and code</span><span><i class="swatch models"></i>Language models</span><span><i class="swatch applications"></i>Applications</span></div>'+bands.map(b=>'<article class="curriculum-band '+(lane!=='all'?'single-lane':'')+'"><div class="band-meta"><a href="#/band/'+b.id+'"><span class="band-number">'+(completed.includes(b.id)?'✓':num(b.id))+'</span><h2>'+b.title+'</h2></a><span class="hours">'+b.hours.join('–')+' active hours</span><a class="text-link" href="#/band/'+b.id+'">Open this part ↗</a></div><div><div class="parallel-grid">'+focusCells(b,lane)+'</div><div class="evidence"><b>What you will make</b><span>'+b.output+'</span></div></div></article>').join('')+'<p class="end-note">Test your work and read papers as you go. <a href="#/guide">See what to learn first →</a></p></section>';
+
+const completionButtons = [...document.querySelectorAll("[data-mark-part]")];
+const completionNotes = [...document.querySelectorAll("[data-completed]")];
+const progressNotes = [...document.querySelectorAll("[data-progress]")];
+const saveButtons = [...document.querySelectorAll("[data-save]")];
+
+function refreshProgress() {
+  for (const button of completionButtons) {
+    const isComplete = completed.has(Number(button.dataset.markPart));
+    button.setAttribute("aria-pressed", String(isComplete));
+    button.textContent = isComplete ? "Part complete · Undo" : "Mark part complete";
+  }
+  for (const note of completionNotes) {
+    note.hidden = !completed.has(Number(note.dataset.completed));
+  }
+  for (const note of progressNotes) {
+    const count = new Set(completionNotes.map(note => Number(note.dataset.completed))).size;
+    const checked = [...completed].filter(value => Number.isInteger(value) && value >= 1 && value <= count).length;
+    note.textContent = checked + " of " + count + " parts complete";
+    note.hidden = false;
+  }
 }
-function sideNav(id){return '<aside class="study-sidebar"><a class="back-link" href="#/curriculum">← Back to the curriculum</a><h2>The six parts</h2><nav aria-label="Course parts">'+bands.map(b=>'<a class="'+(b.id===id?'current':'')+'" '+(b.id===id?'aria-current="page"':'')+' href="#/band/'+b.id+'"><span class="side-no">'+(completed.includes(b.id)?'✓':num(b.id))+'</span>'+b.title+'</a>').join('')+'</nav><div class="progress-note"><b>'+completed.length+' of 6</b> parts completed</div><div class="progress-track" role="progressbar" aria-label="Curriculum progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="'+completed.length+'"><span style="width:'+completed.length/6*100+'%"></span></div><p class="progress-note">Your checkmarks stay in this browser.</p></aside>'}
-function resourceCard(r){const isSaved=saved.includes(r.id);return '<article class="resource-card '+r.lane+'"><div class="resource-heading"><h2><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+r.title+'</a></h2><button class="save-button '+(isSaved?'saved':'')+'" data-save="'+r.id+'" aria-pressed="'+isSaved+'" aria-label="'+(isSaved?'Unsave':'Save')+' '+esc(r.title)+'">'+(isSaved?'Saved':'Save')+'</button></div><p class="author">'+r.author+' · '+r.kind+' · '+laneNames[r.lane]+'</p><p><strong>Study:</strong> '+r.assignment+'</p><p class="finish"><strong>Complete when:</strong> '+r.finish+'</p></article>'}
-function bandPanel(b){
- if(activeTab==='materials'){const rs=resources.filter(r=>r.bands.includes(b.id));return '<div class="band-resources"><p class="notice">Use the main materials for this part. Open a reference when you need help with a topic. Pick an alternative if you prefer its explanation. You do not need to finish every linked course.</p><div class="resource-grid">'+rs.map(resourceCard).join('')+'</div></div>'}
- if(activeTab==='checkpoint')return '<section class="checkpoint '+(completed.includes(b.id)?'completed':'')+'"><h2>Before moving on</h2><p>Try these checks without following the tutorial. Explain the ideas, run the code and look at the results.</p><ul class="check-list">'+b.check.map(c=>'<li><span class="check-mark" aria-hidden="true">'+(completed.includes(b.id)?'✓':'')+'</span><span>'+c+'</span></li>').join('')+'</ul><button class="button '+(completed.includes(b.id)?'secondary':'')+'" data-complete="'+b.id+'">'+(completed.includes(b.id)?'✓ Completed · undo':'Mark this part complete')+'</button><p class="local-note">This checkmark is saved in your browser.</p></section>';
- return '<article class="prose">'+b.html+'</article>';
+
+function refreshSaved() {
+  for (const button of saveButtons) {
+    const isSaved = saved.has(button.dataset.save);
+    button.setAttribute("aria-pressed", String(isSaved));
+    button.textContent = isSaved ? "Saved" : "Save";
+  }
 }
-function bandPage(id){const b=bands.find(b=>b.id===id);if(!b)return notFound();return '<div class="wrap reading-layout">'+sideNav(id)+'<div class="content-column"><header class="band-hero"><p class="eyebrow upper">Part '+num(id)+' <span> / </span> '+b.hours.join('–')+' active hours</p><h1>'+b.title+'</h1><p>'+b.intro+'</p></header><div class="band-focus">'+focusCells(b)+'</div><div class="tab-bar" role="tablist" aria-label="Course part content">'+[['study','Notes and exercises'],['materials','Materials'],['checkpoint','Check your understanding']].map(([k,v])=>'<button role="tab" id="tab-'+k+'" aria-selected="'+(activeTab===k)+'" aria-controls="band-panel" tabindex="'+(activeTab===k?'0':'-1')+'" class="'+(activeTab===k?'active':'')+'" data-band-tab="'+k+'">'+v+'</button>').join('')+'</div><div id="band-panel" role="tabpanel" aria-labelledby="tab-'+activeTab+'">'+bandPanel(b)+'</div><div class="next-band"><span>Check the exercises before moving on.</span><a href="'+(id<6?'#/band/'+(id+1):'#/projects')+'">'+(id<6?'Next: '+bands[id].title:'Your final project')+' ↗</a></div></div></div>'}
-function filteredResources(){const query=resourceQuery.toLowerCase();return resources.filter(r=>(resourceLane==='all'||r.lane===resourceLane)&&(!savedOnly||saved.includes(r.id))&&[r.title,r.author,r.assignment,r.kind,r.finish].join(' ').toLowerCase().includes(query))}
-function updateResources(){const list=filteredResources();$('#resource-list').innerHTML=list.length?list.map(resourceCard).join(''):'<p class="empty-state">No materials match this selection. Try another search or show all tracks.</p>';$('#resource-count').textContent=list.length+' material'+(list.length===1?'':'s')+(savedOnly?' saved in this browser':' selected');}
-function resourcesPage(params){
- resourceQuery=params.get('query')||'';resourceLane='all';savedOnly=false;
- return pageHeading('The reading room','Learning materials','Courses, books and documentation used in this plan. Each entry says which sections to read and what to do with them.')+'<section class="wrap"><div class="page-actions"><div class="filters" aria-label="Filter learning materials">'+[['all','All materials'],['foundations','Maths and code'],['models','Models'],['applications','Applications'],['saved','Saved']].map(([k,v])=>'<button class="filter '+(k==='all'?'active':'')+'" data-resource-filter="'+k+'" aria-pressed="'+(k==='all')+'">'+v+'</button>').join('')+'</div><label class="search"><span class="sr-only">Search learning materials</span><input type="search" id="resource-search" placeholder="Search a topic, course or author…" value="'+esc(resourceQuery)+'">'+icons.search+'</label></div><p class="count-note" id="resource-count"></p><div id="resource-list" class="resource-grid"></div></section>';
+
+function searchable(text) {
+  return text.toLowerCase()
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/tokeniz/g, "tokenis")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
+    .trim();
 }
-const frontier=[
- ['Long-running agents','What do checkpoints, decomposition and evaluators add beyond the model itself?',[['Harness design for long-running application development','https://www.anthropic.com/research/harness-design-long-running-apps']],'Engineering report · 24 March 2026'],
- ['External memory','When do searchable logs or selected notes help, and what does it cost to maintain them?',[['The components of agent memory','https://www.anthropic.com/research/components-of-agent-memory'],['ReasoningBank','https://arxiv.org/abs/2509.25140']],'Engineering & research · November / March 2026'],
- ['Reasoning & test-time compute','Separate learning during training from sampling, search and selection during inference.',[['DeepSeek-R1','https://arxiv.org/abs/2501.12948']],'Research paper · revised January 2026'],
- ['Continual learning','How does changing model weights differ from saving external notes? Does earlier knowledge survive?',[['The sleep framework','https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/']],'Research explainer · 27 October 2026'],
- ['Multimodal knowledge work','How do visual evidence, multiple files and grading an actual deliverable change evaluation?',[['MKA: Evaluating Multimodal Knowledge Agents','https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf']],'Technical report · 10 November 2026'],
- ['Architecture & inference','Compare sparse, asymmetric computation and block denoising with the basic decoder.',[['DeepSeek-V4.1-Flash release','https://www.deepseek.com/en/news/deepseek-v4-1-flash/'],['DiffusionGemma model card','https://ai.google.dev/gemma/docs/diffusiongemma/model_card']],'Release report & official model card'],
- ['Evaluation & oversight','What can a benchmark result or an observed trace establish? What remains unmeasured?',[['Eval-production behaviour gaps','https://alignment.openai.com/eval-production-behavior-gap/'],['CoT monitorability across the model lifecycle','https://alignment.openai.com/cot-monitorability-model-lifecycle/']],'Research reports · 3 & 10 November 2026']
-];
-function frontierPage(){return '<div class="frontier-header">'+pageHeading('At the frontier','Frontier readings','Pick a paper related to your project. Work out what it claims, how it was tested and what you could try yourself.')+'</div><div class="wrap section" style="padding-top:32px"><div class="notice"><b>What to do:</b> write three short paper notes. Pick one paper to examine more closely and try a small experiment if you can. The course estimate already includes 25–40 hours for this.</div><div class="frontier-grid">'+frontier.map((f,i)=>'<article class="frontier-item"><span class="num">'+num(i+1)+'</span><div><h2>'+f[0]+'</h2><p>'+f[1]+'</p>'+f[2].map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener noreferrer">'+l[0]+' ↗</a>').join('')+'<small>'+f[3]+'</small></div></article>').join('')+'</div><div class="reading-split" style="padding-bottom:0"><aside class="margin-note">About this list<small>These links were checked on 11 November 2026. For a product release, read the technical paper and check how the result was obtained.</small></aside><article class="prose"><h2>What to write in a paper note</h2><ol><li>What is the claim?</li><li>How does the method work?</li><li>What comparison supports it?</li><li>What else changed in the experiment?</li><li>When might it fail?</li><li>What is the smallest useful experiment you could run?</li></ol><p>For a closer reading, check the data, loss, baseline, metrics and compute. Replace an older reading if a newer one explains the topic better.</p><p><a href="#/band/6">Use a paper in your final project →</a></p></article></div></div>'}
-const terms=[
- ['Token','A unit of text represented by an integer ID. A token can be a word, part of a word, punctuation or a byte-based piece. The exact split depends on the tokenizer.'],
- ['Embedding','A learned vector representation. Token embeddings turn IDs into vectors; sentence embeddings represent larger pieces of text for tasks such as retrieval.'],
- ['BPE','Byte-pair encoding learns repeated symbol combinations as merges. It builds a vocabulary of reusable text pieces rather than requiring a separate token for every word.'],
- ['Attention','A mechanism that combines value vectors using weights computed from queries and keys. In causal attention, a token cannot attend to future positions.'],
- ['Pretraining','Learning model parameters from a broad self-supervised prediction task. A causal language model predicts the next token from previous tokens.'],
- ['SFT','Supervised fine-tuning uses demonstrations of desired responses. Which tokens contribute to the loss and how examples are formatted affect the training signal.'],
- ['LoRA','Low-rank adaptation trains small update matrices while keeping the main model weights frozen. It reduces trainable parameters; the full memory budget still matters.'],
- ['QLoRA','An adaptation approach combining a quantised frozen base with trainable low-rank adapters. Quantisation does not remove activation, optimiser or runtime memory costs.'],
- ['RLHF','Reinforcement learning from human feedback. A common pipeline learns a reward model from preferences, then optimises a policy using that reward.'],
- ['DPO','Direct preference optimisation trains on preferred and rejected response pairs. Standard offline DPO uses a reference policy without a separately trained reward model and online rollout loop.'],
- ['PPO','Proximal policy optimisation is a family of policy-gradient methods. PPO-Clip uses a clipped policy-ratio objective to discourage some overly large updates; it does not guarantee a hard bound.'],
- ['GRPO','Group relative policy optimisation compares rewards within groups of sampled responses to construct advantages. It is an optimisation approach, distinct from the source of the reward.'],
- ['RLVR','Reinforcement learning with verifiable rewards uses automatically checked outcomes. The verifier defines a signal and can still contain errors or exploitable shortcuts.'],
- ['RAG','Retrieval-augmented generation gives a model relevant retrieved material as context. Retrieval and grounded synthesis are different components and should be evaluated separately.'],
- ['AI agent','A system that uses model decisions, tools, observations and state to work toward a goal. Executing this loop does not automatically update the model weights.'],
- ['Context versus memory','Context is information available for a model call. External memory stores information for later access; it may be retrieved or summarised into future context.'],
- ['KL divergence','A measure of how one probability distribution differs from another. In training, a KL term can discourage a policy from moving too far from a chosen reference.'],
- ['Perplexity','For average token negative log-likelihood L measured with natural logs, perplexity is exp(L). Comparisons need compatible tokenizers, data, masks and context policies.'],
- ['Macro-F1','The average of class-wise F1 scores, weighting each class equally. It helps reveal minority-class performance that accuracy can hide.'],
- ['Calibration','Whether predicted probabilities correspond to observed frequencies. A confident-sounding answer is not automatically a calibrated estimate of correctness.'],
- ['Confidence interval','An interval produced by a statistical procedure to express uncertainty under stated assumptions. Its interpretation depends on the sampling design and method.'],
- ['KV cache','Stored attention keys and values reused during generation. It saves repeated computation but consumes memory that grows with the cached sequence and model configuration.'],
- ['Ablation','A controlled comparison that removes or changes a component to learn what it contributes. Record other changes and resource budgets that could explain the result.'],
- ['Distillation','Training a student model using a teacher’s outputs, probabilities or trajectories. Useful behaviour and errors can both transfer.']
-];
-function termList(){const q=termQuery.toLowerCase();const titles=terms.filter(t=>t[0].toLowerCase().includes(q));const matches=titles.length?titles:terms.filter(t=>t[1].toLowerCase().includes(q));return matches.map(t=>'<details class="glossary-item"><summary>'+t[0]+'</summary><p>'+t[1]+'</p></details>').join('')||'<p class="empty-state">No term matches. Try a shorter word.</p>'}
-function referenceBody(){if(referenceTab==='terms')return '<label class="search" style="display:block;max-width:440px;margin-bottom:26px"><span class="sr-only">Search key terms</span><input type="search" id="term-search" placeholder="Find a term: tokens, RLHF, calibration…" value="'+esc(termQuery)+'">'+icons.search+'</label><div class="glossary-grid" id="term-list">'+termList()+'</div>';const ids={training:10,metrics:11,hardware:14};return '<article class="prose" style="max-width:100%">'+sections[ids[referenceTab]].html+'</article>'}
-function referencePage(){referenceTab='terms';termQuery='';return pageHeading('The reference desk','Reference','Definitions, training methods, metrics and hardware notes. Look things up when you need them.')+'<section class="wrap reference-layout"><div class="filters reference-tabs" aria-label="Reference topic">'+[['terms','Key terms'],['training','Training methods'],['metrics','Metrics & statistics'],['hardware','Compute & hardware']].map(([k,v])=>'<button class="filter '+(k==='terms'?'active':'')+'" data-reference="'+k+'" aria-pressed="'+(k==='terms')+'">'+v+'</button>').join('')+'</div><div id="reference-content">'+referenceBody()+'</div></section>'}
-function guidePage(){return pageHeading('How to use this guide','How to use the plan','Start here if you have used Python and studied engineering maths but have forgotten some of it.')+'<div class="wrap reading-split"><aside class="margin-note">Keep the work manageable.<small>Work on one main coding task and one smaller exercise at a time.</small><a class="text-link" style="margin-top:20px" href="#/band/1">Start with the self-check ↗</a></aside><article class="prose">'+sections[1].html+'<h2>What you need to know first</h2>'+sections[3].html.split('<h2>What you need to know first</h2>')[1]+'<h2>What to do first</h2>'+sections[16].html+'</article></div>'}
-function projectsPage(){return pageHeading('Build a body of work','Projects','Keep working on the same three projects as you learn. For the final project, choose one question and run a fair comparison.')+'<div class="wrap reading-split"><aside class="margin-note">What to include<small>Include working code, a fair comparison and an explanation of the errors. A change that did not help is still worth reporting.</small></aside><article class="prose">'+sections[13].html+'<h2>Evaluation and the final project</h2>'+sections[9].html+'</article></div>'}
-function pacePage(){return pageHeading('Find your pace','Workload','These estimates include reading, coding, setup, debugging and evaluation. Update them after you have done some of the work.')+'<div class="wrap section-compact"><section class="pace-panel" aria-label="Study pace calculator"><div><h2>How many hours can you study each week?</h2><div class="pace-value"><output id="hours-value" for="hours-range">15</output><span>active hours / week</span></div><label class="sr-only" for="hours-range">Active study hours per week</label><input id="hours-range" type="range" min="5" max="30" step="1" value="15"><p class="count-note" style="display:flex;justify-content:space-between"><span>5 hours</span><span>30 hours</span></p></div><div class="pace-results" aria-live="polite"><span class="eyebrow upper">540–760 active hours in total</span><span class="big" id="study-weeks">36–51 weeks</span><p>of active study at this pace</p><span class="big" style="font-size:30px" id="calendar-weeks">44–61 weeks</span><p>This adds 20% extra weeks for breaks. Use it as an estimate and adjust for your schedule.</p></div></section><article class="prose" style="max-width:900px;margin:auto">'+sections[15].html+'</article></div>'}
-function creditsPage(){return pageHeading('Design & sources','About this site','An independent study plan for learning AI, language models and agents in 2027.')+'<div class="wrap reading-split"><article class="prose"><h2>Curriculum sources</h2><p>The plan links to university courses, original papers and project documentation. The exercises and time estimates were put together for this study plan. It is not affiliated with those institutions.</p><p>Core and frontier readings were reviewed on 11 November 2026. Use documentation matching your installed software versions.</p><p><a href="assets/study-plan.md" download>Download the full curriculum and linked sources</a>.</p><h2>Site design</h2><p>The site uses system fonts, ordinary links and simple lists. <a href="https://karpathy.ai/" target="_blank" rel="noopener noreferrer">Andrej Karpathy’s website</a> was a design reference. The curriculum and this site are independent of him.</p><h2>Your progress</h2><p>Saved resources and completion checks are stored in this browser. They are not synced to an account.</p><button class="button secondary" data-reset>Reset saved resources and progress</button></article></div>'}
-function notFound(){return pageHeading('Page not found','Take another path.','This page was not found. <a href="#/curriculum">Return to the curriculum →</a>')}
-let currentBand=0;
-function route(){
- const [path,query='']=(location.hash.slice(1)||'/').split('?');
- const params=new URLSearchParams(query);currentBand=0;
- let content,title='Learn AI in 2027',nav='';
- if(path==='/')content=home();
- else if(path==='/2027'){content=expertisePage();title='Further study | Learn AI in 2027';nav='2027'}
- else if(path==='/path'){content=learningPathPage();title='Study diagram | Learn AI in 2027';nav='path'}
- else if(path==='/curriculum'){content=curriculum(params);title='Study plan | Learn AI in 2027';nav='curriculum'}
- else if(/^\/band\/\d+$/.test(path)){currentBand=Number(path.split('/')[2]);activeTab='study';content=bandPage(currentBand);title=(bands.find(b=>b.id===currentBand)?.title||'Course part')+' | AI & LLMs';nav='curriculum'}
- else if(path==='/resources'){content=resourcesPage(params);title='Materials | Learn AI in 2027';nav='resources'}
- else if(path==='/frontier'){content=frontierPage();title='Research papers | Learn AI in 2027';nav='frontier'}
- else if(path==='/reference'){content=referencePage();title='The reference desk | AI & LLMs';nav='reference'}
- else if(path==='/guide')content=guidePage();
- else if(path==='/projects')content=projectsPage();
- else if(path==='/pace')content=pacePage();
- else if(path==='/credits')content=creditsPage();
- else content=notFound();
- $('#main').innerHTML='<div class="reveal">'+content+'</div>';
- document.title=title;
- document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===nav?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
- if(path==='/resources')updateResources();
- $('#main-nav').classList.remove('open');$('.menu-toggle').setAttribute('aria-expanded','false');
- window.scrollTo({top:0,behavior:'instant'});
+
+function enableFiltering(container) {
+  const input = container.querySelector("[data-search]");
+  const track = container.querySelector("[data-track-filter]");
+  const part = container.querySelector("[data-part-filter]");
+  const savedOnly = container.querySelector("[data-saved-only]");
+  const controls = container.querySelector("[data-filter-controls]");
+  const count = container.querySelector("[data-results-count]");
+  const noResults = container.querySelector("[data-no-results]");
+  const entries = [...container.querySelectorAll("[data-result]")].map(element => ({
+    element,
+    text: searchable(element.textContent),
+    track: element.dataset.track,
+    parts: (element.dataset.parts || "").split(" "),
+    resource: element.dataset.resource
+  }));
+
+  const params = new URLSearchParams(location.search);
+  input.value = params.get("query") || "";
+  if (track && [...track.options].some(option => option.value === params.get("track"))) {
+    track.value = params.get("track");
+  }
+  if (part && [...part.options].some(option => option.value === params.get("part"))) {
+    part.value = params.get("part");
+  }
+
+  function refresh() {
+    const words = searchable(input.value).split(" ").filter(Boolean);
+    let shown = 0;
+    for (const entry of entries) {
+      const matchesTrack = !track?.value || entry.track === track.value;
+      const matchesPart = !part?.value || entry.parts.includes(part.value);
+      const matchesSaved = !savedOnly?.checked || saved.has(entry.resource);
+      const matchesText = words.every(word => entry.text.includes(word));
+      const visible = matchesTrack && matchesPart && matchesSaved && matchesText;
+      entry.element.hidden = !visible;
+      if (visible) shown += 1;
+    }
+    count.textContent = shown + " of " + entries.length + " " + container.dataset.itemLabel;
+    noResults.hidden = shown !== 0;
+  }
+
+  input.addEventListener("input", refresh);
+  for (const control of [track, part, savedOnly]) {
+    if (control) control.addEventListener("change", refresh);
+  }
+  controls.hidden = false;
+  count.hidden = false;
+  refresh();
+  return refresh;
 }
-function renderBandTab(tab){
- const b=bands.find(b=>b.id===currentBand);if(!b)return;
- activeTab=tab;
- document.querySelectorAll('[data-band-tab]').forEach(button=>{const on=button.dataset.bandTab===tab;button.classList.toggle('active',on);button.setAttribute('aria-selected',String(on));button.tabIndex=on?0:-1});
- $('#band-panel').innerHTML=bandPanel(b);$('#band-panel').setAttribute('aria-labelledby','tab-'+tab);
+
+const refreshFilters = [...document.querySelectorAll("[data-filter-list]")].map(enableFiltering);
+
+for (const button of completionButtons) {
+  button.hidden = false;
+  button.addEventListener("click", () => {
+    const part = Number(button.dataset.markPart);
+    if (completed.has(part)) completed.delete(part);
+    else completed.add(part);
+    refreshProgress();
+    record(completionKey, completed);
+  });
 }
-document.addEventListener('click',event=>{
- const skip=event.target.closest('a.skip');
- if(skip){event.preventDefault();$('#main').focus({preventScroll:true});$('#main').scrollIntoView();return}
- const target=event.target.closest('button');if(!target)return;
- if(target.matches('.menu-toggle')){const open=$('#main-nav').classList.toggle('open');target.setAttribute('aria-expanded',String(open));return}
- if(target.dataset.bandTab){renderBandTab(target.dataset.bandTab);return}
- if(target.dataset.save){
-  const id=target.dataset.save;const r=resources.find(r=>r.id===id);
-  saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];persist('fieldguide-saved',saved);
-  const on=saved.includes(id);target.classList.toggle('saved',on);target.setAttribute('aria-pressed',String(on));target.setAttribute('aria-label',(on?'Unsave ':'Save ')+r.title);target.textContent=on?'Saved':'Save';
-  if(savedOnly&&$('#resource-list'))updateResources();
-  toast(on?'Added to your saved reading.':'Removed from your saved reading.');return;
- }
- if(target.dataset.complete){
-  const id=Number(target.dataset.complete);
-  completed=completed.includes(id)?completed.filter(x=>x!==id):[...completed,id];
-  persist('fieldguide-completed',completed);$('#band-panel').innerHTML=bandPanel(bands[id-1]);
-  $('.study-sidebar').outerHTML=sideNav(id);toast(completed.includes(id)?'Part marked complete.':'Part marked as in progress.');return;
- }
- if(target.dataset.resourceFilter){
-  const k=target.dataset.resourceFilter;savedOnly=k==='saved';resourceLane=savedOnly?'all':k;
-  document.querySelectorAll('[data-resource-filter]').forEach(b=>{const on=b===target;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});updateResources();return;
- }
- if(target.dataset.reference){
-  referenceTab=target.dataset.reference;
-  document.querySelectorAll('[data-reference]').forEach(b=>{const on=b===target;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});$('#reference-content').innerHTML=referenceBody();return;
- }
- if(target.hasAttribute('data-reset')){
-  completed=[];saved=[];persist('fieldguide-completed',[]);persist('fieldguide-saved',[]);toast('Your saved reading and completion checks have been reset.');
- }
+
+for (const button of saveButtons) {
+  button.hidden = false;
+  button.addEventListener("click", () => {
+    const key = button.dataset.save;
+    if (saved.has(key)) saved.delete(key);
+    else saved.add(key);
+    refreshSaved();
+    for (const filter of refreshFilters) filter();
+    if (button.closest("[data-result]")?.hidden) {
+      document.querySelector("[data-saved-only]")?.focus();
+    }
+    record(readingKey, saved);
+  });
+}
+
+const reset = document.querySelector("[data-reset-progress]");
+if (reset) {
+  reset.hidden = false;
+  reset.addEventListener("click", () => {
+    if (!confirm("Clear your saved readings and completion marks in this browser?")) return;
+    completed.clear();
+    saved.clear();
+    announce("Saved readings and completion marks cleared.");
+    record(completionKey, completed);
+    record(readingKey, saved);
+  });
+}
+
+function refreshState() {
+  completed = readValues(completionKey);
+  saved = readValues(readingKey);
+  refreshProgress();
+  refreshSaved();
+  for (const filter of refreshFilters) filter();
+}
+
+refreshProgress();
+refreshSaved();
+window.addEventListener("pageshow", event => { if (event.persisted) refreshState(); });
+window.addEventListener("storage", event => {
+  if (event.key === completionKey || event.key === readingKey || event.key === null) refreshState();
 });
-document.addEventListener('input',event=>{
- if(event.target.id==='resource-search'){resourceQuery=event.target.value;updateResources()}
- if(event.target.id==='term-search'){termQuery=event.target.value;$('#term-list').innerHTML=termList()}
- if(event.target.id==='hours-range'){
-  const hours=Number(event.target.value);$('#hours-value').textContent=hours;
-  $('#study-weeks').textContent=Math.ceil(540/hours)+'–'+Math.ceil(760/hours)+' weeks';
-  $('#calendar-weeks').textContent=Math.ceil(540/hours*1.2)+'–'+Math.ceil(760/hours*1.2)+' weeks';
- }
-});
-document.addEventListener('keydown',event=>{
- if(event.key==='Escape'&&$('#main-nav').classList.contains('open')){$('#main-nav').classList.remove('open');$('.menu-toggle').setAttribute('aria-expanded','false');$('.menu-toggle').focus()}
- if(event.target.matches('[data-band-tab]')&&['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){
-  event.preventDefault();const tabs=[...document.querySelectorAll('[data-band-tab]')];let index=tabs.indexOf(event.target);
-  index=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
-  renderBandTab(tabs[index].dataset.bandTab);tabs[index].focus();
- }
-});
-window.addEventListener('hashchange',()=>{route();$('#main').focus({preventScroll:true})});
-route();
+
+const pace = document.querySelector("[data-pace]");
+if (pace) {
+  const hours = pace.querySelector("[data-weekly-hours]");
+  const active = pace.querySelector("[data-active-weeks]");
+  const calendar = pace.querySelector("[data-calendar-weeks]");
+  const low = Number(pace.dataset.hoursLow);
+  const high = Number(pace.dataset.hoursHigh);
+  const weeks = (total, extra = 1) => Math.ceil(total * extra / Number(hours.value));
+  hours.labels[0].hidden = false;
+  hours.addEventListener("input", () => {
+    if (!hours.value || !hours.validity.valid) {
+      active.textContent = "Enter between 1 and 80 study hours per week.";
+      calendar.textContent = "";
+      return;
+    }
+    active.textContent = weeks(low) + "–" + weeks(high) + " study weeks";
+    calendar.textContent = weeks(low, 1.2) + "–" + weeks(high, 1.2) + " weeks including breaks";
+  });
+}

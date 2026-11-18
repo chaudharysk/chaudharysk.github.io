@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pick a paper that helps with a question in your project. Look at how the authors tested their claim.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Research papers | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/research/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../plan/">Study plan</a> <a href="../projects/">Projects</a> <a href="../materials/">Materials</a> <a href="../research/" class="nav-active" aria-current="page">Research</a> <a href="../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li aria-current="page">Research papers</li></ol></nav>
+    <header class="page-heading"><h1>Research papers</h1><p class="lede">Pick a paper that helps with a question in your project. Look at how the authors tested their claim.</p></header><article class="prose">
+      <p class="source-meta">Reading list reviewed <time datetime="2026-11-19">19 November 2026</time></p>
+      <p>Write three short paper notes on different topics. Pick one paper to examine in more detail and, if possible, try a small experiment. This can be part of the final project. The plan already includes about 25–40 hours for this work; do not add those hours again.</p>
+      <h2>Papers and reports to choose from</h2>
+      <ul class="reading-list"><li id="long-running-agents"><h3>Long-running agents</h3><p><a href="https://www.anthropic.com/research/harness-design-long-running-apps">Anthropic: Harness design for long-running application development</a>, 24 March 2026; engineering report</p><p>What does checkpointing, decomposition or an evaluator add beyond the model itself?</p></li><li id="external-memory"><h3>External memory</h3><p><a href="https://www.anthropic.com/research/components-of-agent-memory">Anthropic: The components of agent memory</a>, 6 November 2026; <a href="https://arxiv.org/abs/2509.25140">ReasoningBank</a>, research paper revised March 2026</p><p>When do searchable logs or selected notes help? What is the cost of creating and maintaining them?</p></li><li id="reasoning-and-test-time-computation"><h3>Reasoning and test-time computation</h3><p><a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a>, revised January 2026; the HF reasoning material</p><p>Separate learning during training from sampling, search and selection during inference. Which part explains a gain?</p></li><li id="continual-parameter-learning"><h3>Continual parameter learning</h3><p><a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">Google Research: The sleep framework</a>, 27 October 2026, research explainer</p><p>How do the researchers measure whether a weight update preserves earlier knowledge?</p></li><li id="multimodal-knowledge-work"><h3>Multimodal knowledge work</h3><p><a href="https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf">Google DeepMind: MKA technical report</a>, 10 November 2026</p><p>How do visual evidence, multiple files and grading the produced artifact change evaluation?</p></li><li id="architecture-and-inference"><h3>Architecture and inference</h3><p><a href="https://www.deepseek.com/en/news/deepseek-v4-1-flash/">DeepSeek-V4.1-Flash release</a>, 10 September 2026, and the <a href="https://gemma.ai/models/diffusiongemma/model-card/">DiffusionGemma model card</a></p><p>Compare sparse expert routing and block denoising with the basic decoder. Which hardware and inputs were used for the speed measurements?</p></li><li id="coordination-between-agents"><h3>Coordination between agents</h3><p><a href="https://alignment.anthropic.com/2026/worse-together/">Worse Together</a>, 11 November 2026, Anthropic Fellows research</p><p>Why did a single coordinator do better in the four simulated settings? Try a small scheduling example and score both group success and individual constraints.</p></li><li id="evaluation-validity-and-oversight"><h3>Evaluation validity and oversight</h3><p><a href="https://alignment.openai.com/eval-production-behavior-gap/">OpenAI: Eval-production behaviour gaps</a>, 3 November 2026; <a href="https://alignment.openai.com/cot-monitorability-model-lifecycle/">CoT monitorability across the model lifecycle</a>, 10 November 2026</p><p>What can a benchmark result or observed trace establish, and what remains unmeasured?</p></li><li id="evaluation-design"><h3>Evaluation design</h3><p><a href="https://www.anthropic.com/research/building-strong-safety-evaluations">Anthropic: Building strong safety evaluations</a>, 13 November 2026, engineering report</p><p>Check whether the task setup, grading and uncertainty match the claim being made.</p></li></ul>
+      <h2 id="images-and-other-model-designs">Images and other model designs</h2>
+<p>Everyone should understand the idea of image patches/vision encoders, joint text–image representations and why OCR alone can miss layout or chart information. A short MIT vision/generative lecture or the chosen multimodal report can support this. Training a vision-language model is optional.</p>
+<p>Likewise, learn the purpose of sparse expert routing, long-context methods, recurrent/hybrid alternatives, speculative decoding and text diffusion at an explanatory level. Select one for depth; do not create a second full architecture course inside the core plan.</p>
+<h2 id="how-to-read-a-paper">How to read a paper</h2>
+<p>For a first pass, identify the question, central claim, comparison and limitation. For a deeper pass, trace the data, objective, baseline, evaluation and compute. For the chosen experiment, change one relevant factor and write down what a small-scale result cannot establish.</p>
+<p>Use a one-page note with: claim; mechanism; evidence; confounders; relevance to the project; and the cheapest useful next experiment. Revisit the frontier menu after each substantial project milestone. A new release should replace an older reading when it teaches the same idea better, rather than continually increasing the workload.</p>
+      <p><a href="../projects/#final-project">Use a paper in your final project</a></p>
+    </article>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

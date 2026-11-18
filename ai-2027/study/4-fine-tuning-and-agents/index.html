@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fine-tune a small model on one task. Give your assistant a few tools, then test what happens when a tool fails.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Fine-tuning and agents | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/4-fine-tuning-and-agents/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">Fine-tuning and agents</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/" aria-current="page">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 4 of 6 · 100–140 hours</p><h1>Fine-tuning and agents</h1><p class="lede">Fine-tune a small model on one task. Give your assistant a few tools, then test what happens when a tool fails.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/" aria-current="page">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://huggingface.co/docs/trl/sft_trainer">SFT Trainer</a><span class="reading-assignment">Inspect chat templates, examples and supervised tokens.</span></li><li><a href="https://huggingface.co/docs/peft/developer_guides/quantization">Efficient adaptation &amp; quantisation</a><span class="reading-assignment">Check your adapter and memory settings.</span></li><li><a href="https://huggingface.co/learn/agents-course/en/unit0/introduction">AI Agents Course</a><span class="reading-assignment">Use Unit 1 to plan your own Python tool loop.</span></li></ul>
+          <p><a href="../../materials/?part=4">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <h2 id="fine-tuning">Fine-tuning</h2>
+<p>Choose a narrow, checkable task: structured extraction, response formatting, or a well-defined instruction task. Create or select a modest training dataset and inspect examples before increasing its size. A pilot of hundreds of examples can teach the pipeline; the amount needed for a useful improvement depends on the task and model.</p>
+<p>Start from a small existing pretrained or instruction-tuned model suitable for the task. Record which kind it is. The small decoder from the previous part teaches you how training works. Use a stronger pretrained model for the instruction-following experiment.</p>
+<p>Study instruction data, chat templates, special tokens, sequence packing, assistant/completion loss masking, full fine-tuning versus adapters, LoRA, and the idea of a quantised frozen base. Use the <a href="https://arxiv.org/abs/2106.09685">LoRA paper</a>, selected SLP chapter 8 material, HF fine-tuning lessons and the PEFT/TRL guides.</p>
+<p>Run one small SFT/LoRA experiment. Compare the starting checkpoint, a reasonable prompt-only baseline and the adapted checkpoint on the same task. Inspect unrelated-task regressions and output length. Do not interpret training-loss reduction as task improvement.</p>
+<p><strong>Required checks:</strong> inspect a token-level training example and its mask; count trainable parameters; save and reload the adapter; verify identical evaluation formatting. Current TRL&#x27;s assistant-only loss relies on compatible chat-template support, so check the installed version and actual masks rather than assuming a flag is sufficient.</p>
+<p>In the foundations track, learn entropy, cross-entropy, KL divergence, confidence intervals and the difference between a measured effect and sampling noise. Apply them to an experiment you already ran.</p>
+<p>Connect sampling variability to the intuition behind the law of large numbers and the central limit theorem. For the classifier, plot a reliability diagram and try temperature scaling only if probability estimates matter; fit the calibration step on development data and assess it on held-out data.</p>
+<h2 id="work-on-the-agent">Work on the agent</h2>
+<p>Start with an explicit workflow: retrieve evidence, run a calculation when needed, then produce an answer. Next implement a plain-Python loop in which the model can choose a tool and react to its result.</p>
+<p>Use only a few tools, such as document search, a calculator and a sandboxed file operation. Validate arguments, define timeouts and step limits, handle an empty result, and record tool calls and outcomes. Test whether a retried operation could accidentally repeat a state change.</p>
+<p>Study the difference between fixed workflows and model-directed agents. Learn message roles, tool schemas, context selection, transient state and persistent storage. MCP is an interface topic; it is not an agent training method.</p>
+<p><strong>Completion check:</strong> the system handles a failed tool call, stops within its budget and reports what actually happened. An instruction embedded in retrieved content must not silently become permission to use a tool.</p>
+<p>Include public or synthetic examples involving conflicting evidence, unsupported answers, malicious retrieved instructions and invalid tool arguments. Learn basic data privacy, secret handling and least-privilege tool design. Inspect relevant language or user-group slices and inappropriate refusals; a small teaching evaluation cannot establish universal fairness or safety.</p>
+<p>Adding a framework is optional. If one helps, port the existing small loop to one framework and compare behaviour. Do not build three implementations merely to collect framework names.</p>
+
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../reference/training/">Compare training methods</a></li><li><a href="../../projects/">Plan your document assistant</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Inspect which tokens contribute to the loss. Count trainable parameters and reload an adapter.</li><li>Compare the starting model, a prompt-only version and SFT on the same task.</li><li>Handle a failed tool call and stop at the step or cost limit you set.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="4" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../study/3-build-a-language-model/">Part 3. Build a language model</a></div>
+          <div><span>Next</span><a href="../../study/5-rlhf-and-reinforcement-learning/">Part 5. RLHF and reinforcement learning</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>

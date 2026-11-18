@@ -1,0 +1,116 @@
+<!doctype html>
+<!-- Built from the course notes and source/rebuild.py. -->
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how a model makes predictions and how training changes them. Start with simple text classifiers and compare their mistakes.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Machine learning and NLP basics | Learn AI in 2027</title>
+  <link rel="canonical" href="https://chaudharysk.github.io/ai-2027/study/2-machine-learning-and-nlp/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell masthead">
+      <a href="../../" class="site-name">Learn AI in 2027</a>
+      <nav class="primary-nav" aria-label="Main navigation"><a href="../../plan/" class="nav-active">Study plan</a> <a href="../../projects/">Projects</a> <a href="../../materials/">Materials</a> <a href="../../research/">Research</a> <a href="../../reference/">Reference</a></nav>
+    </div>
+  </header>
+  <main class="site-shell main-content" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../plan/">Study plan</a></li><li aria-current="page">Machine learning and NLP basics</li></ol></nav>
+
+    <div class="lesson-layout">
+      <aside class="lesson-sidebar">
+        <nav aria-label="Course parts">
+          <h2>Course outline</h2>
+          <ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/" aria-current="page">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol>
+        </nav>
+        <p class="progress-note" data-progress hidden></p>
+        <a href="../../plan/">See the parallel plan</a>
+      </aside>
+      <article class="prose lesson">
+        <header class="page-heading"><p class="lesson-meta">Part 2 of 6 · 80–110 hours</p><h1>Machine learning and NLP basics</h1><p class="lede">Learn how a model makes predictions and how training changes them. Start with simple text classifiers and compare their mistakes.</p></header>
+        <details class="mobile-outline">
+          <summary>Course outline</summary>
+          <nav aria-label="Course parts"><ol class="part-links"><li>
+          <a href="../../study/1-python-and-maths/">Python and maths refresher</a>
+          <span hidden class="status-note" data-completed="1">Complete</span>
+        </li><li>
+          <a href="../../study/2-machine-learning-and-nlp/" aria-current="page">Machine learning and NLP basics</a>
+          <span hidden class="status-note" data-completed="2">Complete</span>
+        </li><li>
+          <a href="../../study/3-build-a-language-model/">Build a language model</a>
+          <span hidden class="status-note" data-completed="3">Complete</span>
+        </li><li>
+          <a href="../../study/4-fine-tuning-and-agents/">Fine-tuning and agents</a>
+          <span hidden class="status-note" data-completed="4">Complete</span>
+        </li><li>
+          <a href="../../study/5-rlhf-and-reinforcement-learning/">RLHF and reinforcement learning</a>
+          <span hidden class="status-note" data-completed="5">Complete</span>
+        </li><li>
+          <a href="../../study/6-evaluation-and-final-project/">Evaluation and a final project</a>
+          <span hidden class="status-note" data-completed="6">Complete</span>
+        </li></ol></nav>
+        </details>
+        <nav class="jump-links" aria-label="In this lesson"><ul class="text-links"><li><a href="#readings">Read first</a></li><li><a href="#notes">Notes and exercises</a></li><li><a href="#check">Check your work</a></li></ul></nav>
+        <section class="lesson-readings" aria-labelledby="readings">
+          <h2 id="readings">Read first</h2>
+          <ul class="reading-picks"><li><a href="https://github.com/karpathy/nn-zero-to-hero">Neural Networks: Zero to Hero</a><span class="reading-assignment">Work through the micrograd and bigram lessons.</span></li><li><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a><span class="reading-assignment">Use chapters 3–6 for the topics you need.</span></li><li><a href="https://www.statlearning.com/">Statistical Learning with Python</a><span class="reading-assignment">Review classification and resampling on the same dataset.</span></li></ul>
+          <p><a href="../../materials/?part=2">All materials for this part</a>.</p>
+        </section>
+        <section aria-labelledby="notes">
+          <h2 id="notes">Notes and exercises</h2>
+          <h2 id="concepts-to-learn">Concepts to learn</h2>
+<ul><li>Linear/logistic regression, regularisation, bias/variance, supervised versus unsupervised learning, class imbalance and train/dev/test separation.</li><li>Conditional probability, expectation, variance, likelihood, maximum likelihood and the intuition of Bayesian priors.</li><li>Softmax, cross-entropy, minibatches, activations, embeddings and basic backpropagation.</li><li>Unicode and bytes; words versus subword tokens; vocabulary and token IDs; padding and truncation.</li><li>N-grams and smoothing intuition; bag-of-words, TF-IDF, BM25 and static versus contextual representations.</li><li>What classification, NER, QA, summarisation and translation ask a model to predict. Recognise RNN/LSTM, encoder, decoder and encoder–decoder designs without implementing every family.</li></ul>
+<p><strong>Materials:</strong> SLP chapters 3–6; Karpathy&#x27;s micrograd and initial makemore/MLP lessons; PyTorch training-loop material; the relevant ISLP and mathematics exercises.</p>
+<h2 id="practical-work">Practical work</h2>
+<p>Choose one documented public text-classification dataset with a clear licence and a stable split. Begin with a modest subset for debugging. Keep the same split as models change; group by source/entity where examples are related.</p>
+<p>Compare a majority-class predictor, TF-IDF with logistic regression and a small neural baseline. An embedding-plus-MLP classifier is sufficient; a large encoder is not necessary yet. Later, use one pretrained encoder example to understand transfer learning.</p>
+<p>Implement stable softmax and cross-entropy on a small input. Check a gradient numerically, then compare it with autograd. Train a bigram model as a short language-modelling exercise; it need not become another polished portfolio project.</p>
+<p>In the application track, build lexical retrieval and label relevant sources for development queries. Define the output schema and record incorrect or unsupported answers.</p>
+<p>For breadth, learn what tree models, k-means and PCA are good for. Inspect one short example if unfamiliar. Comprehensive classical ML is a separate course.</p>
+<p><strong>Completion check:</strong> explain why the baseline is fair, why a split is appropriate, what the loss optimises and which errors remain. From saved predictions, compute a confusion matrix and macro-F1. Overfit a tiny neural batch deliberately and explain why that is a debugging check, not evidence of generalisation.</p>
+
+          <nav class="page-links" aria-label="Related reading"><ul class="text-links"><li><a href="../../reference/metrics/">Metrics and statistics</a></li></ul></nav>
+        </section>
+        <section class="lesson-check" aria-labelledby="check">
+          <h2 id="check">Check your work</h2>
+          <ul><li>Compare a majority-class predictor, TF-IDF and a small neural model on the same data split.</li><li>Calculate a confusion matrix and macro-F1 from saved predictions.</li><li>Explain the loss, check a gradient and make a model overfit a tiny batch.</li></ul>
+          <button type="button" class="quiet-button" data-mark-part="2" aria-pressed="false" hidden>Mark part complete</button>
+        </section>
+        <nav class="lesson-pager" aria-label="Previous and next lessons">
+          <div><span>Previous</span><a href="../../study/1-python-and-maths/">Part 1. Python and maths refresher</a></div>
+          <div><span>Next</span><a href="../../study/3-build-a-language-model/">Part 3. Build a language model</a></div>
+        </nav>
+      </article>
+    </div>
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Published by <a href="../../../">Shashikant Chaudhary</a></p>
+    <nav aria-label="Footer navigation"><a href="../../assets/study-plan.md" download="AI_Study_Plan_2027.md">Download study plan</a> <a href="../../about/">About</a> <a href="https://github.com/chaudharysk/chaudharysk.github.io/tree/main/ai-2027">GitHub source</a></nav>
+  </footer>
+  <p class="sr-only" id="announcement" role="status"></p>
+</body>
+</html>
