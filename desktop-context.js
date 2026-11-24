@@ -25,7 +25,7 @@
   window.portfolioScene={intensity};
   const trigger=document.querySelector('#desktop-scene-control');
   const isPaused=()=>!!window.portfolioMotion?.paused;
-  const isLive=()=>['eclipse','alpine'].includes(document.body.dataset.wallpaper)&&!isPaused()&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isLive=()=>['coast','eclipse','alpine'].includes(document.body.dataset.wallpaper)&&!isPaused()&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
   function updateControl(){
     const live=isLive();
     trigger.querySelector('strong').textContent=live?'Live wallpaper':'Wallpaper';

@@ -35,22 +35,22 @@
   function applyMotion(){document.documentElement.classList.toggle('motion-off',paused);const b=document.querySelector('#desktop-motion');b.textContent=paused?'Motion off':'Motion on';b.setAttribute('aria-pressed',String(paused));window.portfolioMotion={paused};document.dispatchEvent(new CustomEvent('portfolio:motion',{detail:{paused}}));windows.forEach(win=>{const frame=win.element.querySelector('iframe');frame?.contentWindow?.postMessage({type:'portfolio:motion',paused},location.origin);});}
   applyMotion();document.querySelector('#desktop-motion').addEventListener('click',()=>{paused=!paused;try{localStorage.setItem('shashi-motion',paused?'off':'on');}catch{}applyMotion();});motionQuery.addEventListener('change',e=>{paused=e.matches;applyMotion();});
   function selectWallpaper(choice,save=false){
-    if(!['spectrum','studio','pacific','eclipse','alpine','slate'].includes(choice))choice='spectrum';
+    if(!['coast','spectrum','studio','pacific','eclipse','alpine','slate'].includes(choice))choice='coast';
     document.body.dataset.wallpaper=choice;
     document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.wallpaperChoice===choice)));
     if(save)try{localStorage.setItem('shashi-wallpaper',choice);}catch{}
     document.dispatchEvent(new CustomEvent('portfolio:wallpaper',{detail:{choice}}));
   }
   // Show this requested edition once to returning visitors; then honour their choice.
-  let savedWallpaper='spectrum';
+  let savedWallpaper='coast';
   try{
-    if(localStorage.getItem('shashi-wallpaper-edition')==='spectrum-v1')savedWallpaper=localStorage.getItem('shashi-wallpaper')||'spectrum';
-    else{localStorage.setItem('shashi-wallpaper-edition','spectrum-v1');localStorage.setItem('shashi-wallpaper','spectrum');}
+    if(localStorage.getItem('shashi-wallpaper-edition')==='coast-v1')savedWallpaper=localStorage.getItem('shashi-wallpaper')||'coast';
+    else{localStorage.setItem('shashi-wallpaper-edition','coast-v1');localStorage.setItem('shashi-wallpaper','coast');}
   }catch{}
   selectWallpaper(savedWallpaper);
   document.querySelectorAll('[data-wallpaper-choice]').forEach(button=>button.addEventListener('click',()=>{
     selectWallpaper(button.dataset.wallpaperChoice,true);
-    const names={spectrum:'Spectrum',studio:'Studio',pacific:'Pacific',eclipse:'Eclipse Bay',alpine:'Alpine Lake',slate:'Plain Slate'};
+    const names={coast:'Pixel coast',spectrum:'Spectrum',studio:'Studio',pacific:'Pacific',eclipse:'Eclipse Bay',alpine:'Alpine Lake',slate:'Plain Slate'};
     toast(names[button.dataset.wallpaperChoice]+' wallpaper selected.');
   }));
   taskApps.addEventListener('pointermove',event=>{
@@ -177,11 +177,29 @@
   document.addEventListener('click',event=>{
     if(event.target.closest('a')&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;
     const projectLink=event.target.closest('[data-open-project]');if(projectLink){event.preventDefault();openProject(projectLink.dataset.openProject);return;}
-    const opener=event.target.closest('[data-open-app]');if(opener){event.preventDefault();open(opener.dataset.openApp);}
+    const opener = event.target.closest('[data-open-app]');
+    if (opener) {
+      event.preventDefault();
+      const id = opener.dataset.openApp;
+      const app = apps[id];
+      if (app?.doc && opener instanceof HTMLAnchorElement) {
+        const url = new URL(opener.href, location.href);
+        if (url.origin === location.origin && url.pathname === new URL(app.doc, location.href).pathname) {
+          open(id);
+          documentView(id, app.doc + url.hash);
+          return;
+        }
+      }
+      open(id);
+    }
   });
   document.querySelector('#desktop-start').addEventListener('click',()=>setMenu(!menuOpen));document.querySelector('#desktop-close-menu').addEventListener('click',()=>setMenu(false));document.querySelector('#desktop-quick-find').addEventListener('click',()=>setMenu(true));document.querySelector('#desktop-help').addEventListener('click',()=>open('help'));
   function showDesktop(update=true){windows.forEach(win=>{win.minimising?.cancel();win.minimising=null;win.element.hidden=true;win.task.classList.add('minimised');win.task.setAttribute('aria-pressed','false');});active=null;document.querySelector('#desktop-active-name').textContent='Portfolio';if(update)setRoute('');}
   document.querySelector('#desktop-show-all').addEventListener('click',()=>showDesktop());
+  document.querySelector('#portfolio-home')?.addEventListener('click', () => {
+    showDesktop();
+    document.querySelector('#portfolio-content').scrollTop = 0;
+  });
   search.addEventListener('input',()=>{
     const value=search.value.trim().toLowerCase(),results=document.querySelector('#desktop-search-results'),list=document.querySelector('#start-app-list'),count=document.querySelector('#desktop-search-count');
     list.hidden=!!value;results.hidden=!value;count.hidden=!value;results.replaceChildren();if(!value)return;
